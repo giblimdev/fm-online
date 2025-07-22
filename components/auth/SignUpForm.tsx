@@ -20,12 +20,22 @@ export default function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
+  const [acceptTerms, setAcceptTerms] = useState(false); // Nouvelle state pour la case à cocher
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError("");
+
+    // Validation des conditions d'utilisation
+    if (!acceptTerms) {
+      setError(
+        "Vous devez accepter les conditions d'utilisation pour continuer"
+      );
+      setIsLoading(false);
+      return;
+    }
 
     // Validation des mots de passe
     if (formData.password !== formData.confirmPassword) {
@@ -53,7 +63,7 @@ export default function SignUpForm() {
           error.message || "Une erreur est survenue lors de l'inscription"
         );
       } else {
-        router.push("/dashboard");
+        router.push("/auth/login");
       }
     } catch (err) {
       console.error("Erreur d'inscription:", err);
@@ -160,7 +170,7 @@ export default function SignUpForm() {
                 value={formData.name}
                 onChange={handleInputChange("name")}
                 className="w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-slate-50 focus:bg-white"
-                placeholder="Dr. Marie Curie"
+                placeholder="TRF Gilbert Gasquier"
                 required
               />
             </div>
@@ -252,6 +262,46 @@ export default function SignUpForm() {
               </div>
             </div>
 
+            {/* Acceptation des conditions - NOUVELLE SECTION */}
+            <div className="border-t border-slate-200 pt-6">
+              <div className="flex items-start space-x-3">
+                <input
+                  id="acceptTerms"
+                  type="checkbox"
+                  checked={acceptTerms}
+                  onChange={(e) => {
+                    setAcceptTerms(e.target.checked);
+                    if (error) setError("");
+                  }}
+                  className="mt-0.5 h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 rounded transition-colors"
+                  required
+                />
+                <label
+                  htmlFor="acceptTerms"
+                  className="text-sm text-slate-700 leading-relaxed"
+                >
+                  En créant un compte, vous acceptez nos{" "}
+                  <Link
+                    href="/legacy-terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700 font-medium hover:underline transition-colors"
+                  >
+                    conditions d'utilisation
+                  </Link>{" "}
+                  et notre{" "}
+                  <Link
+                    href="/legacy/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700 font-medium hover:underline transition-colors"
+                  >
+                    politique de confidentialité
+                  </Link>
+                </label>
+              </div>
+            </div>
+
             {/* Error Message */}
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-xl p-4">
@@ -262,7 +312,7 @@ export default function SignUpForm() {
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={isLoading}
+              disabled={isLoading || !acceptTerms}
               className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               {isLoading ? (
@@ -279,33 +329,13 @@ export default function SignUpForm() {
           {/* Back to Login */}
           <div className="mt-6 pt-6 border-t border-slate-200">
             <Link
-              href="/login"
+              href="/auth/login"
               className="flex items-center justify-center space-x-2 text-slate-600 hover:text-blue-600 transition-colors font-medium"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Retour à la connexion</span>
             </Link>
           </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center mt-8">
-          <p className="text-slate-500 text-sm">
-            En créant un compte, vous acceptez nos{" "}
-            <Link
-              href="/terms"
-              className="text-blue-600 hover:underline font-medium"
-            >
-              conditions d'utilisation
-            </Link>{" "}
-            et notre{" "}
-            <Link
-              href="/privacy"
-              className="text-blue-600 hover:underline font-medium"
-            >
-              politique de confidentialité
-            </Link>
-          </p>
         </div>
       </div>
     </div>

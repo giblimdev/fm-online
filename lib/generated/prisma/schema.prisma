@@ -15,15 +15,16 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String      @id @default(cuid())
   name          String
   email         String
-  emailVerified Boolean   @default(false)
+  emailVerified Boolean     @default(false)
   image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
   sessions      Session[]
   accounts      Account[]
+  documents     Documents[]
 
   @@unique([email])
   @@map("user")
@@ -71,4 +72,34 @@ model Verification {
   updatedAt  DateTime? @updatedAt
 
   @@map("verification")
+}
+
+model Documents {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  ordre       Int?
+  content     String?
+  image       String?
+  grade       String?
+  category    String?
+  liens       Links[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("documents")
+}
+
+model Links {
+  id          String    @id @default(cuid())
+  url         String
+  title       String?
+  order       Int?
+  description String?
+  documentId  String
+  document    Documents @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@map("links")
 }

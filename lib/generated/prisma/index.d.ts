@@ -33,6 +33,16 @@ export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
  * 
  */
 export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
+/**
+ * Model Documents
+ * 
+ */
+export type Documents = $Result.DefaultSelection<Prisma.$DocumentsPayload>
+/**
+ * Model Links
+ * 
+ */
+export type Links = $Result.DefaultSelection<Prisma.$LinksPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,6 +208,26 @@ export class PrismaClient<
     * ```
     */
   get verification(): Prisma.VerificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.documents`: Exposes CRUD operations for the **Documents** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Documents
+    * const documents = await prisma.documents.findMany()
+    * ```
+    */
+  get documents(): Prisma.DocumentsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.links`: Exposes CRUD operations for the **Links** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Links
+    * const links = await prisma.links.findMany()
+    * ```
+    */
+  get links(): Prisma.LinksDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -641,7 +671,9 @@ export namespace Prisma {
     User: 'User',
     Session: 'Session',
     Account: 'Account',
-    Verification: 'Verification'
+    Verification: 'Verification',
+    Documents: 'Documents',
+    Links: 'Links'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +692,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification"
+      modelProps: "user" | "session" | "account" | "verification" | "documents" | "links"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -960,6 +992,154 @@ export namespace Prisma {
           }
         }
       }
+      Documents: {
+        payload: Prisma.$DocumentsPayload<ExtArgs>
+        fields: Prisma.DocumentsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DocumentsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DocumentsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+          }
+          findFirst: {
+            args: Prisma.DocumentsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DocumentsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+          }
+          findMany: {
+            args: Prisma.DocumentsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>[]
+          }
+          create: {
+            args: Prisma.DocumentsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+          }
+          createMany: {
+            args: Prisma.DocumentsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DocumentsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>[]
+          }
+          delete: {
+            args: Prisma.DocumentsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+          }
+          update: {
+            args: Prisma.DocumentsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+          }
+          deleteMany: {
+            args: Prisma.DocumentsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DocumentsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DocumentsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>[]
+          }
+          upsert: {
+            args: Prisma.DocumentsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentsPayload>
+          }
+          aggregate: {
+            args: Prisma.DocumentsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDocuments>
+          }
+          groupBy: {
+            args: Prisma.DocumentsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DocumentsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DocumentsCountArgs<ExtArgs>
+            result: $Utils.Optional<DocumentsCountAggregateOutputType> | number
+          }
+        }
+      }
+      Links: {
+        payload: Prisma.$LinksPayload<ExtArgs>
+        fields: Prisma.LinksFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LinksFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LinksFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>
+          }
+          findFirst: {
+            args: Prisma.LinksFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LinksFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>
+          }
+          findMany: {
+            args: Prisma.LinksFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>[]
+          }
+          create: {
+            args: Prisma.LinksCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>
+          }
+          createMany: {
+            args: Prisma.LinksCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LinksCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>[]
+          }
+          delete: {
+            args: Prisma.LinksDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>
+          }
+          update: {
+            args: Prisma.LinksUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>
+          }
+          deleteMany: {
+            args: Prisma.LinksDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LinksUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LinksUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>[]
+          }
+          upsert: {
+            args: Prisma.LinksUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinksPayload>
+          }
+          aggregate: {
+            args: Prisma.LinksAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLinks>
+          }
+          groupBy: {
+            args: Prisma.LinksGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LinksGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LinksCountArgs<ExtArgs>
+            result: $Utils.Optional<LinksCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1048,6 +1228,8 @@ export namespace Prisma {
     session?: SessionOmit
     account?: AccountOmit
     verification?: VerificationOmit
+    documents?: DocumentsOmit
+    links?: LinksOmit
   }
 
   /* Types for Logging */
@@ -1144,11 +1326,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     sessions: number
     accounts: number
+    documents: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
+    documents?: boolean | UserCountOutputTypeCountDocumentsArgs
   }
 
   // Custom InputTypes
@@ -1174,6 +1358,44 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountAccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AccountWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountDocumentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentsWhereInput
+  }
+
+
+  /**
+   * Count Type DocumentsCountOutputType
+   */
+
+  export type DocumentsCountOutputType = {
+    liens: number
+  }
+
+  export type DocumentsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    liens?: boolean | DocumentsCountOutputTypeCountLiensArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DocumentsCountOutputType without action
+   */
+  export type DocumentsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentsCountOutputType
+     */
+    select?: DocumentsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DocumentsCountOutputType without action
+   */
+  export type DocumentsCountOutputTypeCountLiensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinksWhereInput
   }
 
 
@@ -1363,6 +1585,7 @@ export namespace Prisma {
     updatedAt?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
+    documents?: boolean | User$documentsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1400,6 +1623,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
+    documents?: boolean | User$documentsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1410,6 +1634,7 @@ export namespace Prisma {
     objects: {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
+      documents: Prisma.$DocumentsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1815,6 +2040,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    documents<T extends User$documentsArgs<ExtArgs> = {}>(args?: Subset<T, User$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2284,6 +2510,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
+   * User.documents
+   */
+  export type User$documentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    where?: DocumentsWhereInput
+    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    cursor?: DocumentsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DocumentsScalarFieldEnum | DocumentsScalarFieldEnum[]
   }
 
   /**
@@ -5573,6 +5823,2311 @@ export namespace Prisma {
 
 
   /**
+   * Model Documents
+   */
+
+  export type AggregateDocuments = {
+    _count: DocumentsCountAggregateOutputType | null
+    _avg: DocumentsAvgAggregateOutputType | null
+    _sum: DocumentsSumAggregateOutputType | null
+    _min: DocumentsMinAggregateOutputType | null
+    _max: DocumentsMaxAggregateOutputType | null
+  }
+
+  export type DocumentsAvgAggregateOutputType = {
+    ordre: number | null
+  }
+
+  export type DocumentsSumAggregateOutputType = {
+    ordre: number | null
+  }
+
+  export type DocumentsMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    ordre: number | null
+    content: string | null
+    image: string | null
+    grade: string | null
+    category: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+  }
+
+  export type DocumentsMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    ordre: number | null
+    content: string | null
+    image: string | null
+    grade: string | null
+    category: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+  }
+
+  export type DocumentsCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    ordre: number
+    content: number
+    image: number
+    grade: number
+    category: number
+    createdAt: number
+    updatedAt: number
+    userId: number
+    _all: number
+  }
+
+
+  export type DocumentsAvgAggregateInputType = {
+    ordre?: true
+  }
+
+  export type DocumentsSumAggregateInputType = {
+    ordre?: true
+  }
+
+  export type DocumentsMinAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    ordre?: true
+    content?: true
+    image?: true
+    grade?: true
+    category?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+  }
+
+  export type DocumentsMaxAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    ordre?: true
+    content?: true
+    image?: true
+    grade?: true
+    category?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+  }
+
+  export type DocumentsCountAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    ordre?: true
+    content?: true
+    image?: true
+    grade?: true
+    category?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    _all?: true
+  }
+
+  export type DocumentsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Documents to aggregate.
+     */
+    where?: DocumentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Documents to fetch.
+     */
+    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DocumentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Documents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Documents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Documents
+    **/
+    _count?: true | DocumentsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DocumentsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DocumentsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DocumentsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DocumentsMaxAggregateInputType
+  }
+
+  export type GetDocumentsAggregateType<T extends DocumentsAggregateArgs> = {
+        [P in keyof T & keyof AggregateDocuments]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDocuments[P]>
+      : GetScalarType<T[P], AggregateDocuments[P]>
+  }
+
+
+
+
+  export type DocumentsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentsWhereInput
+    orderBy?: DocumentsOrderByWithAggregationInput | DocumentsOrderByWithAggregationInput[]
+    by: DocumentsScalarFieldEnum[] | DocumentsScalarFieldEnum
+    having?: DocumentsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DocumentsCountAggregateInputType | true
+    _avg?: DocumentsAvgAggregateInputType
+    _sum?: DocumentsSumAggregateInputType
+    _min?: DocumentsMinAggregateInputType
+    _max?: DocumentsMaxAggregateInputType
+  }
+
+  export type DocumentsGroupByOutputType = {
+    id: string
+    title: string
+    description: string | null
+    ordre: number | null
+    content: string | null
+    image: string | null
+    grade: string | null
+    category: string | null
+    createdAt: Date
+    updatedAt: Date
+    userId: string
+    _count: DocumentsCountAggregateOutputType | null
+    _avg: DocumentsAvgAggregateOutputType | null
+    _sum: DocumentsSumAggregateOutputType | null
+    _min: DocumentsMinAggregateOutputType | null
+    _max: DocumentsMaxAggregateOutputType | null
+  }
+
+  type GetDocumentsGroupByPayload<T extends DocumentsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DocumentsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DocumentsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DocumentsGroupByOutputType[P]>
+            : GetScalarType<T[P], DocumentsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DocumentsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    ordre?: boolean
+    content?: boolean
+    image?: boolean
+    grade?: boolean
+    category?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    liens?: boolean | Documents$liensArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | DocumentsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["documents"]>
+
+  export type DocumentsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    ordre?: boolean
+    content?: boolean
+    image?: boolean
+    grade?: boolean
+    category?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["documents"]>
+
+  export type DocumentsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    ordre?: boolean
+    content?: boolean
+    image?: boolean
+    grade?: boolean
+    category?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["documents"]>
+
+  export type DocumentsSelectScalar = {
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    ordre?: boolean
+    content?: boolean
+    image?: boolean
+    grade?: boolean
+    category?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+  }
+
+  export type DocumentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "ordre" | "content" | "image" | "grade" | "category" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["documents"]>
+  export type DocumentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    liens?: boolean | Documents$liensArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | DocumentsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DocumentsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type DocumentsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $DocumentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Documents"
+    objects: {
+      liens: Prisma.$LinksPayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      description: string | null
+      ordre: number | null
+      content: string | null
+      image: string | null
+      grade: string | null
+      category: string | null
+      createdAt: Date
+      updatedAt: Date
+      userId: string
+    }, ExtArgs["result"]["documents"]>
+    composites: {}
+  }
+
+  type DocumentsGetPayload<S extends boolean | null | undefined | DocumentsDefaultArgs> = $Result.GetResult<Prisma.$DocumentsPayload, S>
+
+  type DocumentsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DocumentsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DocumentsCountAggregateInputType | true
+    }
+
+  export interface DocumentsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Documents'], meta: { name: 'Documents' } }
+    /**
+     * Find zero or one Documents that matches the filter.
+     * @param {DocumentsFindUniqueArgs} args - Arguments to find a Documents
+     * @example
+     * // Get one Documents
+     * const documents = await prisma.documents.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DocumentsFindUniqueArgs>(args: SelectSubset<T, DocumentsFindUniqueArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Documents that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DocumentsFindUniqueOrThrowArgs} args - Arguments to find a Documents
+     * @example
+     * // Get one Documents
+     * const documents = await prisma.documents.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DocumentsFindUniqueOrThrowArgs>(args: SelectSubset<T, DocumentsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Documents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentsFindFirstArgs} args - Arguments to find a Documents
+     * @example
+     * // Get one Documents
+     * const documents = await prisma.documents.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DocumentsFindFirstArgs>(args?: SelectSubset<T, DocumentsFindFirstArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Documents that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentsFindFirstOrThrowArgs} args - Arguments to find a Documents
+     * @example
+     * // Get one Documents
+     * const documents = await prisma.documents.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DocumentsFindFirstOrThrowArgs>(args?: SelectSubset<T, DocumentsFindFirstOrThrowArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Documents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Documents
+     * const documents = await prisma.documents.findMany()
+     * 
+     * // Get first 10 Documents
+     * const documents = await prisma.documents.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const documentsWithIdOnly = await prisma.documents.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DocumentsFindManyArgs>(args?: SelectSubset<T, DocumentsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Documents.
+     * @param {DocumentsCreateArgs} args - Arguments to create a Documents.
+     * @example
+     * // Create one Documents
+     * const Documents = await prisma.documents.create({
+     *   data: {
+     *     // ... data to create a Documents
+     *   }
+     * })
+     * 
+     */
+    create<T extends DocumentsCreateArgs>(args: SelectSubset<T, DocumentsCreateArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Documents.
+     * @param {DocumentsCreateManyArgs} args - Arguments to create many Documents.
+     * @example
+     * // Create many Documents
+     * const documents = await prisma.documents.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DocumentsCreateManyArgs>(args?: SelectSubset<T, DocumentsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Documents and returns the data saved in the database.
+     * @param {DocumentsCreateManyAndReturnArgs} args - Arguments to create many Documents.
+     * @example
+     * // Create many Documents
+     * const documents = await prisma.documents.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Documents and only return the `id`
+     * const documentsWithIdOnly = await prisma.documents.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DocumentsCreateManyAndReturnArgs>(args?: SelectSubset<T, DocumentsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Documents.
+     * @param {DocumentsDeleteArgs} args - Arguments to delete one Documents.
+     * @example
+     * // Delete one Documents
+     * const Documents = await prisma.documents.delete({
+     *   where: {
+     *     // ... filter to delete one Documents
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DocumentsDeleteArgs>(args: SelectSubset<T, DocumentsDeleteArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Documents.
+     * @param {DocumentsUpdateArgs} args - Arguments to update one Documents.
+     * @example
+     * // Update one Documents
+     * const documents = await prisma.documents.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DocumentsUpdateArgs>(args: SelectSubset<T, DocumentsUpdateArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Documents.
+     * @param {DocumentsDeleteManyArgs} args - Arguments to filter Documents to delete.
+     * @example
+     * // Delete a few Documents
+     * const { count } = await prisma.documents.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DocumentsDeleteManyArgs>(args?: SelectSubset<T, DocumentsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Documents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Documents
+     * const documents = await prisma.documents.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DocumentsUpdateManyArgs>(args: SelectSubset<T, DocumentsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Documents and returns the data updated in the database.
+     * @param {DocumentsUpdateManyAndReturnArgs} args - Arguments to update many Documents.
+     * @example
+     * // Update many Documents
+     * const documents = await prisma.documents.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Documents and only return the `id`
+     * const documentsWithIdOnly = await prisma.documents.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DocumentsUpdateManyAndReturnArgs>(args: SelectSubset<T, DocumentsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Documents.
+     * @param {DocumentsUpsertArgs} args - Arguments to update or create a Documents.
+     * @example
+     * // Update or create a Documents
+     * const documents = await prisma.documents.upsert({
+     *   create: {
+     *     // ... data to create a Documents
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Documents we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DocumentsUpsertArgs>(args: SelectSubset<T, DocumentsUpsertArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Documents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentsCountArgs} args - Arguments to filter Documents to count.
+     * @example
+     * // Count the number of Documents
+     * const count = await prisma.documents.count({
+     *   where: {
+     *     // ... the filter for the Documents we want to count
+     *   }
+     * })
+    **/
+    count<T extends DocumentsCountArgs>(
+      args?: Subset<T, DocumentsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DocumentsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Documents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DocumentsAggregateArgs>(args: Subset<T, DocumentsAggregateArgs>): Prisma.PrismaPromise<GetDocumentsAggregateType<T>>
+
+    /**
+     * Group by Documents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DocumentsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DocumentsGroupByArgs['orderBy'] }
+        : { orderBy?: DocumentsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DocumentsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Documents model
+   */
+  readonly fields: DocumentsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Documents.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DocumentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    liens<T extends Documents$liensArgs<ExtArgs> = {}>(args?: Subset<T, Documents$liensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Documents model
+   */
+  interface DocumentsFieldRefs {
+    readonly id: FieldRef<"Documents", 'String'>
+    readonly title: FieldRef<"Documents", 'String'>
+    readonly description: FieldRef<"Documents", 'String'>
+    readonly ordre: FieldRef<"Documents", 'Int'>
+    readonly content: FieldRef<"Documents", 'String'>
+    readonly image: FieldRef<"Documents", 'String'>
+    readonly grade: FieldRef<"Documents", 'String'>
+    readonly category: FieldRef<"Documents", 'String'>
+    readonly createdAt: FieldRef<"Documents", 'DateTime'>
+    readonly updatedAt: FieldRef<"Documents", 'DateTime'>
+    readonly userId: FieldRef<"Documents", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Documents findUnique
+   */
+  export type DocumentsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * Filter, which Documents to fetch.
+     */
+    where: DocumentsWhereUniqueInput
+  }
+
+  /**
+   * Documents findUniqueOrThrow
+   */
+  export type DocumentsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * Filter, which Documents to fetch.
+     */
+    where: DocumentsWhereUniqueInput
+  }
+
+  /**
+   * Documents findFirst
+   */
+  export type DocumentsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * Filter, which Documents to fetch.
+     */
+    where?: DocumentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Documents to fetch.
+     */
+    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Documents.
+     */
+    cursor?: DocumentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Documents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Documents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Documents.
+     */
+    distinct?: DocumentsScalarFieldEnum | DocumentsScalarFieldEnum[]
+  }
+
+  /**
+   * Documents findFirstOrThrow
+   */
+  export type DocumentsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * Filter, which Documents to fetch.
+     */
+    where?: DocumentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Documents to fetch.
+     */
+    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Documents.
+     */
+    cursor?: DocumentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Documents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Documents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Documents.
+     */
+    distinct?: DocumentsScalarFieldEnum | DocumentsScalarFieldEnum[]
+  }
+
+  /**
+   * Documents findMany
+   */
+  export type DocumentsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * Filter, which Documents to fetch.
+     */
+    where?: DocumentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Documents to fetch.
+     */
+    orderBy?: DocumentsOrderByWithRelationInput | DocumentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Documents.
+     */
+    cursor?: DocumentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Documents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Documents.
+     */
+    skip?: number
+    distinct?: DocumentsScalarFieldEnum | DocumentsScalarFieldEnum[]
+  }
+
+  /**
+   * Documents create
+   */
+  export type DocumentsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Documents.
+     */
+    data: XOR<DocumentsCreateInput, DocumentsUncheckedCreateInput>
+  }
+
+  /**
+   * Documents createMany
+   */
+  export type DocumentsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Documents.
+     */
+    data: DocumentsCreateManyInput | DocumentsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Documents createManyAndReturn
+   */
+  export type DocumentsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Documents.
+     */
+    data: DocumentsCreateManyInput | DocumentsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Documents update
+   */
+  export type DocumentsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Documents.
+     */
+    data: XOR<DocumentsUpdateInput, DocumentsUncheckedUpdateInput>
+    /**
+     * Choose, which Documents to update.
+     */
+    where: DocumentsWhereUniqueInput
+  }
+
+  /**
+   * Documents updateMany
+   */
+  export type DocumentsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Documents.
+     */
+    data: XOR<DocumentsUpdateManyMutationInput, DocumentsUncheckedUpdateManyInput>
+    /**
+     * Filter which Documents to update
+     */
+    where?: DocumentsWhereInput
+    /**
+     * Limit how many Documents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Documents updateManyAndReturn
+   */
+  export type DocumentsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * The data used to update Documents.
+     */
+    data: XOR<DocumentsUpdateManyMutationInput, DocumentsUncheckedUpdateManyInput>
+    /**
+     * Filter which Documents to update
+     */
+    where?: DocumentsWhereInput
+    /**
+     * Limit how many Documents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Documents upsert
+   */
+  export type DocumentsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Documents to update in case it exists.
+     */
+    where: DocumentsWhereUniqueInput
+    /**
+     * In case the Documents found by the `where` argument doesn't exist, create a new Documents with this data.
+     */
+    create: XOR<DocumentsCreateInput, DocumentsUncheckedCreateInput>
+    /**
+     * In case the Documents was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DocumentsUpdateInput, DocumentsUncheckedUpdateInput>
+  }
+
+  /**
+   * Documents delete
+   */
+  export type DocumentsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+    /**
+     * Filter which Documents to delete.
+     */
+    where: DocumentsWhereUniqueInput
+  }
+
+  /**
+   * Documents deleteMany
+   */
+  export type DocumentsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Documents to delete
+     */
+    where?: DocumentsWhereInput
+    /**
+     * Limit how many Documents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Documents.liens
+   */
+  export type Documents$liensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    where?: LinksWhereInput
+    orderBy?: LinksOrderByWithRelationInput | LinksOrderByWithRelationInput[]
+    cursor?: LinksWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LinksScalarFieldEnum | LinksScalarFieldEnum[]
+  }
+
+  /**
+   * Documents without action
+   */
+  export type DocumentsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Documents
+     */
+    select?: DocumentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Documents
+     */
+    omit?: DocumentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Links
+   */
+
+  export type AggregateLinks = {
+    _count: LinksCountAggregateOutputType | null
+    _avg: LinksAvgAggregateOutputType | null
+    _sum: LinksSumAggregateOutputType | null
+    _min: LinksMinAggregateOutputType | null
+    _max: LinksMaxAggregateOutputType | null
+  }
+
+  export type LinksAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LinksSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LinksMinAggregateOutputType = {
+    id: string | null
+    url: string | null
+    title: string | null
+    order: number | null
+    description: string | null
+    documentId: string | null
+  }
+
+  export type LinksMaxAggregateOutputType = {
+    id: string | null
+    url: string | null
+    title: string | null
+    order: number | null
+    description: string | null
+    documentId: string | null
+  }
+
+  export type LinksCountAggregateOutputType = {
+    id: number
+    url: number
+    title: number
+    order: number
+    description: number
+    documentId: number
+    _all: number
+  }
+
+
+  export type LinksAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type LinksSumAggregateInputType = {
+    order?: true
+  }
+
+  export type LinksMinAggregateInputType = {
+    id?: true
+    url?: true
+    title?: true
+    order?: true
+    description?: true
+    documentId?: true
+  }
+
+  export type LinksMaxAggregateInputType = {
+    id?: true
+    url?: true
+    title?: true
+    order?: true
+    description?: true
+    documentId?: true
+  }
+
+  export type LinksCountAggregateInputType = {
+    id?: true
+    url?: true
+    title?: true
+    order?: true
+    description?: true
+    documentId?: true
+    _all?: true
+  }
+
+  export type LinksAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Links to aggregate.
+     */
+    where?: LinksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Links to fetch.
+     */
+    orderBy?: LinksOrderByWithRelationInput | LinksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LinksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Links from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Links.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Links
+    **/
+    _count?: true | LinksCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LinksAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LinksSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LinksMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LinksMaxAggregateInputType
+  }
+
+  export type GetLinksAggregateType<T extends LinksAggregateArgs> = {
+        [P in keyof T & keyof AggregateLinks]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLinks[P]>
+      : GetScalarType<T[P], AggregateLinks[P]>
+  }
+
+
+
+
+  export type LinksGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinksWhereInput
+    orderBy?: LinksOrderByWithAggregationInput | LinksOrderByWithAggregationInput[]
+    by: LinksScalarFieldEnum[] | LinksScalarFieldEnum
+    having?: LinksScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LinksCountAggregateInputType | true
+    _avg?: LinksAvgAggregateInputType
+    _sum?: LinksSumAggregateInputType
+    _min?: LinksMinAggregateInputType
+    _max?: LinksMaxAggregateInputType
+  }
+
+  export type LinksGroupByOutputType = {
+    id: string
+    url: string
+    title: string | null
+    order: number | null
+    description: string | null
+    documentId: string
+    _count: LinksCountAggregateOutputType | null
+    _avg: LinksAvgAggregateOutputType | null
+    _sum: LinksSumAggregateOutputType | null
+    _min: LinksMinAggregateOutputType | null
+    _max: LinksMaxAggregateOutputType | null
+  }
+
+  type GetLinksGroupByPayload<T extends LinksGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LinksGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LinksGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LinksGroupByOutputType[P]>
+            : GetScalarType<T[P], LinksGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LinksSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    title?: boolean
+    order?: boolean
+    description?: boolean
+    documentId?: boolean
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["links"]>
+
+  export type LinksSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    title?: boolean
+    order?: boolean
+    description?: boolean
+    documentId?: boolean
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["links"]>
+
+  export type LinksSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    title?: boolean
+    order?: boolean
+    description?: boolean
+    documentId?: boolean
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["links"]>
+
+  export type LinksSelectScalar = {
+    id?: boolean
+    url?: boolean
+    title?: boolean
+    order?: boolean
+    description?: boolean
+    documentId?: boolean
+  }
+
+  export type LinksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "title" | "order" | "description" | "documentId", ExtArgs["result"]["links"]>
+  export type LinksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }
+  export type LinksIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }
+  export type LinksIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }
+
+  export type $LinksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Links"
+    objects: {
+      document: Prisma.$DocumentsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      url: string
+      title: string | null
+      order: number | null
+      description: string | null
+      documentId: string
+    }, ExtArgs["result"]["links"]>
+    composites: {}
+  }
+
+  type LinksGetPayload<S extends boolean | null | undefined | LinksDefaultArgs> = $Result.GetResult<Prisma.$LinksPayload, S>
+
+  type LinksCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LinksFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LinksCountAggregateInputType | true
+    }
+
+  export interface LinksDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Links'], meta: { name: 'Links' } }
+    /**
+     * Find zero or one Links that matches the filter.
+     * @param {LinksFindUniqueArgs} args - Arguments to find a Links
+     * @example
+     * // Get one Links
+     * const links = await prisma.links.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LinksFindUniqueArgs>(args: SelectSubset<T, LinksFindUniqueArgs<ExtArgs>>): Prisma__LinksClient<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Links that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LinksFindUniqueOrThrowArgs} args - Arguments to find a Links
+     * @example
+     * // Get one Links
+     * const links = await prisma.links.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LinksFindUniqueOrThrowArgs>(args: SelectSubset<T, LinksFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LinksClient<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Links that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinksFindFirstArgs} args - Arguments to find a Links
+     * @example
+     * // Get one Links
+     * const links = await prisma.links.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LinksFindFirstArgs>(args?: SelectSubset<T, LinksFindFirstArgs<ExtArgs>>): Prisma__LinksClient<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Links that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinksFindFirstOrThrowArgs} args - Arguments to find a Links
+     * @example
+     * // Get one Links
+     * const links = await prisma.links.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LinksFindFirstOrThrowArgs>(args?: SelectSubset<T, LinksFindFirstOrThrowArgs<ExtArgs>>): Prisma__LinksClient<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Links that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinksFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Links
+     * const links = await prisma.links.findMany()
+     * 
+     * // Get first 10 Links
+     * const links = await prisma.links.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const linksWithIdOnly = await prisma.links.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LinksFindManyArgs>(args?: SelectSubset<T, LinksFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Links.
+     * @param {LinksCreateArgs} args - Arguments to create a Links.
+     * @example
+     * // Create one Links
+     * const Links = await prisma.links.create({
+     *   data: {
+     *     // ... data to create a Links
+     *   }
+     * })
+     * 
+     */
+    create<T extends LinksCreateArgs>(args: SelectSubset<T, LinksCreateArgs<ExtArgs>>): Prisma__LinksClient<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Links.
+     * @param {LinksCreateManyArgs} args - Arguments to create many Links.
+     * @example
+     * // Create many Links
+     * const links = await prisma.links.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LinksCreateManyArgs>(args?: SelectSubset<T, LinksCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Links and returns the data saved in the database.
+     * @param {LinksCreateManyAndReturnArgs} args - Arguments to create many Links.
+     * @example
+     * // Create many Links
+     * const links = await prisma.links.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Links and only return the `id`
+     * const linksWithIdOnly = await prisma.links.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LinksCreateManyAndReturnArgs>(args?: SelectSubset<T, LinksCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Links.
+     * @param {LinksDeleteArgs} args - Arguments to delete one Links.
+     * @example
+     * // Delete one Links
+     * const Links = await prisma.links.delete({
+     *   where: {
+     *     // ... filter to delete one Links
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LinksDeleteArgs>(args: SelectSubset<T, LinksDeleteArgs<ExtArgs>>): Prisma__LinksClient<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Links.
+     * @param {LinksUpdateArgs} args - Arguments to update one Links.
+     * @example
+     * // Update one Links
+     * const links = await prisma.links.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LinksUpdateArgs>(args: SelectSubset<T, LinksUpdateArgs<ExtArgs>>): Prisma__LinksClient<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Links.
+     * @param {LinksDeleteManyArgs} args - Arguments to filter Links to delete.
+     * @example
+     * // Delete a few Links
+     * const { count } = await prisma.links.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LinksDeleteManyArgs>(args?: SelectSubset<T, LinksDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Links.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinksUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Links
+     * const links = await prisma.links.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LinksUpdateManyArgs>(args: SelectSubset<T, LinksUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Links and returns the data updated in the database.
+     * @param {LinksUpdateManyAndReturnArgs} args - Arguments to update many Links.
+     * @example
+     * // Update many Links
+     * const links = await prisma.links.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Links and only return the `id`
+     * const linksWithIdOnly = await prisma.links.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LinksUpdateManyAndReturnArgs>(args: SelectSubset<T, LinksUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Links.
+     * @param {LinksUpsertArgs} args - Arguments to update or create a Links.
+     * @example
+     * // Update or create a Links
+     * const links = await prisma.links.upsert({
+     *   create: {
+     *     // ... data to create a Links
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Links we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LinksUpsertArgs>(args: SelectSubset<T, LinksUpsertArgs<ExtArgs>>): Prisma__LinksClient<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Links.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinksCountArgs} args - Arguments to filter Links to count.
+     * @example
+     * // Count the number of Links
+     * const count = await prisma.links.count({
+     *   where: {
+     *     // ... the filter for the Links we want to count
+     *   }
+     * })
+    **/
+    count<T extends LinksCountArgs>(
+      args?: Subset<T, LinksCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LinksCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Links.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinksAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LinksAggregateArgs>(args: Subset<T, LinksAggregateArgs>): Prisma.PrismaPromise<GetLinksAggregateType<T>>
+
+    /**
+     * Group by Links.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinksGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LinksGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LinksGroupByArgs['orderBy'] }
+        : { orderBy?: LinksGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LinksGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLinksGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Links model
+   */
+  readonly fields: LinksFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Links.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LinksClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    document<T extends DocumentsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DocumentsDefaultArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Links model
+   */
+  interface LinksFieldRefs {
+    readonly id: FieldRef<"Links", 'String'>
+    readonly url: FieldRef<"Links", 'String'>
+    readonly title: FieldRef<"Links", 'String'>
+    readonly order: FieldRef<"Links", 'Int'>
+    readonly description: FieldRef<"Links", 'String'>
+    readonly documentId: FieldRef<"Links", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Links findUnique
+   */
+  export type LinksFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * Filter, which Links to fetch.
+     */
+    where: LinksWhereUniqueInput
+  }
+
+  /**
+   * Links findUniqueOrThrow
+   */
+  export type LinksFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * Filter, which Links to fetch.
+     */
+    where: LinksWhereUniqueInput
+  }
+
+  /**
+   * Links findFirst
+   */
+  export type LinksFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * Filter, which Links to fetch.
+     */
+    where?: LinksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Links to fetch.
+     */
+    orderBy?: LinksOrderByWithRelationInput | LinksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Links.
+     */
+    cursor?: LinksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Links from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Links.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Links.
+     */
+    distinct?: LinksScalarFieldEnum | LinksScalarFieldEnum[]
+  }
+
+  /**
+   * Links findFirstOrThrow
+   */
+  export type LinksFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * Filter, which Links to fetch.
+     */
+    where?: LinksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Links to fetch.
+     */
+    orderBy?: LinksOrderByWithRelationInput | LinksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Links.
+     */
+    cursor?: LinksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Links from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Links.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Links.
+     */
+    distinct?: LinksScalarFieldEnum | LinksScalarFieldEnum[]
+  }
+
+  /**
+   * Links findMany
+   */
+  export type LinksFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * Filter, which Links to fetch.
+     */
+    where?: LinksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Links to fetch.
+     */
+    orderBy?: LinksOrderByWithRelationInput | LinksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Links.
+     */
+    cursor?: LinksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Links from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Links.
+     */
+    skip?: number
+    distinct?: LinksScalarFieldEnum | LinksScalarFieldEnum[]
+  }
+
+  /**
+   * Links create
+   */
+  export type LinksCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Links.
+     */
+    data: XOR<LinksCreateInput, LinksUncheckedCreateInput>
+  }
+
+  /**
+   * Links createMany
+   */
+  export type LinksCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Links.
+     */
+    data: LinksCreateManyInput | LinksCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Links createManyAndReturn
+   */
+  export type LinksCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * The data used to create many Links.
+     */
+    data: LinksCreateManyInput | LinksCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Links update
+   */
+  export type LinksUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Links.
+     */
+    data: XOR<LinksUpdateInput, LinksUncheckedUpdateInput>
+    /**
+     * Choose, which Links to update.
+     */
+    where: LinksWhereUniqueInput
+  }
+
+  /**
+   * Links updateMany
+   */
+  export type LinksUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Links.
+     */
+    data: XOR<LinksUpdateManyMutationInput, LinksUncheckedUpdateManyInput>
+    /**
+     * Filter which Links to update
+     */
+    where?: LinksWhereInput
+    /**
+     * Limit how many Links to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Links updateManyAndReturn
+   */
+  export type LinksUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * The data used to update Links.
+     */
+    data: XOR<LinksUpdateManyMutationInput, LinksUncheckedUpdateManyInput>
+    /**
+     * Filter which Links to update
+     */
+    where?: LinksWhereInput
+    /**
+     * Limit how many Links to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Links upsert
+   */
+  export type LinksUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Links to update in case it exists.
+     */
+    where: LinksWhereUniqueInput
+    /**
+     * In case the Links found by the `where` argument doesn't exist, create a new Links with this data.
+     */
+    create: XOR<LinksCreateInput, LinksUncheckedCreateInput>
+    /**
+     * In case the Links was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LinksUpdateInput, LinksUncheckedUpdateInput>
+  }
+
+  /**
+   * Links delete
+   */
+  export type LinksDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+    /**
+     * Filter which Links to delete.
+     */
+    where: LinksWhereUniqueInput
+  }
+
+  /**
+   * Links deleteMany
+   */
+  export type LinksDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Links to delete
+     */
+    where?: LinksWhereInput
+    /**
+     * Limit how many Links to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Links without action
+   */
+  export type LinksDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Links
+     */
+    select?: LinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Links
+     */
+    omit?: LinksOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinksInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5642,6 +8197,35 @@ export namespace Prisma {
   };
 
   export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
+
+
+  export const DocumentsScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    ordre: 'ordre',
+    content: 'content',
+    image: 'image',
+    grade: 'grade',
+    category: 'category',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    userId: 'userId'
+  };
+
+  export type DocumentsScalarFieldEnum = (typeof DocumentsScalarFieldEnum)[keyof typeof DocumentsScalarFieldEnum]
+
+
+  export const LinksScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    title: 'title',
+    order: 'order',
+    description: 'description',
+    documentId: 'documentId'
+  };
+
+  export type LinksScalarFieldEnum = (typeof LinksScalarFieldEnum)[keyof typeof LinksScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5720,6 +8304,20 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
   /**
    * Deep Input Types
    */
@@ -5738,6 +8336,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
+    documents?: DocumentsListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -5750,6 +8349,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
+    documents?: DocumentsOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -5765,6 +8365,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
+    documents?: DocumentsListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -6015,6 +8616,158 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
   }
 
+  export type DocumentsWhereInput = {
+    AND?: DocumentsWhereInput | DocumentsWhereInput[]
+    OR?: DocumentsWhereInput[]
+    NOT?: DocumentsWhereInput | DocumentsWhereInput[]
+    id?: StringFilter<"Documents"> | string
+    title?: StringFilter<"Documents"> | string
+    description?: StringNullableFilter<"Documents"> | string | null
+    ordre?: IntNullableFilter<"Documents"> | number | null
+    content?: StringNullableFilter<"Documents"> | string | null
+    image?: StringNullableFilter<"Documents"> | string | null
+    grade?: StringNullableFilter<"Documents"> | string | null
+    category?: StringNullableFilter<"Documents"> | string | null
+    createdAt?: DateTimeFilter<"Documents"> | Date | string
+    updatedAt?: DateTimeFilter<"Documents"> | Date | string
+    userId?: StringFilter<"Documents"> | string
+    liens?: LinksListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type DocumentsOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    ordre?: SortOrderInput | SortOrder
+    content?: SortOrderInput | SortOrder
+    image?: SortOrderInput | SortOrder
+    grade?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    liens?: LinksOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type DocumentsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DocumentsWhereInput | DocumentsWhereInput[]
+    OR?: DocumentsWhereInput[]
+    NOT?: DocumentsWhereInput | DocumentsWhereInput[]
+    title?: StringFilter<"Documents"> | string
+    description?: StringNullableFilter<"Documents"> | string | null
+    ordre?: IntNullableFilter<"Documents"> | number | null
+    content?: StringNullableFilter<"Documents"> | string | null
+    image?: StringNullableFilter<"Documents"> | string | null
+    grade?: StringNullableFilter<"Documents"> | string | null
+    category?: StringNullableFilter<"Documents"> | string | null
+    createdAt?: DateTimeFilter<"Documents"> | Date | string
+    updatedAt?: DateTimeFilter<"Documents"> | Date | string
+    userId?: StringFilter<"Documents"> | string
+    liens?: LinksListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type DocumentsOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    ordre?: SortOrderInput | SortOrder
+    content?: SortOrderInput | SortOrder
+    image?: SortOrderInput | SortOrder
+    grade?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    _count?: DocumentsCountOrderByAggregateInput
+    _avg?: DocumentsAvgOrderByAggregateInput
+    _max?: DocumentsMaxOrderByAggregateInput
+    _min?: DocumentsMinOrderByAggregateInput
+    _sum?: DocumentsSumOrderByAggregateInput
+  }
+
+  export type DocumentsScalarWhereWithAggregatesInput = {
+    AND?: DocumentsScalarWhereWithAggregatesInput | DocumentsScalarWhereWithAggregatesInput[]
+    OR?: DocumentsScalarWhereWithAggregatesInput[]
+    NOT?: DocumentsScalarWhereWithAggregatesInput | DocumentsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Documents"> | string
+    title?: StringWithAggregatesFilter<"Documents"> | string
+    description?: StringNullableWithAggregatesFilter<"Documents"> | string | null
+    ordre?: IntNullableWithAggregatesFilter<"Documents"> | number | null
+    content?: StringNullableWithAggregatesFilter<"Documents"> | string | null
+    image?: StringNullableWithAggregatesFilter<"Documents"> | string | null
+    grade?: StringNullableWithAggregatesFilter<"Documents"> | string | null
+    category?: StringNullableWithAggregatesFilter<"Documents"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Documents"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Documents"> | Date | string
+    userId?: StringWithAggregatesFilter<"Documents"> | string
+  }
+
+  export type LinksWhereInput = {
+    AND?: LinksWhereInput | LinksWhereInput[]
+    OR?: LinksWhereInput[]
+    NOT?: LinksWhereInput | LinksWhereInput[]
+    id?: StringFilter<"Links"> | string
+    url?: StringFilter<"Links"> | string
+    title?: StringNullableFilter<"Links"> | string | null
+    order?: IntNullableFilter<"Links"> | number | null
+    description?: StringNullableFilter<"Links"> | string | null
+    documentId?: StringFilter<"Links"> | string
+    document?: XOR<DocumentsScalarRelationFilter, DocumentsWhereInput>
+  }
+
+  export type LinksOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    title?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    documentId?: SortOrder
+    document?: DocumentsOrderByWithRelationInput
+  }
+
+  export type LinksWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LinksWhereInput | LinksWhereInput[]
+    OR?: LinksWhereInput[]
+    NOT?: LinksWhereInput | LinksWhereInput[]
+    url?: StringFilter<"Links"> | string
+    title?: StringNullableFilter<"Links"> | string | null
+    order?: IntNullableFilter<"Links"> | number | null
+    description?: StringNullableFilter<"Links"> | string | null
+    documentId?: StringFilter<"Links"> | string
+    document?: XOR<DocumentsScalarRelationFilter, DocumentsWhereInput>
+  }, "id">
+
+  export type LinksOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    title?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    documentId?: SortOrder
+    _count?: LinksCountOrderByAggregateInput
+    _avg?: LinksAvgOrderByAggregateInput
+    _max?: LinksMaxOrderByAggregateInput
+    _min?: LinksMinOrderByAggregateInput
+    _sum?: LinksSumOrderByAggregateInput
+  }
+
+  export type LinksScalarWhereWithAggregatesInput = {
+    AND?: LinksScalarWhereWithAggregatesInput | LinksScalarWhereWithAggregatesInput[]
+    OR?: LinksScalarWhereWithAggregatesInput[]
+    NOT?: LinksScalarWhereWithAggregatesInput | LinksScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Links"> | string
+    url?: StringWithAggregatesFilter<"Links"> | string
+    title?: StringNullableWithAggregatesFilter<"Links"> | string | null
+    order?: IntNullableWithAggregatesFilter<"Links"> | number | null
+    description?: StringNullableWithAggregatesFilter<"Links"> | string | null
+    documentId?: StringWithAggregatesFilter<"Links"> | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -6025,6 +8778,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
+    documents?: DocumentsCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6037,6 +8791,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -6049,6 +8804,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6061,6 +8817,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -6343,6 +9100,169 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type DocumentsCreateInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    liens?: LinksCreateNestedManyWithoutDocumentInput
+    user: UserCreateNestedOneWithoutDocumentsInput
+  }
+
+  export type DocumentsUncheckedCreateInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    liens?: LinksUncheckedCreateNestedManyWithoutDocumentInput
+  }
+
+  export type DocumentsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    liens?: LinksUpdateManyWithoutDocumentNestedInput
+    user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+  }
+
+  export type DocumentsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    liens?: LinksUncheckedUpdateManyWithoutDocumentNestedInput
+  }
+
+  export type DocumentsCreateManyInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+  }
+
+  export type DocumentsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DocumentsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LinksCreateInput = {
+    id?: string
+    url: string
+    title?: string | null
+    order?: number | null
+    description?: string | null
+    document: DocumentsCreateNestedOneWithoutLiensInput
+  }
+
+  export type LinksUncheckedCreateInput = {
+    id?: string
+    url: string
+    title?: string | null
+    order?: number | null
+    description?: string | null
+    documentId: string
+  }
+
+  export type LinksUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    document?: DocumentsUpdateOneRequiredWithoutLiensNestedInput
+  }
+
+  export type LinksUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    documentId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LinksCreateManyInput = {
+    id?: string
+    url: string
+    title?: string | null
+    order?: number | null
+    description?: string | null
+    documentId: string
+  }
+
+  export type LinksUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LinksUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    documentId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6401,6 +9321,12 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
+  export type DocumentsListRelationFilter = {
+    every?: DocumentsWhereInput
+    some?: DocumentsWhereInput
+    none?: DocumentsWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -6411,6 +9337,10 @@ export namespace Prisma {
   }
 
   export type AccountOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DocumentsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6640,6 +9570,133 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type LinksListRelationFilter = {
+    every?: LinksWhereInput
+    some?: LinksWhereInput
+    none?: LinksWhereInput
+  }
+
+  export type LinksOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DocumentsCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    ordre?: SortOrder
+    content?: SortOrder
+    image?: SortOrder
+    grade?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type DocumentsAvgOrderByAggregateInput = {
+    ordre?: SortOrder
+  }
+
+  export type DocumentsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    ordre?: SortOrder
+    content?: SortOrder
+    image?: SortOrder
+    grade?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type DocumentsMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    ordre?: SortOrder
+    content?: SortOrder
+    image?: SortOrder
+    grade?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type DocumentsSumOrderByAggregateInput = {
+    ordre?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type DocumentsScalarRelationFilter = {
+    is?: DocumentsWhereInput
+    isNot?: DocumentsWhereInput
+  }
+
+  export type LinksCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    title?: SortOrder
+    order?: SortOrder
+    description?: SortOrder
+    documentId?: SortOrder
+  }
+
+  export type LinksAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type LinksMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    title?: SortOrder
+    order?: SortOrder
+    description?: SortOrder
+    documentId?: SortOrder
+  }
+
+  export type LinksMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    title?: SortOrder
+    order?: SortOrder
+    description?: SortOrder
+    documentId?: SortOrder
+  }
+
+  export type LinksSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6654,6 +9711,13 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
+  export type DocumentsCreateNestedManyWithoutUserInput = {
+    create?: XOR<DocumentsCreateWithoutUserInput, DocumentsUncheckedCreateWithoutUserInput> | DocumentsCreateWithoutUserInput[] | DocumentsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DocumentsCreateOrConnectWithoutUserInput | DocumentsCreateOrConnectWithoutUserInput[]
+    createMany?: DocumentsCreateManyUserInputEnvelope
+    connect?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6666,6 +9730,13 @@ export namespace Prisma {
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
     createMany?: AccountCreateManyUserInputEnvelope
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+  }
+
+  export type DocumentsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<DocumentsCreateWithoutUserInput, DocumentsUncheckedCreateWithoutUserInput> | DocumentsCreateWithoutUserInput[] | DocumentsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DocumentsCreateOrConnectWithoutUserInput | DocumentsCreateOrConnectWithoutUserInput[]
+    createMany?: DocumentsCreateManyUserInputEnvelope
+    connect?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6712,6 +9783,20 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
+  export type DocumentsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DocumentsCreateWithoutUserInput, DocumentsUncheckedCreateWithoutUserInput> | DocumentsCreateWithoutUserInput[] | DocumentsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DocumentsCreateOrConnectWithoutUserInput | DocumentsCreateOrConnectWithoutUserInput[]
+    upsert?: DocumentsUpsertWithWhereUniqueWithoutUserInput | DocumentsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DocumentsCreateManyUserInputEnvelope
+    set?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+    disconnect?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+    delete?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+    connect?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+    update?: DocumentsUpdateWithWhereUniqueWithoutUserInput | DocumentsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DocumentsUpdateManyWithWhereWithoutUserInput | DocumentsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DocumentsScalarWhereInput | DocumentsScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6738,6 +9823,20 @@ export namespace Prisma {
     update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
+  }
+
+  export type DocumentsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DocumentsCreateWithoutUserInput, DocumentsUncheckedCreateWithoutUserInput> | DocumentsCreateWithoutUserInput[] | DocumentsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DocumentsCreateOrConnectWithoutUserInput | DocumentsCreateOrConnectWithoutUserInput[]
+    upsert?: DocumentsUpsertWithWhereUniqueWithoutUserInput | DocumentsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DocumentsCreateManyUserInputEnvelope
+    set?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+    disconnect?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+    delete?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+    connect?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+    update?: DocumentsUpdateWithWhereUniqueWithoutUserInput | DocumentsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DocumentsUpdateManyWithWhereWithoutUserInput | DocumentsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DocumentsScalarWhereInput | DocumentsScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -6770,6 +9869,84 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutAccountsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type LinksCreateNestedManyWithoutDocumentInput = {
+    create?: XOR<LinksCreateWithoutDocumentInput, LinksUncheckedCreateWithoutDocumentInput> | LinksCreateWithoutDocumentInput[] | LinksUncheckedCreateWithoutDocumentInput[]
+    connectOrCreate?: LinksCreateOrConnectWithoutDocumentInput | LinksCreateOrConnectWithoutDocumentInput[]
+    createMany?: LinksCreateManyDocumentInputEnvelope
+    connect?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutDocumentsInput = {
+    create?: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutDocumentsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type LinksUncheckedCreateNestedManyWithoutDocumentInput = {
+    create?: XOR<LinksCreateWithoutDocumentInput, LinksUncheckedCreateWithoutDocumentInput> | LinksCreateWithoutDocumentInput[] | LinksUncheckedCreateWithoutDocumentInput[]
+    connectOrCreate?: LinksCreateOrConnectWithoutDocumentInput | LinksCreateOrConnectWithoutDocumentInput[]
+    createMany?: LinksCreateManyDocumentInputEnvelope
+    connect?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type LinksUpdateManyWithoutDocumentNestedInput = {
+    create?: XOR<LinksCreateWithoutDocumentInput, LinksUncheckedCreateWithoutDocumentInput> | LinksCreateWithoutDocumentInput[] | LinksUncheckedCreateWithoutDocumentInput[]
+    connectOrCreate?: LinksCreateOrConnectWithoutDocumentInput | LinksCreateOrConnectWithoutDocumentInput[]
+    upsert?: LinksUpsertWithWhereUniqueWithoutDocumentInput | LinksUpsertWithWhereUniqueWithoutDocumentInput[]
+    createMany?: LinksCreateManyDocumentInputEnvelope
+    set?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+    disconnect?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+    delete?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+    connect?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+    update?: LinksUpdateWithWhereUniqueWithoutDocumentInput | LinksUpdateWithWhereUniqueWithoutDocumentInput[]
+    updateMany?: LinksUpdateManyWithWhereWithoutDocumentInput | LinksUpdateManyWithWhereWithoutDocumentInput[]
+    deleteMany?: LinksScalarWhereInput | LinksScalarWhereInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutDocumentsNestedInput = {
+    create?: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutDocumentsInput
+    upsert?: UserUpsertWithoutDocumentsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutDocumentsInput, UserUpdateWithoutDocumentsInput>, UserUncheckedUpdateWithoutDocumentsInput>
+  }
+
+  export type LinksUncheckedUpdateManyWithoutDocumentNestedInput = {
+    create?: XOR<LinksCreateWithoutDocumentInput, LinksUncheckedCreateWithoutDocumentInput> | LinksCreateWithoutDocumentInput[] | LinksUncheckedCreateWithoutDocumentInput[]
+    connectOrCreate?: LinksCreateOrConnectWithoutDocumentInput | LinksCreateOrConnectWithoutDocumentInput[]
+    upsert?: LinksUpsertWithWhereUniqueWithoutDocumentInput | LinksUpsertWithWhereUniqueWithoutDocumentInput[]
+    createMany?: LinksCreateManyDocumentInputEnvelope
+    set?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+    disconnect?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+    delete?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+    connect?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+    update?: LinksUpdateWithWhereUniqueWithoutDocumentInput | LinksUpdateWithWhereUniqueWithoutDocumentInput[]
+    updateMany?: LinksUpdateManyWithWhereWithoutDocumentInput | LinksUpdateManyWithWhereWithoutDocumentInput[]
+    deleteMany?: LinksScalarWhereInput | LinksScalarWhereInput[]
+  }
+
+  export type DocumentsCreateNestedOneWithoutLiensInput = {
+    create?: XOR<DocumentsCreateWithoutLiensInput, DocumentsUncheckedCreateWithoutLiensInput>
+    connectOrCreate?: DocumentsCreateOrConnectWithoutLiensInput
+    connect?: DocumentsWhereUniqueInput
+  }
+
+  export type DocumentsUpdateOneRequiredWithoutLiensNestedInput = {
+    create?: XOR<DocumentsCreateWithoutLiensInput, DocumentsUncheckedCreateWithoutLiensInput>
+    connectOrCreate?: DocumentsCreateOrConnectWithoutLiensInput
+    upsert?: DocumentsUpsertWithoutLiensInput
+    connect?: DocumentsWhereUniqueInput
+    update?: XOR<XOR<DocumentsUpdateToOneWithWhereWithoutLiensInput, DocumentsUpdateWithoutLiensInput>, DocumentsUncheckedUpdateWithoutLiensInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6919,6 +10096,33 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type SessionCreateWithoutUserInput = {
     id?: string
     expiresAt: Date | string
@@ -6989,6 +10193,44 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type DocumentsCreateWithoutUserInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    liens?: LinksCreateNestedManyWithoutDocumentInput
+  }
+
+  export type DocumentsUncheckedCreateWithoutUserInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    liens?: LinksUncheckedCreateNestedManyWithoutDocumentInput
+  }
+
+  export type DocumentsCreateOrConnectWithoutUserInput = {
+    where: DocumentsWhereUniqueInput
+    create: XOR<DocumentsCreateWithoutUserInput, DocumentsUncheckedCreateWithoutUserInput>
+  }
+
+  export type DocumentsCreateManyUserInputEnvelope = {
+    data: DocumentsCreateManyUserInput | DocumentsCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
     where: SessionWhereUniqueInput
     update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
@@ -7054,6 +10296,39 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Account"> | Date | string
   }
 
+  export type DocumentsUpsertWithWhereUniqueWithoutUserInput = {
+    where: DocumentsWhereUniqueInput
+    update: XOR<DocumentsUpdateWithoutUserInput, DocumentsUncheckedUpdateWithoutUserInput>
+    create: XOR<DocumentsCreateWithoutUserInput, DocumentsUncheckedCreateWithoutUserInput>
+  }
+
+  export type DocumentsUpdateWithWhereUniqueWithoutUserInput = {
+    where: DocumentsWhereUniqueInput
+    data: XOR<DocumentsUpdateWithoutUserInput, DocumentsUncheckedUpdateWithoutUserInput>
+  }
+
+  export type DocumentsUpdateManyWithWhereWithoutUserInput = {
+    where: DocumentsScalarWhereInput
+    data: XOR<DocumentsUpdateManyMutationInput, DocumentsUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type DocumentsScalarWhereInput = {
+    AND?: DocumentsScalarWhereInput | DocumentsScalarWhereInput[]
+    OR?: DocumentsScalarWhereInput[]
+    NOT?: DocumentsScalarWhereInput | DocumentsScalarWhereInput[]
+    id?: StringFilter<"Documents"> | string
+    title?: StringFilter<"Documents"> | string
+    description?: StringNullableFilter<"Documents"> | string | null
+    ordre?: IntNullableFilter<"Documents"> | number | null
+    content?: StringNullableFilter<"Documents"> | string | null
+    image?: StringNullableFilter<"Documents"> | string | null
+    grade?: StringNullableFilter<"Documents"> | string | null
+    category?: StringNullableFilter<"Documents"> | string | null
+    createdAt?: DateTimeFilter<"Documents"> | Date | string
+    updatedAt?: DateTimeFilter<"Documents"> | Date | string
+    userId?: StringFilter<"Documents"> | string
+  }
+
   export type UserCreateWithoutSessionsInput = {
     id?: string
     name: string
@@ -7063,6 +10338,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
+    documents?: DocumentsCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -7074,6 +10350,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -7101,6 +10378,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -7112,6 +10390,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -7123,6 +10402,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
+    documents?: DocumentsCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -7134,6 +10414,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -7161,6 +10442,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -7172,6 +10454,197 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type LinksCreateWithoutDocumentInput = {
+    id?: string
+    url: string
+    title?: string | null
+    order?: number | null
+    description?: string | null
+  }
+
+  export type LinksUncheckedCreateWithoutDocumentInput = {
+    id?: string
+    url: string
+    title?: string | null
+    order?: number | null
+    description?: string | null
+  }
+
+  export type LinksCreateOrConnectWithoutDocumentInput = {
+    where: LinksWhereUniqueInput
+    create: XOR<LinksCreateWithoutDocumentInput, LinksUncheckedCreateWithoutDocumentInput>
+  }
+
+  export type LinksCreateManyDocumentInputEnvelope = {
+    data: LinksCreateManyDocumentInput | LinksCreateManyDocumentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutDocumentsInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutDocumentsInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutDocumentsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+  }
+
+  export type LinksUpsertWithWhereUniqueWithoutDocumentInput = {
+    where: LinksWhereUniqueInput
+    update: XOR<LinksUpdateWithoutDocumentInput, LinksUncheckedUpdateWithoutDocumentInput>
+    create: XOR<LinksCreateWithoutDocumentInput, LinksUncheckedCreateWithoutDocumentInput>
+  }
+
+  export type LinksUpdateWithWhereUniqueWithoutDocumentInput = {
+    where: LinksWhereUniqueInput
+    data: XOR<LinksUpdateWithoutDocumentInput, LinksUncheckedUpdateWithoutDocumentInput>
+  }
+
+  export type LinksUpdateManyWithWhereWithoutDocumentInput = {
+    where: LinksScalarWhereInput
+    data: XOR<LinksUpdateManyMutationInput, LinksUncheckedUpdateManyWithoutDocumentInput>
+  }
+
+  export type LinksScalarWhereInput = {
+    AND?: LinksScalarWhereInput | LinksScalarWhereInput[]
+    OR?: LinksScalarWhereInput[]
+    NOT?: LinksScalarWhereInput | LinksScalarWhereInput[]
+    id?: StringFilter<"Links"> | string
+    url?: StringFilter<"Links"> | string
+    title?: StringNullableFilter<"Links"> | string | null
+    order?: IntNullableFilter<"Links"> | number | null
+    description?: StringNullableFilter<"Links"> | string | null
+    documentId?: StringFilter<"Links"> | string
+  }
+
+  export type UserUpsertWithoutDocumentsInput = {
+    update: XOR<UserUpdateWithoutDocumentsInput, UserUncheckedUpdateWithoutDocumentsInput>
+    create: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutDocumentsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutDocumentsInput, UserUncheckedUpdateWithoutDocumentsInput>
+  }
+
+  export type UserUpdateWithoutDocumentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutDocumentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type DocumentsCreateWithoutLiensInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutDocumentsInput
+  }
+
+  export type DocumentsUncheckedCreateWithoutLiensInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+  }
+
+  export type DocumentsCreateOrConnectWithoutLiensInput = {
+    where: DocumentsWhereUniqueInput
+    create: XOR<DocumentsCreateWithoutLiensInput, DocumentsUncheckedCreateWithoutLiensInput>
+  }
+
+  export type DocumentsUpsertWithoutLiensInput = {
+    update: XOR<DocumentsUpdateWithoutLiensInput, DocumentsUncheckedUpdateWithoutLiensInput>
+    create: XOR<DocumentsCreateWithoutLiensInput, DocumentsUncheckedCreateWithoutLiensInput>
+    where?: DocumentsWhereInput
+  }
+
+  export type DocumentsUpdateToOneWithWhereWithoutLiensInput = {
+    where?: DocumentsWhereInput
+    data: XOR<DocumentsUpdateWithoutLiensInput, DocumentsUncheckedUpdateWithoutLiensInput>
+  }
+
+  export type DocumentsUpdateWithoutLiensInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+  }
+
+  export type DocumentsUncheckedUpdateWithoutLiensInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type SessionCreateManyUserInput = {
@@ -7195,6 +10668,19 @@ export namespace Prisma {
     refreshTokenExpiresAt?: Date | string | null
     scope?: string | null
     password?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DocumentsCreateManyUserInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7272,6 +10758,79 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DocumentsUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    liens?: LinksUpdateManyWithoutDocumentNestedInput
+  }
+
+  export type DocumentsUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    liens?: LinksUncheckedUpdateManyWithoutDocumentNestedInput
+  }
+
+  export type DocumentsUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LinksCreateManyDocumentInput = {
+    id?: string
+    url: string
+    title?: string | null
+    order?: number | null
+    description?: string | null
+  }
+
+  export type LinksUpdateWithoutDocumentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LinksUncheckedUpdateWithoutDocumentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LinksUncheckedUpdateManyWithoutDocumentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
