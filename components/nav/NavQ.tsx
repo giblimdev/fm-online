@@ -4,7 +4,7 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { listqEmulation } from "@/lib/ListqEmulation";
+import { listqEmulation } from "@/lib/nav/ListqEmulation";
 
 const NavQ: React.FC = () => {
   const currentPageUrl = usePathname();

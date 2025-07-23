@@ -172,7 +172,7 @@ export default function PublicDocumentsPage() {
             {documents.map((document) => (
               <Link
                 key={document.id}
-                href={`/public/documents/${document.id}`}
+                href={`/public/${document.id}`}
                 className="block"
               >
                 <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group h-full">

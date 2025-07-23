@@ -4,7 +4,7 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { listArche } from "@/lib/ListArche";
+import { listArche } from "@/lib/nav/ListArche";
 
 const NavArche: React.FC = () => {
   const currentPageUrl = usePathname();

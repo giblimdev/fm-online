@@ -47,6 +47,7 @@ export default function DocForm({
     url: "",
     title: "",
     description: "",
+    order: null as number | null, // Ajout du champ order selon le schéma
   });
 
   // Options pour les grades maçonniques
@@ -129,13 +130,17 @@ export default function DocForm({
   };
 
   const addLink = () => {
-    if (!newLink.url || !newLink.title) return;
+    // Selon le schéma, seul url est obligatoire
+    if (!newLink.url) return;
 
     setLinks([
       ...links,
       {
         id: crypto.randomUUID(),
-        ...newLink,
+        url: newLink.url,
+        title: newLink.title, // Peut être null selon le schéma
+        description: newLink.description,
+        order: newLink.order, // Ajout du champ order
       },
     ]);
 
@@ -143,6 +148,7 @@ export default function DocForm({
       url: "",
       title: "",
       description: "",
+      order: null,
     });
   };
 
@@ -150,12 +156,24 @@ export default function DocForm({
     setLinks(links.filter((link) => link.id !== linkId));
   };
 
-  // Validation pour les chemins locaux au lieu d'URLs
+  // Validation pour les chemins locaux et URLs
   const isValidPath = (path: string) => {
     if (!path) return false;
-    // Valide les chemins de type app\rituels\Emulation\app\annex
     const pathPattern = /^app\\[\w\\]+$|^[\w\\\/]+$/;
     return pathPattern.test(path) && path.length > 0;
+  };
+
+  const isValidUrl = (url: string) => {
+    try {
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const isValidInput = (input: string) => {
+    return isValidUrl(input) || isValidPath(input);
   };
 
   // Normalise le chemin pour l'affichage
@@ -337,7 +355,7 @@ export default function DocForm({
         {links.length > 0 && (
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-3">
-              Chemins associés ({links.length})
+              Liens associés ({links.length})
             </label>
             <div className="space-y-3">
               {links.map((link) => (
@@ -345,17 +363,26 @@ export default function DocForm({
                   key={link.id}
                   className="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl"
                 >
-                  <Folder className="h-4 w-4 text-slate-500 flex-shrink-0" />
+                  {isValidUrl(link.url) ? (
+                    <ExternalLink className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                  ) : (
+                    <Folder className="h-4 w-4 text-amber-600 flex-shrink-0" />
+                  )}
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-slate-900 truncate">
-                      {link.title}
+                      {link.title || "Lien sans titre"}
                     </p>
                     <p className="text-xs text-slate-500 truncate font-mono">
-                      {formatPath(link.url)}
+                      {isValidUrl(link.url) ? link.url : formatPath(link.url)}
                     </p>
                     {link.description && (
                       <p className="text-xs text-slate-600 mt-1">
                         {link.description}
+                      </p>
+                    )}
+                    {link.order !== null && (
+                      <p className="text-xs text-slate-500 mt-1">
+                        Ordre: {link.order}
                       </p>
                     )}
                   </div>
@@ -372,15 +399,19 @@ export default function DocForm({
           </div>
         )}
 
-        {/* Ajouter un chemin */}
+        {/* Ajouter un lien */}
         <div className="border-t border-slate-200 pt-6">
           <label className="block text-sm font-semibold text-slate-700 mb-3">
-            Ajouter un chemin de fichier
+            Ajouter un lien
           </label>
           <div className="space-y-3">
             <div>
               <div className="relative">
-                <Folder className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+                {isValidUrl(newLink.url) ? (
+                  <ExternalLink className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+                ) : (
+                  <Folder className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+                )}
                 <input
                   type="text"
                   value={newLink.url}
@@ -388,33 +419,49 @@ export default function DocForm({
                     setNewLink({ ...newLink, url: e.target.value })
                   }
                   className={`w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all font-mono ${
-                    newLink.url && !isValidPath(newLink.url)
+                    newLink.url && !isValidInput(newLink.url)
                       ? "border-red-300 bg-red-50"
                       : ""
                   }`}
-                  placeholder="app\rituels\Emulation\app\annex"
+                  placeholder="https://exemple.com ou app\rituels\Emulation\app\annex"
                 />
               </div>
               <p className="mt-1 text-xs text-slate-500">
-                Exemple : app\rituels\Emulation\app\annex ou
-                app/rituels/Domatique/ceremony
+                Saisissez une URL web ou un chemin de fichier local
               </p>
-              {newLink.url && !isValidPath(newLink.url) && (
+              {newLink.url && !isValidInput(newLink.url) && (
                 <p className="mt-1 text-xs text-red-600">
-                  ⚠️ Format de chemin invalide
+                  ⚠️ Format invalide. Utilisez une URL valide ou un chemin de
+                  fichier
                 </p>
               )}
             </div>
 
-            <input
-              type="text"
-              value={newLink.title}
-              onChange={(e) =>
-                setNewLink({ ...newLink, title: e.target.value })
-              }
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-              placeholder="Nom du fichier ou titre descriptif"
-            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <input
+                type="text"
+                value={newLink.title}
+                onChange={(e) =>
+                  setNewLink({ ...newLink, title: e.target.value })
+                }
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                placeholder="Titre du lien (optionnel)"
+              />
+
+              <input
+                type="number"
+                value={newLink.order || ""}
+                onChange={(e) =>
+                  setNewLink({
+                    ...newLink,
+                    order: e.target.value ? parseInt(e.target.value) : null,
+                  })
+                }
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                placeholder="Ordre (optionnel)"
+                min="0"
+              />
+            </div>
 
             <input
               type="text"
@@ -429,13 +476,11 @@ export default function DocForm({
             <button
               type="button"
               onClick={addLink}
-              disabled={
-                !newLink.url || !newLink.title || !isValidPath(newLink.url)
-              }
+              disabled={!newLink.url || !isValidInput(newLink.url)}
               className="w-full bg-slate-100 text-slate-700 py-2 px-4 rounded-lg hover:bg-slate-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             >
               <Plus className="h-4 w-4" />
-              <span>Ajouter le chemin</span>
+              <span>Ajouter le lien</span>
             </button>
           </div>
         </div>

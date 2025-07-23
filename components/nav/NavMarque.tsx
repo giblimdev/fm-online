@@ -4,7 +4,7 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { listMarque } from "@/lib/ListMarque";
+import { listMarque } from "@/lib/nav/ListMarque";
 
 const NavMarque: React.FC = () => {
   const currentPageUrl = usePathname();

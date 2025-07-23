@@ -1,3 +1,4 @@
+//@/app/rituels/Emulation/app/initiation/page.tsx
 import NavEmul from "@/components/nav/NavEmul";
 import Pagination from "@/components/nav/NavEmul";
 import React from "react";
@@ -27,8 +28,8 @@ function page() {
       </p>
       <p>
         <b>2d S </b>
-        <span className="com"> fait le s. p. de l'Ap. et s’assoit</span> : F. C.,
-        voyez qui demande l'entrée de la L.
+        <span className="com"> fait le s. p. de l'Ap. et s’assoit</span> : F.
+        C., voyez qui demande l'entrée de la L.
       </p>
       <p className="com">
         le C fait le s. p. d'Ap., va à la porte et l'entre ouvre, mais la bloque
@@ -40,12 +41,16 @@ function page() {
         <b>C</b> : Qui va là ?
       </p>
       <p>
-        <b>T </b>:&nbsp;<span className="com"> (à haute voix pour être entendu de l'int. de la L.)</span>
-        &nbsp;Monsieur X..........., un pauvre candidat privé de Lumière qui a été
-        chaleureusement et honorablement recommandé, régulièrement proposé et
-        approuvé en L. ouverte, et qui se présente aujourd'hui librement et de
-        son plein gré, convenablement préparé, pour solliciter humblement d'être
-        admis aux mystères et privilèges de la F.M.
+        <b>T </b>:&nbsp;
+        <span className="com">
+          {" "}
+          (à haute voix pour être entendu de l'int. de la L.)
+        </span>
+        &nbsp;Monsieur X..........., un pauvre candidat privé de Lumière qui a
+        été chaleureusement et honorablement recommandé, régulièrement proposé
+        et approuvé en L. ouverte, et qui se présente aujourd'hui librement et
+        de son plein gré, convenablement préparé, pour solliciter humblement
+        d'être admis aux mystères et privilèges de la F.M.
       </p>
       <p>
         <b>C </b>: Comment espère-t-il obtenir ces privilèges ?
@@ -110,16 +115,17 @@ function page() {
         êtes un homme libre et âgé d'au moins 21 ans.
       </p>
       <p>
-        <b>Cand </b>: ............. <span className="com">
+        <b>Cand </b>: .............{" "}
+        <span className="com">
           Réponse du candidat. Le 2ème E. ne doit pas souffler mais inciter
           seulement le candidat à répondre lui-même à cette question.
         </span>
       </p>
       <p>
-        <b>VM </b>: Puisqu'il en est ainsi, je vous prie de vous ag. pendant
-        que nous invoquerons la bénédiction divine sur nos travaux.
+        <b>VM </b>: Puisqu'il en est ainsi, je vous prie de vous ag. pendant que
+        nous invoquerons la bénédiction divine sur nos travaux.
       </p>
-      
+
       <p>
         <b>VM </b>: -O-
       </p>
@@ -135,17 +141,16 @@ function page() {
         tête du candidat et font le s.de Foi.
       </p>
       <p>
-      <b>VM </b>
-      <span className="com">
-        (ou CHAP.) </span>: Daigne, Père Tout Puissant, architecte et Maître Suprême de
-        l'Univers, étendre Ta Protection sur nos travaux et accorder à ce
-        candidat à la F.M. de dédier et de consacrer sa vie à Ton service afin
-        qu'il devienne un F. loyal et fidèle parmi nous.
+        <b>VM </b>
+        <span className="com">(ou CHAP.) </span>: Daigne, Père Tout Puissant,
+        architecte et Maître Suprême de l'Univers, étendre Ta Protection sur nos
+        travaux et accorder à ce candidat à la F.M. de dédier et de consacrer sa
+        vie à Ton service afin qu'il devienne un F. loyal et fidèle parmi nous.
         <br />
         Fortifie-le d'une parcelle de Ta divine Sagesse, afin qu'il puisse, avec
         l'aide des secrets de notre Art M., mieux découvrir les beautés de la
         véritable Piété, en l'Honneur et à la Gloire de Ton Saint Nom.
-        </p>
+      </p>
       <p>
         <b>PMI </b>: <span className="com"> (seul)&nbsp;</span> Ainsi soit-il.{" "}
       </p>
@@ -153,20 +158,24 @@ function page() {
         Tous cessent le s. de Foi et les EE. abaissent leur v.{" "}
       </p>
       <p>
-      <b>VM </b>: Lorsque vous vous trouvez en difficulté ou en danger, en qui
-      placez-vous votre confiance ? </p>
+        <b>VM </b>: Lorsque vous vous trouvez en difficulté ou en danger, en qui
+        placez-vous votre confiance ?{" "}
+      </p>
       <p>
-      <b>Cand </b>: En Dieu. </p>
-      <p><b>VM </b>: Je suis très heureux de constater que votre confiance est si
-      bien placée. Appuyé sur un tel soutien, levez-vous sans crainte et suivez
-      votre guide avec une ferme mais humble confiance, car là où le Nom de Dieu
-      est invoqué, aucun danger ne doit être redouté. </p>
+        <b>Cand </b>: En Dieu.{" "}
+      </p>
+      <p>
+        <b>VM </b>: Je suis très heureux de constater que votre confiance est si
+        bien placée. Appuyé sur un tel soutien, levez-vous sans crainte et
+        suivez votre guide avec une ferme mais humble confiance, car là où le
+        Nom de Dieu est invoqué, aucun danger ne doit être redouté.{" "}
+      </p>
       <p className="com">
         Le VM. s'assoit et par un geste invite les FF. a faire de même. <br />
         Au mot « redouté » Le 2ème E. aide le candidat à se relever et le prend
         fermement par la main. <br />
         Le 1er E. enlève le coussin.
-      </p>      
+      </p>
       <p>
         <b>VM </b>: -O-
         <br />
@@ -175,12 +184,11 @@ function page() {
         <b>2d S </b>: -O-
       </p>
       <p>
-        <b>VM </b>: Les FF. au Nord, à l'Est, au Sud et à l'Ouest, sont
-        prévenus que Monsieur X........ va passer devant eux pour montrer qu'il
-        est bien le candidat convenablement préparé et une personne digne d'être
-        reçue M.
-        </p>
-        <p className="com">
+        <b>VM </b>: Les FF. au Nord, à l'Est, au Sud et à l'Ouest, sont prévenus
+        que Monsieur X........ va passer devant eux pour montrer qu'il est bien
+        le candidat convenablement préparé et une personne digne d'être reçue M.
+      </p>
+      <p className="com">
         Le 2d E indique au cand. de partir du pied g. et le guide le long de la
         colonne du N. le 1er E prend le poignard et suit le Cand. jusqu'à
         l'angle N.E. pose le poignard sur le plateau du VM. et gagne sa place.
@@ -203,7 +211,7 @@ function page() {
       </p>
       <p>
         <b>2d S </b>: Comment espère-t-il obtenir ces privilèges ?
-      </p>   
+      </p>
       <p>
         <b>2d E </b>: Avec l'aide de Dieu, car il est né libre et il est de
         bonne renommée.
@@ -270,31 +278,31 @@ function page() {
         Le Second E vient à gauche du 1e S. <br />
         Le 1er S. se lève, le 2d E. place la main du Cand. dans la main g. du
         1er S et se place à gauche du Cand. <br />
-        Le 1er S élève légèrement la main du Cand. fait le pas et se met à
-        l'or. et dit :
+        Le 1er S élève légèrement la main du Cand. fait le pas et se met à l'or.
+        et dit :
       </p>
       <p>
         <b>1er S </b>: V.M., je vous présente Monsieur X..., candidat
         convenablement préparé pour être reçu M.
       </p>
       <p className="vm">
-        <b>VM </b>: F. 1er S., votre présentation mérite toute mon attention
-        et, dans ce but, je vais poser quelques questions au candidat
-        auxquelles, j'en suis persuadé, il répondra avec franchise.
+        <b>VM </b>: F. 1er S., votre présentation mérite toute mon attention et,
+        dans ce but, je vais poser quelques questions au candidat auxquelles,
+        j'en suis persuadé, il répondra avec franchise.
       </p>
       <p className="com">
         Le 1er S fait le s. p. d'Ap. et rend la m. d. du Cand. au 2ème E. qui
         est revenu à la d. du Cand. puis s'assoit.
       </p>
       <p>
-      <span className="vm">
-        <b>VM </b> : <span className="com"> (au Cand.) </span> Déclarez-vous
-        sincèrement sur votre honneur que vous n'avez été entraîné, contre votre
-        propre gré, par aucune sollicitation inconvenante de la part de vos
-        amis, que vous n'êtes influencé par aucun sentiment vénal ni par aucun
-        autre motif indigne, mais que vous vous présentez librement et
-        volontairement comme candidat aux mystères et privilèges de la F.M. ?
-      </span>
+        <span className="vm">
+          <b>VM </b> : <span className="com"> (au Cand.) </span> Déclarez-vous
+          sincèrement sur votre honneur que vous n'avez été entraîné, contre
+          votre propre gré, par aucune sollicitation inconvenante de la part de
+          vos amis, que vous n'êtes influencé par aucun sentiment vénal ni par
+          aucun autre motif indigne, mais que vous vous présentez librement et
+          volontairement comme candidat aux mystères et privilèges de la F.M. ?
+        </span>
       </p>
       <p>
         <b>Cand </b>:
@@ -302,36 +310,39 @@ function page() {
         le déclare.
       </p>
       <p>
-      <span className="vm">
-        <b>VM </b>: Donnez-nous aussi votre parole d'honneur que vous avez été
-        conduit à solliciter ces privilèges par une opinion favorable que vous
-        avez précédemment conçue de notre institution, par le désir de vous
-        instruire et la volonté sincère de vous rendre plus utile à vos
-        semblables ?
-      </span>
+        <span className="vm">
+          <b>VM </b>: Donnez-nous aussi votre parole d'honneur que vous avez été
+          conduit à solliciter ces privilèges par une opinion favorable que vous
+          avez précédemment conçue de notre institution, par le désir de vous
+          instruire et la volonté sincère de vous rendre plus utile à vos
+          semblables ?
+        </span>
       </p>
       <p>
         <b>Cand</b> : <span className="com"> (Soufflé par le 2ème E.) </span>
         J'en donne ma parole d'honneur.
-        </p>
-<p>      <span className="vm">
-        <b>VM </b>: Déclarez-vous également sur votre honneur que, sans
-        crainte, et en même temps sans témérité, vous persévérerez sans
-        défaillance tout au long de la cérémonie de votre initiation et que, si
-        finalement vous êtes reçu, vous agirez conformément aux us et coutumes
-        de l'Ordre ?
-      </span>
+      </p>
+      <p>
+        {" "}
+        <span className="vm">
+          <b>VM </b>: Déclarez-vous également sur votre honneur que, sans
+          crainte, et en même temps sans témérité, vous persévérerez sans
+          défaillance tout au long de la cérémonie de votre initiation et que,
+          si finalement vous êtes reçu, vous agirez conformément aux us et
+          coutumes de l'Ordre ?
+        </span>
       </p>
       <p>
         <b>Cand </b>: <span className="com"> (Soufflé par le 2ème E.) </span> Je
         le déclares
       </p>
-      <p><span className="vm">
-        <b>VM </b>: F. 1er S.,
-        <span className="com"> (le 1er S. reste assis) </span> Veuillez ordonner
-        au 2ème E. d'enseigner au candidat la manière traditionnelle de
-        s'avancer vers l'A.
-      </span>
+      <p>
+        <span className="vm">
+          <b>VM </b>: F. 1er S.,
+          <span className="com"> (le 1er S. reste assis) </span> Veuillez
+          ordonner au 2ème E. d'enseigner au candidat la manière traditionnelle
+          de s'avancer vers l'A.
+        </span>
       </p>
       <p>
         <b>1er S </b>: F. 2d E., par ordre du V.M., veuillez enseigner au
@@ -340,14 +351,12 @@ function page() {
       <p className="com">
         Le 2ème E conduit le candidat à une distance convenable de la Chaire du
         V.M. et dit au Cand. à mi-voix :
-        </p>
+      </p>
       <p>
         <b>2d E </b>: Veuillez placez vos d. p. l'un contre l'autre. Faites
         faire à vos. p. d. un quart de t. de manière à f. une éq.{" "}
       </p>
-      <p className="com">
-        Puis faisant le p. avec le Cand. dit à haute voix
-      </p>
+      <p className="com">Puis faisant le p. avec le Cand. dit à haute voix</p>
       <p>
         <b>2d E </b>: Faites un petit p. en p. du p. g. et joignez les t. de
         façon à former une éq. Faites encore un p. un peu plus l. et en joignant
@@ -373,7 +382,7 @@ function page() {
         ayant pour base les principes que je vous ai indiqués par laquelle vous
         vous engagez à conserver inviolables les s. et m. de l'Ordre ?
       </p>
-      <p className="com">Le second E. incite le Cand. en disant : </p>      
+      <p className="com">Le second E. incite le Cand. en disant : </p>
       <p>
         <b>2d E </b>: Répondez
       </p>
@@ -381,15 +390,15 @@ function page() {
         <b>Cand </b>: ..........
       </p>
       <p className="vm">
-        <b>VM </b>: Veuillez donc vous a. sur le g. g. et f. l'éq. avec le p.
-        d. genou d. à l'éq., le pied d. à plat sur le sol.
+        <b>VM </b>: Veuillez donc vous a. sur le g. g. et f. l'éq. avec le p. d.
+        genou d. à l'éq., le pied d. à plat sur le sol.
         <br />
         Donnez-moi votre m. d. que je place sur le V.S.L.
         <span className="com"> (Sur la page de d.) </span>
         <br />
         Soutenez en même temps de la m. g. ce C. dont une des p. est dirigée
         contre votre s. g. m. à n.
-      </p>      
+      </p>
       <p className="com">
         Ce disant, il place le C. ouvert à 90°, dans la m.g. du Cand., une
         pointe sur le sein g. mis à nu, l'autre orientée vers le haut.
@@ -406,9 +415,10 @@ function page() {
         en se réglant sur le VM. Les EE. croisent leur v. qu'ils tiennent de la
         m. g. afin de se mettre aussi à l'O.
       </p>
-      
-<div><NavEmul /></div>
 
+      <div>
+        <NavEmul />
+      </div>
     </div>
   );
 }

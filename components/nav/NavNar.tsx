@@ -4,7 +4,7 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { listNar } from "@/lib/ListNar";
+import { listNar } from "@/lib/nav/ListNar";
 
 const NavNar: React.FC = () => {
   const currentPageUrl = usePathname();

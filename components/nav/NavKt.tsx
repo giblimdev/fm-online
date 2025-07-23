@@ -4,7 +4,7 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { listKT } from "@/lib/ListKt";
+import { listKT } from "@/lib/nav/ListKt";
 
 const NavKT: React.FC = () => {
   const currentPageUrl = usePathname();
