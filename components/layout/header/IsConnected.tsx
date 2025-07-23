@@ -141,7 +141,7 @@ export default function IsConnected() {
           {/* Options du menu */}
           <div className="py-1">
             <Link
-              href="/rituels"
+              href="/user/dashboard"
               onClick={closeDropdown}
               className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 transition-colors group"
             >
@@ -149,13 +149,15 @@ export default function IsConnected() {
                 <Calendar className="h-4 w-4 text-green-600" />
               </div>
               <div>
-                <p className="font-medium">Mes rituels</p>
-                <p className="text-xs text-slate-500">Gérer vos habitudes</p>
+                <p className="font-medium">dashboard</p>
+                <p className="text-xs text-slate-500">
+                  Vos rituels et autres Informations
+                </p>
               </div>
             </Link>
 
             <Link
-              href="/profil"
+              href="/user/profile"
               onClick={closeDropdown}
               className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 transition-colors group"
             >
@@ -166,22 +168,6 @@ export default function IsConnected() {
                 <p className="font-medium">Mon profil</p>
                 <p className="text-xs text-slate-500">
                   Informations personnelles
-                </p>
-              </div>
-            </Link>
-
-            <Link
-              href="/parametres"
-              onClick={closeDropdown}
-              className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 transition-colors group"
-            >
-              <div className="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center group-hover:bg-slate-200 transition-colors">
-                <Settings className="h-4 w-4 text-slate-600" />
-              </div>
-              <div>
-                <p className="font-medium">Paramètres</p>
-                <p className="text-xs text-slate-500">
-                  Configuration du compte
                 </p>
               </div>
             </Link>

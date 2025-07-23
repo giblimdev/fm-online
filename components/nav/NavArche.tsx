@@ -9,22 +9,10 @@ import { listArche } from "@/lib/nav/ListArche";
 const NavArche: React.FC = () => {
   const currentPageUrl = usePathname();
 
-  // Debug: Affiche l'URL actuelle et la liste des pages
-  console.log("Current URL:", currentPageUrl);
-  console.log("Page list:", listArche);
-  // Protection contre les données manquantes
-  if (!listArche || listArche.length === 0) {
-    console.error("La liste des pages est vide ou non chargée");
-    return null;
-  }
-
   // Trouve l'index de la page actuelle
   const currentIndex = listArche.findIndex(
     (page) => currentPageUrl.startsWith(page.url) // Utilisation de startsWith pour plus de flexibilité
   );
-
-  // Debug: Affiche l'index trouvé
-  console.log("Current index:", currentIndex);
 
   // Si la page actuelle n'est pas dans la liste
   if (currentIndex === -1) {

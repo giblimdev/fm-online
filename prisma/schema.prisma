@@ -14,17 +14,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Grade {
+  APP
+  CP
+  M
+  MMARQUE
+  VM
+  NAUTONIER
+  CPARCHEDOM
+  KT
+}
+
 model User {
   id            String      @id @default(cuid())
   name          String
   email         String
   emailVerified Boolean     @default(false)
   image         String?
+  grade         Grade[]     @default([APP])
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
   sessions      Session[]
   accounts      Account[]
-  documents     Documents[]
+  documents     Documents[] // ← C'est la bibliothèque !
 
   @@unique([email])
   @@map("user")

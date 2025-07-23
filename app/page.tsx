@@ -22,6 +22,7 @@ import {
   Image as ImageIcon,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 // Interface selon votre schéma Prisma
 interface Document {
@@ -57,6 +58,7 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [addedDocuments, setAddedDocuments] = useState<Set<string>>(new Set());
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     fetchFeaturedDocuments();
@@ -80,6 +82,30 @@ export default function HomePage() {
     setShowLoginPrompt(true);
     setTimeout(() => setShowLoginPrompt(false), 3000);
     setAddedDocuments((prev) => new Set(prev).add(documentId));
+  };
+
+  const handleImageError = (documentId: string, imageUrl?: string) => {
+    console.log(
+      "Erreur de chargement image pour document:",
+      documentId,
+      "URL:",
+      imageUrl
+    );
+    setImageErrors((prev) => new Set(prev).add(documentId));
+  };
+
+  const isValidImageUrl = (url: string | null | undefined): boolean => {
+    if (!url || url.trim() === "") return false;
+
+    // Accepter les chemins locaux qui commencent par /
+    if (url.startsWith("/")) return true;
+
+    try {
+      const urlObj = new URL(url);
+      return urlObj.protocol === "http:" || urlObj.protocol === "https:";
+    } catch {
+      return false;
+    }
   };
 
   const getGradeColor = (grade?: string) => {
@@ -272,128 +298,113 @@ export default function HomePage() {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredDocuments.map((document) => (
-                <div
-                  key={document.id}
-                  className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
-                >
-                  {/* Image avec placeholder */}
-                  <div className="aspect-video overflow-hidden">
-                    {document.image ? (
-                      <img
-                        src={document.image}
-                        alt={document.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          const target = e.currentTarget;
-                          target.style.display = "none";
-                          const placeholder =
-                            target.nextElementSibling as HTMLElement;
-                          if (placeholder) placeholder.style.display = "flex";
-                        }}
-                      />
-                    ) : null}
-                    <div
-                      className={`w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center ${
-                        document.image ? "hidden" : "flex"
-                      }`}
-                      style={{ display: document.image ? "none" : "flex" }}
-                    >
-                      <div className="text-center">
-                        <ImageIcon className="h-12 w-12 text-slate-400 mx-auto mb-2" />
-                        <p className="text-slate-500 text-sm font-medium">
-                          Rituel traditionnel
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              {featuredDocuments.map((document) => {
+                // Console.log pour déboguer l'image
+                console.log(
+                  "Document ID:",
+                  document.id,
+                  "Image:",
+                  document.image,
+                  "Type:",
+                  typeof document.image
+                );
 
-                  <div className="p-6">
-                    <div className="mb-4">
-                      <h3 className="text-xl font-bold text-slate-900 line-clamp-2 group-hover:text-blue-600 transition-colors mb-3">
-                        {document.title}
-                      </h3>
-
-                      {/* Badges pour Grade et Category */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {document.grade && (
-                          <span
-                            className={`px-2 py-1 text-xs font-medium border rounded-lg ${getGradeColor(
-                              document.grade
-                            )}`}
-                          >
-                            {document.grade}
-                          </span>
-                        )}
-                        {document.category && (
-                          <span
-                            className={`px-2 py-1 text-xs font-medium border rounded-lg flex items-center ${getCategoryColor(
-                              document.category
-                            )}`}
-                          >
-                            <Tag className="h-3 w-3 mr-1" />
-                            {document.category}
-                          </span>
-                        )}
-                      </div>
+                return (
+                  <div
+                    key={document.id}
+                    className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
+                  >
+                    <div className="aspect-video overflow-hidden relative">
+                      {document.image &&
+                      isValidImageUrl(document.image) &&
+                      !imageErrors.has(document.id) ? (
+                        <Image
+                          src={document.image}
+                          alt={document.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={() =>
+                            handleImageError(document.id, document.image)
+                          }
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+                          <div className="text-center">
+                            <ImageIcon className="h-12 w-12 text-slate-400 mx-auto mb-2" />
+                            <p className="text-slate-500 text-sm font-medium">
+                              Rituel traditionnel
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
-                    {document.description && (
-                      <p className="text-slate-600 line-clamp-3 mb-6 leading-relaxed">
-                        {document.description}
-                      </p>
-                    )}
+                    <div className="p-6">
+                      <div className="mb-4">
+                        <h3 className="text-xl font-bold text-slate-900 line-clamp-2 group-hover:text-blue-600 transition-colors mb-3">
+                          {document.title}
+                        </h3>
 
-                    {/* Métadonnées */}
-                    <div className="flex items-center justify-between text-sm text-slate-500 mb-6">
-                      <div className="flex items-center space-x-4">
-                        <span className="flex items-center">
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          {document.liens.length} liens
-                        </span>
-                        <span className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1" />
-                          {new Date(document.createdAt).toLocaleDateString(
-                            "fr-FR"
+                        {/* Badges pour Grade et Category */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {document.grade && (
+                            <span
+                              className={`px-2 py-1 text-xs font-medium border rounded-lg ${getGradeColor(
+                                document.grade
+                              )}`}
+                            >
+                              {document.grade}
+                            </span>
                           )}
-                        </span>
+                          {document.category && (
+                            <span
+                              className={`px-2 py-1 text-xs font-medium border rounded-lg flex items-center ${getCategoryColor(
+                                document.category
+                              )}`}
+                            >
+                              <Tag className="h-3 w-3 mr-1" />
+                              {document.category}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {document.description && (
+                        <p className="text-slate-600 line-clamp-3 mb-6 leading-relaxed">
+                          {document.description}
+                        </p>
+                      )}
+
+                      {/* Métadonnées */}
+                      <div className="flex items-center justify-between text-sm text-slate-500 mb-6">
+                        <div className="flex items-center space-x-4">
+                          <span className="flex items-center">
+                            <ExternalLink className="h-4 w-4 mr-1" />
+                            {document.liens.length} liens
+                          </span>
+                          <span className="flex items-center">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            {new Date(document.createdAt).toLocaleDateString(
+                              "fr-FR"
+                            )}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Actions */}
+                      <div className="flex items-center space-x-3">
+                        <Link
+                          href={`/public/${document.id}`}
+                          className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-3 rounded-xl font-medium transition-colors text-center"
+                        >
+                          Voir le rituel
+                        </Link>
                       </div>
                     </div>
-
-                    {/* Actions */}
-                    <div className="flex items-center space-x-3">
-                      <Link
-                        href={`/public/documents/${document.id}`}
-                        className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-3 rounded-xl font-medium transition-colors text-center"
-                      >
-                        Voir le rituel
-                      </Link>
-
-                      <button
-                        onClick={() => addToLibrary(document.id)}
-                        disabled={addedDocuments.has(document.id)}
-                        className={`px-4 py-3 rounded-xl font-medium transition-all flex items-center space-x-2 ${
-                          addedDocuments.has(document.id)
-                            ? "bg-green-100 text-green-800 cursor-not-allowed"
-                            : "bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                        }`}
-                      >
-                        {addedDocuments.has(document.id) ? (
-                          <>
-                            <Check className="h-4 w-4" />
-                            <span>Ajouté</span>
-                          </>
-                        ) : (
-                          <>
-                            <Plus className="h-4 w-4" />
-                            <span>Ajouter</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
 
@@ -464,8 +475,8 @@ export default function HomePage() {
                 Explorez
               </h3>
               <p className="text-slate-600">
-                Parcourez notre collection de rituels organisés par grades
-                maçonniques et catégories
+                Parcourez notre collection de rituels organisés par Grades et
+                Rites
               </p>
             </div>
 
@@ -478,7 +489,7 @@ export default function HomePage() {
               </h3>
               <p className="text-slate-600">
                 Cliquez sur les rituels qui vous intéressent pour accéder au
-                contenu complet et aux liens utiles
+                contenu et ajoutez les à votre bibliothèque.
               </p>
             </div>
 
@@ -490,8 +501,8 @@ export default function HomePage() {
                 Créez un compte
               </h3>
               <p className="text-slate-600">
-                Inscrivez-vous gratuitement pour créer et gérer vos propres
-                documents maçonniques
+                Inscrivez-vous gratuitement pour créer et gérer votre
+                bibliothèque de rituel.
               </p>
             </div>
 
@@ -499,12 +510,9 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
                 4
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">
-                Contribuez
-              </h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Ajoutez</h3>
               <p className="text-slate-600">
-                Partagez vos connaissances en créant et organisant vos propres
-                rituels et documents
+                Ajoutez un rituel à votre programme d'étude.
               </p>
             </div>
           </div>

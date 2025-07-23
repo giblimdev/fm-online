@@ -358,7 +358,7 @@ export default function DashboardPage() {
 
                     <div className="flex items-center space-x-2">
                       <Link
-                        href={`/public/documents/${document.id}`}
+                        href={`/user/documents/${document.id}`}
                         className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium text-center flex items-center justify-center space-x-1"
                       >
                         <Eye className="h-3 w-3" />

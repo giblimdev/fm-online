@@ -45,6 +45,29 @@ export type Documents = $Result.DefaultSelection<Prisma.$DocumentsPayload>
 export type Links = $Result.DefaultSelection<Prisma.$LinksPayload>
 
 /**
+ * Enums
+ */
+export namespace $Enums {
+  export const Grade: {
+  APP: 'APP',
+  CP: 'CP',
+  M: 'M',
+  MMARQUE: 'MMARQUE',
+  VM: 'VM',
+  NAUTONIER: 'NAUTONIER',
+  CPARCHEDOM: 'CPARCHEDOM',
+  KT: 'KT'
+};
+
+export type Grade = (typeof Grade)[keyof typeof Grade]
+
+}
+
+export type Grade = $Enums.Grade
+
+export const Grade: typeof $Enums.Grade
+
+/**
  * ##  Prisma Client ʲˢ
  *
  * Type-safe database client for TypeScript & Node.js
@@ -1439,6 +1462,7 @@ export namespace Prisma {
     email: number
     emailVerified: number
     image: number
+    grade: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1471,6 +1495,7 @@ export namespace Prisma {
     email?: true
     emailVerified?: true
     image?: true
+    grade?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1554,6 +1579,7 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image: string | null
+    grade: $Enums.Grade[]
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1581,6 +1607,7 @@ export namespace Prisma {
     email?: boolean
     emailVerified?: boolean
     image?: boolean
+    grade?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
@@ -1595,6 +1622,7 @@ export namespace Prisma {
     email?: boolean
     emailVerified?: boolean
     image?: boolean
+    grade?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1605,6 +1633,7 @@ export namespace Prisma {
     email?: boolean
     emailVerified?: boolean
     image?: boolean
+    grade?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1615,11 +1644,12 @@ export namespace Prisma {
     email?: boolean
     emailVerified?: boolean
     image?: boolean
+    grade?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "grade" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
@@ -1642,6 +1672,7 @@ export namespace Prisma {
       email: string
       emailVerified: boolean
       image: string | null
+      grade: $Enums.Grade[]
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -2075,6 +2106,7 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly emailVerified: FieldRef<"User", 'Boolean'>
     readonly image: FieldRef<"User", 'String'>
+    readonly grade: FieldRef<"User", 'Grade[]'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -8147,6 +8179,7 @@ export namespace Prisma {
     email: 'email',
     emailVerified: 'emailVerified',
     image: 'image',
+    grade: 'grade',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -8279,6 +8312,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Grade[]'
+   */
+  export type ListEnumGradeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Grade[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Grade'
+   */
+  export type EnumGradeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Grade'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -8332,6 +8379,7 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     emailVerified?: BoolFilter<"User"> | boolean
     image?: StringNullableFilter<"User"> | string | null
+    grade?: EnumGradeNullableListFilter<"User">
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
@@ -8345,6 +8393,7 @@ export namespace Prisma {
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrderInput | SortOrder
+    grade?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
@@ -8361,6 +8410,7 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     emailVerified?: BoolFilter<"User"> | boolean
     image?: StringNullableFilter<"User"> | string | null
+    grade?: EnumGradeNullableListFilter<"User">
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
@@ -8374,6 +8424,7 @@ export namespace Prisma {
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrderInput | SortOrder
+    grade?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -8390,6 +8441,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     emailVerified?: BoolWithAggregatesFilter<"User"> | boolean
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
+    grade?: EnumGradeNullableListFilter<"User">
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -8774,6 +8826,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -8787,6 +8840,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -8800,6 +8854,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -8813,6 +8868,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -8826,6 +8882,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -8836,6 +8893,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8846,6 +8904,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9298,6 +9357,14 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type EnumGradeNullableListFilter<$PrismaModel = never> = {
+    equals?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    has?: $Enums.Grade | EnumGradeFieldRefInput<$PrismaModel> | null
+    hasEvery?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel>
+    hasSome?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -9350,6 +9417,7 @@ export namespace Prisma {
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
+    grade?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9697,6 +9765,10 @@ export namespace Prisma {
     order?: SortOrder
   }
 
+  export type UserCreategradeInput = {
+    set: $Enums.Grade[]
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -9749,6 +9821,11 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type UserUpdategradeInput = {
+    set?: $Enums.Grade[]
+    push?: $Enums.Grade | $Enums.Grade[]
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -10335,6 +10412,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
@@ -10347,6 +10425,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
@@ -10375,6 +10454,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
@@ -10387,6 +10467,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
@@ -10399,6 +10480,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -10411,6 +10493,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -10439,6 +10522,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -10451,6 +10535,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -10489,6 +10574,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -10501,6 +10587,7 @@ export namespace Prisma {
     email: string
     emailVerified?: boolean
     image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -10557,6 +10644,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -10569,6 +10657,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput

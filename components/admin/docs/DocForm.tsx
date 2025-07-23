@@ -51,18 +51,29 @@ export default function DocForm({
   });
 
   // Options pour les grades maçonniques
+  /*
+  enum Grade {
+APP
+CP
+M
+MMARQUE
+VM
+NAUTONIER
+CPARCHEDOM
+KT
+}*/
   const gradeOptions = [
-    { value: "Apprenti", label: "Apprenti" },
-    { value: "Compagnon", label: "Compagnon" },
-    { value: "Maitre", label: "Maître" },
-    { value: "Maitre de Marque", label: "Maître de Marque" },
-    { value: "Vénérable Maitre", label: "Vénérable Maître" },
-    { value: "Nautonier", label: "Nautonier" },
+    { value: "APP", label: "Apprenti" },
+    { value: "CP", label: "Compagnon" },
+    { value: "M", label: "Maître" },
+    { value: "MMARQUE", label: "Maître de Marque" },
+    { value: "VM", label: "Vénérable Maître" },
+    { value: "NAUTONIER", label: "Nautonier" },
     {
-      value: "Compagnon de l'arche Royal Domatique",
+      value: "CPARCHEDOM",
       label: "Compagnon de l'Arche Royal Domatique",
     },
-    { value: "Chevalier du temple", label: "Chevalier du Temple" },
+    { value: "KT", label: "Chevalier du Temple" },
   ];
 
   // Options pour les catégories
