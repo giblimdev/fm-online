@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff, LogIn, UserPlus } from "lucide-react";
 import Link from "next/link";
 
-export default function LoginForm() {
+export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -49,22 +49,16 @@ export default function LoginForm() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-lg">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl mb-4 shadow-lg">
-            <LogIn className="h-8 w-8 text-white" />
-          </div>
-          <h1 className="text-3xl font-bold text-slate-800 mb-2">
-            Bon retour parmi nous
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-12 text-center">
+          <h1 className="text-3xl font-bold text-white mb-2">
+            Accédez à votre espace
           </h1>
-          <p className="text-slate-600 text-lg">Accédez à votre espace</p>
+          <p className="text-blue-100 text-lg">Connectez-vous pour continuer</p>
         </div>
 
-        {/* Form */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8">
+        <div className="px-8 py-8">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
@@ -73,52 +67,41 @@ export default function LoginForm() {
                 Adresse email
               </label>
               <input
-                id="email"
                 type="email"
+                id="email"
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  clearError();
-                }}
-                className="w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-slate-50 focus:bg-white"
-                placeholder="gilbert.gasquier@gasquier.fr"
+                onChange={(e) => setEmail(e.target.value)}
+                onFocus={clearError}
                 required
+                placeholder="votre@email.com"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-slate-900 placeholder-slate-400"
               />
             </div>
 
-            {/* Password */}
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-semibold text-slate-700"
-                >
-                  Mot de passe
-                </label>
-                <Link
-                  href="/forgot-password"
-                  className="text-sm text-blue-600 hover:text-blue-700 font-medium hover:underline transition-colors"
-                >
-                  Mot de passe oublié ?
-                </Link>
-              </div>
+              <label
+                htmlFor="password"
+                className="block text-sm font-semibold text-slate-700 mb-2"
+              >
+                Mot de passe
+              </label>
               <div className="relative">
                 <input
-                  id="password"
                   type={showPassword ? "text" : "password"}
+                  id="password"
                   value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                    clearError();
-                  }}
-                  className="w-full px-4 py-3 pr-12 border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-slate-50 focus:bg-white"
-                  placeholder="••••••••••••"
+                  onChange={(e) => setPassword(e.target.value)}
+                  onFocus={clearError}
                   required
+                  placeholder="••••••••"
+                  className="w-full px-4 py-3 pr-12 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none text-slate-900 placeholder-slate-400"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 hover:text-slate-700 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-700 transition-colors p-1"
+                  tabIndex={-1}
+                  aria-label="Afficher/masquer le mot de passe"
                 >
                   {showPassword ? (
                     <EyeOff className="h-5 w-5" />
@@ -129,61 +112,63 @@ export default function LoginForm() {
               </div>
             </div>
 
-            {/* Error Message */}
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                id="rememberMe"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
+              />
+              <label
+                htmlFor="rememberMe"
+                className="ml-3 block text-sm text-slate-700 select-none cursor-pointer"
+              >
+                Se souvenir de moi
+              </label>
+            </div>
+
             {error && (
-              <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-                <p className="text-sm text-red-700 font-medium">{error}</p>
+              <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                <p className="text-red-800 text-sm font-medium">{error}</p>
               </div>
             )}
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 focus:ring-4 focus:ring-blue-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-lg"
             >
               {isLoading ? (
-                <div className="flex items-center justify-center space-x-2">
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>Connexion en cours...</span>
-                </div>
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
               ) : (
-                <div className="flex items-center justify-center space-x-2">
-                  <LogIn className="h-5 w-5" />
-                  <span>Se connecter</span>
-                </div>
+                <LogIn className="h-5 w-5" />
               )}
+              <span>{isLoading ? "Connexion..." : "Se connecter"}</span>
             </button>
           </form>
 
-          {/* Sign Up Link */}
-          <div className="mt-6 pt-6 border-t border-slate-200">
-            <div className="text-center">
-              <p className="text-slate-600 font-medium">
-                Pas encore de compte ?{" "}
-                <Link
-                  href="/auth/register"
-                  className="inline-flex items-center space-x-1 text-blue-600 hover:text-blue-700 font-semibold hover:underline transition-colors"
-                >
-                  <UserPlus className="h-4 w-4" />
-                  <span>Créer un compte</span>
-                </Link>
-              </p>
+          <div className="mt-8 pt-6 border-t border-slate-200">
+            <div className="text-center text-sm text-slate-600">
+              Pas encore de compte ?{" "}
+              <Link
+                href="/auth/register"
+                className="text-blue-600 hover:text-blue-700 font-semibold hover:underline transition-colors"
+              >
+                Créer un compte
+              </Link>
+            </div>
+
+            <div className="text-center text-xs text-slate-500 mt-4">
+              Besoin d'aide ?{" "}
+              <a
+                href="mailto:support@fm-online.com"
+                className="text-blue-600 hover:text-blue-700 underline transition-colors"
+              >
+                Contactez notre support
+              </a>
             </div>
           </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center mt-8">
-          <p className="text-slate-500 text-sm">
-            Besoin d'aide ?{" "}
-            <Link
-              href="/support"
-              className="text-blue-600 hover:underline font-medium"
-            >
-              Contactez notre support
-            </Link>
-          </p>
         </div>
       </div>
     </div>

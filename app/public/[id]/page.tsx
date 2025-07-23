@@ -20,14 +20,22 @@ import {
   Globe,
   Heart,
   Eye,
+  FileText,
+  FolderOpen,
+  Hash,
+  Lock,
+  Info,
 } from "lucide-react";
 import Link from "next/link";
 
 interface Document {
   id: string;
   title: string;
-  descrition?: string;
+  description?: string;
+  content?: string;
   grade?: string;
+  category?: string;
+  ordre?: number;
   image?: string;
   createdAt: string;
   updatedAt: string;
@@ -38,8 +46,9 @@ interface Document {
 interface DocumentLink {
   id: string;
   url: string;
-  title: string;
+  title?: string;
   description?: string;
+  order?: number;
   documentId: string;
 }
 
@@ -105,7 +114,6 @@ export default function DocumentDetailPage() {
 
       if (response.ok) {
         setIsAddedToLibrary(true);
-        // Afficher un message de succès
         setShareMessage("Document ajouté à votre bibliothèque !");
         setTimeout(() => setShareMessage(null), 3000);
       } else {
@@ -136,6 +144,22 @@ export default function DocumentDetailPage() {
     }
   };
 
+  const getCategoryColor = (category?: string) => {
+    const colors = [
+      "bg-blue-100 text-blue-800 border-blue-200",
+      "bg-purple-100 text-purple-800 border-purple-200",
+      "bg-indigo-100 text-indigo-800 border-indigo-200",
+      "bg-pink-100 text-pink-800 border-pink-200",
+      "bg-teal-100 text-teal-800 border-teal-200",
+    ];
+    if (!category) return "bg-slate-100 text-slate-800 border-slate-200";
+    const hash = category.split("").reduce((a, b) => {
+      a = (a << 5) - a + b.charCodeAt(0);
+      return a & a;
+    }, 0);
+    return colors[Math.abs(hash) % colors.length];
+  };
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("fr-FR", {
       day: "numeric",
@@ -159,7 +183,7 @@ export default function DocumentDetailPage() {
   const shareDocument = async () => {
     const url = window.location.href;
     const title = document?.title || "Document";
-    const text = document?.descrition || "Consultez ce document";
+    const text = document?.description || "Consultez ce document";
 
     try {
       if (
@@ -278,7 +302,6 @@ export default function DocumentDetailPage() {
             </Link>
 
             <div className="flex items-center space-x-4">
-              {/* Bouton Ajouter à ma bibliothèque */}
               <button
                 onClick={addToLibrary}
                 disabled={isAddingToLibrary || isAddedToLibrary}
@@ -341,8 +364,10 @@ export default function DocumentDetailPage() {
                   <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-6">
                     {document.title}
                   </h1>
-                  {document.grade && (
-                    <div className="inline-block">
+
+                  {/* Tags informatifs */}
+                  <div className="flex flex-wrap gap-3 mb-6">
+                    {document.grade && (
                       <span
                         className={`px-4 py-2 text-sm font-bold border rounded-xl ${getGradeColor(
                           document.grade
@@ -350,8 +375,27 @@ export default function DocumentDetailPage() {
                       >
                         Priorité: {document.grade}
                       </span>
-                    </div>
-                  )}
+                    )}
+
+                    {document.category && (
+                      <span
+                        className={`px-4 py-2 text-sm font-bold border rounded-xl ${getCategoryColor(
+                          document.category
+                        )}`}
+                      >
+                        <FolderOpen className="h-4 w-4 inline mr-1" />
+                        {document.category}
+                      </span>
+                    )}
+
+                    {document.ordre !== null &&
+                      document.ordre !== undefined && (
+                        <span className="px-4 py-2 text-sm font-bold border rounded-xl bg-indigo-100 text-indigo-800 border-indigo-200">
+                          <Hash className="h-4 w-4 inline mr-1" />
+                          Ordre: {document.ordre}
+                        </span>
+                      )}
+                  </div>
                 </div>
               </div>
 
@@ -368,10 +412,10 @@ export default function DocumentDetailPage() {
                   </div>
                 )}
                 <div className="flex items-center space-x-2">
-                  <ExternalLink className="h-4 w-4" />
+                  <Info className="h-4 w-4" />
                   <span>
                     {document.liens.length} lien
-                    {document.liens.length !== 1 ? "s" : ""} associé
+                    {document.liens.length !== 1 ? "s" : ""} informatif
                     {document.liens.length !== 1 ? "s" : ""}
                   </span>
                 </div>
@@ -387,7 +431,7 @@ export default function DocumentDetailPage() {
           <div className="px-8 py-12">
             <div className="max-w-4xl mx-auto">
               {/* Description */}
-              {document.descrition && (
+              {document.description && (
                 <div className="prose prose-lg prose-slate max-w-none mb-16">
                   <div className="bg-slate-50 rounded-3xl p-10">
                     <h2 className="text-3xl font-bold text-slate-900 mb-8 flex items-center">
@@ -395,91 +439,130 @@ export default function DocumentDetailPage() {
                       Description
                     </h2>
                     <div className="text-slate-700 leading-relaxed text-lg whitespace-pre-wrap">
-                      {document.descrition}
+                      {document.description}
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Liens associés */}
+              {/* Contenu principal */}
+              {document.content && (
+                <div className="prose prose-lg prose-slate max-w-none mb-16">
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-10">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-8 flex items-center">
+                      <FileText className="h-8 w-8 text-blue-600 mr-3" />
+                      Contenu
+                    </h2>
+                    <div className="text-slate-700 leading-relaxed text-lg whitespace-pre-wrap">
+                      {document.content}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Liens informatifs (non cliquables) */}
               {document.liens.length > 0 && (
                 <div>
                   <h2 className="text-3xl font-bold text-slate-900 mb-10 flex items-center">
                     <Globe className="h-8 w-8 text-blue-600 mr-3" />
-                    Liens associés ({document.liens.length})
+                    Liens informatifs ({document.liens.length})
                   </h2>
 
-                  <div className="grid gap-8">
-                    {document.liens.map((link, index) => (
-                      <div
-                        key={link.id}
-                        className="bg-gradient-to-r from-slate-50 to-blue-50 border border-slate-200 rounded-3xl p-10 hover:shadow-xl transition-all duration-300 group"
-                      >
-                        <div className="flex items-start justify-between mb-6">
-                          <div className="flex items-center space-x-4">
-                            <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                              <ExternalLink className="h-8 w-8 text-blue-600" />
-                            </div>
-                            <div>
-                              <span className="text-sm font-medium text-slate-500 block mb-1">
-                                Lien #{index + 1}
-                              </span>
-                              <h3 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                                {link.title}
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="mb-6">
-                          <p className="text-sm font-medium text-slate-500 mb-3">
-                            URL:
-                          </p>
-                          <p className="text-blue-600 break-all font-mono text-sm bg-white px-4 py-3 rounded-xl border">
-                            {link.url}
-                          </p>
-                        </div>
-
-                        {link.description && (
-                          <div className="mb-8">
-                            <p className="text-sm font-medium text-slate-500 mb-3">
-                              Description:
-                            </p>
-                            <p className="text-slate-700 leading-relaxed text-lg">
-                              {link.description}
-                            </p>
-                          </div>
-                        )}
-
-                        <div className="flex flex-col sm:flex-row items-center gap-4">
-                          <a
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 inline-flex items-center justify-center space-x-2 bg-blue-600 text-white px-8 py-4 rounded-2xl hover:bg-blue-700 transition-all font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                          >
-                            <ExternalLink className="h-5 w-5" />
-                            <span>Ouvrir le lien</span>
-                          </a>
-                          <button
-                            onClick={() => copyToClipboard(link.url, link.id)}
-                            className="flex-1 inline-flex items-center justify-center space-x-2 bg-slate-200 text-slate-700 px-8 py-4 rounded-2xl hover:bg-slate-300 transition-colors font-medium"
-                          >
-                            {copiedLinkId === link.id ? (
-                              <>
-                                <Check className="h-5 w-5 text-green-600" />
-                                <span className="text-green-600">Copié !</span>
-                              </>
-                            ) : (
-                              <>
-                                <Copy className="h-5 w-5" />
-                                <span>Copier l'URL</span>
-                              </>
-                            )}
-                          </button>
-                        </div>
+                  <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-6 mb-8">
+                    <div className="flex items-center space-x-3">
+                      <Lock className="h-6 w-6 text-yellow-600" />
+                      <div>
+                        <h3 className="font-bold text-yellow-800">
+                          Information importante
+                        </h3>
+                        <p className="text-yellow-700 text-sm">
+                          Les liens ci-dessous sont présentés à titre informatif
+                          uniquement. Ils ne sont pas cliquables pour des
+                          raisons de sécurité.
+                        </p>
                       </div>
-                    ))}
+                    </div>
+                  </div>
+
+                  <div className="grid gap-8">
+                    {document.liens
+                      .sort((a, b) => (a.order || 0) - (b.order || 0))
+                      .map((link, index) => (
+                        <div
+                          key={link.id}
+                          className="bg-gradient-to-r from-slate-50 to-blue-50 border border-slate-200 rounded-3xl p-10 relative"
+                        >
+                          {/* Badge informatif */}
+                          <div className="absolute top-4 right-4">
+                            <span className="bg-orange-100 text-orange-800 text-xs font-bold px-3 py-1 rounded-full border border-orange-200">
+                              INFORMATIF
+                            </span>
+                          </div>
+
+                          <div className="flex items-start justify-between mb-6">
+                            <div className="flex items-center space-x-4">
+                              <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center">
+                                <Info className="h-8 w-8 text-gray-600" />
+                              </div>
+                              <div>
+                                <span className="text-sm font-medium text-slate-500 block mb-1">
+                                  Lien #{index + 1}
+                                  {link.order && ` - Ordre: ${link.order}`}
+                                </span>
+                                <h3 className="text-2xl font-bold text-slate-900">
+                                  {link.title || `Lien #${index + 1}`}
+                                </h3>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="mb-6">
+                            <p className="text-sm font-medium text-slate-500 mb-3">
+                              URL (non cliquable):
+                            </p>
+                            <div className="relative">
+                              <p className="text-slate-600 break-all font-mono text-sm bg-white px-4 py-3 rounded-xl border border-dashed border-gray-300 opacity-75">
+                                {link.url}
+                              </p>
+                              <div className="absolute inset-0 bg-gray-100/50 rounded-xl flex items-center justify-center">
+                                <Lock className="h-6 w-6 text-gray-500" />
+                              </div>
+                            </div>
+                          </div>
+
+                          {link.description && (
+                            <div className="mb-8">
+                              <p className="text-sm font-medium text-slate-500 mb-3">
+                                Description:
+                              </p>
+                              <p className="text-slate-700 leading-relaxed text-lg">
+                                {link.description}
+                              </p>
+                            </div>
+                          )}
+
+                          <div className="flex items-center justify-center gap-4">
+                            <button
+                              onClick={() => copyToClipboard(link.url, link.id)}
+                              className="flex items-center justify-center space-x-2 bg-slate-200 text-slate-700 px-8 py-4 rounded-2xl hover:bg-slate-300 transition-colors font-medium"
+                            >
+                              {copiedLinkId === link.id ? (
+                                <>
+                                  <Check className="h-5 w-5 text-green-600" />
+                                  <span className="text-green-600">
+                                    URL copiée !
+                                  </span>
+                                </>
+                              ) : (
+                                <>
+                                  <Copy className="h-5 w-5" />
+                                  <span>Copier l'URL</span>
+                                </>
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                      ))}
                   </div>
                 </div>
               )}
@@ -487,10 +570,11 @@ export default function DocumentDetailPage() {
               {/* Actions de fin */}
               <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-10 text-center">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                  Ce document vous a plu ?
+                  Ce document vous a été utile ?
                 </h3>
                 <p className="text-slate-600 mb-8 text-lg">
-                  Ajoutez-le à votre bibliothèque personnelle
+                  Ajoutez-le à votre bibliothèque personnelle pour le retrouver
+                  facilement
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <button
