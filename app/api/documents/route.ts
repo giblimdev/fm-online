@@ -1,4 +1,4 @@
-// @/app/api/documents/route.ts
+// app/api/documents/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
@@ -12,7 +12,9 @@ export async function GET(request: NextRequest) {
     const documents = await prisma.documents.findMany({
       where: whereClause,
       include: {
-        liens: true,
+        liens: {
+          orderBy: { order: "asc" }, // ← Ajout du tri pour les liens
+        },
         user: {
           select: {
             id: true,
@@ -21,7 +23,7 @@ export async function GET(request: NextRequest) {
           },
         },
       },
-      orderBy: { createdAt: "desc" },
+      orderBy: { ordre: "desc" },
     });
 
     return NextResponse.json(documents);
@@ -81,15 +83,18 @@ export async function POST(request: NextRequest) {
         userId,
         liens: {
           create:
-            liens?.map((link: any) => ({
+            liens?.map((link: any, index: number) => ({
               url: link.url,
               title: link.title,
               description: link.description,
+              order: link.order || index, // ← Ajout de l'ordre lors de la création
             })) || [],
         },
       },
       include: {
-        liens: true,
+        liens: {
+          orderBy: { order: "asc" }, // ← Tri des liens dans la réponse
+        },
         user: {
           select: {
             id: true,

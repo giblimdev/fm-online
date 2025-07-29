@@ -119,4 +119,40 @@
   body {
     @apply bg-background text-foreground;
   }
+
+
+
 }
+p{
+  font-size:large;
+  margin-bottom: 2px;
+}
+
+.com{ color : red;
+font-size:medium;
+}
+
+.hymne{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centrer le texte à l'intérieur des paragraphes */
+} 
+.planche{
+  margin: auto;
+}
+h1 {
+  margin: 5px;
+border-bottom: solid red 2px;
+font-size: x-large;
+}
+h2 {
+  border-bottom: solid blue 2px;
+  font-size: -large;
+  margin-top: 2.5rem;
+  
+  margin-bottom: 1rem;
+  }
+h3 {border-bottom: solid blue 1px;
+  font-size: large;}

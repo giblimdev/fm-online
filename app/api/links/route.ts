@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
           },
         },
       },
-      orderBy: { order: "asc" }, // Corrigé : ordre croissant plus logique
+      orderBy: { order: "asc" },
     });
 
     return NextResponse.json(links);
