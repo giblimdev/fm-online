@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../Lib/generated/prisma"
+  output   = "../lib/generated/prisma"
 }
 
 datasource db {
@@ -36,7 +36,7 @@ model User {
   updatedAt     DateTime    @updatedAt
   sessions      Session[]
   accounts      Account[]
-  documents     Documents[]
+  documents     Documents[] // ← C'est la bibliothèque !
 
   @@unique([email])
   @@map("user")

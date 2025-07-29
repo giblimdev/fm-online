@@ -1,25 +1,24 @@
 // @/lib/auth/auth.ts
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
+import { nextCookies } from "better-auth/next-js";
 import prisma from "@/lib/prisma";
 
 export const auth = betterAuth({
   appName: "Plateforme Intellectuelle",
 
-  // Configuration de la base de données
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
 
-  // ✅ Configuration corrigée des cookies de session
   session: {
     cookieCache: {
-      enabled: false, // Désactivé pour éviter l'erreur de taille
+      enabled: false,
     },
     expiresIn: 60 * 60 * 24 * 7, // 7 jours
+    updateAge: 60 * 60 * 24,
   },
 
-  // Configuration email et mot de passe
   emailAndPassword: {
     enabled: true,
     autoSignIn: false,
@@ -28,32 +27,29 @@ export const auth = betterAuth({
     requireEmailVerification: false,
   },
 
-  // Configuration de la vérification d'email
   emailVerification: {
     sendOnSignUp: false,
     autoSignInAfterVerification: true,
   },
 
-  // Configuration des cookies sécurisés
   cookies: {
     secure: process.env.NODE_ENV === "production",
     httpOnly: true,
     sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7, // 7 jours
+    maxAge: 60 * 60 * 24 * 7,
     prefix: "auth",
   },
 
-  // Configuration des origines de confiance
   trustedOrigins: [
     process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_APP_URL!
+      ? "https://fm-online-ten.vercel.app"
       : "http://localhost:3000",
   ],
 
-  // ✅ Configuration corrigée pour la génération d'IDs
+  // ✅ Configuration corrigée - IMPORTANT
   advanced: {
     database: {
-      generateId: () => crypto.randomUUID(), // Remplace l'ancien advanced.generateId
+      generateId: () => crypto.randomUUID(), // ← Correction ici
     },
     crossSubDomainCookies: {
       enabled: false,
@@ -61,7 +57,6 @@ export const auth = betterAuth({
     },
   },
 
-  // Pages de redirection personnalisées
   pages: {
     signIn: "/auth/login",
     signUp: "/auth/register",
@@ -69,10 +64,13 @@ export const auth = betterAuth({
     error: "/auth/error",
   },
 
-  // Secret pour le chiffrement
-  secret:
-    process.env.BETTER_AUTH_SECRET ||
-    "your-secret-key-minimum-32-characters-long-please",
+  secret: process.env.BETTER_AUTH_SECRET!,
+  plugins: [nextCookies()],
+
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "https://fm-online-ten.vercel.app"
+      : "http://localhost:3000",
 });
 
 export type Session = typeof auth.$Infer.Session;
