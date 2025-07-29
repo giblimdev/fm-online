@@ -14,6 +14,11 @@ const navLinks = [
     label: "Ajouter un rituel",
     icon: Plus,
   },
+  {
+    href: "/frame",
+    label: "Apprentissage",
+    icon: Plus,
+  },
 ];
 
 export default function Nav() {

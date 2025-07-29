@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import IsConnected from "./IsConnected";
+import Link from "next/link";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,10 +24,11 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo - Toujours visible */}
-          <div className="flex-shrink-0">
-            <Logo />
-          </div>
-
+          <Link href="/">
+            <div className="flex-shrink-0">
+              <Logo />
+            </div>
+          </Link>
           {/* Navigation desktop - Hidden on mobile */}
           <div className="hidden md:block">
             <Nav />
