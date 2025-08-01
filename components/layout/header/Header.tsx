@@ -49,7 +49,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Logo size="md" className="transition-transform hover:scale-105" />
+            <Logo size="md" />
           </div>
 
           {/* Navigation desktop - cachée sur mobile */}
@@ -113,7 +113,7 @@ export default function Header() {
 
               {/* Section utilisateur en bas du menu mobile */}
               <div className="p-4 border-t border-gray-200 bg-white">
-                <IsConnected />
+                <IsConnected mobileMode={true} onItemClick={closeMenu} />
               </div>
             </div>
           </div>

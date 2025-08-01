@@ -18,7 +18,7 @@ const navLinks = [
   },
   {
     href: "/public",
-    label: "Ajouter un rituel",
+    label: "Obtenir un rituel",
     icon: Plus,
   },
   {

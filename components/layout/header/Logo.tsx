@@ -33,7 +33,7 @@ export default function Logo({
   // Logo de fallback - identique côté serveur et client
   const FallbackLogo = () => (
     <div
-      className={`flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-4xl ${className}`}
+      className={`flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg ${className}`}
       style={{
         width: `${width}px`,
         height: `${height}px`,
@@ -53,7 +53,7 @@ export default function Logo({
       height={height}
       alt={alt}
       priority={priority}
-      className={`object-contain rounded-4xl ${className}`} // Ajout de rounded-lg ici
+      className={`object-contain transition-transform hover:scale-105 ${className}`}
       style={{
         maxWidth: "100%",
         height: "auto",

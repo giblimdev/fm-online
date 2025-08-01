@@ -14,6 +14,9 @@ import {
   Trash2,
   Loader2,
   AlertCircle,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
 } from "lucide-react";
 import Link from "next/link";
 import { Avatar } from "@radix-ui/react-avatar";
@@ -21,9 +24,12 @@ import { Avatar } from "@radix-ui/react-avatar";
 interface Document {
   id: string;
   title: string;
-  descrition?: string;
-  grade?: string;
+  description?: string;
+  ordre?: number;
+  content?: string;
   image?: string;
+  grade?: string;
+  category?: string;
   createdAt: string;
   updatedAt: string;
   userId: string;
@@ -33,10 +39,14 @@ interface Document {
 interface DocumentLink {
   id: string;
   url: string;
-  title: string;
+  title?: string;
+  order?: number;
   description?: string;
   documentId: string;
 }
+
+type SortField = "title" | "createdAt" | "updatedAt" | "ordre" | "category";
+type SortOrder = "asc" | "desc";
 
 export default function DashboardPage() {
   const session = useSession();
@@ -44,10 +54,62 @@ export default function DashboardPage() {
   const [documents, setDocuments] = useState<Document[]>([]);
   const [isLoadingDocuments, setIsLoadingDocuments] = useState(false);
   const [documentsError, setDocumentsError] = useState<string | null>(null);
+  const [sortField, setSortField] = useState<SortField>("ordre");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
 
-  const handleSignOut = async () => {
-    await signOut();
-    router.push("/");
+  // Fonction de tri des documents
+  const sortDocuments = (
+    docs: Document[],
+    field: SortField,
+    order: SortOrder
+  ) => {
+    return [...docs].sort((a, b) => {
+      let aValue: string | number;
+      let bValue: string | number;
+
+      switch (field) {
+        case "title":
+          aValue = a.title.toLowerCase();
+          bValue = b.title.toLowerCase();
+          break;
+        case "createdAt":
+          aValue = new Date(a.createdAt).getTime();
+          bValue = new Date(b.createdAt).getTime();
+          break;
+        case "updatedAt":
+          aValue = new Date(a.updatedAt).getTime();
+          bValue = new Date(b.updatedAt).getTime();
+          break;
+        case "ordre":
+          // Mettre les documents sans ordre à la fin
+          aValue = a.ordre ?? 999999;
+          bValue = b.ordre ?? 999999;
+          break;
+        case "category":
+          aValue = a.category?.toLowerCase() || "zzz";
+          bValue = b.category?.toLowerCase() || "zzz";
+          break;
+        default:
+          aValue = a.createdAt;
+          bValue = b.createdAt;
+      }
+
+      if (order === "asc") {
+        return aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
+      } else {
+        return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
+      }
+    });
+  };
+
+  // Changer le tri
+  const handleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortOrder(field === "ordre" ? "asc" : "desc");
+    }
   };
 
   // Charger les documents de l'utilisateur
@@ -85,17 +147,29 @@ export default function DashboardPage() {
     }
   };
 
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/");
+  };
+
   const getGradeColor = (grade?: string) => {
-    switch (grade?.toLowerCase()) {
-      case "high":
-      case "élevé":
-        return "bg-red-100 text-red-800 border-red-200";
-      case "medium":
-      case "moyen":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
-      case "low":
-      case "faible":
+    switch (grade?.toUpperCase()) {
+      case "APP":
         return "bg-green-100 text-green-800 border-green-200";
+      case "CP":
+        return "bg-blue-100 text-blue-800 border-blue-200";
+      case "M":
+        return "bg-purple-100 text-purple-800 border-purple-200";
+      case "MMARQUE":
+        return "bg-red-100 text-red-800 border-red-200";
+      case "VM":
+        return "bg-yellow-100 text-yellow-800 border-yellow-200";
+      case "NAUTONIER":
+        return "bg-indigo-100 text-indigo-800 border-indigo-200";
+      case "CPARCHEDOM":
+        return "bg-pink-100 text-pink-800 border-pink-200";
+      case "KT":
+        return "bg-orange-100 text-orange-800 border-orange-200";
       default:
         return "bg-slate-100 text-slate-800 border-slate-200";
     }
@@ -109,7 +183,36 @@ export default function DashboardPage() {
     });
   };
 
-  // Accès correct aux données avec Better Auth
+  const getSortIcon = (field: SortField) => {
+    if (sortField !== field) {
+      return <ArrowUpDown className="h-3 w-3 text-gray-400" />;
+    }
+    return sortOrder === "asc" ? (
+      <ArrowUp className="h-3 w-3 text-blue-600" />
+    ) : (
+      <ArrowDown className="h-3 w-3 text-blue-600" />
+    );
+  };
+
+  // Redirection si pas de session
+  useEffect(() => {
+    if (!session.isPending && !session.data?.user) {
+      router.push("/auth/login");
+    }
+  }, [session.isPending, session.data?.user, router]);
+
+  // Chargement des documents
+  useEffect(() => {
+    const userId = session.data?.user?.id;
+    if (userId) {
+      fetchUserDocuments(userId);
+    }
+  }, [session.data?.user?.id]);
+
+  // Documents triés
+  const sortedDocuments = sortDocuments(documents, sortField, sortOrder);
+
+  // Affichage pendant le chargement de la session
   if (session.isPending) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50">
@@ -124,18 +227,10 @@ export default function DashboardPage() {
   }
 
   if (!session.data?.user) {
-    router.push("/auth/login");
     return null;
   }
 
   const user = session.data.user;
-
-  // Charger les documents quand l'utilisateur est disponible
-  useEffect(() => {
-    if (user?.id) {
-      fetchUserDocuments(user.id);
-    }
-  }, [user?.id]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -183,6 +278,7 @@ export default function DashboardPage() {
               <p className="text-slate-600">
                 <span className="font-medium">Email:</span> {user.email}
               </p>
+
               <p className="text-slate-600">
                 <span className="font-medium">ID:</span> {user.id.slice(-8)}...
               </p>
@@ -220,14 +316,14 @@ export default function DashboardPage() {
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition-colors font-medium flex items-center justify-center space-x-2"
               >
                 <Plus className="h-4 w-4" />
-                <span>Ajouter un rutiel</span>
+                <span>Ajouter un rituel</span>
               </Link>
               <Link
                 href="/user/profile"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition-colors font-medium flex items-center justify-center space-x-2"
               >
                 <Avatar className="h-4 w-4" />
-                <span>Gérer mon profile</span>
+                <span>Gérer mon profil</span>
               </Link>
 
               <button className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl transition-colors font-medium">
@@ -260,6 +356,70 @@ export default function DashboardPage() {
                 </Link>
               </div>
             </div>
+
+            {/* Contrôles de tri */}
+            {documents.length > 0 && (
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="text-sm font-medium text-slate-700 mr-2">
+                  Trier par:
+                </span>
+                <button
+                  onClick={() => handleSort("ordre")}
+                  className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    sortField === "ordre"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  <span>Ordre</span>
+                  {getSortIcon("ordre")}
+                </button>
+                <button
+                  onClick={() => handleSort("title")}
+                  className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    sortField === "title"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  <span>Titre</span>
+                  {getSortIcon("title")}
+                </button>
+                <button
+                  onClick={() => handleSort("category")}
+                  className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    sortField === "category"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  <span>Catégorie</span>
+                  {getSortIcon("category")}
+                </button>
+                <button
+                  onClick={() => handleSort("createdAt")}
+                  className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    sortField === "createdAt"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  <span>Date de création</span>
+                  {getSortIcon("createdAt")}
+                </button>
+                <button
+                  onClick={() => handleSort("updatedAt")}
+                  className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    sortField === "updatedAt"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  <span>Dernière modification</span>
+                  {getSortIcon("updatedAt")}
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="p-6">
@@ -300,11 +460,18 @@ export default function DashboardPage() {
               </div>
             ) : (
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {documents.slice(0, 6).map((document) => (
+                {sortedDocuments.slice(0, 6).map((document) => (
                   <div
                     key={document.id}
-                    className="bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors border border-slate-200"
+                    className="bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors border border-slate-200 relative"
                   >
+                    {/* Badge d'ordre */}
+                    {document.ordre && (
+                      <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-medium z-10">
+                        #{document.ordre}
+                      </div>
+                    )}
+
                     {/* Image du document */}
                     {document.image && (
                       <div className="mb-3">
@@ -320,7 +487,7 @@ export default function DashboardPage() {
                     )}
 
                     <div className="flex items-start justify-between mb-3">
-                      <h5 className="font-semibold text-slate-900 line-clamp-2 flex-1">
+                      <h5 className="font-semibold text-slate-900 line-clamp-2 flex-1 pr-2">
                         {document.title}
                       </h5>
                       {document.grade && (
@@ -334,9 +501,17 @@ export default function DashboardPage() {
                       )}
                     </div>
 
-                    {document.descrition && (
+                    {document.category && (
+                      <div className="mb-2">
+                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                          {document.category}
+                        </span>
+                      </div>
+                    )}
+
+                    {document.description && (
                       <p className="text-slate-600 text-sm line-clamp-2 mb-3">
-                        {document.descrition}
+                        {document.description}
                       </p>
                     )}
 

@@ -14,7 +14,15 @@ import {
   Loader2,
 } from "lucide-react";
 
-export default function IsConnected() {
+interface IsConnectedProps {
+  mobileMode?: boolean;
+  onItemClick?: () => void;
+}
+
+export default function IsConnected({
+  mobileMode = false,
+  onItemClick,
+}: IsConnectedProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -43,6 +51,7 @@ export default function IsConnected() {
     try {
       await signOut();
       setIsDropdownOpen(false);
+      onItemClick?.();
       router.push("/auth/login");
     } catch (error) {
       console.error("Erreur lors de la déconnexion:", error);
@@ -59,6 +68,11 @@ export default function IsConnected() {
     setIsDropdownOpen(false);
   };
 
+  const handleMenuClick = () => {
+    closeDropdown();
+    onItemClick?.();
+  };
+
   // Affichage pendant le chargement
   if (isPending) {
     return (
@@ -73,14 +87,85 @@ export default function IsConnected() {
     return (
       <Link
         href="/auth/login"
-        className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 w-full lg:w-auto"
+        onClick={onItemClick}
+        className={`inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 ${
+          mobileMode ? "w-full" : "w-full lg:w-auto"
+        }`}
       >
         Se connecter
       </Link>
     );
   }
 
-  // Si session : afficher l'avatar avec menu déroulant
+  // Mode mobile : affichage étendu avec options directement visibles
+  if (mobileMode) {
+    return (
+      <div className="space-y-4">
+        {/* Profil utilisateur */}
+        <div className="bg-gray-50 rounded-xl p-4">
+          <div className="flex items-center space-x-3 mb-4">
+            <div className="flex-shrink-0">
+              {session.user.image ? (
+                <img
+                  src={session.user.image}
+                  alt={`Avatar de ${session.user.name || "Utilisateur"}`}
+                  className="h-12 w-12 rounded-full object-cover border-2 border-white"
+                />
+              ) : (
+                <div className="h-12 w-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center border-2 border-white">
+                  <User className="h-6 w-6 text-white" />
+                </div>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-base font-medium text-gray-900 truncate">
+                {session.user.name || "Utilisateur"}
+              </p>
+              <p className="text-sm text-gray-500 truncate">
+                {session.user.email}
+              </p>
+            </div>
+          </div>
+
+          {/* Actions utilisateur */}
+          <div className="space-y-2">
+            <Link
+              href="/user/dashboard"
+              onClick={handleMenuClick}
+              className="flex items-center w-full px-3 py-2 text-sm text-gray-700 hover:bg-white hover:text-gray-900 rounded-lg transition-colors duration-200"
+            >
+              <Calendar className="mr-3 h-4 w-4 text-gray-400" />
+              <span>Dashboard</span>
+            </Link>
+
+            <Link
+              href="/user/profile"
+              onClick={handleMenuClick}
+              className="flex items-center w-full px-3 py-2 text-sm text-gray-700 hover:bg-white hover:text-gray-900 rounded-lg transition-colors duration-200"
+            >
+              <Settings className="mr-3 h-4 w-4 text-gray-400" />
+              <span>Mon profil</span>
+            </Link>
+
+            <button
+              onClick={handleSignOut}
+              disabled={isLoading}
+              className="flex items-center w-full px-3 py-2 text-sm text-red-700 hover:bg-red-50 hover:text-red-800 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isLoading ? (
+                <Loader2 className="mr-3 h-4 w-4 animate-spin" />
+              ) : (
+                <LogOut className="mr-3 h-4 w-4 text-red-500" />
+              )}
+              <span>Se déconnecter</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Mode desktop : dropdown classique
   return (
     <div className="relative w-full lg:w-auto" ref={dropdownRef}>
       {/* Bouton utilisateur */}
@@ -114,7 +199,7 @@ export default function IsConnected() {
           </p>
         </div>
 
-        {/* Icône flèche - cachée sur mobile dans le menu */}
+        {/* Icône flèche - visible sur desktop seulement */}
         <ChevronDown
           className={`h-5 w-5 lg:h-4 lg:w-4 text-gray-400 transition-transform duration-200 hidden lg:block ${
             isDropdownOpen ? "rotate-180" : ""
