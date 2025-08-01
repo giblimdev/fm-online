@@ -22,14 +22,16 @@ function page() {
         tourne la tête vers le 2d S.
       </p>
       <p>
-        <b>C </b>: F. Second Surveillant, on frappe à la porte de la L. <span className="com">Il reste à l'ordre.</span>
+        <b>C </b>: F. Second Surveillant, on frappe à la porte de la L.{" "}
+        <span className="com">Il reste à l'ordre.</span>
       </p>
       <p className="com">
         Le 2d S. Se lè0ve et fait le p. et se met à l'ordre de Cp, .face au N.
         Il tourne la tête vers le VM.
       </p>
       <p>
-        <b>2d S </b>: VM., on frappe à la porte de la Loge. <span className="com">Il reste à l'ordre.</span>
+        <b>2d S </b>: VM., on frappe à la porte de la Loge.{" "}
+        <span className="com">Il reste à l'ordre.</span>
       </p>
       <p>
         <b>VM </b>: F. Second Surveillant, voyez qui demande à être admis.
@@ -42,9 +44,8 @@ function page() {
       </p>
       <p className="com">
         Le C. fait le signe pénal de Cp.,va à la porte qu'il entre ouvre et
-        vérifie que le Cand. et convenablement préparé. 
-        <br />A voix haute, il
-        s'adresse au T.
+        vérifie que le Cand. et convenablement préparé.
+        <br />A voix haute, il s'adresse au T.
       </p>
       <p>
         <b>C </b>: Qui va là ?
@@ -56,7 +57,8 @@ function page() {
         préparé pour la cérémonie.
       </p>
       <p>
-        <b>C </b>: Comment espère-t-il obtenir les privilèges du Deuxième Grade ?
+        <b>C </b>: Comment espère-t-il obtenir les privilèges du Deuxième Grade
+        ?
       </p>
       <p>
         <b>T </b>: Par l'aide de Dieu, l'appui de l'Eq. et la connaissance d'un
@@ -109,14 +111,12 @@ function page() {
         <b>C </b>: Oui, VM.
       </p>
       <p>
-        <b>VM </b>: Alors, qu'il soit admis rituellement ! 
+        <b>VM </b>: Alors, qu'il soit admis rituellement !
       </p>
       <p className="com">
-          Le C. fait le signe pénal de Cp. Puis dispose le coussin.
+        Le C. fait le signe pénal de Cp. Puis dispose le coussin.
       </p>
-      <p>
-        FF. EE. !
-      </p>      
+      <p>FF. EE. !</p>
       <p className="com">
         Le 1er E. longe la colonne du N.vers l'Occ. <br />
         Le 2d E l'attend à g. du 1er S. Ils se dirigent tous deux vers la porte
@@ -206,7 +206,8 @@ function page() {
         quelque chose à communiquer ?
       </p>
       <p>
-        <b>1er E </b>: <span className="com">Souffle à haute voix au Cand. </span> Oui.
+        <b>1er E </b>:{" "}
+        <span className="com">Souffle à haute voix au Cand. </span> Oui.
       </p>
       <p className="com">
         Le 2d S se lève, fait face au Cand., fait le pas et lui tend la main
@@ -217,7 +218,8 @@ function page() {
         <b>2d S </b>: Qu'est-ce que ceci ?
       </p>
       <p>
-        <b>1er E </b>: <span className="com"> (Souffle à haute voix au Cand.) </span> L'att. ou
+        <b>1er E </b>:{" "}
+        <span className="com"> (Souffle à haute voix au Cand.) </span> L'att. ou
         g. de L'Ap. FM.
       </p>
       <p>
@@ -329,11 +331,10 @@ function page() {
       <p>
         <b>1e S </b>: Qu'est-ce que ceci ?
       </p>
-      <p className="com">
-        Il garde la m. du Cand. 
-      </p>
+      <p className="com">Il garde la m. du Cand.</p>
       <p>
-        <b>1er E </b>: <span className="com"> (Souffle à haute voix au Cand.) </span> L'att. de
+        <b>1er E </b>:{" "}
+        <span className="com"> (Souffle à haute voix au Cand.) </span> L'att. de
         p. conduisant du Premier au Deuxième Grade.
       </p>
       <p>
@@ -380,7 +381,8 @@ function page() {
         Le 1er S reste à l'ordre pendant la réponse du VM.{" "}
       </p>
       <p>
-        <b>1er S </b>: <span className="com"> (fait le p. et le s. de Fid.) </span> VM. Je vous
+        <b>1er S </b>:{" "}
+        <span className="com"> (fait le p. et le s. de Fid.) </span> VM. Je vous
         présente le F. …..... , Cand. convenablement préparé pour être passé au
         Deuxième Grade.
       </p>
@@ -397,13 +399,13 @@ function page() {
         Le 1er E lâche la main du Cand et demeure à la droite du Cand.
       </p>
       <p>
-        <b>1er S </b>: F. 1er E. par ordre du VM., veuillez enseigner au
-        Cand. la manière traditionnelle de s'avancer vers l'orient.
+        <b>1er S </b>: F. 1er E. par ordre du VM., veuillez enseigner au Cand.
+        la manière traditionnelle de s'avancer vers l'orient.
       </p>
       <p className="com">
-        Le premier E prend fermement la main du Cand. et lui soufflant de
-        partir du p. g. et en longeant la col. du Nord. le conduit à bonne
-        distance de l'angle NE. Ils s’arrêtent puis font face au sud. <br />
+        Le premier E prend fermement la main du Cand. et lui soufflant de partir
+        du p. g. et en longeant la col. du Nord. le conduit à bonne distance de
+        l'angle NE. Ils s’arrêtent puis font face au sud. <br />
         Le 1er E lâche la main du Cand. fait deux ou trois pas vers le sud et se
         retourne et dis :
       </p>
@@ -443,13 +445,16 @@ function page() {
         Consentez-vous à la prendre ?
       </p>
       <p>
-        <b>Cand </b>: ......... <b>1er E </b><span className="com">(si nécessaire) </span>: « Répondez ! »
+        <b>Cand </b>: ......... <b>1er E </b>
+        <span className="com">(si nécessaire) </span>: « Répondez ! »
       </p>
       <p>
         <b>VM </b>: veuillez donc vous agenouillez sur le genou d. et faire
-        l'Eq. avec le pied g. <span className="com"> (Le VM s'assure que le Cand. s’exécute) </span>
+        l'Eq. avec le pied g.{" "}
+        <span className="com"> (Le VM s'assure que le Cand. s’exécute) </span>
         <br />
-        Placez votre main d. sur le VLS. <span className="com">
+        Placez votre main d. sur le VLS.{" "}
+        <span className="com">
           (il s'assure que le Cand place sa m. d. sur la page de gauche)
         </span>
         <br />
@@ -481,10 +486,10 @@ function page() {
       </p>
       <h2>OBLIGATION de COMPAGNON</h2>
       <p>
-        <b>VM </b>: Dites : moi,{" "}
-        <span className="com"> (le Cand. le dit) </span>, déclinez vos prénom et
-        nom <span className="com"> (le Cand. le dit) </span> … et répétez après
-        moi : <br />
+        <b>VM </b>: Dites : moi, <span className="com"> (le Cand le dit) </span>
+        , déclinez vos prénom et nom{" "}
+        <span className="com"> (le Candle dit) </span> … et répétez après moi :{" "}
+        <br />
         en présence du Grand Géomètre de l'Univers, […]
         <br />
         et de cette digne et respectable loge de Cp FM, […]
@@ -493,9 +498,11 @@ function page() {
         <br />
         de mon plein grée et consentement […]
         <br />
-        par ceci <span className="com">
+        par ceci{" "}
+        <span className="com">
           (le VM. touche de sa m. D la m. G du Cand)
-        </span> ... et sur ceci
+        </span>{" "}
+        ... et sur ceci
         <span className="com"> (le VM. Touche de sa m. g le VLS) </span>.....
         […]
         <br />
@@ -543,7 +550,7 @@ function page() {
         d'un Cp FM que je viens de contracter. […]
       </p>
       <p className="com">
-        Les EE décroissent leur v., le 2d E retire l'Eq. qu'il donne au 1er E
+        Les EE décroissent leur v., le 2d E retire l'Eq qu'il donne au 1er E
         dans le dos du cand. <br />
         Le 1er E rend l'Eq au PMI. qui la pose sur la chaire du VM. tandis que
         le 2d E. abaisse le bras g. du Cand. à qui il souffle de laisser sa main
@@ -556,7 +563,7 @@ function page() {
       </p>
       <p className="com">
         Le Cand. s'exécute, aidé si nécessaire par le 1er E. <br />
-        Tous les FF. cessent le s. de Fi. en se réglant sur le VM.
+        Tous les FF cessent le s. de Fi. en se réglant sur le VM.
       </p>
       <p>
         <b>VM </b>: Vos progrès en M. sont marqués par la position de l'Eq. et
@@ -566,22 +573,20 @@ function page() {
         auquel, je l’espère, vous accéderez plus tard.
       </p>
       <p className="com">
-        Le VM. prend de sa m. d., sur le VSL. la main d. du Cand. et dit :
+        Le VM. prend de sa m. d., sur le VSL la main d. du Cand. et dit :
       </p>
-      <p>
-        Levez-vous Cp. FM. nouvellement assarmenté !
-      </p>
+      <p>Levez-vous Cp. FM. nouvellement assarmenté !</p>
       <p className="com">
         En disant ces mots le VM incite le Cand à se mettre debout., puis il
-        rend la m. du Cand. au 1er E. <br />
-        Le 2d E regagne directement sa place et le VM. invite les FF. à prendre
+        rend la m. du Cand au 1er E. <br />
+        Le 2d E regagne directement sa place et le VM. invite les FF à prendre
         place. <br />
-        Le 1er E fait pivoté le Cand pour le placer face au N. et partant tout
-        deux du p. g., il le conduit à la d. du VM., à deux pas de celui-ci, et
+        Le 1er E fait pivoté le Cand pour le placer face au Nord et partant tout
+        deux du p. g., il le conduit à la d. du VM, à deux pas de celui-ci, et
         face au VM.
       </p>
       <p>
-        <b>VM </b>: Puisque vous avez prêté l'Ob. So. du Cp. FM., je vais
+        <b>VM </b>: Puisque vous avez prêté l'Ob. So. du Cp FM, je vais
         maintenant vous confier les s. de ce Grade. <br />
         Avancez donc vers moi comme a votre initiation.
       </p>
@@ -589,71 +594,68 @@ function page() {
       <p>
         <b>VM </b>: Vous allez maintenant faire encore une p. p. vers moi en
         partant du pied g. et en ramenant le talon d. dans le creux du pied g.
-        comme auparavant. 
+        comme auparavant.
       </p>
-      <p className="com">
-        Le Cand. s’exécute
-      </p>
+      <p className="com">Le Cand s’exécute</p>
       <p>
-        C'est là le deuxième pas régulier en FM. et c'est dans cette position
-        que les secrets du Grade doivent être communiquer. Ils se composes,
-        comme dans le Grade précédant, d'un s. d'un Attouchement, et d’un mot,
-        avec cette différence que, dans ce Grade le signe se fait en trois
-        temps.
+        C'est là le deuxième pas régulier en FM et c'est dans cette position que
+        les secrets du Grade doivent être communiquer. Ils se composes, comme
+        dans le Grade précédant, d'un s. d'un Attouchement, et d’un mot, avec
+        cette différence que, dans ce Grade le signe se fait en trois temps.
       </p>
-      <p className="com">
-        Le VM se lève, fait face au Cand. et fait le p.
-      </p>
+      <p className="com">Le VM se lève, fait face au Cand et fait le p.</p>
       <p>
-      La première partie de ce signe en trois temps, se nomme s. de Fi. et se
-      fait en portant la main droite sur le cœur doigt joints et tendus et pouce
-      à l'équerre.
+        La première partie de ce signe en trois temps, se nomme s. de Fi. et se
+        fait en portant la main droite sur le cœur doigt joints et tendus et
+        pouce à l'équerre.
       </p>
       <p className="com">
         Le VM exécute et s'assure que le Cand. l’imite correctement.
       </p>
       <p>
-      Cela signifie symboliquement que vous protégerez le dépôt de vos s. contre
-      toute tentatives insidieuses. <br />
-      La deuxième partie se nomme s. d'Appel ou de Pers. et se fait en élevant
-      le bras gauche comme ceci :
+        Cela signifie symboliquement que vous protégerez le dépôt de vos s.
+        contre toute tentatives insidieuses. <br />
+        La deuxième partie se nomme s. d'Appel ou de Pers. et se fait en élevant
+        le bras gauche comme ceci :
       </p>
       <p className="com">
         Le VM. exécute le s. et commente, puis s'assure que le Cand. l'imite.
       </p>
       <p>
-      L'origine de ce signe date du jour où Josué livra les batailles du
-      Seigneur, car ce fut dans cette position qu'il pria avec ferveur le Tout
-      Puissant de prolongé la lumière du jour, afin de parfaire la défaite de
-      ses ennemis. <br />
-      La troisième partie est le signe pénal et se fait en abaissant la main
-      gauche, ramenant vivement la main droite et la laissant retomber.
+        L'origine de ce signe date du jour où Josué livra les batailles du
+        Seigneur, car ce fut dans cette position qu'il pria avec ferveur le Tout
+        Puissant de prolongé la lumière du jour, afin de parfaire la défaite de
+        ses ennemis. <br />
+        La troisième partie est le signe pénal et se fait en abaissant la main
+        gauche, ramenant vivement la main droite et la laissant retomber.
       </p>
       <p className="com">
         Le VM. exécute le s. et tout en le commentant, s'assure que le Cand.
         l'imite correctement.
       </p>
       <p>
-      Ceci est une allusion au châtiment indiqué dans vote Ob. et signifie que
-      vous préféreriez, comme homme d'honneur et Cp., avoir le c. arraché de la
-      poitrine.
+        Ceci est une allusion au châtiment indiqué dans vote Ob. et signifie que
+        vous préféreriez, comme homme d'honneur et Cp., avoir le c. arraché de
+        la poitrine.
       </p>
       <p className="com">
-        (en même temps qu'il rappel le châtiment le VM. fait le s. p. de Cp. et
+        (en même temps qu'il rappel le châtiment le VM. fait le s. p. de Cp et
         s'assure que le Cand. l'imite)
       </p>
-      <p>
-      plus top que de révéler indûment les S. qui vous ont été confiés.
-      </p>
+      <p>plus top que de révéler indûment les S. qui vous ont été confiés.</p>
       <p className="com">(poursuivant)</p>
       <p>
-        <b>VM </b>: L'attouchement ou gage se donne <span className="com">         
+        <b>VM </b>: L'attouchement ou gage se donne{" "}
+        <span className="com">
           (Le VM. prend la main droite du Cand. et ajuste le doigt et commente)
-        </span> en plaçant le p. de la m. d. à l'éq. sur la de. jointure de la m. d. de
+        </span>{" "}
+        en plaçant le p. de la m. d. à l'éq. sur la de. jointure de la m. d. de
         votre vis-à-vis. <br />
         Cet attouchement ou gage exige un mot, m. que l'on ne donne qu'avec la
         même prudence que celui du Grade précédent, c'est à dire jamais en
-        entier mais lettre par lettre ou syllabe par syllabe. <span className="com"> (Le VM. conserve l'att.) </span> Afin de vous mettre à même de le faire, je dois vous dire que ce mot est Jxxxn.
+        entier mais lettre par lettre ou syllabe par syllabe.{" "}
+        <span className="com"> (Le VM. conserve l'att.) </span> Afin de vous
+        mettre à même de le faire, je dois vous dire que ce mot est Jxxxn.
       </p>
       <p className="com">
         Le VM donne le mot en entier, puis il l’épelle.
@@ -666,9 +668,12 @@ function page() {
         <b>VM </b>: Comme au cours de la cérémonie on vous demandera ce mot, le
         1er E. va vous dicter vos réponses.
       </p>
-      <p><b>VM </b>: Qu'est-ce que ceci ?</p>
       <p>
-        <b>1er E </b>: <span className="com"> (Souffle à haute voix au Cand.) </span>
+        <b>VM </b>: Qu'est-ce que ceci ?
+      </p>
+      <p>
+        <b>1er E </b>:{" "}
+        <span className="com"> (Souffle à haute voix au Cand.) </span>
         L'att. ou gage du Cp. FM.
       </p>
       <p>
@@ -682,26 +687,29 @@ function page() {
         <b>VM </b>: Donnez-moi ce mot.
       </p>
       <p>
-        <b>1er E</b>: <span className="com"> (Soufflant très vite) </span> On m'a
-        enseigné la prudence dans ce Grade comme dans le précédent ; je l'ép. ou
-        j'en donnerai la moitié avec vous.
+        <b>1er E</b>: <span className="com"> (Soufflant très vite) </span> On
+        m'a enseigné la prudence dans ce Grade comme dans le précédent ; je
+        l'ép. ou j'en donnerai la moitié avec vous.
       </p>
       <p>
         <b>VM </b>: comme il plaira et commencez.
       </p>
-        <p className="com">
-          Le 1er E souffle à haute voix au Cand. la première moitié du m. Le
-          Cand. répété. <br />
-          Le VM donne la deuxième moitié, puis le 1er E. dit le mot en entier et
-          fait répéter le cand.
-        </p>
-        <p>
-        <b>1er E </b>: Jx <b>Cand </b>: Jx 
-        </p>
-        <p><b>VM </b>: Kxx 
-        </p>
-        <p><b>1er E </b>: JxKxx <b>Cand </b>: JxKxx</p>
-      
+      <p className="com">
+        Le 1er E souffle à haute voix au Cand. la première moitié du m. Le Cand.
+        répété. <br />
+        Le VM donne la deuxième moitié, puis le 1er E. dit le mot en entier et
+        fait répéter le cand.
+      </p>
+      <p>
+        <b>1er E </b>: Jx <b>Cand </b>: Jx
+      </p>
+      <p>
+        <b>VM </b>: Kxx
+      </p>
+      <p>
+        <b>1er E </b>: JxKxx <b>Cand </b>: JxKxx
+      </p>
+
       <p className="com"> (tenant toujours la main du Cand.)</p>
       <p>
         <b>VM </b>: Ce mot provient de la c. d. qui ornait le p. ou e. du Temple
@@ -721,17 +729,19 @@ function page() {
         nécessaire, le 1er E guide le Cand à hauteur du 2d S.
       </p>
       <p>
-        <b>1er E </b>: <span className="com">
+        <b>1er E </b>:{" "}
+        <span className="com">
           lâche la m. du Cand. cale sa v. contre son épaule, fait le pas, se met
-          à l'ordre de Cp.</span> F. Second S, je vous présente le F. ................ à
-        l'occasion de son passage au Deuxième Grade. <br />
+          à l'ordre de Cp.
+        </span>{" "}
+        F. Second S, je vous présente le F. ................ à l'occasion de son
+        passage au Deuxième Grade. <br />
         <span className="com">
           Puis il fait le s.p. de Cp. et reprend sa v. en main.
         </span>
       </p>
       <p>
-        <b>2d S </b>: Que le F. ............... s'avance vers moi en
-        Cp.
+        <b>2d S </b>: Que le F. ............... s'avance vers moi en Cp.
       </p>
       <p className="com">
         Le 1er E souffle, à voix basse au Cand., de faire le p. et le s. p. de
@@ -741,7 +751,8 @@ function page() {
         <b>2d S </b>: Avez-vous quelque chose à communiquer ?
       </p>
       <p>
-        <b>1er E </b>: <span className="com">(Souffle a voix haute au candidat)</span> Oui
+        <b>1er E </b>:{" "}
+        <span className="com">(Souffle a voix haute au candidat)</span> Oui
       </p>
       <p className="com">
         Le 2d S se lève, fait le p. et face au Cand, lui tend la m. d. <br />
@@ -776,15 +787,15 @@ function page() {
       <p className="com">
         Le 1er souffle à haute voix.
         <br />
-        Le mot et d’abord épeler lettre par lettre alternativement, en commençant par le 1er E
-        (le Cand répète) et par le 2d S puis il est donné par moitié en
-        commençant par le 1er E.(le Cand répète)
+        Le mot et d’abord épeler lettre par lettre alternativement, en
+        commençant par le 1er E (le Cand répète) et par le 2d S puis il est
+        donné par moitié en commençant par le 1er E.(le Cand répète)
       </p>
       <p>
         <b>1er E </b>: J. <b>Cand. </b>: J.
       </p>
       <p>
-        <b>2d S </b>: 
+        <b>2d S </b>:
       </p>
       <p>
         <b>1er E </b>: K. <b>Cand </b>: K.
@@ -792,7 +803,9 @@ function page() {
       <p>
         <b>2d S </b>: I
       </p>
-      <p><b>1er E </b>: N. <b>Cand. </b>: N.</p>
+      <p>
+        <b>1er E </b>: N. <b>Cand. </b>: N.
+      </p>
       <p>
         <b>1er E </b>: Jx. <b>Cand. </b>: Jx
       </p>
@@ -820,8 +833,8 @@ function page() {
         de Cp.
       </p>
       <p>
-        <b>1er E </b>: F. 1er S, Je vous présente le F. .......... à
-        l'occasion de son passage au Deuxième Grade.
+        <b>1er E </b>: F. 1er S, Je vous présente le F. .......... à l'occasion
+        de son passage au Deuxième Grade.
       </p>
       <p className="com">
         Puis le 1er E fait le signe p. et reprend sa verge en main.
@@ -834,9 +847,12 @@ function page() {
         Le 1er E souffle au cand. De faire le p. puis le signe pénal d'Ap., puis
         de faire à nouveau un pas.
       </p>
-      <p><b>1er S </b>: Qu'est que cela ?</p>
       <p>
-        <b>1er E </b>: <span className="com">(Souffle à haute voix au Cand.) </span> 
+        <b>1er S </b>: Qu'est que cela ?
+      </p>
+      <p>
+        <b>1er E </b>:{" "}
+        <span className="com">(Souffle à haute voix au Cand.) </span>
         Le deuxième pas régulier en FM.
       </p>
       <p>
@@ -847,8 +863,7 @@ function page() {
         <span className="com"> (Souffle à haute voix au Cand.) </span> Oui.
       </p>
       <p className="com">
-        Le 1er E fait faire le S. de Fi. au Cand. et veille à ce qu'il le
-        garde.
+        Le 1er E fait faire le S. de Fi. au Cand. et veille à ce qu'il le garde.
       </p>
       <p>
         <b>1er S </b>: qu'est-ce que cela ?
@@ -915,14 +930,19 @@ function page() {
         châtiment indiqué dans mon O. et cela signifie que, comme homme
         d'honneur et comme Cp. FM., je préférerai avoir le sein gauche ouvert,
         le cœur arraché et donné en pâture aux rapaces des airs et aux fauves de
-        la terre ... <span className="com"> (ce disant, il fait faire le s.p. de Cp. au Cand.)
-        </span> plutôt que de révéler illicitement les s. qui m'ont été confiés.
+        la terre ...{" "}
+        <span className="com">
+          {" "}
+          (ce disant, il fait faire le s.p. de Cp. au Cand.)
+        </span>{" "}
+        plutôt que de révéler illicitement les s. qui m'ont été confiés.
       </p>
       <p>
         <b>1er S </b>: Avez-vous quelque chose à communiquer ?
       </p>
       <p>
-        <b>1er E </b>: <span className="com"> (Souffle à haute voix au Cand.) </span> Oui
+        <b>1er E </b>:{" "}
+        <span className="com"> (Souffle à haute voix au Cand.) </span> Oui
       </p>
       <p className="com">
         Le 1er S. se lève, fait le p. et face au Cand., lui tend la main droite.
@@ -953,7 +973,8 @@ function page() {
         <b>1er S </b>: Donnez-moi ce mot.
       </p>
       <p>
-        <b>1er E </b>: <span className="com">Soufflant très vite à haute voix au Cand. </span>
+        <b>1er E </b>:{" "}
+        <span className="com">Soufflant très vite à haute voix au Cand. </span>
         On m'a enseigné la prudence dans ce Grade comme dans le précédent. Je
         l'épellerai ou j'en donnerai la moitie avec vous.
       </p>
@@ -972,7 +993,9 @@ function page() {
       <p>
         <b>1er E </b>: JX <b>cand </b>: JX
       </p>
-      <p><b>1er S </b>: XXN</p>
+      <p>
+        <b>1er S </b>: XXN
+      </p>
       <p>
         <b>1er S </b>: JXXXN
       </p>
@@ -982,8 +1005,8 @@ function page() {
       <p>
         <b>1er E </b>:
         <span className="com"> (Souffle à haute voix au Cand.) </span> De la c.
-        d. qui ornait le p. ou e. du Temple du Roi S., ainsi nommé d’après Jxxxx.
-        Le G.P.A. qui officia à la dédicace du T.
+        d. qui ornait le p. ou e. du Temple du Roi S., ainsi nommé d’après
+        Jxxxx. Le G.P.A. qui officia à la dédicace du T.
       </p>
       <p>
         <b>1er S </b>: Quel est le sens de ce mot ?
@@ -1013,14 +1036,14 @@ function page() {
         du pied g., ils passent devant la chaire du premier S, puis tourne dans
         le sens contraire des aiguilles d'une montre pour faire face au VM. et
         se trouve à la g. du 1er S. <br />
-        Le 1er E place la main du Cand dans la m. g. du 1er S et viens se
-        placer à g. du Cand. <br />
+        Le 1er E place la main du Cand dans la m. g. du 1er S et viens se placer
+        à g. du Cand. <br />
         Le 1er S fait le pas puis le s. de Fi., élève la main du Cand. et dit:
       </p>
       <p>
-        <b>1er S </b>: VM, Je vous présente Le F. ...... à l'occasion
-        de son passage au Deuxième Grade et je vous demande pour lui un nouveau
-        gage de votre faveur.
+        <b>1er S </b>: VM, Je vous présente Le F. ...... à l'occasion de son
+        passage au Deuxième Grade et je vous demande pour lui un nouveau gage de
+        votre faveur.
       </p>
       <p className="com"> (Il reste à l'O)</p>
       <p>
@@ -1071,9 +1094,11 @@ function page() {
       </p>
       <p className="com">Puis il se place à la gauche du Cand.</p>
       <h2>Exhortation du 2 ème Grade</h2>
-      <p> <b>VM </b>: F. ............. , La M. étant un art où l'on progresse
-        par palier, lorsque vous fûtes reçus Ap. L'on vous plaça au N.E. De la
-        L. pour indiquer que vous étiez nouvellement admis. <br />
+      <p>
+        {" "}
+        <b>VM </b>: F. ............. , La M. étant un art où l'on progresse par
+        palier, lorsque vous fûtes reçus Ap. L'on vous plaça au N.E. De la L.
+        pour indiquer que vous étiez nouvellement admis. <br />
         Vous êtes placer maintenant au S.E. Pour marquer les progrès que vous
         avez faits dans notre art. <br />
         Ainsi, selon toute apparence, vous êtes un Cp. FM. Juste et droit, et je
@@ -1088,10 +1113,10 @@ function page() {
       </p>
       <p className="com">
         Le PMI dispose les outils sur la g.de la chaire du VM. <br />
-        Le 1er E prenant le Cand par la m. le conduit à g. de la chaire du VM
-        et lui lâche la main.
+        Le 1er E prenant le Cand par la m. le conduit à g. de la chaire du VM et
+        lui lâche la main.
       </p>
-       <h2>OUTILS DU DEUXIEME GRADE</h2>
+      <h2>OUTILS DU DEUXIEME GRADE</h2>
       <p>
         <b>VM </b>: Je vous pressente maintenant les outils de travail du
         compagnon FM : Ce sont l’équerre, le niveau et la perpendiculaire ou
@@ -1163,7 +1188,8 @@ function page() {
         l'ordre de Cp.
       </p>
       <p>
-        <b>C </b>: VM Le Cand À son retour ! <span className="com">Il reste à l'ordre</span>.
+        <b>C </b>: VM Le Cand À son retour !{" "}
+        <span className="com">Il reste à l'ordre</span>.
       </p>
       <p>
         <b>VM </b>: Admettez-le.
@@ -1189,7 +1215,9 @@ function page() {
         Celui-ci se lève, quitte sa chaire par la gauche et vient se placer en
         tête de la planche tracée.
       </p>
-      <div><NavEmul /></div>
+      <div>
+        <NavEmul />
+      </div>
     </div>
   );
 }
