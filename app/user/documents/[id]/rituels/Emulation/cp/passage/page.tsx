@@ -511,7 +511,7 @@ function page() {
         <br />
         et jamais je ne révélerai mal a propos […]
         <br />
-        aucun des signe ou mot touchant ou appartenant au deuxième grade en FM
+        aucun des signes ou mots touchant ou appartenant au deuxième grade en FM
         […]
         <br />
         connue sous le nom de compagnon, […]
