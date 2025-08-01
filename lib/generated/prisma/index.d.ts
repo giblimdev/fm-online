@@ -43,6 +43,26 @@ export type Documents = $Result.DefaultSelection<Prisma.$DocumentsPayload>
  * 
  */
 export type Links = $Result.DefaultSelection<Prisma.$LinksPayload>
+/**
+ * Model Text
+ * 
+ */
+export type Text = $Result.DefaultSelection<Prisma.$TextPayload>
+/**
+ * Model WordState
+ * 
+ */
+export type WordState = $Result.DefaultSelection<Prisma.$WordStatePayload>
+/**
+ * Model UserProgress
+ * 
+ */
+export type UserProgress = $Result.DefaultSelection<Prisma.$UserProgressPayload>
+/**
+ * Model LearningSession
+ * 
+ */
+export type LearningSession = $Result.DefaultSelection<Prisma.$LearningSessionPayload>
 
 /**
  * Enums
@@ -251,6 +271,46 @@ export class PrismaClient<
     * ```
     */
   get links(): Prisma.LinksDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.text`: Exposes CRUD operations for the **Text** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Texts
+    * const texts = await prisma.text.findMany()
+    * ```
+    */
+  get text(): Prisma.TextDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.wordState`: Exposes CRUD operations for the **WordState** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WordStates
+    * const wordStates = await prisma.wordState.findMany()
+    * ```
+    */
+  get wordState(): Prisma.WordStateDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.userProgress`: Exposes CRUD operations for the **UserProgress** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserProgresses
+    * const userProgresses = await prisma.userProgress.findMany()
+    * ```
+    */
+  get userProgress(): Prisma.UserProgressDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.learningSession`: Exposes CRUD operations for the **LearningSession** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LearningSessions
+    * const learningSessions = await prisma.learningSession.findMany()
+    * ```
+    */
+  get learningSession(): Prisma.LearningSessionDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -696,7 +756,11 @@ export namespace Prisma {
     Account: 'Account',
     Verification: 'Verification',
     Documents: 'Documents',
-    Links: 'Links'
+    Links: 'Links',
+    Text: 'Text',
+    WordState: 'WordState',
+    UserProgress: 'UserProgress',
+    LearningSession: 'LearningSession'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -715,7 +779,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification" | "documents" | "links"
+      modelProps: "user" | "session" | "account" | "verification" | "documents" | "links" | "text" | "wordState" | "userProgress" | "learningSession"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1163,6 +1227,302 @@ export namespace Prisma {
           }
         }
       }
+      Text: {
+        payload: Prisma.$TextPayload<ExtArgs>
+        fields: Prisma.TextFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TextFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TextFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>
+          }
+          findFirst: {
+            args: Prisma.TextFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TextFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>
+          }
+          findMany: {
+            args: Prisma.TextFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>[]
+          }
+          create: {
+            args: Prisma.TextCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>
+          }
+          createMany: {
+            args: Prisma.TextCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TextCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>[]
+          }
+          delete: {
+            args: Prisma.TextDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>
+          }
+          update: {
+            args: Prisma.TextUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>
+          }
+          deleteMany: {
+            args: Prisma.TextDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TextUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TextUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>[]
+          }
+          upsert: {
+            args: Prisma.TextUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TextPayload>
+          }
+          aggregate: {
+            args: Prisma.TextAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateText>
+          }
+          groupBy: {
+            args: Prisma.TextGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TextGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TextCountArgs<ExtArgs>
+            result: $Utils.Optional<TextCountAggregateOutputType> | number
+          }
+        }
+      }
+      WordState: {
+        payload: Prisma.$WordStatePayload<ExtArgs>
+        fields: Prisma.WordStateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WordStateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WordStateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>
+          }
+          findFirst: {
+            args: Prisma.WordStateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WordStateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>
+          }
+          findMany: {
+            args: Prisma.WordStateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>[]
+          }
+          create: {
+            args: Prisma.WordStateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>
+          }
+          createMany: {
+            args: Prisma.WordStateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WordStateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>[]
+          }
+          delete: {
+            args: Prisma.WordStateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>
+          }
+          update: {
+            args: Prisma.WordStateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>
+          }
+          deleteMany: {
+            args: Prisma.WordStateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WordStateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WordStateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>[]
+          }
+          upsert: {
+            args: Prisma.WordStateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WordStatePayload>
+          }
+          aggregate: {
+            args: Prisma.WordStateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWordState>
+          }
+          groupBy: {
+            args: Prisma.WordStateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WordStateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WordStateCountArgs<ExtArgs>
+            result: $Utils.Optional<WordStateCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserProgress: {
+        payload: Prisma.$UserProgressPayload<ExtArgs>
+        fields: Prisma.UserProgressFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserProgressFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserProgressFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>
+          }
+          findFirst: {
+            args: Prisma.UserProgressFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserProgressFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>
+          }
+          findMany: {
+            args: Prisma.UserProgressFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>[]
+          }
+          create: {
+            args: Prisma.UserProgressCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>
+          }
+          createMany: {
+            args: Prisma.UserProgressCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserProgressCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>[]
+          }
+          delete: {
+            args: Prisma.UserProgressDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>
+          }
+          update: {
+            args: Prisma.UserProgressUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserProgressDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserProgressUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UserProgressUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>[]
+          }
+          upsert: {
+            args: Prisma.UserProgressUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserProgressPayload>
+          }
+          aggregate: {
+            args: Prisma.UserProgressAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserProgress>
+          }
+          groupBy: {
+            args: Prisma.UserProgressGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserProgressGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserProgressCountArgs<ExtArgs>
+            result: $Utils.Optional<UserProgressCountAggregateOutputType> | number
+          }
+        }
+      }
+      LearningSession: {
+        payload: Prisma.$LearningSessionPayload<ExtArgs>
+        fields: Prisma.LearningSessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LearningSessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LearningSessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>
+          }
+          findFirst: {
+            args: Prisma.LearningSessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LearningSessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>
+          }
+          findMany: {
+            args: Prisma.LearningSessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>[]
+          }
+          create: {
+            args: Prisma.LearningSessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>
+          }
+          createMany: {
+            args: Prisma.LearningSessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LearningSessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>[]
+          }
+          delete: {
+            args: Prisma.LearningSessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>
+          }
+          update: {
+            args: Prisma.LearningSessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.LearningSessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LearningSessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LearningSessionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>[]
+          }
+          upsert: {
+            args: Prisma.LearningSessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningSessionPayload>
+          }
+          aggregate: {
+            args: Prisma.LearningSessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLearningSession>
+          }
+          groupBy: {
+            args: Prisma.LearningSessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LearningSessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LearningSessionCountArgs<ExtArgs>
+            result: $Utils.Optional<LearningSessionCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1253,6 +1613,10 @@ export namespace Prisma {
     verification?: VerificationOmit
     documents?: DocumentsOmit
     links?: LinksOmit
+    text?: TextOmit
+    wordState?: WordStateOmit
+    userProgress?: UserProgressOmit
+    learningSession?: LearningSessionOmit
   }
 
   /* Types for Logging */
@@ -1350,12 +1714,18 @@ export namespace Prisma {
     sessions: number
     accounts: number
     documents: number
+    WordState: number
+    UserProgress: number
+    LearningSession: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     documents?: boolean | UserCountOutputTypeCountDocumentsArgs
+    WordState?: boolean | UserCountOutputTypeCountWordStateArgs
+    UserProgress?: boolean | UserCountOutputTypeCountUserProgressArgs
+    LearningSession?: boolean | UserCountOutputTypeCountLearningSessionArgs
   }
 
   // Custom InputTypes
@@ -1390,6 +1760,27 @@ export namespace Prisma {
     where?: DocumentsWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountWordStateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WordStateWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountUserProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserProgressWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountLearningSessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearningSessionWhereInput
+  }
+
 
   /**
    * Count Type DocumentsCountOutputType
@@ -1419,6 +1810,55 @@ export namespace Prisma {
    */
   export type DocumentsCountOutputTypeCountLiensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LinksWhereInput
+  }
+
+
+  /**
+   * Count Type TextCountOutputType
+   */
+
+  export type TextCountOutputType = {
+    wordStates: number
+    userProgress: number
+    LearningSession: number
+  }
+
+  export type TextCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    wordStates?: boolean | TextCountOutputTypeCountWordStatesArgs
+    userProgress?: boolean | TextCountOutputTypeCountUserProgressArgs
+    LearningSession?: boolean | TextCountOutputTypeCountLearningSessionArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TextCountOutputType without action
+   */
+  export type TextCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TextCountOutputType
+     */
+    select?: TextCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TextCountOutputType without action
+   */
+  export type TextCountOutputTypeCountWordStatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WordStateWhereInput
+  }
+
+  /**
+   * TextCountOutputType without action
+   */
+  export type TextCountOutputTypeCountUserProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserProgressWhereInput
+  }
+
+  /**
+   * TextCountOutputType without action
+   */
+  export type TextCountOutputTypeCountLearningSessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearningSessionWhereInput
   }
 
 
@@ -1613,6 +2053,9 @@ export namespace Prisma {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     documents?: boolean | User$documentsArgs<ExtArgs>
+    WordState?: boolean | User$WordStateArgs<ExtArgs>
+    UserProgress?: boolean | User$UserProgressArgs<ExtArgs>
+    LearningSession?: boolean | User$LearningSessionArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1654,6 +2097,9 @@ export namespace Prisma {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     documents?: boolean | User$documentsArgs<ExtArgs>
+    WordState?: boolean | User$WordStateArgs<ExtArgs>
+    UserProgress?: boolean | User$UserProgressArgs<ExtArgs>
+    LearningSession?: boolean | User$LearningSessionArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1665,6 +2111,9 @@ export namespace Prisma {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       documents: Prisma.$DocumentsPayload<ExtArgs>[]
+      WordState: Prisma.$WordStatePayload<ExtArgs>[]
+      UserProgress: Prisma.$UserProgressPayload<ExtArgs>[]
+      LearningSession: Prisma.$LearningSessionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2072,6 +2521,9 @@ export namespace Prisma {
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     documents<T extends User$documentsArgs<ExtArgs> = {}>(args?: Subset<T, User$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    WordState<T extends User$WordStateArgs<ExtArgs> = {}>(args?: Subset<T, User$WordStateArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    UserProgress<T extends User$UserProgressArgs<ExtArgs> = {}>(args?: Subset<T, User$UserProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    LearningSession<T extends User$LearningSessionArgs<ExtArgs> = {}>(args?: Subset<T, User$LearningSessionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2566,6 +3018,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DocumentsScalarFieldEnum | DocumentsScalarFieldEnum[]
+  }
+
+  /**
+   * User.WordState
+   */
+  export type User$WordStateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    where?: WordStateWhereInput
+    orderBy?: WordStateOrderByWithRelationInput | WordStateOrderByWithRelationInput[]
+    cursor?: WordStateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WordStateScalarFieldEnum | WordStateScalarFieldEnum[]
+  }
+
+  /**
+   * User.UserProgress
+   */
+  export type User$UserProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    where?: UserProgressWhereInput
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
+    cursor?: UserProgressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserProgressScalarFieldEnum | UserProgressScalarFieldEnum[]
+  }
+
+  /**
+   * User.LearningSession
+   */
+  export type User$LearningSessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    where?: LearningSessionWhereInput
+    orderBy?: LearningSessionOrderByWithRelationInput | LearningSessionOrderByWithRelationInput[]
+    cursor?: LearningSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LearningSessionScalarFieldEnum | LearningSessionScalarFieldEnum[]
   }
 
   /**
@@ -8160,6 +8684,4676 @@ export namespace Prisma {
 
 
   /**
+   * Model Text
+   */
+
+  export type AggregateText = {
+    _count: TextCountAggregateOutputType | null
+    _avg: TextAvgAggregateOutputType | null
+    _sum: TextSumAggregateOutputType | null
+    _min: TextMinAggregateOutputType | null
+    _max: TextMaxAggregateOutputType | null
+  }
+
+  export type TextAvgAggregateOutputType = {
+    wordCount: number | null
+  }
+
+  export type TextSumAggregateOutputType = {
+    wordCount: number | null
+  }
+
+  export type TextMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    category: string | null
+    grade: $Enums.Grade | null
+    wordCount: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TextMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    category: string | null
+    grade: $Enums.Grade | null
+    wordCount: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TextCountAggregateOutputType = {
+    id: number
+    title: number
+    content: number
+    category: number
+    grade: number
+    wordCount: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TextAvgAggregateInputType = {
+    wordCount?: true
+  }
+
+  export type TextSumAggregateInputType = {
+    wordCount?: true
+  }
+
+  export type TextMinAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    category?: true
+    grade?: true
+    wordCount?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TextMaxAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    category?: true
+    grade?: true
+    wordCount?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TextCountAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    category?: true
+    grade?: true
+    wordCount?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TextAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Text to aggregate.
+     */
+    where?: TextWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Texts to fetch.
+     */
+    orderBy?: TextOrderByWithRelationInput | TextOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TextWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Texts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Texts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Texts
+    **/
+    _count?: true | TextCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TextAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TextSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TextMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TextMaxAggregateInputType
+  }
+
+  export type GetTextAggregateType<T extends TextAggregateArgs> = {
+        [P in keyof T & keyof AggregateText]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateText[P]>
+      : GetScalarType<T[P], AggregateText[P]>
+  }
+
+
+
+
+  export type TextGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TextWhereInput
+    orderBy?: TextOrderByWithAggregationInput | TextOrderByWithAggregationInput[]
+    by: TextScalarFieldEnum[] | TextScalarFieldEnum
+    having?: TextScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TextCountAggregateInputType | true
+    _avg?: TextAvgAggregateInputType
+    _sum?: TextSumAggregateInputType
+    _min?: TextMinAggregateInputType
+    _max?: TextMaxAggregateInputType
+  }
+
+  export type TextGroupByOutputType = {
+    id: string
+    title: string
+    content: string
+    category: string | null
+    grade: $Enums.Grade | null
+    wordCount: number
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: TextCountAggregateOutputType | null
+    _avg: TextAvgAggregateOutputType | null
+    _sum: TextSumAggregateOutputType | null
+    _min: TextMinAggregateOutputType | null
+    _max: TextMaxAggregateOutputType | null
+  }
+
+  type GetTextGroupByPayload<T extends TextGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TextGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TextGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TextGroupByOutputType[P]>
+            : GetScalarType<T[P], TextGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TextSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    category?: boolean
+    grade?: boolean
+    wordCount?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    wordStates?: boolean | Text$wordStatesArgs<ExtArgs>
+    userProgress?: boolean | Text$userProgressArgs<ExtArgs>
+    LearningSession?: boolean | Text$LearningSessionArgs<ExtArgs>
+    _count?: boolean | TextCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["text"]>
+
+  export type TextSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    category?: boolean
+    grade?: boolean
+    wordCount?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["text"]>
+
+  export type TextSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    category?: boolean
+    grade?: boolean
+    wordCount?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["text"]>
+
+  export type TextSelectScalar = {
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    category?: boolean
+    grade?: boolean
+    wordCount?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TextOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "category" | "grade" | "wordCount" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["text"]>
+  export type TextInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    wordStates?: boolean | Text$wordStatesArgs<ExtArgs>
+    userProgress?: boolean | Text$userProgressArgs<ExtArgs>
+    LearningSession?: boolean | Text$LearningSessionArgs<ExtArgs>
+    _count?: boolean | TextCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TextIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type TextIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $TextPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Text"
+    objects: {
+      wordStates: Prisma.$WordStatePayload<ExtArgs>[]
+      userProgress: Prisma.$UserProgressPayload<ExtArgs>[]
+      LearningSession: Prisma.$LearningSessionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      content: string
+      category: string | null
+      grade: $Enums.Grade | null
+      wordCount: number
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["text"]>
+    composites: {}
+  }
+
+  type TextGetPayload<S extends boolean | null | undefined | TextDefaultArgs> = $Result.GetResult<Prisma.$TextPayload, S>
+
+  type TextCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TextFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TextCountAggregateInputType | true
+    }
+
+  export interface TextDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Text'], meta: { name: 'Text' } }
+    /**
+     * Find zero or one Text that matches the filter.
+     * @param {TextFindUniqueArgs} args - Arguments to find a Text
+     * @example
+     * // Get one Text
+     * const text = await prisma.text.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TextFindUniqueArgs>(args: SelectSubset<T, TextFindUniqueArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Text that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TextFindUniqueOrThrowArgs} args - Arguments to find a Text
+     * @example
+     * // Get one Text
+     * const text = await prisma.text.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TextFindUniqueOrThrowArgs>(args: SelectSubset<T, TextFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Text that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TextFindFirstArgs} args - Arguments to find a Text
+     * @example
+     * // Get one Text
+     * const text = await prisma.text.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TextFindFirstArgs>(args?: SelectSubset<T, TextFindFirstArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Text that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TextFindFirstOrThrowArgs} args - Arguments to find a Text
+     * @example
+     * // Get one Text
+     * const text = await prisma.text.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TextFindFirstOrThrowArgs>(args?: SelectSubset<T, TextFindFirstOrThrowArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Texts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TextFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Texts
+     * const texts = await prisma.text.findMany()
+     * 
+     * // Get first 10 Texts
+     * const texts = await prisma.text.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const textWithIdOnly = await prisma.text.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TextFindManyArgs>(args?: SelectSubset<T, TextFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Text.
+     * @param {TextCreateArgs} args - Arguments to create a Text.
+     * @example
+     * // Create one Text
+     * const Text = await prisma.text.create({
+     *   data: {
+     *     // ... data to create a Text
+     *   }
+     * })
+     * 
+     */
+    create<T extends TextCreateArgs>(args: SelectSubset<T, TextCreateArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Texts.
+     * @param {TextCreateManyArgs} args - Arguments to create many Texts.
+     * @example
+     * // Create many Texts
+     * const text = await prisma.text.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TextCreateManyArgs>(args?: SelectSubset<T, TextCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Texts and returns the data saved in the database.
+     * @param {TextCreateManyAndReturnArgs} args - Arguments to create many Texts.
+     * @example
+     * // Create many Texts
+     * const text = await prisma.text.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Texts and only return the `id`
+     * const textWithIdOnly = await prisma.text.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TextCreateManyAndReturnArgs>(args?: SelectSubset<T, TextCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Text.
+     * @param {TextDeleteArgs} args - Arguments to delete one Text.
+     * @example
+     * // Delete one Text
+     * const Text = await prisma.text.delete({
+     *   where: {
+     *     // ... filter to delete one Text
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TextDeleteArgs>(args: SelectSubset<T, TextDeleteArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Text.
+     * @param {TextUpdateArgs} args - Arguments to update one Text.
+     * @example
+     * // Update one Text
+     * const text = await prisma.text.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TextUpdateArgs>(args: SelectSubset<T, TextUpdateArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Texts.
+     * @param {TextDeleteManyArgs} args - Arguments to filter Texts to delete.
+     * @example
+     * // Delete a few Texts
+     * const { count } = await prisma.text.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TextDeleteManyArgs>(args?: SelectSubset<T, TextDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Texts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TextUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Texts
+     * const text = await prisma.text.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TextUpdateManyArgs>(args: SelectSubset<T, TextUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Texts and returns the data updated in the database.
+     * @param {TextUpdateManyAndReturnArgs} args - Arguments to update many Texts.
+     * @example
+     * // Update many Texts
+     * const text = await prisma.text.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Texts and only return the `id`
+     * const textWithIdOnly = await prisma.text.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TextUpdateManyAndReturnArgs>(args: SelectSubset<T, TextUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Text.
+     * @param {TextUpsertArgs} args - Arguments to update or create a Text.
+     * @example
+     * // Update or create a Text
+     * const text = await prisma.text.upsert({
+     *   create: {
+     *     // ... data to create a Text
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Text we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TextUpsertArgs>(args: SelectSubset<T, TextUpsertArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Texts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TextCountArgs} args - Arguments to filter Texts to count.
+     * @example
+     * // Count the number of Texts
+     * const count = await prisma.text.count({
+     *   where: {
+     *     // ... the filter for the Texts we want to count
+     *   }
+     * })
+    **/
+    count<T extends TextCountArgs>(
+      args?: Subset<T, TextCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TextCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Text.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TextAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TextAggregateArgs>(args: Subset<T, TextAggregateArgs>): Prisma.PrismaPromise<GetTextAggregateType<T>>
+
+    /**
+     * Group by Text.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TextGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TextGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TextGroupByArgs['orderBy'] }
+        : { orderBy?: TextGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TextGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTextGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Text model
+   */
+  readonly fields: TextFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Text.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TextClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    wordStates<T extends Text$wordStatesArgs<ExtArgs> = {}>(args?: Subset<T, Text$wordStatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    userProgress<T extends Text$userProgressArgs<ExtArgs> = {}>(args?: Subset<T, Text$userProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    LearningSession<T extends Text$LearningSessionArgs<ExtArgs> = {}>(args?: Subset<T, Text$LearningSessionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Text model
+   */
+  interface TextFieldRefs {
+    readonly id: FieldRef<"Text", 'String'>
+    readonly title: FieldRef<"Text", 'String'>
+    readonly content: FieldRef<"Text", 'String'>
+    readonly category: FieldRef<"Text", 'String'>
+    readonly grade: FieldRef<"Text", 'Grade'>
+    readonly wordCount: FieldRef<"Text", 'Int'>
+    readonly isActive: FieldRef<"Text", 'Boolean'>
+    readonly createdAt: FieldRef<"Text", 'DateTime'>
+    readonly updatedAt: FieldRef<"Text", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Text findUnique
+   */
+  export type TextFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * Filter, which Text to fetch.
+     */
+    where: TextWhereUniqueInput
+  }
+
+  /**
+   * Text findUniqueOrThrow
+   */
+  export type TextFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * Filter, which Text to fetch.
+     */
+    where: TextWhereUniqueInput
+  }
+
+  /**
+   * Text findFirst
+   */
+  export type TextFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * Filter, which Text to fetch.
+     */
+    where?: TextWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Texts to fetch.
+     */
+    orderBy?: TextOrderByWithRelationInput | TextOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Texts.
+     */
+    cursor?: TextWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Texts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Texts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Texts.
+     */
+    distinct?: TextScalarFieldEnum | TextScalarFieldEnum[]
+  }
+
+  /**
+   * Text findFirstOrThrow
+   */
+  export type TextFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * Filter, which Text to fetch.
+     */
+    where?: TextWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Texts to fetch.
+     */
+    orderBy?: TextOrderByWithRelationInput | TextOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Texts.
+     */
+    cursor?: TextWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Texts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Texts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Texts.
+     */
+    distinct?: TextScalarFieldEnum | TextScalarFieldEnum[]
+  }
+
+  /**
+   * Text findMany
+   */
+  export type TextFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * Filter, which Texts to fetch.
+     */
+    where?: TextWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Texts to fetch.
+     */
+    orderBy?: TextOrderByWithRelationInput | TextOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Texts.
+     */
+    cursor?: TextWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Texts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Texts.
+     */
+    skip?: number
+    distinct?: TextScalarFieldEnum | TextScalarFieldEnum[]
+  }
+
+  /**
+   * Text create
+   */
+  export type TextCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Text.
+     */
+    data: XOR<TextCreateInput, TextUncheckedCreateInput>
+  }
+
+  /**
+   * Text createMany
+   */
+  export type TextCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Texts.
+     */
+    data: TextCreateManyInput | TextCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Text createManyAndReturn
+   */
+  export type TextCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * The data used to create many Texts.
+     */
+    data: TextCreateManyInput | TextCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Text update
+   */
+  export type TextUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Text.
+     */
+    data: XOR<TextUpdateInput, TextUncheckedUpdateInput>
+    /**
+     * Choose, which Text to update.
+     */
+    where: TextWhereUniqueInput
+  }
+
+  /**
+   * Text updateMany
+   */
+  export type TextUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Texts.
+     */
+    data: XOR<TextUpdateManyMutationInput, TextUncheckedUpdateManyInput>
+    /**
+     * Filter which Texts to update
+     */
+    where?: TextWhereInput
+    /**
+     * Limit how many Texts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Text updateManyAndReturn
+   */
+  export type TextUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * The data used to update Texts.
+     */
+    data: XOR<TextUpdateManyMutationInput, TextUncheckedUpdateManyInput>
+    /**
+     * Filter which Texts to update
+     */
+    where?: TextWhereInput
+    /**
+     * Limit how many Texts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Text upsert
+   */
+  export type TextUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Text to update in case it exists.
+     */
+    where: TextWhereUniqueInput
+    /**
+     * In case the Text found by the `where` argument doesn't exist, create a new Text with this data.
+     */
+    create: XOR<TextCreateInput, TextUncheckedCreateInput>
+    /**
+     * In case the Text was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TextUpdateInput, TextUncheckedUpdateInput>
+  }
+
+  /**
+   * Text delete
+   */
+  export type TextDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+    /**
+     * Filter which Text to delete.
+     */
+    where: TextWhereUniqueInput
+  }
+
+  /**
+   * Text deleteMany
+   */
+  export type TextDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Texts to delete
+     */
+    where?: TextWhereInput
+    /**
+     * Limit how many Texts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Text.wordStates
+   */
+  export type Text$wordStatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    where?: WordStateWhereInput
+    orderBy?: WordStateOrderByWithRelationInput | WordStateOrderByWithRelationInput[]
+    cursor?: WordStateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WordStateScalarFieldEnum | WordStateScalarFieldEnum[]
+  }
+
+  /**
+   * Text.userProgress
+   */
+  export type Text$userProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    where?: UserProgressWhereInput
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
+    cursor?: UserProgressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserProgressScalarFieldEnum | UserProgressScalarFieldEnum[]
+  }
+
+  /**
+   * Text.LearningSession
+   */
+  export type Text$LearningSessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    where?: LearningSessionWhereInput
+    orderBy?: LearningSessionOrderByWithRelationInput | LearningSessionOrderByWithRelationInput[]
+    cursor?: LearningSessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LearningSessionScalarFieldEnum | LearningSessionScalarFieldEnum[]
+  }
+
+  /**
+   * Text without action
+   */
+  export type TextDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Text
+     */
+    select?: TextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Text
+     */
+    omit?: TextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TextInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model WordState
+   */
+
+  export type AggregateWordState = {
+    _count: WordStateCountAggregateOutputType | null
+    _avg: WordStateAvgAggregateOutputType | null
+    _sum: WordStateSumAggregateOutputType | null
+    _min: WordStateMinAggregateOutputType | null
+    _max: WordStateMaxAggregateOutputType | null
+  }
+
+  export type WordStateAvgAggregateOutputType = {
+    wordPosition: number | null
+  }
+
+  export type WordStateSumAggregateOutputType = {
+    wordPosition: number | null
+  }
+
+  export type WordStateMinAggregateOutputType = {
+    id: string | null
+    wordPosition: number | null
+    wordContent: string | null
+    isMasked: boolean | null
+    lastUpdated: Date | null
+    userId: string | null
+    textId: string | null
+  }
+
+  export type WordStateMaxAggregateOutputType = {
+    id: string | null
+    wordPosition: number | null
+    wordContent: string | null
+    isMasked: boolean | null
+    lastUpdated: Date | null
+    userId: string | null
+    textId: string | null
+  }
+
+  export type WordStateCountAggregateOutputType = {
+    id: number
+    wordPosition: number
+    wordContent: number
+    isMasked: number
+    lastUpdated: number
+    userId: number
+    textId: number
+    _all: number
+  }
+
+
+  export type WordStateAvgAggregateInputType = {
+    wordPosition?: true
+  }
+
+  export type WordStateSumAggregateInputType = {
+    wordPosition?: true
+  }
+
+  export type WordStateMinAggregateInputType = {
+    id?: true
+    wordPosition?: true
+    wordContent?: true
+    isMasked?: true
+    lastUpdated?: true
+    userId?: true
+    textId?: true
+  }
+
+  export type WordStateMaxAggregateInputType = {
+    id?: true
+    wordPosition?: true
+    wordContent?: true
+    isMasked?: true
+    lastUpdated?: true
+    userId?: true
+    textId?: true
+  }
+
+  export type WordStateCountAggregateInputType = {
+    id?: true
+    wordPosition?: true
+    wordContent?: true
+    isMasked?: true
+    lastUpdated?: true
+    userId?: true
+    textId?: true
+    _all?: true
+  }
+
+  export type WordStateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WordState to aggregate.
+     */
+    where?: WordStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WordStates to fetch.
+     */
+    orderBy?: WordStateOrderByWithRelationInput | WordStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WordStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WordStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WordStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned WordStates
+    **/
+    _count?: true | WordStateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WordStateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WordStateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WordStateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WordStateMaxAggregateInputType
+  }
+
+  export type GetWordStateAggregateType<T extends WordStateAggregateArgs> = {
+        [P in keyof T & keyof AggregateWordState]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWordState[P]>
+      : GetScalarType<T[P], AggregateWordState[P]>
+  }
+
+
+
+
+  export type WordStateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WordStateWhereInput
+    orderBy?: WordStateOrderByWithAggregationInput | WordStateOrderByWithAggregationInput[]
+    by: WordStateScalarFieldEnum[] | WordStateScalarFieldEnum
+    having?: WordStateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WordStateCountAggregateInputType | true
+    _avg?: WordStateAvgAggregateInputType
+    _sum?: WordStateSumAggregateInputType
+    _min?: WordStateMinAggregateInputType
+    _max?: WordStateMaxAggregateInputType
+  }
+
+  export type WordStateGroupByOutputType = {
+    id: string
+    wordPosition: number
+    wordContent: string
+    isMasked: boolean
+    lastUpdated: Date
+    userId: string
+    textId: string
+    _count: WordStateCountAggregateOutputType | null
+    _avg: WordStateAvgAggregateOutputType | null
+    _sum: WordStateSumAggregateOutputType | null
+    _min: WordStateMinAggregateOutputType | null
+    _max: WordStateMaxAggregateOutputType | null
+  }
+
+  type GetWordStateGroupByPayload<T extends WordStateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WordStateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WordStateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WordStateGroupByOutputType[P]>
+            : GetScalarType<T[P], WordStateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WordStateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    wordPosition?: boolean
+    wordContent?: boolean
+    isMasked?: boolean
+    lastUpdated?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["wordState"]>
+
+  export type WordStateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    wordPosition?: boolean
+    wordContent?: boolean
+    isMasked?: boolean
+    lastUpdated?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["wordState"]>
+
+  export type WordStateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    wordPosition?: boolean
+    wordContent?: boolean
+    isMasked?: boolean
+    lastUpdated?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["wordState"]>
+
+  export type WordStateSelectScalar = {
+    id?: boolean
+    wordPosition?: boolean
+    wordContent?: boolean
+    isMasked?: boolean
+    lastUpdated?: boolean
+    userId?: boolean
+    textId?: boolean
+  }
+
+  export type WordStateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "wordPosition" | "wordContent" | "isMasked" | "lastUpdated" | "userId" | "textId", ExtArgs["result"]["wordState"]>
+  export type WordStateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+  export type WordStateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+  export type WordStateIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+
+  export type $WordStatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "WordState"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      text: Prisma.$TextPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      wordPosition: number
+      wordContent: string
+      isMasked: boolean
+      lastUpdated: Date
+      userId: string
+      textId: string
+    }, ExtArgs["result"]["wordState"]>
+    composites: {}
+  }
+
+  type WordStateGetPayload<S extends boolean | null | undefined | WordStateDefaultArgs> = $Result.GetResult<Prisma.$WordStatePayload, S>
+
+  type WordStateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WordStateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WordStateCountAggregateInputType | true
+    }
+
+  export interface WordStateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WordState'], meta: { name: 'WordState' } }
+    /**
+     * Find zero or one WordState that matches the filter.
+     * @param {WordStateFindUniqueArgs} args - Arguments to find a WordState
+     * @example
+     * // Get one WordState
+     * const wordState = await prisma.wordState.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WordStateFindUniqueArgs>(args: SelectSubset<T, WordStateFindUniqueArgs<ExtArgs>>): Prisma__WordStateClient<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WordState that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WordStateFindUniqueOrThrowArgs} args - Arguments to find a WordState
+     * @example
+     * // Get one WordState
+     * const wordState = await prisma.wordState.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WordStateFindUniqueOrThrowArgs>(args: SelectSubset<T, WordStateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WordStateClient<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WordState that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WordStateFindFirstArgs} args - Arguments to find a WordState
+     * @example
+     * // Get one WordState
+     * const wordState = await prisma.wordState.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WordStateFindFirstArgs>(args?: SelectSubset<T, WordStateFindFirstArgs<ExtArgs>>): Prisma__WordStateClient<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WordState that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WordStateFindFirstOrThrowArgs} args - Arguments to find a WordState
+     * @example
+     * // Get one WordState
+     * const wordState = await prisma.wordState.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WordStateFindFirstOrThrowArgs>(args?: SelectSubset<T, WordStateFindFirstOrThrowArgs<ExtArgs>>): Prisma__WordStateClient<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WordStates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WordStateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WordStates
+     * const wordStates = await prisma.wordState.findMany()
+     * 
+     * // Get first 10 WordStates
+     * const wordStates = await prisma.wordState.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const wordStateWithIdOnly = await prisma.wordState.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WordStateFindManyArgs>(args?: SelectSubset<T, WordStateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WordState.
+     * @param {WordStateCreateArgs} args - Arguments to create a WordState.
+     * @example
+     * // Create one WordState
+     * const WordState = await prisma.wordState.create({
+     *   data: {
+     *     // ... data to create a WordState
+     *   }
+     * })
+     * 
+     */
+    create<T extends WordStateCreateArgs>(args: SelectSubset<T, WordStateCreateArgs<ExtArgs>>): Prisma__WordStateClient<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WordStates.
+     * @param {WordStateCreateManyArgs} args - Arguments to create many WordStates.
+     * @example
+     * // Create many WordStates
+     * const wordState = await prisma.wordState.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WordStateCreateManyArgs>(args?: SelectSubset<T, WordStateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WordStates and returns the data saved in the database.
+     * @param {WordStateCreateManyAndReturnArgs} args - Arguments to create many WordStates.
+     * @example
+     * // Create many WordStates
+     * const wordState = await prisma.wordState.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WordStates and only return the `id`
+     * const wordStateWithIdOnly = await prisma.wordState.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WordStateCreateManyAndReturnArgs>(args?: SelectSubset<T, WordStateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WordState.
+     * @param {WordStateDeleteArgs} args - Arguments to delete one WordState.
+     * @example
+     * // Delete one WordState
+     * const WordState = await prisma.wordState.delete({
+     *   where: {
+     *     // ... filter to delete one WordState
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WordStateDeleteArgs>(args: SelectSubset<T, WordStateDeleteArgs<ExtArgs>>): Prisma__WordStateClient<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WordState.
+     * @param {WordStateUpdateArgs} args - Arguments to update one WordState.
+     * @example
+     * // Update one WordState
+     * const wordState = await prisma.wordState.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WordStateUpdateArgs>(args: SelectSubset<T, WordStateUpdateArgs<ExtArgs>>): Prisma__WordStateClient<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WordStates.
+     * @param {WordStateDeleteManyArgs} args - Arguments to filter WordStates to delete.
+     * @example
+     * // Delete a few WordStates
+     * const { count } = await prisma.wordState.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WordStateDeleteManyArgs>(args?: SelectSubset<T, WordStateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WordStates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WordStateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WordStates
+     * const wordState = await prisma.wordState.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WordStateUpdateManyArgs>(args: SelectSubset<T, WordStateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WordStates and returns the data updated in the database.
+     * @param {WordStateUpdateManyAndReturnArgs} args - Arguments to update many WordStates.
+     * @example
+     * // Update many WordStates
+     * const wordState = await prisma.wordState.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WordStates and only return the `id`
+     * const wordStateWithIdOnly = await prisma.wordState.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WordStateUpdateManyAndReturnArgs>(args: SelectSubset<T, WordStateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WordState.
+     * @param {WordStateUpsertArgs} args - Arguments to update or create a WordState.
+     * @example
+     * // Update or create a WordState
+     * const wordState = await prisma.wordState.upsert({
+     *   create: {
+     *     // ... data to create a WordState
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WordState we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WordStateUpsertArgs>(args: SelectSubset<T, WordStateUpsertArgs<ExtArgs>>): Prisma__WordStateClient<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WordStates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WordStateCountArgs} args - Arguments to filter WordStates to count.
+     * @example
+     * // Count the number of WordStates
+     * const count = await prisma.wordState.count({
+     *   where: {
+     *     // ... the filter for the WordStates we want to count
+     *   }
+     * })
+    **/
+    count<T extends WordStateCountArgs>(
+      args?: Subset<T, WordStateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WordStateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WordState.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WordStateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WordStateAggregateArgs>(args: Subset<T, WordStateAggregateArgs>): Prisma.PrismaPromise<GetWordStateAggregateType<T>>
+
+    /**
+     * Group by WordState.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WordStateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WordStateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WordStateGroupByArgs['orderBy'] }
+        : { orderBy?: WordStateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WordStateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWordStateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the WordState model
+   */
+  readonly fields: WordStateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for WordState.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WordStateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    text<T extends TextDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TextDefaultArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the WordState model
+   */
+  interface WordStateFieldRefs {
+    readonly id: FieldRef<"WordState", 'String'>
+    readonly wordPosition: FieldRef<"WordState", 'Int'>
+    readonly wordContent: FieldRef<"WordState", 'String'>
+    readonly isMasked: FieldRef<"WordState", 'Boolean'>
+    readonly lastUpdated: FieldRef<"WordState", 'DateTime'>
+    readonly userId: FieldRef<"WordState", 'String'>
+    readonly textId: FieldRef<"WordState", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * WordState findUnique
+   */
+  export type WordStateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * Filter, which WordState to fetch.
+     */
+    where: WordStateWhereUniqueInput
+  }
+
+  /**
+   * WordState findUniqueOrThrow
+   */
+  export type WordStateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * Filter, which WordState to fetch.
+     */
+    where: WordStateWhereUniqueInput
+  }
+
+  /**
+   * WordState findFirst
+   */
+  export type WordStateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * Filter, which WordState to fetch.
+     */
+    where?: WordStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WordStates to fetch.
+     */
+    orderBy?: WordStateOrderByWithRelationInput | WordStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WordStates.
+     */
+    cursor?: WordStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WordStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WordStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WordStates.
+     */
+    distinct?: WordStateScalarFieldEnum | WordStateScalarFieldEnum[]
+  }
+
+  /**
+   * WordState findFirstOrThrow
+   */
+  export type WordStateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * Filter, which WordState to fetch.
+     */
+    where?: WordStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WordStates to fetch.
+     */
+    orderBy?: WordStateOrderByWithRelationInput | WordStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WordStates.
+     */
+    cursor?: WordStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WordStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WordStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WordStates.
+     */
+    distinct?: WordStateScalarFieldEnum | WordStateScalarFieldEnum[]
+  }
+
+  /**
+   * WordState findMany
+   */
+  export type WordStateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * Filter, which WordStates to fetch.
+     */
+    where?: WordStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WordStates to fetch.
+     */
+    orderBy?: WordStateOrderByWithRelationInput | WordStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing WordStates.
+     */
+    cursor?: WordStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WordStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WordStates.
+     */
+    skip?: number
+    distinct?: WordStateScalarFieldEnum | WordStateScalarFieldEnum[]
+  }
+
+  /**
+   * WordState create
+   */
+  export type WordStateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a WordState.
+     */
+    data: XOR<WordStateCreateInput, WordStateUncheckedCreateInput>
+  }
+
+  /**
+   * WordState createMany
+   */
+  export type WordStateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many WordStates.
+     */
+    data: WordStateCreateManyInput | WordStateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * WordState createManyAndReturn
+   */
+  export type WordStateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * The data used to create many WordStates.
+     */
+    data: WordStateCreateManyInput | WordStateCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WordState update
+   */
+  export type WordStateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a WordState.
+     */
+    data: XOR<WordStateUpdateInput, WordStateUncheckedUpdateInput>
+    /**
+     * Choose, which WordState to update.
+     */
+    where: WordStateWhereUniqueInput
+  }
+
+  /**
+   * WordState updateMany
+   */
+  export type WordStateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update WordStates.
+     */
+    data: XOR<WordStateUpdateManyMutationInput, WordStateUncheckedUpdateManyInput>
+    /**
+     * Filter which WordStates to update
+     */
+    where?: WordStateWhereInput
+    /**
+     * Limit how many WordStates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WordState updateManyAndReturn
+   */
+  export type WordStateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * The data used to update WordStates.
+     */
+    data: XOR<WordStateUpdateManyMutationInput, WordStateUncheckedUpdateManyInput>
+    /**
+     * Filter which WordStates to update
+     */
+    where?: WordStateWhereInput
+    /**
+     * Limit how many WordStates to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WordState upsert
+   */
+  export type WordStateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the WordState to update in case it exists.
+     */
+    where: WordStateWhereUniqueInput
+    /**
+     * In case the WordState found by the `where` argument doesn't exist, create a new WordState with this data.
+     */
+    create: XOR<WordStateCreateInput, WordStateUncheckedCreateInput>
+    /**
+     * In case the WordState was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WordStateUpdateInput, WordStateUncheckedUpdateInput>
+  }
+
+  /**
+   * WordState delete
+   */
+  export type WordStateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+    /**
+     * Filter which WordState to delete.
+     */
+    where: WordStateWhereUniqueInput
+  }
+
+  /**
+   * WordState deleteMany
+   */
+  export type WordStateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WordStates to delete
+     */
+    where?: WordStateWhereInput
+    /**
+     * Limit how many WordStates to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * WordState without action
+   */
+  export type WordStateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WordState
+     */
+    select?: WordStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WordState
+     */
+    omit?: WordStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WordStateInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UserProgress
+   */
+
+  export type AggregateUserProgress = {
+    _count: UserProgressCountAggregateOutputType | null
+    _avg: UserProgressAvgAggregateOutputType | null
+    _sum: UserProgressSumAggregateOutputType | null
+    _min: UserProgressMinAggregateOutputType | null
+    _max: UserProgressMaxAggregateOutputType | null
+  }
+
+  export type UserProgressAvgAggregateOutputType = {
+    totalWords: number | null
+    maskedWords: number | null
+    scorePercentage: number | null
+    totalSessions: number | null
+    timeSpent: number | null
+  }
+
+  export type UserProgressSumAggregateOutputType = {
+    totalWords: number | null
+    maskedWords: number | null
+    scorePercentage: number | null
+    totalSessions: number | null
+    timeSpent: number | null
+  }
+
+  export type UserProgressMinAggregateOutputType = {
+    id: string | null
+    totalWords: number | null
+    maskedWords: number | null
+    scorePercentage: number | null
+    lastSession: Date | null
+    totalSessions: number | null
+    timeSpent: number | null
+    userId: string | null
+    textId: string | null
+  }
+
+  export type UserProgressMaxAggregateOutputType = {
+    id: string | null
+    totalWords: number | null
+    maskedWords: number | null
+    scorePercentage: number | null
+    lastSession: Date | null
+    totalSessions: number | null
+    timeSpent: number | null
+    userId: string | null
+    textId: string | null
+  }
+
+  export type UserProgressCountAggregateOutputType = {
+    id: number
+    totalWords: number
+    maskedWords: number
+    scorePercentage: number
+    lastSession: number
+    totalSessions: number
+    timeSpent: number
+    userId: number
+    textId: number
+    _all: number
+  }
+
+
+  export type UserProgressAvgAggregateInputType = {
+    totalWords?: true
+    maskedWords?: true
+    scorePercentage?: true
+    totalSessions?: true
+    timeSpent?: true
+  }
+
+  export type UserProgressSumAggregateInputType = {
+    totalWords?: true
+    maskedWords?: true
+    scorePercentage?: true
+    totalSessions?: true
+    timeSpent?: true
+  }
+
+  export type UserProgressMinAggregateInputType = {
+    id?: true
+    totalWords?: true
+    maskedWords?: true
+    scorePercentage?: true
+    lastSession?: true
+    totalSessions?: true
+    timeSpent?: true
+    userId?: true
+    textId?: true
+  }
+
+  export type UserProgressMaxAggregateInputType = {
+    id?: true
+    totalWords?: true
+    maskedWords?: true
+    scorePercentage?: true
+    lastSession?: true
+    totalSessions?: true
+    timeSpent?: true
+    userId?: true
+    textId?: true
+  }
+
+  export type UserProgressCountAggregateInputType = {
+    id?: true
+    totalWords?: true
+    maskedWords?: true
+    scorePercentage?: true
+    lastSession?: true
+    totalSessions?: true
+    timeSpent?: true
+    userId?: true
+    textId?: true
+    _all?: true
+  }
+
+  export type UserProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserProgress to aggregate.
+     */
+    where?: UserProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserProgresses to fetch.
+     */
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserProgresses
+    **/
+    _count?: true | UserProgressCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserProgressAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserProgressSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserProgressMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserProgressMaxAggregateInputType
+  }
+
+  export type GetUserProgressAggregateType<T extends UserProgressAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserProgress]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserProgress[P]>
+      : GetScalarType<T[P], AggregateUserProgress[P]>
+  }
+
+
+
+
+  export type UserProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserProgressWhereInput
+    orderBy?: UserProgressOrderByWithAggregationInput | UserProgressOrderByWithAggregationInput[]
+    by: UserProgressScalarFieldEnum[] | UserProgressScalarFieldEnum
+    having?: UserProgressScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserProgressCountAggregateInputType | true
+    _avg?: UserProgressAvgAggregateInputType
+    _sum?: UserProgressSumAggregateInputType
+    _min?: UserProgressMinAggregateInputType
+    _max?: UserProgressMaxAggregateInputType
+  }
+
+  export type UserProgressGroupByOutputType = {
+    id: string
+    totalWords: number
+    maskedWords: number
+    scorePercentage: number
+    lastSession: Date
+    totalSessions: number
+    timeSpent: number
+    userId: string
+    textId: string
+    _count: UserProgressCountAggregateOutputType | null
+    _avg: UserProgressAvgAggregateOutputType | null
+    _sum: UserProgressSumAggregateOutputType | null
+    _min: UserProgressMinAggregateOutputType | null
+    _max: UserProgressMaxAggregateOutputType | null
+  }
+
+  type GetUserProgressGroupByPayload<T extends UserProgressGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserProgressGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserProgressGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserProgressGroupByOutputType[P]>
+            : GetScalarType<T[P], UserProgressGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    totalWords?: boolean
+    maskedWords?: boolean
+    scorePercentage?: boolean
+    lastSession?: boolean
+    totalSessions?: boolean
+    timeSpent?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userProgress"]>
+
+  export type UserProgressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    totalWords?: boolean
+    maskedWords?: boolean
+    scorePercentage?: boolean
+    lastSession?: boolean
+    totalSessions?: boolean
+    timeSpent?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userProgress"]>
+
+  export type UserProgressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    totalWords?: boolean
+    maskedWords?: boolean
+    scorePercentage?: boolean
+    lastSession?: boolean
+    totalSessions?: boolean
+    timeSpent?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userProgress"]>
+
+  export type UserProgressSelectScalar = {
+    id?: boolean
+    totalWords?: boolean
+    maskedWords?: boolean
+    scorePercentage?: boolean
+    lastSession?: boolean
+    totalSessions?: boolean
+    timeSpent?: boolean
+    userId?: boolean
+    textId?: boolean
+  }
+
+  export type UserProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "totalWords" | "maskedWords" | "scorePercentage" | "lastSession" | "totalSessions" | "timeSpent" | "userId" | "textId", ExtArgs["result"]["userProgress"]>
+  export type UserProgressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+  export type UserProgressIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+  export type UserProgressIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+
+  export type $UserProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserProgress"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      text: Prisma.$TextPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      totalWords: number
+      maskedWords: number
+      scorePercentage: number
+      lastSession: Date
+      totalSessions: number
+      timeSpent: number
+      userId: string
+      textId: string
+    }, ExtArgs["result"]["userProgress"]>
+    composites: {}
+  }
+
+  type UserProgressGetPayload<S extends boolean | null | undefined | UserProgressDefaultArgs> = $Result.GetResult<Prisma.$UserProgressPayload, S>
+
+  type UserProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserProgressCountAggregateInputType | true
+    }
+
+  export interface UserProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserProgress'], meta: { name: 'UserProgress' } }
+    /**
+     * Find zero or one UserProgress that matches the filter.
+     * @param {UserProgressFindUniqueArgs} args - Arguments to find a UserProgress
+     * @example
+     * // Get one UserProgress
+     * const userProgress = await prisma.userProgress.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserProgressFindUniqueArgs>(args: SelectSubset<T, UserProgressFindUniqueArgs<ExtArgs>>): Prisma__UserProgressClient<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one UserProgress that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserProgressFindUniqueOrThrowArgs} args - Arguments to find a UserProgress
+     * @example
+     * // Get one UserProgress
+     * const userProgress = await prisma.userProgress.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, UserProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserProgressClient<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserProgress that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserProgressFindFirstArgs} args - Arguments to find a UserProgress
+     * @example
+     * // Get one UserProgress
+     * const userProgress = await prisma.userProgress.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserProgressFindFirstArgs>(args?: SelectSubset<T, UserProgressFindFirstArgs<ExtArgs>>): Prisma__UserProgressClient<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserProgress that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserProgressFindFirstOrThrowArgs} args - Arguments to find a UserProgress
+     * @example
+     * // Get one UserProgress
+     * const userProgress = await prisma.userProgress.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, UserProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserProgressClient<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserProgresses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserProgressFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserProgresses
+     * const userProgresses = await prisma.userProgress.findMany()
+     * 
+     * // Get first 10 UserProgresses
+     * const userProgresses = await prisma.userProgress.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userProgressWithIdOnly = await prisma.userProgress.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserProgressFindManyArgs>(args?: SelectSubset<T, UserProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a UserProgress.
+     * @param {UserProgressCreateArgs} args - Arguments to create a UserProgress.
+     * @example
+     * // Create one UserProgress
+     * const UserProgress = await prisma.userProgress.create({
+     *   data: {
+     *     // ... data to create a UserProgress
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserProgressCreateArgs>(args: SelectSubset<T, UserProgressCreateArgs<ExtArgs>>): Prisma__UserProgressClient<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many UserProgresses.
+     * @param {UserProgressCreateManyArgs} args - Arguments to create many UserProgresses.
+     * @example
+     * // Create many UserProgresses
+     * const userProgress = await prisma.userProgress.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserProgressCreateManyArgs>(args?: SelectSubset<T, UserProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many UserProgresses and returns the data saved in the database.
+     * @param {UserProgressCreateManyAndReturnArgs} args - Arguments to create many UserProgresses.
+     * @example
+     * // Create many UserProgresses
+     * const userProgress = await prisma.userProgress.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many UserProgresses and only return the `id`
+     * const userProgressWithIdOnly = await prisma.userProgress.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserProgressCreateManyAndReturnArgs>(args?: SelectSubset<T, UserProgressCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a UserProgress.
+     * @param {UserProgressDeleteArgs} args - Arguments to delete one UserProgress.
+     * @example
+     * // Delete one UserProgress
+     * const UserProgress = await prisma.userProgress.delete({
+     *   where: {
+     *     // ... filter to delete one UserProgress
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserProgressDeleteArgs>(args: SelectSubset<T, UserProgressDeleteArgs<ExtArgs>>): Prisma__UserProgressClient<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one UserProgress.
+     * @param {UserProgressUpdateArgs} args - Arguments to update one UserProgress.
+     * @example
+     * // Update one UserProgress
+     * const userProgress = await prisma.userProgress.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserProgressUpdateArgs>(args: SelectSubset<T, UserProgressUpdateArgs<ExtArgs>>): Prisma__UserProgressClient<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more UserProgresses.
+     * @param {UserProgressDeleteManyArgs} args - Arguments to filter UserProgresses to delete.
+     * @example
+     * // Delete a few UserProgresses
+     * const { count } = await prisma.userProgress.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserProgressDeleteManyArgs>(args?: SelectSubset<T, UserProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserProgressUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserProgresses
+     * const userProgress = await prisma.userProgress.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserProgressUpdateManyArgs>(args: SelectSubset<T, UserProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserProgresses and returns the data updated in the database.
+     * @param {UserProgressUpdateManyAndReturnArgs} args - Arguments to update many UserProgresses.
+     * @example
+     * // Update many UserProgresses
+     * const userProgress = await prisma.userProgress.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more UserProgresses and only return the `id`
+     * const userProgressWithIdOnly = await prisma.userProgress.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UserProgressUpdateManyAndReturnArgs>(args: SelectSubset<T, UserProgressUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one UserProgress.
+     * @param {UserProgressUpsertArgs} args - Arguments to update or create a UserProgress.
+     * @example
+     * // Update or create a UserProgress
+     * const userProgress = await prisma.userProgress.upsert({
+     *   create: {
+     *     // ... data to create a UserProgress
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserProgress we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserProgressUpsertArgs>(args: SelectSubset<T, UserProgressUpsertArgs<ExtArgs>>): Prisma__UserProgressClient<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of UserProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserProgressCountArgs} args - Arguments to filter UserProgresses to count.
+     * @example
+     * // Count the number of UserProgresses
+     * const count = await prisma.userProgress.count({
+     *   where: {
+     *     // ... the filter for the UserProgresses we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserProgressCountArgs>(
+      args?: Subset<T, UserProgressCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserProgressCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserProgressAggregateArgs>(args: Subset<T, UserProgressAggregateArgs>): Prisma.PrismaPromise<GetUserProgressAggregateType<T>>
+
+    /**
+     * Group by UserProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserProgressGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserProgressGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserProgressGroupByArgs['orderBy'] }
+        : { orderBy?: UserProgressGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserProgress model
+   */
+  readonly fields: UserProgressFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserProgress.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    text<T extends TextDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TextDefaultArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserProgress model
+   */
+  interface UserProgressFieldRefs {
+    readonly id: FieldRef<"UserProgress", 'String'>
+    readonly totalWords: FieldRef<"UserProgress", 'Int'>
+    readonly maskedWords: FieldRef<"UserProgress", 'Int'>
+    readonly scorePercentage: FieldRef<"UserProgress", 'Float'>
+    readonly lastSession: FieldRef<"UserProgress", 'DateTime'>
+    readonly totalSessions: FieldRef<"UserProgress", 'Int'>
+    readonly timeSpent: FieldRef<"UserProgress", 'Int'>
+    readonly userId: FieldRef<"UserProgress", 'String'>
+    readonly textId: FieldRef<"UserProgress", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserProgress findUnique
+   */
+  export type UserProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserProgress to fetch.
+     */
+    where: UserProgressWhereUniqueInput
+  }
+
+  /**
+   * UserProgress findUniqueOrThrow
+   */
+  export type UserProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserProgress to fetch.
+     */
+    where: UserProgressWhereUniqueInput
+  }
+
+  /**
+   * UserProgress findFirst
+   */
+  export type UserProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserProgress to fetch.
+     */
+    where?: UserProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserProgresses to fetch.
+     */
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserProgresses.
+     */
+    cursor?: UserProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserProgresses.
+     */
+    distinct?: UserProgressScalarFieldEnum | UserProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserProgress findFirstOrThrow
+   */
+  export type UserProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserProgress to fetch.
+     */
+    where?: UserProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserProgresses to fetch.
+     */
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserProgresses.
+     */
+    cursor?: UserProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserProgresses.
+     */
+    distinct?: UserProgressScalarFieldEnum | UserProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserProgress findMany
+   */
+  export type UserProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserProgresses to fetch.
+     */
+    where?: UserProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserProgresses to fetch.
+     */
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserProgresses.
+     */
+    cursor?: UserProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserProgresses.
+     */
+    skip?: number
+    distinct?: UserProgressScalarFieldEnum | UserProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserProgress create
+   */
+  export type UserProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserProgress.
+     */
+    data: XOR<UserProgressCreateInput, UserProgressUncheckedCreateInput>
+  }
+
+  /**
+   * UserProgress createMany
+   */
+  export type UserProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserProgresses.
+     */
+    data: UserProgressCreateManyInput | UserProgressCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UserProgress createManyAndReturn
+   */
+  export type UserProgressCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * The data used to create many UserProgresses.
+     */
+    data: UserProgressCreateManyInput | UserProgressCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UserProgress update
+   */
+  export type UserProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserProgress.
+     */
+    data: XOR<UserProgressUpdateInput, UserProgressUncheckedUpdateInput>
+    /**
+     * Choose, which UserProgress to update.
+     */
+    where: UserProgressWhereUniqueInput
+  }
+
+  /**
+   * UserProgress updateMany
+   */
+  export type UserProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserProgresses.
+     */
+    data: XOR<UserProgressUpdateManyMutationInput, UserProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which UserProgresses to update
+     */
+    where?: UserProgressWhereInput
+    /**
+     * Limit how many UserProgresses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserProgress updateManyAndReturn
+   */
+  export type UserProgressUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * The data used to update UserProgresses.
+     */
+    data: XOR<UserProgressUpdateManyMutationInput, UserProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which UserProgresses to update
+     */
+    where?: UserProgressWhereInput
+    /**
+     * Limit how many UserProgresses to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UserProgress upsert
+   */
+  export type UserProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserProgress to update in case it exists.
+     */
+    where: UserProgressWhereUniqueInput
+    /**
+     * In case the UserProgress found by the `where` argument doesn't exist, create a new UserProgress with this data.
+     */
+    create: XOR<UserProgressCreateInput, UserProgressUncheckedCreateInput>
+    /**
+     * In case the UserProgress was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserProgressUpdateInput, UserProgressUncheckedUpdateInput>
+  }
+
+  /**
+   * UserProgress delete
+   */
+  export type UserProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+    /**
+     * Filter which UserProgress to delete.
+     */
+    where: UserProgressWhereUniqueInput
+  }
+
+  /**
+   * UserProgress deleteMany
+   */
+  export type UserProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserProgresses to delete
+     */
+    where?: UserProgressWhereInput
+    /**
+     * Limit how many UserProgresses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserProgress without action
+   */
+  export type UserProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserProgress
+     */
+    select?: UserProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserProgress
+     */
+    omit?: UserProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserProgressInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LearningSession
+   */
+
+  export type AggregateLearningSession = {
+    _count: LearningSessionCountAggregateOutputType | null
+    _avg: LearningSessionAvgAggregateOutputType | null
+    _sum: LearningSessionSumAggregateOutputType | null
+    _min: LearningSessionMinAggregateOutputType | null
+    _max: LearningSessionMaxAggregateOutputType | null
+  }
+
+  export type LearningSessionAvgAggregateOutputType = {
+    wordsRevealed: number | null
+    wordsMasked: number | null
+    scoreStart: number | null
+    scoreEnd: number | null
+  }
+
+  export type LearningSessionSumAggregateOutputType = {
+    wordsRevealed: number | null
+    wordsMasked: number | null
+    scoreStart: number | null
+    scoreEnd: number | null
+  }
+
+  export type LearningSessionMinAggregateOutputType = {
+    id: string | null
+    startTime: Date | null
+    endTime: Date | null
+    wordsRevealed: number | null
+    wordsMasked: number | null
+    scoreStart: number | null
+    scoreEnd: number | null
+    userId: string | null
+    textId: string | null
+  }
+
+  export type LearningSessionMaxAggregateOutputType = {
+    id: string | null
+    startTime: Date | null
+    endTime: Date | null
+    wordsRevealed: number | null
+    wordsMasked: number | null
+    scoreStart: number | null
+    scoreEnd: number | null
+    userId: string | null
+    textId: string | null
+  }
+
+  export type LearningSessionCountAggregateOutputType = {
+    id: number
+    startTime: number
+    endTime: number
+    wordsRevealed: number
+    wordsMasked: number
+    scoreStart: number
+    scoreEnd: number
+    userId: number
+    textId: number
+    _all: number
+  }
+
+
+  export type LearningSessionAvgAggregateInputType = {
+    wordsRevealed?: true
+    wordsMasked?: true
+    scoreStart?: true
+    scoreEnd?: true
+  }
+
+  export type LearningSessionSumAggregateInputType = {
+    wordsRevealed?: true
+    wordsMasked?: true
+    scoreStart?: true
+    scoreEnd?: true
+  }
+
+  export type LearningSessionMinAggregateInputType = {
+    id?: true
+    startTime?: true
+    endTime?: true
+    wordsRevealed?: true
+    wordsMasked?: true
+    scoreStart?: true
+    scoreEnd?: true
+    userId?: true
+    textId?: true
+  }
+
+  export type LearningSessionMaxAggregateInputType = {
+    id?: true
+    startTime?: true
+    endTime?: true
+    wordsRevealed?: true
+    wordsMasked?: true
+    scoreStart?: true
+    scoreEnd?: true
+    userId?: true
+    textId?: true
+  }
+
+  export type LearningSessionCountAggregateInputType = {
+    id?: true
+    startTime?: true
+    endTime?: true
+    wordsRevealed?: true
+    wordsMasked?: true
+    scoreStart?: true
+    scoreEnd?: true
+    userId?: true
+    textId?: true
+    _all?: true
+  }
+
+  export type LearningSessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearningSession to aggregate.
+     */
+    where?: LearningSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearningSessions to fetch.
+     */
+    orderBy?: LearningSessionOrderByWithRelationInput | LearningSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LearningSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearningSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearningSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LearningSessions
+    **/
+    _count?: true | LearningSessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LearningSessionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LearningSessionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LearningSessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LearningSessionMaxAggregateInputType
+  }
+
+  export type GetLearningSessionAggregateType<T extends LearningSessionAggregateArgs> = {
+        [P in keyof T & keyof AggregateLearningSession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLearningSession[P]>
+      : GetScalarType<T[P], AggregateLearningSession[P]>
+  }
+
+
+
+
+  export type LearningSessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearningSessionWhereInput
+    orderBy?: LearningSessionOrderByWithAggregationInput | LearningSessionOrderByWithAggregationInput[]
+    by: LearningSessionScalarFieldEnum[] | LearningSessionScalarFieldEnum
+    having?: LearningSessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LearningSessionCountAggregateInputType | true
+    _avg?: LearningSessionAvgAggregateInputType
+    _sum?: LearningSessionSumAggregateInputType
+    _min?: LearningSessionMinAggregateInputType
+    _max?: LearningSessionMaxAggregateInputType
+  }
+
+  export type LearningSessionGroupByOutputType = {
+    id: string
+    startTime: Date
+    endTime: Date | null
+    wordsRevealed: number
+    wordsMasked: number
+    scoreStart: number
+    scoreEnd: number
+    userId: string
+    textId: string
+    _count: LearningSessionCountAggregateOutputType | null
+    _avg: LearningSessionAvgAggregateOutputType | null
+    _sum: LearningSessionSumAggregateOutputType | null
+    _min: LearningSessionMinAggregateOutputType | null
+    _max: LearningSessionMaxAggregateOutputType | null
+  }
+
+  type GetLearningSessionGroupByPayload<T extends LearningSessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LearningSessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LearningSessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LearningSessionGroupByOutputType[P]>
+            : GetScalarType<T[P], LearningSessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LearningSessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startTime?: boolean
+    endTime?: boolean
+    wordsRevealed?: boolean
+    wordsMasked?: boolean
+    scoreStart?: boolean
+    scoreEnd?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["learningSession"]>
+
+  export type LearningSessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startTime?: boolean
+    endTime?: boolean
+    wordsRevealed?: boolean
+    wordsMasked?: boolean
+    scoreStart?: boolean
+    scoreEnd?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["learningSession"]>
+
+  export type LearningSessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    startTime?: boolean
+    endTime?: boolean
+    wordsRevealed?: boolean
+    wordsMasked?: boolean
+    scoreStart?: boolean
+    scoreEnd?: boolean
+    userId?: boolean
+    textId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["learningSession"]>
+
+  export type LearningSessionSelectScalar = {
+    id?: boolean
+    startTime?: boolean
+    endTime?: boolean
+    wordsRevealed?: boolean
+    wordsMasked?: boolean
+    scoreStart?: boolean
+    scoreEnd?: boolean
+    userId?: boolean
+    textId?: boolean
+  }
+
+  export type LearningSessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "startTime" | "endTime" | "wordsRevealed" | "wordsMasked" | "scoreStart" | "scoreEnd" | "userId" | "textId", ExtArgs["result"]["learningSession"]>
+  export type LearningSessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+  export type LearningSessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+  export type LearningSessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    text?: boolean | TextDefaultArgs<ExtArgs>
+  }
+
+  export type $LearningSessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LearningSession"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      text: Prisma.$TextPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      startTime: Date
+      endTime: Date | null
+      wordsRevealed: number
+      wordsMasked: number
+      scoreStart: number
+      scoreEnd: number
+      userId: string
+      textId: string
+    }, ExtArgs["result"]["learningSession"]>
+    composites: {}
+  }
+
+  type LearningSessionGetPayload<S extends boolean | null | undefined | LearningSessionDefaultArgs> = $Result.GetResult<Prisma.$LearningSessionPayload, S>
+
+  type LearningSessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LearningSessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LearningSessionCountAggregateInputType | true
+    }
+
+  export interface LearningSessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LearningSession'], meta: { name: 'LearningSession' } }
+    /**
+     * Find zero or one LearningSession that matches the filter.
+     * @param {LearningSessionFindUniqueArgs} args - Arguments to find a LearningSession
+     * @example
+     * // Get one LearningSession
+     * const learningSession = await prisma.learningSession.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LearningSessionFindUniqueArgs>(args: SelectSubset<T, LearningSessionFindUniqueArgs<ExtArgs>>): Prisma__LearningSessionClient<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LearningSession that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LearningSessionFindUniqueOrThrowArgs} args - Arguments to find a LearningSession
+     * @example
+     * // Get one LearningSession
+     * const learningSession = await prisma.learningSession.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LearningSessionFindUniqueOrThrowArgs>(args: SelectSubset<T, LearningSessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LearningSessionClient<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LearningSession that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningSessionFindFirstArgs} args - Arguments to find a LearningSession
+     * @example
+     * // Get one LearningSession
+     * const learningSession = await prisma.learningSession.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LearningSessionFindFirstArgs>(args?: SelectSubset<T, LearningSessionFindFirstArgs<ExtArgs>>): Prisma__LearningSessionClient<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LearningSession that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningSessionFindFirstOrThrowArgs} args - Arguments to find a LearningSession
+     * @example
+     * // Get one LearningSession
+     * const learningSession = await prisma.learningSession.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LearningSessionFindFirstOrThrowArgs>(args?: SelectSubset<T, LearningSessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__LearningSessionClient<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LearningSessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningSessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LearningSessions
+     * const learningSessions = await prisma.learningSession.findMany()
+     * 
+     * // Get first 10 LearningSessions
+     * const learningSessions = await prisma.learningSession.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const learningSessionWithIdOnly = await prisma.learningSession.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LearningSessionFindManyArgs>(args?: SelectSubset<T, LearningSessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LearningSession.
+     * @param {LearningSessionCreateArgs} args - Arguments to create a LearningSession.
+     * @example
+     * // Create one LearningSession
+     * const LearningSession = await prisma.learningSession.create({
+     *   data: {
+     *     // ... data to create a LearningSession
+     *   }
+     * })
+     * 
+     */
+    create<T extends LearningSessionCreateArgs>(args: SelectSubset<T, LearningSessionCreateArgs<ExtArgs>>): Prisma__LearningSessionClient<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LearningSessions.
+     * @param {LearningSessionCreateManyArgs} args - Arguments to create many LearningSessions.
+     * @example
+     * // Create many LearningSessions
+     * const learningSession = await prisma.learningSession.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LearningSessionCreateManyArgs>(args?: SelectSubset<T, LearningSessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LearningSessions and returns the data saved in the database.
+     * @param {LearningSessionCreateManyAndReturnArgs} args - Arguments to create many LearningSessions.
+     * @example
+     * // Create many LearningSessions
+     * const learningSession = await prisma.learningSession.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LearningSessions and only return the `id`
+     * const learningSessionWithIdOnly = await prisma.learningSession.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LearningSessionCreateManyAndReturnArgs>(args?: SelectSubset<T, LearningSessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LearningSession.
+     * @param {LearningSessionDeleteArgs} args - Arguments to delete one LearningSession.
+     * @example
+     * // Delete one LearningSession
+     * const LearningSession = await prisma.learningSession.delete({
+     *   where: {
+     *     // ... filter to delete one LearningSession
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LearningSessionDeleteArgs>(args: SelectSubset<T, LearningSessionDeleteArgs<ExtArgs>>): Prisma__LearningSessionClient<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LearningSession.
+     * @param {LearningSessionUpdateArgs} args - Arguments to update one LearningSession.
+     * @example
+     * // Update one LearningSession
+     * const learningSession = await prisma.learningSession.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LearningSessionUpdateArgs>(args: SelectSubset<T, LearningSessionUpdateArgs<ExtArgs>>): Prisma__LearningSessionClient<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LearningSessions.
+     * @param {LearningSessionDeleteManyArgs} args - Arguments to filter LearningSessions to delete.
+     * @example
+     * // Delete a few LearningSessions
+     * const { count } = await prisma.learningSession.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LearningSessionDeleteManyArgs>(args?: SelectSubset<T, LearningSessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LearningSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningSessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LearningSessions
+     * const learningSession = await prisma.learningSession.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LearningSessionUpdateManyArgs>(args: SelectSubset<T, LearningSessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LearningSessions and returns the data updated in the database.
+     * @param {LearningSessionUpdateManyAndReturnArgs} args - Arguments to update many LearningSessions.
+     * @example
+     * // Update many LearningSessions
+     * const learningSession = await prisma.learningSession.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LearningSessions and only return the `id`
+     * const learningSessionWithIdOnly = await prisma.learningSession.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LearningSessionUpdateManyAndReturnArgs>(args: SelectSubset<T, LearningSessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LearningSession.
+     * @param {LearningSessionUpsertArgs} args - Arguments to update or create a LearningSession.
+     * @example
+     * // Update or create a LearningSession
+     * const learningSession = await prisma.learningSession.upsert({
+     *   create: {
+     *     // ... data to create a LearningSession
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LearningSession we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LearningSessionUpsertArgs>(args: SelectSubset<T, LearningSessionUpsertArgs<ExtArgs>>): Prisma__LearningSessionClient<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LearningSessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningSessionCountArgs} args - Arguments to filter LearningSessions to count.
+     * @example
+     * // Count the number of LearningSessions
+     * const count = await prisma.learningSession.count({
+     *   where: {
+     *     // ... the filter for the LearningSessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends LearningSessionCountArgs>(
+      args?: Subset<T, LearningSessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LearningSessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LearningSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningSessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LearningSessionAggregateArgs>(args: Subset<T, LearningSessionAggregateArgs>): Prisma.PrismaPromise<GetLearningSessionAggregateType<T>>
+
+    /**
+     * Group by LearningSession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningSessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LearningSessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LearningSessionGroupByArgs['orderBy'] }
+        : { orderBy?: LearningSessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LearningSessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLearningSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LearningSession model
+   */
+  readonly fields: LearningSessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LearningSession.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LearningSessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    text<T extends TextDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TextDefaultArgs<ExtArgs>>): Prisma__TextClient<$Result.GetResult<Prisma.$TextPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LearningSession model
+   */
+  interface LearningSessionFieldRefs {
+    readonly id: FieldRef<"LearningSession", 'String'>
+    readonly startTime: FieldRef<"LearningSession", 'DateTime'>
+    readonly endTime: FieldRef<"LearningSession", 'DateTime'>
+    readonly wordsRevealed: FieldRef<"LearningSession", 'Int'>
+    readonly wordsMasked: FieldRef<"LearningSession", 'Int'>
+    readonly scoreStart: FieldRef<"LearningSession", 'Float'>
+    readonly scoreEnd: FieldRef<"LearningSession", 'Float'>
+    readonly userId: FieldRef<"LearningSession", 'String'>
+    readonly textId: FieldRef<"LearningSession", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LearningSession findUnique
+   */
+  export type LearningSessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningSession to fetch.
+     */
+    where: LearningSessionWhereUniqueInput
+  }
+
+  /**
+   * LearningSession findUniqueOrThrow
+   */
+  export type LearningSessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningSession to fetch.
+     */
+    where: LearningSessionWhereUniqueInput
+  }
+
+  /**
+   * LearningSession findFirst
+   */
+  export type LearningSessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningSession to fetch.
+     */
+    where?: LearningSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearningSessions to fetch.
+     */
+    orderBy?: LearningSessionOrderByWithRelationInput | LearningSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearningSessions.
+     */
+    cursor?: LearningSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearningSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearningSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearningSessions.
+     */
+    distinct?: LearningSessionScalarFieldEnum | LearningSessionScalarFieldEnum[]
+  }
+
+  /**
+   * LearningSession findFirstOrThrow
+   */
+  export type LearningSessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningSession to fetch.
+     */
+    where?: LearningSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearningSessions to fetch.
+     */
+    orderBy?: LearningSessionOrderByWithRelationInput | LearningSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearningSessions.
+     */
+    cursor?: LearningSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearningSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearningSessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearningSessions.
+     */
+    distinct?: LearningSessionScalarFieldEnum | LearningSessionScalarFieldEnum[]
+  }
+
+  /**
+   * LearningSession findMany
+   */
+  export type LearningSessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningSessions to fetch.
+     */
+    where?: LearningSessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearningSessions to fetch.
+     */
+    orderBy?: LearningSessionOrderByWithRelationInput | LearningSessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LearningSessions.
+     */
+    cursor?: LearningSessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearningSessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearningSessions.
+     */
+    skip?: number
+    distinct?: LearningSessionScalarFieldEnum | LearningSessionScalarFieldEnum[]
+  }
+
+  /**
+   * LearningSession create
+   */
+  export type LearningSessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LearningSession.
+     */
+    data: XOR<LearningSessionCreateInput, LearningSessionUncheckedCreateInput>
+  }
+
+  /**
+   * LearningSession createMany
+   */
+  export type LearningSessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LearningSessions.
+     */
+    data: LearningSessionCreateManyInput | LearningSessionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LearningSession createManyAndReturn
+   */
+  export type LearningSessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * The data used to create many LearningSessions.
+     */
+    data: LearningSessionCreateManyInput | LearningSessionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LearningSession update
+   */
+  export type LearningSessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LearningSession.
+     */
+    data: XOR<LearningSessionUpdateInput, LearningSessionUncheckedUpdateInput>
+    /**
+     * Choose, which LearningSession to update.
+     */
+    where: LearningSessionWhereUniqueInput
+  }
+
+  /**
+   * LearningSession updateMany
+   */
+  export type LearningSessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LearningSessions.
+     */
+    data: XOR<LearningSessionUpdateManyMutationInput, LearningSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which LearningSessions to update
+     */
+    where?: LearningSessionWhereInput
+    /**
+     * Limit how many LearningSessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LearningSession updateManyAndReturn
+   */
+  export type LearningSessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * The data used to update LearningSessions.
+     */
+    data: XOR<LearningSessionUpdateManyMutationInput, LearningSessionUncheckedUpdateManyInput>
+    /**
+     * Filter which LearningSessions to update
+     */
+    where?: LearningSessionWhereInput
+    /**
+     * Limit how many LearningSessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LearningSession upsert
+   */
+  export type LearningSessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LearningSession to update in case it exists.
+     */
+    where: LearningSessionWhereUniqueInput
+    /**
+     * In case the LearningSession found by the `where` argument doesn't exist, create a new LearningSession with this data.
+     */
+    create: XOR<LearningSessionCreateInput, LearningSessionUncheckedCreateInput>
+    /**
+     * In case the LearningSession was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LearningSessionUpdateInput, LearningSessionUncheckedUpdateInput>
+  }
+
+  /**
+   * LearningSession delete
+   */
+  export type LearningSessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+    /**
+     * Filter which LearningSession to delete.
+     */
+    where: LearningSessionWhereUniqueInput
+  }
+
+  /**
+   * LearningSession deleteMany
+   */
+  export type LearningSessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearningSessions to delete
+     */
+    where?: LearningSessionWhereInput
+    /**
+     * Limit how many LearningSessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LearningSession without action
+   */
+  export type LearningSessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningSession
+     */
+    select?: LearningSessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningSession
+     */
+    omit?: LearningSessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningSessionInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -8259,6 +13453,64 @@ export namespace Prisma {
   };
 
   export type LinksScalarFieldEnum = (typeof LinksScalarFieldEnum)[keyof typeof LinksScalarFieldEnum]
+
+
+  export const TextScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    content: 'content',
+    category: 'category',
+    grade: 'grade',
+    wordCount: 'wordCount',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TextScalarFieldEnum = (typeof TextScalarFieldEnum)[keyof typeof TextScalarFieldEnum]
+
+
+  export const WordStateScalarFieldEnum: {
+    id: 'id',
+    wordPosition: 'wordPosition',
+    wordContent: 'wordContent',
+    isMasked: 'isMasked',
+    lastUpdated: 'lastUpdated',
+    userId: 'userId',
+    textId: 'textId'
+  };
+
+  export type WordStateScalarFieldEnum = (typeof WordStateScalarFieldEnum)[keyof typeof WordStateScalarFieldEnum]
+
+
+  export const UserProgressScalarFieldEnum: {
+    id: 'id',
+    totalWords: 'totalWords',
+    maskedWords: 'maskedWords',
+    scorePercentage: 'scorePercentage',
+    lastSession: 'lastSession',
+    totalSessions: 'totalSessions',
+    timeSpent: 'timeSpent',
+    userId: 'userId',
+    textId: 'textId'
+  };
+
+  export type UserProgressScalarFieldEnum = (typeof UserProgressScalarFieldEnum)[keyof typeof UserProgressScalarFieldEnum]
+
+
+  export const LearningSessionScalarFieldEnum: {
+    id: 'id',
+    startTime: 'startTime',
+    endTime: 'endTime',
+    wordsRevealed: 'wordsRevealed',
+    wordsMasked: 'wordsMasked',
+    scoreStart: 'scoreStart',
+    scoreEnd: 'scoreEnd',
+    userId: 'userId',
+    textId: 'textId'
+  };
+
+  export type LearningSessionScalarFieldEnum = (typeof LearningSessionScalarFieldEnum)[keyof typeof LearningSessionScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -8385,6 +13637,9 @@ export namespace Prisma {
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
     documents?: DocumentsListRelationFilter
+    WordState?: WordStateListRelationFilter
+    UserProgress?: UserProgressListRelationFilter
+    LearningSession?: LearningSessionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -8399,6 +13654,9 @@ export namespace Prisma {
     sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
     documents?: DocumentsOrderByRelationAggregateInput
+    WordState?: WordStateOrderByRelationAggregateInput
+    UserProgress?: UserProgressOrderByRelationAggregateInput
+    LearningSession?: LearningSessionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -8416,6 +13674,9 @@ export namespace Prisma {
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
     documents?: DocumentsListRelationFilter
+    WordState?: WordStateListRelationFilter
+    UserProgress?: UserProgressListRelationFilter
+    LearningSession?: LearningSessionListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -8820,6 +14081,321 @@ export namespace Prisma {
     documentId?: StringWithAggregatesFilter<"Links"> | string
   }
 
+  export type TextWhereInput = {
+    AND?: TextWhereInput | TextWhereInput[]
+    OR?: TextWhereInput[]
+    NOT?: TextWhereInput | TextWhereInput[]
+    id?: StringFilter<"Text"> | string
+    title?: StringFilter<"Text"> | string
+    content?: StringFilter<"Text"> | string
+    category?: StringNullableFilter<"Text"> | string | null
+    grade?: EnumGradeNullableFilter<"Text"> | $Enums.Grade | null
+    wordCount?: IntFilter<"Text"> | number
+    isActive?: BoolFilter<"Text"> | boolean
+    createdAt?: DateTimeFilter<"Text"> | Date | string
+    updatedAt?: DateTimeFilter<"Text"> | Date | string
+    wordStates?: WordStateListRelationFilter
+    userProgress?: UserProgressListRelationFilter
+    LearningSession?: LearningSessionListRelationFilter
+  }
+
+  export type TextOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    category?: SortOrderInput | SortOrder
+    grade?: SortOrderInput | SortOrder
+    wordCount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    wordStates?: WordStateOrderByRelationAggregateInput
+    userProgress?: UserProgressOrderByRelationAggregateInput
+    LearningSession?: LearningSessionOrderByRelationAggregateInput
+  }
+
+  export type TextWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: TextWhereInput | TextWhereInput[]
+    OR?: TextWhereInput[]
+    NOT?: TextWhereInput | TextWhereInput[]
+    title?: StringFilter<"Text"> | string
+    content?: StringFilter<"Text"> | string
+    category?: StringNullableFilter<"Text"> | string | null
+    grade?: EnumGradeNullableFilter<"Text"> | $Enums.Grade | null
+    wordCount?: IntFilter<"Text"> | number
+    isActive?: BoolFilter<"Text"> | boolean
+    createdAt?: DateTimeFilter<"Text"> | Date | string
+    updatedAt?: DateTimeFilter<"Text"> | Date | string
+    wordStates?: WordStateListRelationFilter
+    userProgress?: UserProgressListRelationFilter
+    LearningSession?: LearningSessionListRelationFilter
+  }, "id">
+
+  export type TextOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    category?: SortOrderInput | SortOrder
+    grade?: SortOrderInput | SortOrder
+    wordCount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TextCountOrderByAggregateInput
+    _avg?: TextAvgOrderByAggregateInput
+    _max?: TextMaxOrderByAggregateInput
+    _min?: TextMinOrderByAggregateInput
+    _sum?: TextSumOrderByAggregateInput
+  }
+
+  export type TextScalarWhereWithAggregatesInput = {
+    AND?: TextScalarWhereWithAggregatesInput | TextScalarWhereWithAggregatesInput[]
+    OR?: TextScalarWhereWithAggregatesInput[]
+    NOT?: TextScalarWhereWithAggregatesInput | TextScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Text"> | string
+    title?: StringWithAggregatesFilter<"Text"> | string
+    content?: StringWithAggregatesFilter<"Text"> | string
+    category?: StringNullableWithAggregatesFilter<"Text"> | string | null
+    grade?: EnumGradeNullableWithAggregatesFilter<"Text"> | $Enums.Grade | null
+    wordCount?: IntWithAggregatesFilter<"Text"> | number
+    isActive?: BoolWithAggregatesFilter<"Text"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Text"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Text"> | Date | string
+  }
+
+  export type WordStateWhereInput = {
+    AND?: WordStateWhereInput | WordStateWhereInput[]
+    OR?: WordStateWhereInput[]
+    NOT?: WordStateWhereInput | WordStateWhereInput[]
+    id?: StringFilter<"WordState"> | string
+    wordPosition?: IntFilter<"WordState"> | number
+    wordContent?: StringFilter<"WordState"> | string
+    isMasked?: BoolFilter<"WordState"> | boolean
+    lastUpdated?: DateTimeFilter<"WordState"> | Date | string
+    userId?: StringFilter<"WordState"> | string
+    textId?: StringFilter<"WordState"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    text?: XOR<TextScalarRelationFilter, TextWhereInput>
+  }
+
+  export type WordStateOrderByWithRelationInput = {
+    id?: SortOrder
+    wordPosition?: SortOrder
+    wordContent?: SortOrder
+    isMasked?: SortOrder
+    lastUpdated?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    text?: TextOrderByWithRelationInput
+  }
+
+  export type WordStateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_textId_wordPosition?: WordStateUserIdTextIdWordPositionCompoundUniqueInput
+    AND?: WordStateWhereInput | WordStateWhereInput[]
+    OR?: WordStateWhereInput[]
+    NOT?: WordStateWhereInput | WordStateWhereInput[]
+    wordPosition?: IntFilter<"WordState"> | number
+    wordContent?: StringFilter<"WordState"> | string
+    isMasked?: BoolFilter<"WordState"> | boolean
+    lastUpdated?: DateTimeFilter<"WordState"> | Date | string
+    userId?: StringFilter<"WordState"> | string
+    textId?: StringFilter<"WordState"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    text?: XOR<TextScalarRelationFilter, TextWhereInput>
+  }, "id" | "userId_textId_wordPosition">
+
+  export type WordStateOrderByWithAggregationInput = {
+    id?: SortOrder
+    wordPosition?: SortOrder
+    wordContent?: SortOrder
+    isMasked?: SortOrder
+    lastUpdated?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+    _count?: WordStateCountOrderByAggregateInput
+    _avg?: WordStateAvgOrderByAggregateInput
+    _max?: WordStateMaxOrderByAggregateInput
+    _min?: WordStateMinOrderByAggregateInput
+    _sum?: WordStateSumOrderByAggregateInput
+  }
+
+  export type WordStateScalarWhereWithAggregatesInput = {
+    AND?: WordStateScalarWhereWithAggregatesInput | WordStateScalarWhereWithAggregatesInput[]
+    OR?: WordStateScalarWhereWithAggregatesInput[]
+    NOT?: WordStateScalarWhereWithAggregatesInput | WordStateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"WordState"> | string
+    wordPosition?: IntWithAggregatesFilter<"WordState"> | number
+    wordContent?: StringWithAggregatesFilter<"WordState"> | string
+    isMasked?: BoolWithAggregatesFilter<"WordState"> | boolean
+    lastUpdated?: DateTimeWithAggregatesFilter<"WordState"> | Date | string
+    userId?: StringWithAggregatesFilter<"WordState"> | string
+    textId?: StringWithAggregatesFilter<"WordState"> | string
+  }
+
+  export type UserProgressWhereInput = {
+    AND?: UserProgressWhereInput | UserProgressWhereInput[]
+    OR?: UserProgressWhereInput[]
+    NOT?: UserProgressWhereInput | UserProgressWhereInput[]
+    id?: StringFilter<"UserProgress"> | string
+    totalWords?: IntFilter<"UserProgress"> | number
+    maskedWords?: IntFilter<"UserProgress"> | number
+    scorePercentage?: FloatFilter<"UserProgress"> | number
+    lastSession?: DateTimeFilter<"UserProgress"> | Date | string
+    totalSessions?: IntFilter<"UserProgress"> | number
+    timeSpent?: IntFilter<"UserProgress"> | number
+    userId?: StringFilter<"UserProgress"> | string
+    textId?: StringFilter<"UserProgress"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    text?: XOR<TextScalarRelationFilter, TextWhereInput>
+  }
+
+  export type UserProgressOrderByWithRelationInput = {
+    id?: SortOrder
+    totalWords?: SortOrder
+    maskedWords?: SortOrder
+    scorePercentage?: SortOrder
+    lastSession?: SortOrder
+    totalSessions?: SortOrder
+    timeSpent?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    text?: TextOrderByWithRelationInput
+  }
+
+  export type UserProgressWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_textId?: UserProgressUserIdTextIdCompoundUniqueInput
+    AND?: UserProgressWhereInput | UserProgressWhereInput[]
+    OR?: UserProgressWhereInput[]
+    NOT?: UserProgressWhereInput | UserProgressWhereInput[]
+    totalWords?: IntFilter<"UserProgress"> | number
+    maskedWords?: IntFilter<"UserProgress"> | number
+    scorePercentage?: FloatFilter<"UserProgress"> | number
+    lastSession?: DateTimeFilter<"UserProgress"> | Date | string
+    totalSessions?: IntFilter<"UserProgress"> | number
+    timeSpent?: IntFilter<"UserProgress"> | number
+    userId?: StringFilter<"UserProgress"> | string
+    textId?: StringFilter<"UserProgress"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    text?: XOR<TextScalarRelationFilter, TextWhereInput>
+  }, "id" | "userId_textId">
+
+  export type UserProgressOrderByWithAggregationInput = {
+    id?: SortOrder
+    totalWords?: SortOrder
+    maskedWords?: SortOrder
+    scorePercentage?: SortOrder
+    lastSession?: SortOrder
+    totalSessions?: SortOrder
+    timeSpent?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+    _count?: UserProgressCountOrderByAggregateInput
+    _avg?: UserProgressAvgOrderByAggregateInput
+    _max?: UserProgressMaxOrderByAggregateInput
+    _min?: UserProgressMinOrderByAggregateInput
+    _sum?: UserProgressSumOrderByAggregateInput
+  }
+
+  export type UserProgressScalarWhereWithAggregatesInput = {
+    AND?: UserProgressScalarWhereWithAggregatesInput | UserProgressScalarWhereWithAggregatesInput[]
+    OR?: UserProgressScalarWhereWithAggregatesInput[]
+    NOT?: UserProgressScalarWhereWithAggregatesInput | UserProgressScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserProgress"> | string
+    totalWords?: IntWithAggregatesFilter<"UserProgress"> | number
+    maskedWords?: IntWithAggregatesFilter<"UserProgress"> | number
+    scorePercentage?: FloatWithAggregatesFilter<"UserProgress"> | number
+    lastSession?: DateTimeWithAggregatesFilter<"UserProgress"> | Date | string
+    totalSessions?: IntWithAggregatesFilter<"UserProgress"> | number
+    timeSpent?: IntWithAggregatesFilter<"UserProgress"> | number
+    userId?: StringWithAggregatesFilter<"UserProgress"> | string
+    textId?: StringWithAggregatesFilter<"UserProgress"> | string
+  }
+
+  export type LearningSessionWhereInput = {
+    AND?: LearningSessionWhereInput | LearningSessionWhereInput[]
+    OR?: LearningSessionWhereInput[]
+    NOT?: LearningSessionWhereInput | LearningSessionWhereInput[]
+    id?: StringFilter<"LearningSession"> | string
+    startTime?: DateTimeFilter<"LearningSession"> | Date | string
+    endTime?: DateTimeNullableFilter<"LearningSession"> | Date | string | null
+    wordsRevealed?: IntFilter<"LearningSession"> | number
+    wordsMasked?: IntFilter<"LearningSession"> | number
+    scoreStart?: FloatFilter<"LearningSession"> | number
+    scoreEnd?: FloatFilter<"LearningSession"> | number
+    userId?: StringFilter<"LearningSession"> | string
+    textId?: StringFilter<"LearningSession"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    text?: XOR<TextScalarRelationFilter, TextWhereInput>
+  }
+
+  export type LearningSessionOrderByWithRelationInput = {
+    id?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrderInput | SortOrder
+    wordsRevealed?: SortOrder
+    wordsMasked?: SortOrder
+    scoreStart?: SortOrder
+    scoreEnd?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    text?: TextOrderByWithRelationInput
+  }
+
+  export type LearningSessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LearningSessionWhereInput | LearningSessionWhereInput[]
+    OR?: LearningSessionWhereInput[]
+    NOT?: LearningSessionWhereInput | LearningSessionWhereInput[]
+    startTime?: DateTimeFilter<"LearningSession"> | Date | string
+    endTime?: DateTimeNullableFilter<"LearningSession"> | Date | string | null
+    wordsRevealed?: IntFilter<"LearningSession"> | number
+    wordsMasked?: IntFilter<"LearningSession"> | number
+    scoreStart?: FloatFilter<"LearningSession"> | number
+    scoreEnd?: FloatFilter<"LearningSession"> | number
+    userId?: StringFilter<"LearningSession"> | string
+    textId?: StringFilter<"LearningSession"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    text?: XOR<TextScalarRelationFilter, TextWhereInput>
+  }, "id">
+
+  export type LearningSessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrderInput | SortOrder
+    wordsRevealed?: SortOrder
+    wordsMasked?: SortOrder
+    scoreStart?: SortOrder
+    scoreEnd?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+    _count?: LearningSessionCountOrderByAggregateInput
+    _avg?: LearningSessionAvgOrderByAggregateInput
+    _max?: LearningSessionMaxOrderByAggregateInput
+    _min?: LearningSessionMinOrderByAggregateInput
+    _sum?: LearningSessionSumOrderByAggregateInput
+  }
+
+  export type LearningSessionScalarWhereWithAggregatesInput = {
+    AND?: LearningSessionScalarWhereWithAggregatesInput | LearningSessionScalarWhereWithAggregatesInput[]
+    OR?: LearningSessionScalarWhereWithAggregatesInput[]
+    NOT?: LearningSessionScalarWhereWithAggregatesInput | LearningSessionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LearningSession"> | string
+    startTime?: DateTimeWithAggregatesFilter<"LearningSession"> | Date | string
+    endTime?: DateTimeNullableWithAggregatesFilter<"LearningSession"> | Date | string | null
+    wordsRevealed?: IntWithAggregatesFilter<"LearningSession"> | number
+    wordsMasked?: IntWithAggregatesFilter<"LearningSession"> | number
+    scoreStart?: FloatWithAggregatesFilter<"LearningSession"> | number
+    scoreEnd?: FloatWithAggregatesFilter<"LearningSession"> | number
+    userId?: StringWithAggregatesFilter<"LearningSession"> | string
+    textId?: StringWithAggregatesFilter<"LearningSession"> | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -8832,6 +14408,9 @@ export namespace Prisma {
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     documents?: DocumentsCreateNestedManyWithoutUserInput
+    WordState?: WordStateCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -8846,6 +14425,9 @@ export namespace Prisma {
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
+    WordState?: WordStateUncheckedCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -8860,6 +14442,9 @@ export namespace Prisma {
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     documents?: DocumentsUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -8874,6 +14459,9 @@ export namespace Prisma {
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUncheckedUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -9322,6 +14910,334 @@ export namespace Prisma {
     documentId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type TextCreateInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    wordStates?: WordStateCreateNestedManyWithoutTextInput
+    userProgress?: UserProgressCreateNestedManyWithoutTextInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutTextInput
+  }
+
+  export type TextUncheckedCreateInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    wordStates?: WordStateUncheckedCreateNestedManyWithoutTextInput
+    userProgress?: UserProgressUncheckedCreateNestedManyWithoutTextInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutTextInput
+  }
+
+  export type TextUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wordStates?: WordStateUpdateManyWithoutTextNestedInput
+    userProgress?: UserProgressUpdateManyWithoutTextNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutTextNestedInput
+  }
+
+  export type TextUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wordStates?: WordStateUncheckedUpdateManyWithoutTextNestedInput
+    userProgress?: UserProgressUncheckedUpdateManyWithoutTextNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutTextNestedInput
+  }
+
+  export type TextCreateManyInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TextUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TextUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WordStateCreateInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    user: UserCreateNestedOneWithoutWordStateInput
+    text: TextCreateNestedOneWithoutWordStatesInput
+  }
+
+  export type WordStateUncheckedCreateInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    userId: string
+    textId: string
+  }
+
+  export type WordStateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutWordStateNestedInput
+    text?: TextUpdateOneRequiredWithoutWordStatesNestedInput
+  }
+
+  export type WordStateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WordStateCreateManyInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    userId: string
+    textId: string
+  }
+
+  export type WordStateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WordStateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserProgressCreateInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    user: UserCreateNestedOneWithoutUserProgressInput
+    text: TextCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserProgressUncheckedCreateInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    userId: string
+    textId: string
+  }
+
+  export type UserProgressUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutUserProgressNestedInput
+    text?: TextUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserProgressUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserProgressCreateManyInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    userId: string
+    textId: string
+  }
+
+  export type UserProgressUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserProgressUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LearningSessionCreateInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    user: UserCreateNestedOneWithoutLearningSessionInput
+    text: TextCreateNestedOneWithoutLearningSessionInput
+  }
+
+  export type LearningSessionUncheckedCreateInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    userId: string
+    textId: string
+  }
+
+  export type LearningSessionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutLearningSessionNestedInput
+    text?: TextUpdateOneRequiredWithoutLearningSessionNestedInput
+  }
+
+  export type LearningSessionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LearningSessionCreateManyInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    userId: string
+    textId: string
+  }
+
+  export type LearningSessionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type LearningSessionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -9394,6 +15310,24 @@ export namespace Prisma {
     none?: DocumentsWhereInput
   }
 
+  export type WordStateListRelationFilter = {
+    every?: WordStateWhereInput
+    some?: WordStateWhereInput
+    none?: WordStateWhereInput
+  }
+
+  export type UserProgressListRelationFilter = {
+    every?: UserProgressWhereInput
+    some?: UserProgressWhereInput
+    none?: UserProgressWhereInput
+  }
+
+  export type LearningSessionListRelationFilter = {
+    every?: LearningSessionWhereInput
+    some?: LearningSessionWhereInput
+    none?: LearningSessionWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -9408,6 +15342,18 @@ export namespace Prisma {
   }
 
   export type DocumentsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WordStateOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserProgressOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LearningSessionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -9765,6 +15711,277 @@ export namespace Prisma {
     order?: SortOrder
   }
 
+  export type EnumGradeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.Grade | EnumGradeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumGradeNullableFilter<$PrismaModel> | $Enums.Grade | null
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type TextCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    category?: SortOrder
+    grade?: SortOrder
+    wordCount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TextAvgOrderByAggregateInput = {
+    wordCount?: SortOrder
+  }
+
+  export type TextMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    category?: SortOrder
+    grade?: SortOrder
+    wordCount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TextMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    category?: SortOrder
+    grade?: SortOrder
+    wordCount?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TextSumOrderByAggregateInput = {
+    wordCount?: SortOrder
+  }
+
+  export type EnumGradeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Grade | EnumGradeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumGradeNullableWithAggregatesFilter<$PrismaModel> | $Enums.Grade | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumGradeNullableFilter<$PrismaModel>
+    _max?: NestedEnumGradeNullableFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type TextScalarRelationFilter = {
+    is?: TextWhereInput
+    isNot?: TextWhereInput
+  }
+
+  export type WordStateUserIdTextIdWordPositionCompoundUniqueInput = {
+    userId: string
+    textId: string
+    wordPosition: number
+  }
+
+  export type WordStateCountOrderByAggregateInput = {
+    id?: SortOrder
+    wordPosition?: SortOrder
+    wordContent?: SortOrder
+    isMasked?: SortOrder
+    lastUpdated?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type WordStateAvgOrderByAggregateInput = {
+    wordPosition?: SortOrder
+  }
+
+  export type WordStateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    wordPosition?: SortOrder
+    wordContent?: SortOrder
+    isMasked?: SortOrder
+    lastUpdated?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type WordStateMinOrderByAggregateInput = {
+    id?: SortOrder
+    wordPosition?: SortOrder
+    wordContent?: SortOrder
+    isMasked?: SortOrder
+    lastUpdated?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type WordStateSumOrderByAggregateInput = {
+    wordPosition?: SortOrder
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type UserProgressUserIdTextIdCompoundUniqueInput = {
+    userId: string
+    textId: string
+  }
+
+  export type UserProgressCountOrderByAggregateInput = {
+    id?: SortOrder
+    totalWords?: SortOrder
+    maskedWords?: SortOrder
+    scorePercentage?: SortOrder
+    lastSession?: SortOrder
+    totalSessions?: SortOrder
+    timeSpent?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type UserProgressAvgOrderByAggregateInput = {
+    totalWords?: SortOrder
+    maskedWords?: SortOrder
+    scorePercentage?: SortOrder
+    totalSessions?: SortOrder
+    timeSpent?: SortOrder
+  }
+
+  export type UserProgressMaxOrderByAggregateInput = {
+    id?: SortOrder
+    totalWords?: SortOrder
+    maskedWords?: SortOrder
+    scorePercentage?: SortOrder
+    lastSession?: SortOrder
+    totalSessions?: SortOrder
+    timeSpent?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type UserProgressMinOrderByAggregateInput = {
+    id?: SortOrder
+    totalWords?: SortOrder
+    maskedWords?: SortOrder
+    scorePercentage?: SortOrder
+    lastSession?: SortOrder
+    totalSessions?: SortOrder
+    timeSpent?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type UserProgressSumOrderByAggregateInput = {
+    totalWords?: SortOrder
+    maskedWords?: SortOrder
+    scorePercentage?: SortOrder
+    totalSessions?: SortOrder
+    timeSpent?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type LearningSessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrder
+    wordsRevealed?: SortOrder
+    wordsMasked?: SortOrder
+    scoreStart?: SortOrder
+    scoreEnd?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type LearningSessionAvgOrderByAggregateInput = {
+    wordsRevealed?: SortOrder
+    wordsMasked?: SortOrder
+    scoreStart?: SortOrder
+    scoreEnd?: SortOrder
+  }
+
+  export type LearningSessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrder
+    wordsRevealed?: SortOrder
+    wordsMasked?: SortOrder
+    scoreStart?: SortOrder
+    scoreEnd?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type LearningSessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrder
+    wordsRevealed?: SortOrder
+    wordsMasked?: SortOrder
+    scoreStart?: SortOrder
+    scoreEnd?: SortOrder
+    userId?: SortOrder
+    textId?: SortOrder
+  }
+
+  export type LearningSessionSumOrderByAggregateInput = {
+    wordsRevealed?: SortOrder
+    wordsMasked?: SortOrder
+    scoreStart?: SortOrder
+    scoreEnd?: SortOrder
+  }
+
   export type UserCreategradeInput = {
     set: $Enums.Grade[]
   }
@@ -9790,6 +16007,27 @@ export namespace Prisma {
     connect?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
   }
 
+  export type WordStateCreateNestedManyWithoutUserInput = {
+    create?: XOR<WordStateCreateWithoutUserInput, WordStateUncheckedCreateWithoutUserInput> | WordStateCreateWithoutUserInput[] | WordStateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WordStateCreateOrConnectWithoutUserInput | WordStateCreateOrConnectWithoutUserInput[]
+    createMany?: WordStateCreateManyUserInputEnvelope
+    connect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+  }
+
+  export type UserProgressCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserProgressCreateWithoutUserInput, UserProgressUncheckedCreateWithoutUserInput> | UserProgressCreateWithoutUserInput[] | UserProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserProgressCreateOrConnectWithoutUserInput | UserProgressCreateOrConnectWithoutUserInput[]
+    createMany?: UserProgressCreateManyUserInputEnvelope
+    connect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+  }
+
+  export type LearningSessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<LearningSessionCreateWithoutUserInput, LearningSessionUncheckedCreateWithoutUserInput> | LearningSessionCreateWithoutUserInput[] | LearningSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LearningSessionCreateOrConnectWithoutUserInput | LearningSessionCreateOrConnectWithoutUserInput[]
+    createMany?: LearningSessionCreateManyUserInputEnvelope
+    connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -9809,6 +16047,27 @@ export namespace Prisma {
     connectOrCreate?: DocumentsCreateOrConnectWithoutUserInput | DocumentsCreateOrConnectWithoutUserInput[]
     createMany?: DocumentsCreateManyUserInputEnvelope
     connect?: DocumentsWhereUniqueInput | DocumentsWhereUniqueInput[]
+  }
+
+  export type WordStateUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<WordStateCreateWithoutUserInput, WordStateUncheckedCreateWithoutUserInput> | WordStateCreateWithoutUserInput[] | WordStateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WordStateCreateOrConnectWithoutUserInput | WordStateCreateOrConnectWithoutUserInput[]
+    createMany?: WordStateCreateManyUserInputEnvelope
+    connect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+  }
+
+  export type UserProgressUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserProgressCreateWithoutUserInput, UserProgressUncheckedCreateWithoutUserInput> | UserProgressCreateWithoutUserInput[] | UserProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserProgressCreateOrConnectWithoutUserInput | UserProgressCreateOrConnectWithoutUserInput[]
+    createMany?: UserProgressCreateManyUserInputEnvelope
+    connect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+  }
+
+  export type LearningSessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<LearningSessionCreateWithoutUserInput, LearningSessionUncheckedCreateWithoutUserInput> | LearningSessionCreateWithoutUserInput[] | LearningSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LearningSessionCreateOrConnectWithoutUserInput | LearningSessionCreateOrConnectWithoutUserInput[]
+    createMany?: LearningSessionCreateManyUserInputEnvelope
+    connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -9874,6 +16133,48 @@ export namespace Prisma {
     deleteMany?: DocumentsScalarWhereInput | DocumentsScalarWhereInput[]
   }
 
+  export type WordStateUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WordStateCreateWithoutUserInput, WordStateUncheckedCreateWithoutUserInput> | WordStateCreateWithoutUserInput[] | WordStateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WordStateCreateOrConnectWithoutUserInput | WordStateCreateOrConnectWithoutUserInput[]
+    upsert?: WordStateUpsertWithWhereUniqueWithoutUserInput | WordStateUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WordStateCreateManyUserInputEnvelope
+    set?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    disconnect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    delete?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    connect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    update?: WordStateUpdateWithWhereUniqueWithoutUserInput | WordStateUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WordStateUpdateManyWithWhereWithoutUserInput | WordStateUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WordStateScalarWhereInput | WordStateScalarWhereInput[]
+  }
+
+  export type UserProgressUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserProgressCreateWithoutUserInput, UserProgressUncheckedCreateWithoutUserInput> | UserProgressCreateWithoutUserInput[] | UserProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserProgressCreateOrConnectWithoutUserInput | UserProgressCreateOrConnectWithoutUserInput[]
+    upsert?: UserProgressUpsertWithWhereUniqueWithoutUserInput | UserProgressUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserProgressCreateManyUserInputEnvelope
+    set?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    disconnect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    delete?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    connect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    update?: UserProgressUpdateWithWhereUniqueWithoutUserInput | UserProgressUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserProgressUpdateManyWithWhereWithoutUserInput | UserProgressUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserProgressScalarWhereInput | UserProgressScalarWhereInput[]
+  }
+
+  export type LearningSessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LearningSessionCreateWithoutUserInput, LearningSessionUncheckedCreateWithoutUserInput> | LearningSessionCreateWithoutUserInput[] | LearningSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LearningSessionCreateOrConnectWithoutUserInput | LearningSessionCreateOrConnectWithoutUserInput[]
+    upsert?: LearningSessionUpsertWithWhereUniqueWithoutUserInput | LearningSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LearningSessionCreateManyUserInputEnvelope
+    set?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    disconnect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    delete?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    update?: LearningSessionUpdateWithWhereUniqueWithoutUserInput | LearningSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LearningSessionUpdateManyWithWhereWithoutUserInput | LearningSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LearningSessionScalarWhereInput | LearningSessionScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -9914,6 +16215,48 @@ export namespace Prisma {
     update?: DocumentsUpdateWithWhereUniqueWithoutUserInput | DocumentsUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: DocumentsUpdateManyWithWhereWithoutUserInput | DocumentsUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: DocumentsScalarWhereInput | DocumentsScalarWhereInput[]
+  }
+
+  export type WordStateUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WordStateCreateWithoutUserInput, WordStateUncheckedCreateWithoutUserInput> | WordStateCreateWithoutUserInput[] | WordStateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WordStateCreateOrConnectWithoutUserInput | WordStateCreateOrConnectWithoutUserInput[]
+    upsert?: WordStateUpsertWithWhereUniqueWithoutUserInput | WordStateUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WordStateCreateManyUserInputEnvelope
+    set?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    disconnect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    delete?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    connect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    update?: WordStateUpdateWithWhereUniqueWithoutUserInput | WordStateUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WordStateUpdateManyWithWhereWithoutUserInput | WordStateUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WordStateScalarWhereInput | WordStateScalarWhereInput[]
+  }
+
+  export type UserProgressUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserProgressCreateWithoutUserInput, UserProgressUncheckedCreateWithoutUserInput> | UserProgressCreateWithoutUserInput[] | UserProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserProgressCreateOrConnectWithoutUserInput | UserProgressCreateOrConnectWithoutUserInput[]
+    upsert?: UserProgressUpsertWithWhereUniqueWithoutUserInput | UserProgressUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserProgressCreateManyUserInputEnvelope
+    set?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    disconnect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    delete?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    connect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    update?: UserProgressUpdateWithWhereUniqueWithoutUserInput | UserProgressUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserProgressUpdateManyWithWhereWithoutUserInput | UserProgressUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserProgressScalarWhereInput | UserProgressScalarWhereInput[]
+  }
+
+  export type LearningSessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LearningSessionCreateWithoutUserInput, LearningSessionUncheckedCreateWithoutUserInput> | LearningSessionCreateWithoutUserInput[] | LearningSessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LearningSessionCreateOrConnectWithoutUserInput | LearningSessionCreateOrConnectWithoutUserInput[]
+    upsert?: LearningSessionUpsertWithWhereUniqueWithoutUserInput | LearningSessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LearningSessionCreateManyUserInputEnvelope
+    set?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    disconnect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    delete?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    update?: LearningSessionUpdateWithWhereUniqueWithoutUserInput | LearningSessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LearningSessionUpdateManyWithWhereWithoutUserInput | LearningSessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LearningSessionScalarWhereInput | LearningSessionScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -10024,6 +16367,236 @@ export namespace Prisma {
     upsert?: DocumentsUpsertWithoutLiensInput
     connect?: DocumentsWhereUniqueInput
     update?: XOR<XOR<DocumentsUpdateToOneWithWhereWithoutLiensInput, DocumentsUpdateWithoutLiensInput>, DocumentsUncheckedUpdateWithoutLiensInput>
+  }
+
+  export type WordStateCreateNestedManyWithoutTextInput = {
+    create?: XOR<WordStateCreateWithoutTextInput, WordStateUncheckedCreateWithoutTextInput> | WordStateCreateWithoutTextInput[] | WordStateUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: WordStateCreateOrConnectWithoutTextInput | WordStateCreateOrConnectWithoutTextInput[]
+    createMany?: WordStateCreateManyTextInputEnvelope
+    connect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+  }
+
+  export type UserProgressCreateNestedManyWithoutTextInput = {
+    create?: XOR<UserProgressCreateWithoutTextInput, UserProgressUncheckedCreateWithoutTextInput> | UserProgressCreateWithoutTextInput[] | UserProgressUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: UserProgressCreateOrConnectWithoutTextInput | UserProgressCreateOrConnectWithoutTextInput[]
+    createMany?: UserProgressCreateManyTextInputEnvelope
+    connect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+  }
+
+  export type LearningSessionCreateNestedManyWithoutTextInput = {
+    create?: XOR<LearningSessionCreateWithoutTextInput, LearningSessionUncheckedCreateWithoutTextInput> | LearningSessionCreateWithoutTextInput[] | LearningSessionUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: LearningSessionCreateOrConnectWithoutTextInput | LearningSessionCreateOrConnectWithoutTextInput[]
+    createMany?: LearningSessionCreateManyTextInputEnvelope
+    connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+  }
+
+  export type WordStateUncheckedCreateNestedManyWithoutTextInput = {
+    create?: XOR<WordStateCreateWithoutTextInput, WordStateUncheckedCreateWithoutTextInput> | WordStateCreateWithoutTextInput[] | WordStateUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: WordStateCreateOrConnectWithoutTextInput | WordStateCreateOrConnectWithoutTextInput[]
+    createMany?: WordStateCreateManyTextInputEnvelope
+    connect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+  }
+
+  export type UserProgressUncheckedCreateNestedManyWithoutTextInput = {
+    create?: XOR<UserProgressCreateWithoutTextInput, UserProgressUncheckedCreateWithoutTextInput> | UserProgressCreateWithoutTextInput[] | UserProgressUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: UserProgressCreateOrConnectWithoutTextInput | UserProgressCreateOrConnectWithoutTextInput[]
+    createMany?: UserProgressCreateManyTextInputEnvelope
+    connect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+  }
+
+  export type LearningSessionUncheckedCreateNestedManyWithoutTextInput = {
+    create?: XOR<LearningSessionCreateWithoutTextInput, LearningSessionUncheckedCreateWithoutTextInput> | LearningSessionCreateWithoutTextInput[] | LearningSessionUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: LearningSessionCreateOrConnectWithoutTextInput | LearningSessionCreateOrConnectWithoutTextInput[]
+    createMany?: LearningSessionCreateManyTextInputEnvelope
+    connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+  }
+
+  export type NullableEnumGradeFieldUpdateOperationsInput = {
+    set?: $Enums.Grade | null
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type WordStateUpdateManyWithoutTextNestedInput = {
+    create?: XOR<WordStateCreateWithoutTextInput, WordStateUncheckedCreateWithoutTextInput> | WordStateCreateWithoutTextInput[] | WordStateUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: WordStateCreateOrConnectWithoutTextInput | WordStateCreateOrConnectWithoutTextInput[]
+    upsert?: WordStateUpsertWithWhereUniqueWithoutTextInput | WordStateUpsertWithWhereUniqueWithoutTextInput[]
+    createMany?: WordStateCreateManyTextInputEnvelope
+    set?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    disconnect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    delete?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    connect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    update?: WordStateUpdateWithWhereUniqueWithoutTextInput | WordStateUpdateWithWhereUniqueWithoutTextInput[]
+    updateMany?: WordStateUpdateManyWithWhereWithoutTextInput | WordStateUpdateManyWithWhereWithoutTextInput[]
+    deleteMany?: WordStateScalarWhereInput | WordStateScalarWhereInput[]
+  }
+
+  export type UserProgressUpdateManyWithoutTextNestedInput = {
+    create?: XOR<UserProgressCreateWithoutTextInput, UserProgressUncheckedCreateWithoutTextInput> | UserProgressCreateWithoutTextInput[] | UserProgressUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: UserProgressCreateOrConnectWithoutTextInput | UserProgressCreateOrConnectWithoutTextInput[]
+    upsert?: UserProgressUpsertWithWhereUniqueWithoutTextInput | UserProgressUpsertWithWhereUniqueWithoutTextInput[]
+    createMany?: UserProgressCreateManyTextInputEnvelope
+    set?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    disconnect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    delete?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    connect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    update?: UserProgressUpdateWithWhereUniqueWithoutTextInput | UserProgressUpdateWithWhereUniqueWithoutTextInput[]
+    updateMany?: UserProgressUpdateManyWithWhereWithoutTextInput | UserProgressUpdateManyWithWhereWithoutTextInput[]
+    deleteMany?: UserProgressScalarWhereInput | UserProgressScalarWhereInput[]
+  }
+
+  export type LearningSessionUpdateManyWithoutTextNestedInput = {
+    create?: XOR<LearningSessionCreateWithoutTextInput, LearningSessionUncheckedCreateWithoutTextInput> | LearningSessionCreateWithoutTextInput[] | LearningSessionUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: LearningSessionCreateOrConnectWithoutTextInput | LearningSessionCreateOrConnectWithoutTextInput[]
+    upsert?: LearningSessionUpsertWithWhereUniqueWithoutTextInput | LearningSessionUpsertWithWhereUniqueWithoutTextInput[]
+    createMany?: LearningSessionCreateManyTextInputEnvelope
+    set?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    disconnect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    delete?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    update?: LearningSessionUpdateWithWhereUniqueWithoutTextInput | LearningSessionUpdateWithWhereUniqueWithoutTextInput[]
+    updateMany?: LearningSessionUpdateManyWithWhereWithoutTextInput | LearningSessionUpdateManyWithWhereWithoutTextInput[]
+    deleteMany?: LearningSessionScalarWhereInput | LearningSessionScalarWhereInput[]
+  }
+
+  export type WordStateUncheckedUpdateManyWithoutTextNestedInput = {
+    create?: XOR<WordStateCreateWithoutTextInput, WordStateUncheckedCreateWithoutTextInput> | WordStateCreateWithoutTextInput[] | WordStateUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: WordStateCreateOrConnectWithoutTextInput | WordStateCreateOrConnectWithoutTextInput[]
+    upsert?: WordStateUpsertWithWhereUniqueWithoutTextInput | WordStateUpsertWithWhereUniqueWithoutTextInput[]
+    createMany?: WordStateCreateManyTextInputEnvelope
+    set?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    disconnect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    delete?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    connect?: WordStateWhereUniqueInput | WordStateWhereUniqueInput[]
+    update?: WordStateUpdateWithWhereUniqueWithoutTextInput | WordStateUpdateWithWhereUniqueWithoutTextInput[]
+    updateMany?: WordStateUpdateManyWithWhereWithoutTextInput | WordStateUpdateManyWithWhereWithoutTextInput[]
+    deleteMany?: WordStateScalarWhereInput | WordStateScalarWhereInput[]
+  }
+
+  export type UserProgressUncheckedUpdateManyWithoutTextNestedInput = {
+    create?: XOR<UserProgressCreateWithoutTextInput, UserProgressUncheckedCreateWithoutTextInput> | UserProgressCreateWithoutTextInput[] | UserProgressUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: UserProgressCreateOrConnectWithoutTextInput | UserProgressCreateOrConnectWithoutTextInput[]
+    upsert?: UserProgressUpsertWithWhereUniqueWithoutTextInput | UserProgressUpsertWithWhereUniqueWithoutTextInput[]
+    createMany?: UserProgressCreateManyTextInputEnvelope
+    set?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    disconnect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    delete?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    connect?: UserProgressWhereUniqueInput | UserProgressWhereUniqueInput[]
+    update?: UserProgressUpdateWithWhereUniqueWithoutTextInput | UserProgressUpdateWithWhereUniqueWithoutTextInput[]
+    updateMany?: UserProgressUpdateManyWithWhereWithoutTextInput | UserProgressUpdateManyWithWhereWithoutTextInput[]
+    deleteMany?: UserProgressScalarWhereInput | UserProgressScalarWhereInput[]
+  }
+
+  export type LearningSessionUncheckedUpdateManyWithoutTextNestedInput = {
+    create?: XOR<LearningSessionCreateWithoutTextInput, LearningSessionUncheckedCreateWithoutTextInput> | LearningSessionCreateWithoutTextInput[] | LearningSessionUncheckedCreateWithoutTextInput[]
+    connectOrCreate?: LearningSessionCreateOrConnectWithoutTextInput | LearningSessionCreateOrConnectWithoutTextInput[]
+    upsert?: LearningSessionUpsertWithWhereUniqueWithoutTextInput | LearningSessionUpsertWithWhereUniqueWithoutTextInput[]
+    createMany?: LearningSessionCreateManyTextInputEnvelope
+    set?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    disconnect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    delete?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+    update?: LearningSessionUpdateWithWhereUniqueWithoutTextInput | LearningSessionUpdateWithWhereUniqueWithoutTextInput[]
+    updateMany?: LearningSessionUpdateManyWithWhereWithoutTextInput | LearningSessionUpdateManyWithWhereWithoutTextInput[]
+    deleteMany?: LearningSessionScalarWhereInput | LearningSessionScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutWordStateInput = {
+    create?: XOR<UserCreateWithoutWordStateInput, UserUncheckedCreateWithoutWordStateInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWordStateInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type TextCreateNestedOneWithoutWordStatesInput = {
+    create?: XOR<TextCreateWithoutWordStatesInput, TextUncheckedCreateWithoutWordStatesInput>
+    connectOrCreate?: TextCreateOrConnectWithoutWordStatesInput
+    connect?: TextWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutWordStateNestedInput = {
+    create?: XOR<UserCreateWithoutWordStateInput, UserUncheckedCreateWithoutWordStateInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWordStateInput
+    upsert?: UserUpsertWithoutWordStateInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutWordStateInput, UserUpdateWithoutWordStateInput>, UserUncheckedUpdateWithoutWordStateInput>
+  }
+
+  export type TextUpdateOneRequiredWithoutWordStatesNestedInput = {
+    create?: XOR<TextCreateWithoutWordStatesInput, TextUncheckedCreateWithoutWordStatesInput>
+    connectOrCreate?: TextCreateOrConnectWithoutWordStatesInput
+    upsert?: TextUpsertWithoutWordStatesInput
+    connect?: TextWhereUniqueInput
+    update?: XOR<XOR<TextUpdateToOneWithWhereWithoutWordStatesInput, TextUpdateWithoutWordStatesInput>, TextUncheckedUpdateWithoutWordStatesInput>
+  }
+
+  export type UserCreateNestedOneWithoutUserProgressInput = {
+    create?: XOR<UserCreateWithoutUserProgressInput, UserUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: UserCreateOrConnectWithoutUserProgressInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type TextCreateNestedOneWithoutUserProgressInput = {
+    create?: XOR<TextCreateWithoutUserProgressInput, TextUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: TextCreateOrConnectWithoutUserProgressInput
+    connect?: TextWhereUniqueInput
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneRequiredWithoutUserProgressNestedInput = {
+    create?: XOR<UserCreateWithoutUserProgressInput, UserUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: UserCreateOrConnectWithoutUserProgressInput
+    upsert?: UserUpsertWithoutUserProgressInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutUserProgressInput, UserUpdateWithoutUserProgressInput>, UserUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type TextUpdateOneRequiredWithoutUserProgressNestedInput = {
+    create?: XOR<TextCreateWithoutUserProgressInput, TextUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: TextCreateOrConnectWithoutUserProgressInput
+    upsert?: TextUpsertWithoutUserProgressInput
+    connect?: TextWhereUniqueInput
+    update?: XOR<XOR<TextUpdateToOneWithWhereWithoutUserProgressInput, TextUpdateWithoutUserProgressInput>, TextUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type UserCreateNestedOneWithoutLearningSessionInput = {
+    create?: XOR<UserCreateWithoutLearningSessionInput, UserUncheckedCreateWithoutLearningSessionInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLearningSessionInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type TextCreateNestedOneWithoutLearningSessionInput = {
+    create?: XOR<TextCreateWithoutLearningSessionInput, TextUncheckedCreateWithoutLearningSessionInput>
+    connectOrCreate?: TextCreateOrConnectWithoutLearningSessionInput
+    connect?: TextWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutLearningSessionNestedInput = {
+    create?: XOR<UserCreateWithoutLearningSessionInput, UserUncheckedCreateWithoutLearningSessionInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLearningSessionInput
+    upsert?: UserUpsertWithoutLearningSessionInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLearningSessionInput, UserUpdateWithoutLearningSessionInput>, UserUncheckedUpdateWithoutLearningSessionInput>
+  }
+
+  export type TextUpdateOneRequiredWithoutLearningSessionNestedInput = {
+    create?: XOR<TextCreateWithoutLearningSessionInput, TextUncheckedCreateWithoutLearningSessionInput>
+    connectOrCreate?: TextCreateOrConnectWithoutLearningSessionInput
+    upsert?: TextUpsertWithoutLearningSessionInput
+    connect?: TextWhereUniqueInput
+    update?: XOR<XOR<TextUpdateToOneWithWhereWithoutLearningSessionInput, TextUpdateWithoutLearningSessionInput>, TextUncheckedUpdateWithoutLearningSessionInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -10200,6 +16773,66 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedEnumGradeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.Grade | EnumGradeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumGradeNullableFilter<$PrismaModel> | $Enums.Grade | null
+  }
+
+  export type NestedEnumGradeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Grade | EnumGradeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.Grade[] | ListEnumGradeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumGradeNullableWithAggregatesFilter<$PrismaModel> | $Enums.Grade | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumGradeNullableFilter<$PrismaModel>
+    _max?: NestedEnumGradeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
   export type SessionCreateWithoutUserInput = {
     id?: string
     expiresAt: Date | string
@@ -10308,6 +16941,98 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type WordStateCreateWithoutUserInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    text: TextCreateNestedOneWithoutWordStatesInput
+  }
+
+  export type WordStateUncheckedCreateWithoutUserInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    textId: string
+  }
+
+  export type WordStateCreateOrConnectWithoutUserInput = {
+    where: WordStateWhereUniqueInput
+    create: XOR<WordStateCreateWithoutUserInput, WordStateUncheckedCreateWithoutUserInput>
+  }
+
+  export type WordStateCreateManyUserInputEnvelope = {
+    data: WordStateCreateManyUserInput | WordStateCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserProgressCreateWithoutUserInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    text: TextCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserProgressUncheckedCreateWithoutUserInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    textId: string
+  }
+
+  export type UserProgressCreateOrConnectWithoutUserInput = {
+    where: UserProgressWhereUniqueInput
+    create: XOR<UserProgressCreateWithoutUserInput, UserProgressUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserProgressCreateManyUserInputEnvelope = {
+    data: UserProgressCreateManyUserInput | UserProgressCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LearningSessionCreateWithoutUserInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    text: TextCreateNestedOneWithoutLearningSessionInput
+  }
+
+  export type LearningSessionUncheckedCreateWithoutUserInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    textId: string
+  }
+
+  export type LearningSessionCreateOrConnectWithoutUserInput = {
+    where: LearningSessionWhereUniqueInput
+    create: XOR<LearningSessionCreateWithoutUserInput, LearningSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type LearningSessionCreateManyUserInputEnvelope = {
+    data: LearningSessionCreateManyUserInput | LearningSessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
     where: SessionWhereUniqueInput
     update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
@@ -10406,6 +17131,97 @@ export namespace Prisma {
     userId?: StringFilter<"Documents"> | string
   }
 
+  export type WordStateUpsertWithWhereUniqueWithoutUserInput = {
+    where: WordStateWhereUniqueInput
+    update: XOR<WordStateUpdateWithoutUserInput, WordStateUncheckedUpdateWithoutUserInput>
+    create: XOR<WordStateCreateWithoutUserInput, WordStateUncheckedCreateWithoutUserInput>
+  }
+
+  export type WordStateUpdateWithWhereUniqueWithoutUserInput = {
+    where: WordStateWhereUniqueInput
+    data: XOR<WordStateUpdateWithoutUserInput, WordStateUncheckedUpdateWithoutUserInput>
+  }
+
+  export type WordStateUpdateManyWithWhereWithoutUserInput = {
+    where: WordStateScalarWhereInput
+    data: XOR<WordStateUpdateManyMutationInput, WordStateUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type WordStateScalarWhereInput = {
+    AND?: WordStateScalarWhereInput | WordStateScalarWhereInput[]
+    OR?: WordStateScalarWhereInput[]
+    NOT?: WordStateScalarWhereInput | WordStateScalarWhereInput[]
+    id?: StringFilter<"WordState"> | string
+    wordPosition?: IntFilter<"WordState"> | number
+    wordContent?: StringFilter<"WordState"> | string
+    isMasked?: BoolFilter<"WordState"> | boolean
+    lastUpdated?: DateTimeFilter<"WordState"> | Date | string
+    userId?: StringFilter<"WordState"> | string
+    textId?: StringFilter<"WordState"> | string
+  }
+
+  export type UserProgressUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserProgressWhereUniqueInput
+    update: XOR<UserProgressUpdateWithoutUserInput, UserProgressUncheckedUpdateWithoutUserInput>
+    create: XOR<UserProgressCreateWithoutUserInput, UserProgressUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserProgressUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserProgressWhereUniqueInput
+    data: XOR<UserProgressUpdateWithoutUserInput, UserProgressUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UserProgressUpdateManyWithWhereWithoutUserInput = {
+    where: UserProgressScalarWhereInput
+    data: XOR<UserProgressUpdateManyMutationInput, UserProgressUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UserProgressScalarWhereInput = {
+    AND?: UserProgressScalarWhereInput | UserProgressScalarWhereInput[]
+    OR?: UserProgressScalarWhereInput[]
+    NOT?: UserProgressScalarWhereInput | UserProgressScalarWhereInput[]
+    id?: StringFilter<"UserProgress"> | string
+    totalWords?: IntFilter<"UserProgress"> | number
+    maskedWords?: IntFilter<"UserProgress"> | number
+    scorePercentage?: FloatFilter<"UserProgress"> | number
+    lastSession?: DateTimeFilter<"UserProgress"> | Date | string
+    totalSessions?: IntFilter<"UserProgress"> | number
+    timeSpent?: IntFilter<"UserProgress"> | number
+    userId?: StringFilter<"UserProgress"> | string
+    textId?: StringFilter<"UserProgress"> | string
+  }
+
+  export type LearningSessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: LearningSessionWhereUniqueInput
+    update: XOR<LearningSessionUpdateWithoutUserInput, LearningSessionUncheckedUpdateWithoutUserInput>
+    create: XOR<LearningSessionCreateWithoutUserInput, LearningSessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type LearningSessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: LearningSessionWhereUniqueInput
+    data: XOR<LearningSessionUpdateWithoutUserInput, LearningSessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type LearningSessionUpdateManyWithWhereWithoutUserInput = {
+    where: LearningSessionScalarWhereInput
+    data: XOR<LearningSessionUpdateManyMutationInput, LearningSessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type LearningSessionScalarWhereInput = {
+    AND?: LearningSessionScalarWhereInput | LearningSessionScalarWhereInput[]
+    OR?: LearningSessionScalarWhereInput[]
+    NOT?: LearningSessionScalarWhereInput | LearningSessionScalarWhereInput[]
+    id?: StringFilter<"LearningSession"> | string
+    startTime?: DateTimeFilter<"LearningSession"> | Date | string
+    endTime?: DateTimeNullableFilter<"LearningSession"> | Date | string | null
+    wordsRevealed?: IntFilter<"LearningSession"> | number
+    wordsMasked?: IntFilter<"LearningSession"> | number
+    scoreStart?: FloatFilter<"LearningSession"> | number
+    scoreEnd?: FloatFilter<"LearningSession"> | number
+    userId?: StringFilter<"LearningSession"> | string
+    textId?: StringFilter<"LearningSession"> | string
+  }
+
   export type UserCreateWithoutSessionsInput = {
     id?: string
     name: string
@@ -10417,6 +17233,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     documents?: DocumentsCreateNestedManyWithoutUserInput
+    WordState?: WordStateCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -10430,6 +17249,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
+    WordState?: WordStateUncheckedCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -10459,6 +17281,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     documents?: DocumentsUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -10472,6 +17297,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUncheckedUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -10485,6 +17313,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     documents?: DocumentsCreateNestedManyWithoutUserInput
+    WordState?: WordStateCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -10498,6 +17329,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
+    WordState?: WordStateUncheckedCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -10527,6 +17361,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     documents?: DocumentsUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -10540,6 +17377,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUncheckedUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type LinksCreateWithoutDocumentInput = {
@@ -10579,6 +17419,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
+    WordState?: WordStateCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutDocumentsInput = {
@@ -10592,6 +17435,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    WordState?: WordStateUncheckedCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutDocumentsInput = {
@@ -10649,6 +17495,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutDocumentsInput = {
@@ -10662,6 +17511,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUncheckedUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type DocumentsCreateWithoutLiensInput = {
@@ -10736,6 +17588,602 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type WordStateCreateWithoutTextInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    user: UserCreateNestedOneWithoutWordStateInput
+  }
+
+  export type WordStateUncheckedCreateWithoutTextInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    userId: string
+  }
+
+  export type WordStateCreateOrConnectWithoutTextInput = {
+    where: WordStateWhereUniqueInput
+    create: XOR<WordStateCreateWithoutTextInput, WordStateUncheckedCreateWithoutTextInput>
+  }
+
+  export type WordStateCreateManyTextInputEnvelope = {
+    data: WordStateCreateManyTextInput | WordStateCreateManyTextInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserProgressCreateWithoutTextInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    user: UserCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserProgressUncheckedCreateWithoutTextInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    userId: string
+  }
+
+  export type UserProgressCreateOrConnectWithoutTextInput = {
+    where: UserProgressWhereUniqueInput
+    create: XOR<UserProgressCreateWithoutTextInput, UserProgressUncheckedCreateWithoutTextInput>
+  }
+
+  export type UserProgressCreateManyTextInputEnvelope = {
+    data: UserProgressCreateManyTextInput | UserProgressCreateManyTextInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LearningSessionCreateWithoutTextInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    user: UserCreateNestedOneWithoutLearningSessionInput
+  }
+
+  export type LearningSessionUncheckedCreateWithoutTextInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    userId: string
+  }
+
+  export type LearningSessionCreateOrConnectWithoutTextInput = {
+    where: LearningSessionWhereUniqueInput
+    create: XOR<LearningSessionCreateWithoutTextInput, LearningSessionUncheckedCreateWithoutTextInput>
+  }
+
+  export type LearningSessionCreateManyTextInputEnvelope = {
+    data: LearningSessionCreateManyTextInput | LearningSessionCreateManyTextInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WordStateUpsertWithWhereUniqueWithoutTextInput = {
+    where: WordStateWhereUniqueInput
+    update: XOR<WordStateUpdateWithoutTextInput, WordStateUncheckedUpdateWithoutTextInput>
+    create: XOR<WordStateCreateWithoutTextInput, WordStateUncheckedCreateWithoutTextInput>
+  }
+
+  export type WordStateUpdateWithWhereUniqueWithoutTextInput = {
+    where: WordStateWhereUniqueInput
+    data: XOR<WordStateUpdateWithoutTextInput, WordStateUncheckedUpdateWithoutTextInput>
+  }
+
+  export type WordStateUpdateManyWithWhereWithoutTextInput = {
+    where: WordStateScalarWhereInput
+    data: XOR<WordStateUpdateManyMutationInput, WordStateUncheckedUpdateManyWithoutTextInput>
+  }
+
+  export type UserProgressUpsertWithWhereUniqueWithoutTextInput = {
+    where: UserProgressWhereUniqueInput
+    update: XOR<UserProgressUpdateWithoutTextInput, UserProgressUncheckedUpdateWithoutTextInput>
+    create: XOR<UserProgressCreateWithoutTextInput, UserProgressUncheckedCreateWithoutTextInput>
+  }
+
+  export type UserProgressUpdateWithWhereUniqueWithoutTextInput = {
+    where: UserProgressWhereUniqueInput
+    data: XOR<UserProgressUpdateWithoutTextInput, UserProgressUncheckedUpdateWithoutTextInput>
+  }
+
+  export type UserProgressUpdateManyWithWhereWithoutTextInput = {
+    where: UserProgressScalarWhereInput
+    data: XOR<UserProgressUpdateManyMutationInput, UserProgressUncheckedUpdateManyWithoutTextInput>
+  }
+
+  export type LearningSessionUpsertWithWhereUniqueWithoutTextInput = {
+    where: LearningSessionWhereUniqueInput
+    update: XOR<LearningSessionUpdateWithoutTextInput, LearningSessionUncheckedUpdateWithoutTextInput>
+    create: XOR<LearningSessionCreateWithoutTextInput, LearningSessionUncheckedCreateWithoutTextInput>
+  }
+
+  export type LearningSessionUpdateWithWhereUniqueWithoutTextInput = {
+    where: LearningSessionWhereUniqueInput
+    data: XOR<LearningSessionUpdateWithoutTextInput, LearningSessionUncheckedUpdateWithoutTextInput>
+  }
+
+  export type LearningSessionUpdateManyWithWhereWithoutTextInput = {
+    where: LearningSessionScalarWhereInput
+    data: XOR<LearningSessionUpdateManyMutationInput, LearningSessionUncheckedUpdateManyWithoutTextInput>
+  }
+
+  export type UserCreateWithoutWordStateInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    documents?: DocumentsCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutWordStateInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutWordStateInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutWordStateInput, UserUncheckedCreateWithoutWordStateInput>
+  }
+
+  export type TextCreateWithoutWordStatesInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userProgress?: UserProgressCreateNestedManyWithoutTextInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutTextInput
+  }
+
+  export type TextUncheckedCreateWithoutWordStatesInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userProgress?: UserProgressUncheckedCreateNestedManyWithoutTextInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutTextInput
+  }
+
+  export type TextCreateOrConnectWithoutWordStatesInput = {
+    where: TextWhereUniqueInput
+    create: XOR<TextCreateWithoutWordStatesInput, TextUncheckedCreateWithoutWordStatesInput>
+  }
+
+  export type UserUpsertWithoutWordStateInput = {
+    update: XOR<UserUpdateWithoutWordStateInput, UserUncheckedUpdateWithoutWordStateInput>
+    create: XOR<UserCreateWithoutWordStateInput, UserUncheckedCreateWithoutWordStateInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutWordStateInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutWordStateInput, UserUncheckedUpdateWithoutWordStateInput>
+  }
+
+  export type UserUpdateWithoutWordStateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutWordStateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TextUpsertWithoutWordStatesInput = {
+    update: XOR<TextUpdateWithoutWordStatesInput, TextUncheckedUpdateWithoutWordStatesInput>
+    create: XOR<TextCreateWithoutWordStatesInput, TextUncheckedCreateWithoutWordStatesInput>
+    where?: TextWhereInput
+  }
+
+  export type TextUpdateToOneWithWhereWithoutWordStatesInput = {
+    where?: TextWhereInput
+    data: XOR<TextUpdateWithoutWordStatesInput, TextUncheckedUpdateWithoutWordStatesInput>
+  }
+
+  export type TextUpdateWithoutWordStatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userProgress?: UserProgressUpdateManyWithoutTextNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutTextNestedInput
+  }
+
+  export type TextUncheckedUpdateWithoutWordStatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userProgress?: UserProgressUncheckedUpdateManyWithoutTextNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutTextNestedInput
+  }
+
+  export type UserCreateWithoutUserProgressInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    documents?: DocumentsCreateNestedManyWithoutUserInput
+    WordState?: WordStateCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutUserProgressInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
+    WordState?: WordStateUncheckedCreateNestedManyWithoutUserInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutUserProgressInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutUserProgressInput, UserUncheckedCreateWithoutUserProgressInput>
+  }
+
+  export type TextCreateWithoutUserProgressInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    wordStates?: WordStateCreateNestedManyWithoutTextInput
+    LearningSession?: LearningSessionCreateNestedManyWithoutTextInput
+  }
+
+  export type TextUncheckedCreateWithoutUserProgressInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    wordStates?: WordStateUncheckedCreateNestedManyWithoutTextInput
+    LearningSession?: LearningSessionUncheckedCreateNestedManyWithoutTextInput
+  }
+
+  export type TextCreateOrConnectWithoutUserProgressInput = {
+    where: TextWhereUniqueInput
+    create: XOR<TextCreateWithoutUserProgressInput, TextUncheckedCreateWithoutUserProgressInput>
+  }
+
+  export type UserUpsertWithoutUserProgressInput = {
+    update: XOR<UserUpdateWithoutUserProgressInput, UserUncheckedUpdateWithoutUserProgressInput>
+    create: XOR<UserCreateWithoutUserProgressInput, UserUncheckedCreateWithoutUserProgressInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutUserProgressInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutUserProgressInput, UserUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type UserUpdateWithoutUserProgressInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutUserProgressInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUncheckedUpdateManyWithoutUserNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TextUpsertWithoutUserProgressInput = {
+    update: XOR<TextUpdateWithoutUserProgressInput, TextUncheckedUpdateWithoutUserProgressInput>
+    create: XOR<TextCreateWithoutUserProgressInput, TextUncheckedCreateWithoutUserProgressInput>
+    where?: TextWhereInput
+  }
+
+  export type TextUpdateToOneWithWhereWithoutUserProgressInput = {
+    where?: TextWhereInput
+    data: XOR<TextUpdateWithoutUserProgressInput, TextUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type TextUpdateWithoutUserProgressInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wordStates?: WordStateUpdateManyWithoutTextNestedInput
+    LearningSession?: LearningSessionUpdateManyWithoutTextNestedInput
+  }
+
+  export type TextUncheckedUpdateWithoutUserProgressInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wordStates?: WordStateUncheckedUpdateManyWithoutTextNestedInput
+    LearningSession?: LearningSessionUncheckedUpdateManyWithoutTextNestedInput
+  }
+
+  export type UserCreateWithoutLearningSessionInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    documents?: DocumentsCreateNestedManyWithoutUserInput
+    WordState?: WordStateCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutLearningSessionInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
+    WordState?: WordStateUncheckedCreateNestedManyWithoutUserInput
+    UserProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutLearningSessionInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLearningSessionInput, UserUncheckedCreateWithoutLearningSessionInput>
+  }
+
+  export type TextCreateWithoutLearningSessionInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    wordStates?: WordStateCreateNestedManyWithoutTextInput
+    userProgress?: UserProgressCreateNestedManyWithoutTextInput
+  }
+
+  export type TextUncheckedCreateWithoutLearningSessionInput = {
+    id?: string
+    title: string
+    content: string
+    category?: string | null
+    grade?: $Enums.Grade | null
+    wordCount?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    wordStates?: WordStateUncheckedCreateNestedManyWithoutTextInput
+    userProgress?: UserProgressUncheckedCreateNestedManyWithoutTextInput
+  }
+
+  export type TextCreateOrConnectWithoutLearningSessionInput = {
+    where: TextWhereUniqueInput
+    create: XOR<TextCreateWithoutLearningSessionInput, TextUncheckedCreateWithoutLearningSessionInput>
+  }
+
+  export type UserUpsertWithoutLearningSessionInput = {
+    update: XOR<UserUpdateWithoutLearningSessionInput, UserUncheckedUpdateWithoutLearningSessionInput>
+    create: XOR<UserCreateWithoutLearningSessionInput, UserUncheckedCreateWithoutLearningSessionInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLearningSessionInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLearningSessionInput, UserUncheckedUpdateWithoutLearningSessionInput>
+  }
+
+  export type UserUpdateWithoutLearningSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLearningSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
+    WordState?: WordStateUncheckedUpdateManyWithoutUserNestedInput
+    UserProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TextUpsertWithoutLearningSessionInput = {
+    update: XOR<TextUpdateWithoutLearningSessionInput, TextUncheckedUpdateWithoutLearningSessionInput>
+    create: XOR<TextCreateWithoutLearningSessionInput, TextUncheckedCreateWithoutLearningSessionInput>
+    where?: TextWhereInput
+  }
+
+  export type TextUpdateToOneWithWhereWithoutLearningSessionInput = {
+    where?: TextWhereInput
+    data: XOR<TextUpdateWithoutLearningSessionInput, TextUncheckedUpdateWithoutLearningSessionInput>
+  }
+
+  export type TextUpdateWithoutLearningSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wordStates?: WordStateUpdateManyWithoutTextNestedInput
+    userProgress?: UserProgressUpdateManyWithoutTextNestedInput
+  }
+
+  export type TextUncheckedUpdateWithoutLearningSessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableEnumGradeFieldUpdateOperationsInput | $Enums.Grade | null
+    wordCount?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wordStates?: WordStateUncheckedUpdateManyWithoutTextNestedInput
+    userProgress?: UserProgressUncheckedUpdateManyWithoutTextNestedInput
+  }
+
   export type SessionCreateManyUserInput = {
     id?: string
     expiresAt: Date | string
@@ -10772,6 +18220,37 @@ export namespace Prisma {
     category?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type WordStateCreateManyUserInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    textId: string
+  }
+
+  export type UserProgressCreateManyUserInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    textId: string
+  }
+
+  export type LearningSessionCreateManyUserInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    textId: string
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -10890,6 +18369,99 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type WordStateUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: TextUpdateOneRequiredWithoutWordStatesNestedInput
+  }
+
+  export type WordStateUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WordStateUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserProgressUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    text?: TextUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserProgressUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserProgressUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LearningSessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    text?: TextUpdateOneRequiredWithoutLearningSessionNestedInput
+  }
+
+  export type LearningSessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LearningSessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    textId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type LinksCreateManyDocumentInput = {
     id?: string
     url: string
@@ -10920,6 +18492,130 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     order?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WordStateCreateManyTextInput = {
+    id?: string
+    wordPosition: number
+    wordContent: string
+    isMasked?: boolean
+    lastUpdated?: Date | string
+    userId: string
+  }
+
+  export type UserProgressCreateManyTextInput = {
+    id?: string
+    totalWords: number
+    maskedWords?: number
+    scorePercentage?: number
+    lastSession?: Date | string
+    totalSessions?: number
+    timeSpent?: number
+    userId: string
+  }
+
+  export type LearningSessionCreateManyTextInput = {
+    id?: string
+    startTime?: Date | string
+    endTime?: Date | string | null
+    wordsRevealed?: number
+    wordsMasked?: number
+    scoreStart?: number
+    scoreEnd?: number
+    userId: string
+  }
+
+  export type WordStateUpdateWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutWordStateNestedInput
+  }
+
+  export type WordStateUncheckedUpdateWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WordStateUncheckedUpdateManyWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    wordPosition?: IntFieldUpdateOperationsInput | number
+    wordContent?: StringFieldUpdateOperationsInput | string
+    isMasked?: BoolFieldUpdateOperationsInput | boolean
+    lastUpdated?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserProgressUpdateWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserProgressUncheckedUpdateWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserProgressUncheckedUpdateManyWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    totalWords?: IntFieldUpdateOperationsInput | number
+    maskedWords?: IntFieldUpdateOperationsInput | number
+    scorePercentage?: FloatFieldUpdateOperationsInput | number
+    lastSession?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalSessions?: IntFieldUpdateOperationsInput | number
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LearningSessionUpdateWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutLearningSessionNestedInput
+  }
+
+  export type LearningSessionUncheckedUpdateWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LearningSessionUncheckedUpdateManyWithoutTextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    endTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wordsRevealed?: IntFieldUpdateOperationsInput | number
+    wordsMasked?: IntFieldUpdateOperationsInput | number
+    scoreStart?: FloatFieldUpdateOperationsInput | number
+    scoreEnd?: FloatFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
 

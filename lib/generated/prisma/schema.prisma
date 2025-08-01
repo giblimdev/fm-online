@@ -26,17 +26,20 @@ enum Grade {
 }
 
 model User {
-  id            String      @id @default(cuid())
-  name          String
-  email         String
-  emailVerified Boolean     @default(false)
-  image         String?
-  grade         Grade[]     @default([APP])
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  sessions      Session[]
-  accounts      Account[]
-  documents     Documents[] // ← C'est la bibliothèque !
+  id              String            @id @default(cuid())
+  name            String
+  email           String
+  emailVerified   Boolean           @default(false)
+  image           String?
+  grade           Grade[]           @default([APP])
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  sessions        Session[]
+  accounts        Account[]
+  documents       Documents[] // ← C'est la bibliothèque !
+  WordState       WordState[]
+  UserProgress    UserProgress[]
+  LearningSession LearningSession[]
 
   @@unique([email])
   @@map("user")
@@ -114,4 +117,87 @@ model Links {
   document    Documents @relation(fields: [documentId], references: [id], onDelete: Cascade)
 
   @@map("links")
+}
+
+////////////////////////////////
+////   Learning    ////
+///////////////////////
+
+// Table principale des textes à apprendre
+model Text {
+  id        String   @id @default(cuid())
+  title     String
+  content   String // Le texte complet
+  category  String? // Ex: "OBLIGATION", "RITUAL", etc.
+  grade     Grade? // Grade associé (APP, CP, M, etc.)
+  wordCount Int      @default(0) // Nombre total de mots
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  wordStates      WordState[]
+  userProgress    UserProgress[]
+  LearningSession LearningSession[]
+
+  @@map("texts")
+}
+
+// État de chaque mot pour chaque utilisateur
+model WordState {
+  id           String   @id @default(cuid())
+  wordPosition Int // Position du mot dans le texte (0, 1, 2...)
+  wordContent  String // Le mot lui-même
+  isMasked     Boolean  @default(false) // Masqué ou visible
+  lastUpdated  DateTime @default(now()) @updatedAt
+
+  // Relations
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  textId String
+  text   Text   @relation(fields: [textId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, textId, wordPosition])
+  @@map("word_states")
+}
+
+// Progrès global de l'utilisateur sur un texte
+model UserProgress {
+  id              String   @id @default(cuid())
+  totalWords      Int // Nombre total de mots du texte
+  maskedWords     Int      @default(0) // Nombre de mots masqués
+  scorePercentage Float    @default(0.0) // Score en pourcentage (0-100)
+  lastSession     DateTime @default(now()) @updatedAt
+
+  // Statistiques supplémentaires
+  totalSessions Int @default(1) // Nombre de sessions
+  timeSpent     Int @default(0) // Temps passé en secondes
+
+  // Relations
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  textId String
+  text   Text   @relation(fields: [textId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, textId])
+  @@map("user_progress")
+}
+
+// Optionnel : Sessions d'apprentissage détaillées
+model LearningSession {
+  id            String    @id @default(cuid())
+  startTime     DateTime  @default(now())
+  endTime       DateTime?
+  wordsRevealed Int       @default(0) // Mots révélés pendant cette session
+  wordsMasked   Int       @default(0) // Mots masqués pendant cette session
+  scoreStart    Float     @default(0.0) // Score au début
+  scoreEnd      Float     @default(0.0) // Score à la fin
+
+  // Relations
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  textId String
+  text   Text   @relation(fields: [textId], references: [id], onDelete: Cascade)
+
+  @@map("learning_sessions")
 }
