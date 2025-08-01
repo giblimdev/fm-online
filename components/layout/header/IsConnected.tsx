@@ -62,8 +62,8 @@ export default function IsConnected() {
   // Affichage pendant le chargement
   if (isPending) {
     return (
-      <div className="flex items-center justify-center">
-        <Loader2 className="h-5 w-5 animate-spin text-slate-500" />
+      <div className="flex items-center justify-center p-2">
+        <Loader2 className="h-5 w-5 animate-spin text-gray-400" />
       </div>
     );
   }
@@ -71,71 +71,85 @@ export default function IsConnected() {
   // Si pas de session : afficher le bouton de connexion
   if (!session) {
     return (
-      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-3 md:space-y-0">
-        <Link
-          href="/auth/login"
-          className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center inline-flex items-center justify-center space-x-2"
-        >
-          <User className="h-4 w-4" />
-          <span>Se connecter</span>
-        </Link>
-      </div>
+      <Link
+        href="/auth/login"
+        className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 w-full lg:w-auto"
+      >
+        Se connecter
+      </Link>
     );
   }
 
   // Si session : afficher l'avatar avec menu déroulant
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative w-full lg:w-auto" ref={dropdownRef}>
+      {/* Bouton utilisateur */}
       <button
         onClick={toggleDropdown}
-        className="flex items-center space-x-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 group"
+        className="flex items-center space-x-3 p-3 lg:p-2 rounded-xl lg:rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 group w-full lg:w-auto"
         aria-expanded={isDropdownOpen}
-        aria-haspopup="true"
       >
         {/* Avatar */}
-        <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-300 transition-colors">
+        <div className="flex-shrink-0">
           {session.user.image ? (
             <img
               src={session.user.image}
-              alt={session.user.name || "Avatar"}
-              className="w-full h-full object-cover"
+              alt={`Avatar de ${session.user.name || "Utilisateur"}`}
+              className="h-10 w-10 lg:h-9 lg:w-9 rounded-full object-cover border-2 border-gray-200 group-hover:border-gray-300 transition-colors duration-200"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-              <User className="h-5 w-5 text-white" />
+            <div className="h-10 w-10 lg:h-9 lg:w-9 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center border-2 border-gray-200 group-hover:border-gray-300 transition-colors duration-200">
+              <User className="h-5 w-5 lg:h-5 lg:w-5 text-white" />
             </div>
           )}
         </div>
 
-        {/* Nom utilisateur (masqué sur mobile) */}
-        <div className="hidden md:block text-left">
-          <p className="text-sm font-semibold text-slate-900 truncate max-w-32">
+        {/* Nom utilisateur */}
+        <div className="text-left min-w-0 flex-1 lg:flex-none">
+          <p className="text-base lg:text-sm font-medium text-gray-900 truncate">
             {session.user.name || "Utilisateur"}
           </p>
-          <p className="text-xs text-slate-500 truncate max-w-32">
+          <p className="text-sm lg:text-xs text-gray-500 truncate lg:max-w-[160px]">
             {session.user.email}
           </p>
         </div>
 
-        {/* Icône flèche */}
+        {/* Icône flèche - cachée sur mobile dans le menu */}
         <ChevronDown
-          className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${
+          className={`h-5 w-5 lg:h-4 lg:w-4 text-gray-400 transition-transform duration-200 hidden lg:block ${
             isDropdownOpen ? "rotate-180" : ""
           }`}
         />
       </button>
 
-      {/* Menu déroulant */}
+      {/* Menu déroulant - seulement sur desktop */}
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-slate-200 py-2 z-50 overflow-hidden">
-          {/* En-tête utilisateur (affiché sur mobile) */}
-          <div className="px-4 py-3 border-b border-slate-100 md:hidden">
-            <p className="text-sm font-semibold text-slate-900 truncate">
-              {session.user.name || "Utilisateur"}
-            </p>
-            <p className="text-xs text-slate-500 truncate">
-              {session.user.email}
-            </p>
+        <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden hidden lg:block">
+          {/* En-tête utilisateur */}
+          <div className="px-4 py-3 bg-gray-50 border-b border-gray-100">
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0">
+                {session.user.image ? (
+                  <img
+                    src={session.user.image}
+                    alt={`Avatar de ${session.user.name || "Utilisateur"}`}
+                    className="h-10 w-10 rounded-full object-cover border-2 border-white"
+                  />
+                ) : (
+                  <div className="h-10 w-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center border-2 border-white">
+                    <User className="h-5 w-5 text-white" />
+                  </div>
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium text-gray-900 truncate">
+                  {session.user.name || "Utilisateur"}
+                </p>
+                <p className="text-xs text-gray-500 truncate">
+                  {session.user.email}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Options du menu */}
@@ -143,15 +157,13 @@ export default function IsConnected() {
             <Link
               href="/user/dashboard"
               onClick={closeDropdown}
-              className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 transition-colors group"
+              className="group flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
             >
-              <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
-                <Calendar className="h-4 w-4 text-green-600" />
-              </div>
+              <Calendar className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-600" />
               <div>
-                <p className="font-medium">dashboard</p>
-                <p className="text-xs text-slate-500">
-                  Vos rituels et autres Informations
+                <p className="font-medium">Dashboard</p>
+                <p className="text-xs text-gray-500">
+                  Vos rituels et autres informations
                 </p>
               </div>
             </Link>
@@ -159,14 +171,12 @@ export default function IsConnected() {
             <Link
               href="/user/profile"
               onClick={closeDropdown}
-              className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 transition-colors group"
+              className="group flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
             >
-              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                <User className="h-4 w-4 text-blue-600" />
-              </div>
+              <Settings className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-600" />
               <div>
                 <p className="font-medium">Mon profil</p>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-gray-500">
                   Informations personnelles
                 </p>
               </div>
@@ -174,26 +184,26 @@ export default function IsConnected() {
           </div>
 
           {/* Séparateur */}
-          <div className="border-t border-slate-100 my-1"></div>
+          <div className="border-t border-gray-100"></div>
 
           {/* Déconnexion */}
-          <button
-            onClick={handleSignOut}
-            disabled={isLoading}
-            className="w-full flex items-center space-x-3 px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors group disabled:opacity-50"
-          >
-            <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors">
+          <div className="py-1">
+            <button
+              onClick={handleSignOut}
+              disabled={isLoading}
+              className="group flex items-center w-full px-4 py-3 text-sm text-red-700 hover:bg-red-50 hover:text-red-800 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               {isLoading ? (
-                <Loader2 className="h-4 w-4 text-red-600 animate-spin" />
+                <Loader2 className="mr-3 h-5 w-5 animate-spin" />
               ) : (
-                <LogOut className="h-4 w-4 text-red-600" />
+                <LogOut className="mr-3 h-5 w-5 text-red-500 group-hover:text-red-600" />
               )}
-            </div>
-            <div>
-              <p className="font-medium">Se déconnecter</p>
-              <p className="text-xs text-red-500">Fermer la session</p>
-            </div>
-          </button>
+              <div>
+                <p className="font-medium">Se déconnecter</p>
+                <p className="text-xs text-red-500">Fermer la session</p>
+              </div>
+            </button>
+          </div>
         </div>
       )}
     </div>

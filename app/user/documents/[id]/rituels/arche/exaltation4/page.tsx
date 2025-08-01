@@ -1,10 +1,10 @@
-import NavArche from '@/components/nav/NavArche'
-import React from 'react'
+import NavArche from "@/components/nav/NavArche";
+import React from "react";
 
 function page() {
   return (
     <div>
-    <p>
+      <p>
         <b>Cand </b>: -OO-O- <br />
       </p>
       <p className="com">
@@ -271,7 +271,7 @@ function page() {
         par notre Grand Maitre Moise au pied du Mont Horeb, dans le désert de
         Sinaï, et qui avait été si longtemps perdue. La possession de ce
         précieux trésor nous incita à faire de nouveaux efforts. <br />
-        Nous élargîmes donc l’ouverture en enlevant la clef de voûte et je
+        Nous élargîmes donc l’ouverture en enlevant la clé de voûte et je
         redescendis comme précédemment.
         <br />
         A cette heure, le soleil avait atteint son point culminant et, dans la
@@ -325,9 +325,8 @@ function page() {
       <div>
         <NavArche />
       </div>
-
     </div>
-  )
+  );
 }
 
-export default page
+export default page;

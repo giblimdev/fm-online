@@ -20,7 +20,7 @@ function page() {
         <b>Principaux :</b> -O-O-O-O-
       </p>
       <p className="tez">
-        <b>TEZ </b>:Compagnons, veuiellez écouter avec attention notre Exellent
+        <b>TEZ </b>:Compagnons, veuillez écouter avec attention notre Excellent
         Compagnon J qui va donner une Conférence Historique
       </p>
 
@@ -84,7 +84,7 @@ function page() {
         pas d’offrir son fils bien-aimé Isaac en holocauste sur l’Autel de Son
         Dieu, alors qu’il plût au Tout Puisant de l’un substituer une victime
         moins chère. <br />
-        Là, sur l’aire d’Aravna, le Jébuséen David offrit le sacrifice médiateur
+        Là, sur l’aire d’Arauna, le Jébuséen David offrit le sacrifice médiateur
         grâce auquel la peste fut enrayée.
       </p>
       <p className="com">
@@ -105,7 +105,7 @@ function page() {
         en l’Année Lumière 3469 par : <br />
         Zorobabel Prince du Peuple. <br />
         Aggée le Prophète, <br />
-        Josué le fils de Yehoçadaq , le Grand Prêtre, peu après le retour des
+        Josué le fils de Yehosadaq , le Grand Prêtre, peu après le retour des
         enfants d’Israël de leur captivité à Babylone. <br />
         C’est à cette date que la lignée royale de David et la tribu princière
         de Juda, en la personne de Zorobabel, recouvrèrent le pouvoir royal dont
@@ -156,7 +156,7 @@ function page() {
       <br />
       <p className="tez">
         <b>TEZ :</b> Compagnons, veuillez écouter avec attention notre Excellent
-        compagnon Aggée qui va donner une Conférence Symboloque
+        compagnon Aggée qui va donner une Conférence Symbolique
       </p>
       <section className="p-6 border-b border-gray-200">
         <div className="bg-blue-50 rounded-lg p-4">

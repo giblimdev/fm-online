@@ -7,8 +7,8 @@ function page() {
       <h1>CHAINE DE L’INITIATION</h1>
       <br />
       <p className="com">
-        Cette cérémonie courante outre-manche, se fait après la fermeture de la
-        Loge alors que l’hymne de sortie à été chanté et que le VM est sorti du
+        Cette cérémonie courante outre-Manche, se fait après la fermeture de la
+        Loge alors que l’hymne de sortie a été chanté et que le VM est sorti du
         temple en cortège puis est rentré à nouveau dans le temple avec les
         officiers sans décors. <br />
         Tous les FF., restent dans le temple, se dégantent, enlèvent leurs
@@ -32,9 +32,8 @@ function page() {
         le voile de l’allégorie au moyen de symboles, puis-je attirer votre
         attention sur l’aspect symbolique de cet ancien usage qui est associé
         aux derniers vers du cantique du nouvel Ap., cantique que nous aurons le
-        bonheur de vous inviter à chanter sous peu : <br />
-        « joignons maintenant nos mains. Soutenons-nous les uns les autres »{" "}
-        <br />
+        bonheur de vous inviter à chanter sous peu : <br />« joignons maintenant
+        nos mains. Soutenons-nous les uns les autres » <br />
         <br />
         Vous remarquerez que nous nous tenons en cercle ou en anneau, non pas
         les bras croisés, mais largement ouverts pour étreindre les mains des

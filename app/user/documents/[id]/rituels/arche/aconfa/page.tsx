@@ -33,21 +33,21 @@ function page() {
         <br />
         Elle symbolise également, avec force, cette adhésion fidèle a l’Ordre
         social à l’Esprit d’Union Fraternelle, qui ont assuré la force et la
-        périnité de tout l’édifice maçonnique, lui permettant ainsi de survivre
+        pérennité de tout l’édifice maçonnique, lui permettant ainsi de survivre
         à la ruine des plus grands empires, comme la puissance destructrice du
         temps. <br />
         De même que les éléments constituant l’Arche Caténiforme convergent vers
-        le centre ou clef de voûte pour resserrer et maintenir l’ensemble de la
+        le centre ou clé de voûte pour resserrer et maintenir l’ensemble de la
         construction, de même apprenons-nous à considérer avec respect toute
         autorité civile ou maçonnique légalement constituée et à nous y
         soumettre de bonne grâce. <br />
       </p>
 
       <p>
-        Les trois Principaux du Chapitre représentent la clef de voûte de
-        l’Arche car, s’il fallut arracher cette clef de voûte pour retrouver les
-        secrets de l’Arche Royale, il faut également passer par les trois
-        chaires pour acquérir une connaissance parfaite de ce Suprême Degré.
+        Les trois Principaux du Chapitre représentent la clé de voûte de l’Arche
+        car, s’il fallut arracher cette clé de voûte pour retrouver les secrets
+        de l’Arche Royale, il faut également passer par les trois chaires pour
+        acquérir une connaissance parfaite de ce Suprême Degré.
         <br />
       </p>
       <p>
@@ -55,13 +55,13 @@ function page() {
         <span className="com">
           Descend de sa chaire, se place sur le coté Nord de l'Autel et poursuit
           (dès cet instant, il utilise son sceptre pour souligner chacune de ses
-          explication)
+          explications)
         </span>
         <br />
         En Maçonnerie de l’Arche Royale, nous reconnaissons six lumières : trois
         secondaires et trois principales.
       </p>
-      <p className="com">(Il les ésigne avec l'apex de son sceptre)</p>
+      <p className="com">(Il les désigne avec l'apex de son sceptre)</p>
       <p>
         Les trois lumières secondaires représentent la Lumière de la Loi et des
         Prophètes, et leur nombre fait allusion aux ordonnances Patriarcale,
@@ -91,12 +91,12 @@ function page() {
         les quatre petit triangles, puisque la somme des angles de tout triangle
         est égale à deux angles droits. <br />
         <span className="com">Pointant le bijou d'un Compagnon</span> <br />
-        Cela permet aussi d’expliquer le bijou porte par les Comp dont les
+        Cela permet aussi d’expliquer le bijou porté par les Comp dont les
         intersections forment un certain nombre d’angles. On peut en faire cinq
         combinaisons différentes. <br />
         Si on les ramène à leur valeur en angles droits, on s’aperçoit qu’elles
         correspondent aux angles contenus sur la surface des cinq corps
-        platoniciens représentant les quatre éléments et la sphère de l’Univers.{" "}
+        platoniciens représentant les quatre éléments et la sphère de l’Univers.
         <br />
       </p>
       <p className="com">(il pointe l'écharpe d'un Compagnon)</p>
@@ -162,28 +162,28 @@ function page() {
       </p>
       <p>
         La Sagesse du Très Haut est amplement démontrée dans le VLS qui nous
-        apporte le témoignage de Sa Toute Puissance et nous révélé sa Volonté.
+        apporte le témoignage de Sa Toute Puissance et nous révèlé sa Volonté.
         <br />
         La Vérité du Très Haut est représenté à juste titre par l’Eq, symbole
         reconnu de la Force et le critère de la Perfection. <br />
         La Justice du TH infaillible et impartiale, - qui a défini pour notre
         instruction les limites du bien et du mal et assigné à chacun de nous la
         part qui revient de félicité et de peine, est clairement démontrée par
-        le Comp, instrument qui nous permet de mesurer et de déterminer les
+        le Compas, instrument qui nous permet de mesurer et de déterminer les
         limites de toutes les figures géométriques et d’avoir une idée de leur
         rapport ou de leur égalité avec un modèle donné. <br />
         <span className="com">(Désigant le Glaive et la truelle)</span> <br />
         Le glaive et la truelle furent adoptés par les Maçons de l’Arche Royale
-        pour comme1morer la vaillance de ces hommes valeureux qui participèrent
-        à la construction du Second Temple et qui, la truelle à la main et le
+        pour commémorer la vaillance de ces hommes valeureux qui participèrent à
+        la construction du Second Temple et qui, la truelle à la main et le
         glaive au côté, étaient toujours prêts à défendre la Cité et le
         Sanctuaire Sacré contre les attaques non provoquées de leurs ennemis.{" "}
         <br />
-        Ils ont ainsi légue1 aux géne1rations futures une leçon impressionnante
-        en montant qu’une résistance virile et déterminée à la violence
-        arbitraire est le premier des devoirs sociaux après l’obéissance absolue
-        à l’autorité légalement constitué. <br />
-        <span className="com">(Désignant les outils des séjournant)</span>{" "}
+        Ils ont ainsi légué aux générations futures une leçon impressionnante en
+        montrant qu’une résistance virile et déterminée à la violence arbitraire
+        est le premier des devoirs sociaux après l’obéissance absolue à
+        l’autorité légalement constituée. <br />
+        <span className="com">(Désignant les outils des Séjournant)</span>{" "}
         <br />
         La pioche, le levier et la pelle sont les outils qu’utilisèrent les
         Séjournants chargés de préparer le terrain pour les fondations du Second
@@ -208,9 +208,9 @@ function page() {
       </p>
       <p>
         - Le travail de la pelle nous dépeint bien la position du corps couché
-        dans la trombe et nous, nous espérons avec une humble et sainte
-        confiance qu’après avoir quitté notre dépouille terrestre, notre âme
-        s’élèvera vers la Vie Immortelle et l’Eternelle Béatitude.
+        dans la tombe et nous, nous espérons avec une humble et sainte confiance
+        qu’après avoir quitté notre dépouille terrestre, notre âme s’élèvera
+        vers la Vie Immortelle et l’Eternelle Béatitude.
       </p>
 
       <section className="p-6 border-b border-gray-200">

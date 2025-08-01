@@ -2,8 +2,9 @@ import NavMarque from "@/components/nav/NavMarque";
 import React from "react";
 
 function page() {
-  return (<div>
-<p>
+  return (
+    <div>
+      <p>
         <b> 1er Surveillant </b>: <b> -O- </b>,
         <span className="com">
           se lève, et se met à l'ordre au Deuxième Grade. Vénérable Maître,
@@ -169,8 +170,8 @@ function page() {
         <b> VM </b>: Pour quelle raison ?
       </p>
       <p>
-        <b> 1 er Surveillant </b>: Par manque d’une Clef de Voûte pour achever
-        la voûte sacrée du temple du Roi Salomon.
+        <b> 1 er Surveillant </b>: Par manque d’une Clé de Voûte pour achever la
+        voûte sacrée du temple du Roi Salomon.
         <span className="com"> cesse le signe et s’assoit. </span>
       </p>
       <p>
@@ -244,16 +245,18 @@ function page() {
       <p>
         <b> VM </b> montre le plan : Qu’on la recherche avec diligence. C’est la
         plus importante pierre de l’édifice ; celui qui la trouvera sera
-        richement récompensé. <span className="com">Le VM repose le plan sur l’autel.</span>
+        richement récompensé.{" "}
+        <span className="com">Le VM repose le plan sur l’autel.</span>
       </p>
       <p className="com">
         Les Diacres et le Candidat se lèvent et vont rechercher la pierre autour
         de la loge. Le Candidat est invité par le 1er Diacre à chercher, trouver
-        et récupérer la Clef de Voûte ; tous les trois font face au VM.
+        et récupérer la Clé de Voûte ; tous les trois font face au VM.
       </p>
-         <div><NavMarque /></div>
-
-  </div>
+      <div>
+        <NavMarque />
+      </div>
+    </div>
   );
 }
 

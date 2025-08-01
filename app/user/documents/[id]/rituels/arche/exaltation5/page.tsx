@@ -1,12 +1,10 @@
-import NavArche from '@/components/nav/NavArche'
-import React from 'react'
+import NavArche from "@/components/nav/NavArche";
+import React from "react";
 
 function page() {
   return (
     <div>
-
-
-<div className="com">
+      <div className="com">
         Le scribe N se pla ce dans l'angle sud-Ouest du chapitre, le plus loin
         possible du Candidat pour l'échange du mot sacré. <br />
         Le Ppal Séj - apres avoir confié ses accéssoires au 1er Assist Séj - va
@@ -74,7 +72,7 @@ function page() {
       <p className="com">
         Au mots de "récompense" et alors seulement, les deux Scribes E et N
         exècutent les instructions du TEZ sans oublier de remettre les outils à
-        leur place rexpective sur le tapis. <br />
+        leur place respective sur le tapis. <br />
         Le DC veillera à ce que ces outils soient correctement disposés sur le
         tapis. <br />
         Le Ppal Séj et Ass. Ppal Séj remètent leurs décors de l'arche Royale.{" "}
@@ -181,11 +179,13 @@ function page() {
         aujourd’hui.
       </p>
       <p className="tez">
-        <b>TEZ <span className="com">au Cand </span>:</b>
-         Nous vous félicitons de votre exaltation dans la Maçonnerie de
-        l’Arche Royale, qui est à la fois la fondation et la clef de voûte de
-        l’ensemble de l’Édifice Maçonnique. Vous croyez peut-être avoir reçu ce
-        soir un quatrième grade dans la Franc-Maçonnerie tel n’est pas le cas.
+        <b>
+          TEZ <span className="com">au Cand </span>:
+        </b>
+        Nous vous félicitons de votre exaltation dans la Maçonnerie de l’Arche
+        Royale, qui est à la fois la fondation et la clé de voûte de l’ensemble
+        de l’Édifice Maçonnique. Vous croyez peut-être avoir reçu ce soir un
+        quatrième grade dans la Franc-Maçonnerie tel n’est pas le cas.
         Néanmoins, c’est le complément du Grade de Maitre Maçon.
         <br />
         En effet, lorsque vous fûtes élevé au troisième grade, on vous appris
@@ -201,16 +201,11 @@ function page() {
         furent retrouvés.
       </p>
 
-
-
-
-
-<div>
+      <div>
         <NavArche />
       </div>
-
     </div>
-  )
+  );
 }
 
-export default page
+export default page;

@@ -1,12 +1,11 @@
 // @/components/layout/Header.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import IsConnected from "./IsConnected";
-import Link from "next/link";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,74 +18,106 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
+  // Fermer le menu lors du redimensionnement de l'écran
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Empêcher le scroll du body quand le menu mobile est ouvert
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo - Toujours visible */}
-          <Link href="/">
-            <div className="flex-shrink-0">
-              <Logo />
-            </div>
-          </Link>
-          {/* Navigation desktop - Hidden on mobile */}
-          <div className="hidden md:block">
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-sm">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Logo size="md" className="transition-transform hover:scale-105" />
+          </div>
+
+          {/* Navigation desktop - cachée sur mobile */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-8">
             <Nav />
           </div>
 
-          {/* Actions desktop - Hidden on mobile */}
-          <div className="hidden md:block">
+          {/* Section droite - Desktop seulement */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-4">
             <IsConnected />
           </div>
 
-          {/* Menu burger - Visible uniquement sur mobile */}
-          <div className="md:hidden flex items-center space-x-4">
+          {/* Section mobile - seulement bouton menu */}
+          <div className="lg:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              aria-expanded="false"
+              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+              aria-expanded={isMenuOpen}
               aria-label="Menu principal"
             >
               {isMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
+                <X className="h-6 w-6" />
               ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
+                <Menu className="h-6 w-6" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Menu mobile - Slide down animation */}
-      <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen
-            ? "max-h-screen opacity-100 visible"
-            : "max-h-0 opacity-0 invisible"
-        } overflow-hidden`}
-      >
-        <div className="bg-white border-t border-slate-200 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
-            {/* Navigation mobile */}
-            <nav onClick={closeMenu}>
-              <Nav />
-            </nav>
+      {/* Menu mobile overlay */}
+      {isMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
 
-            {/* Actions mobile */}
-            <div className="pt-4 border-t border-slate-200" onClick={closeMenu}>
-              <IsConnected />
+          {/* Menu mobile - plein écran avec fond blanc */}
+          <div className="fixed inset-0 z-50 lg:hidden bg-white">
+            <div className="flex flex-col h-full">
+              {/* En-tête du menu mobile */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+                <Logo size="sm" />
+                <button
+                  onClick={closeMenu}
+                  className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+
+              {/* Navigation mobile */}
+              <div className="flex-1 py-6 bg-white">
+                <nav className="px-4">
+                  <Nav onItemClick={closeMenu} />
+                </nav>
+              </div>
+
+              {/* Section utilisateur en bas du menu mobile */}
+              <div className="p-4 border-t border-gray-200 bg-white">
+                <IsConnected />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Overlay pour fermer le menu en cliquant à côté */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
-          onClick={closeMenu}
-          aria-hidden="true"
-        />
+        </>
       )}
     </header>
   );

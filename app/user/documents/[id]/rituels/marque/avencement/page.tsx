@@ -213,11 +213,8 @@ function page() {
       </p>
       <p>
         <b>Candidat </b>
-        <span className="com">
-          
-          (soufflé si nécessaire par le 1er Diacre)
-        </span>
-        : Oui.
+        <span className="com">(soufflé si nécessaire par le 1er Diacre)</span>:
+        Oui.
       </p>
       <p>
         <b>VM </b> : Afin de vous permettre de nous en donner la preuve, le
@@ -303,7 +300,7 @@ function page() {
         sur cette assemblée la rosée bienfaisante de sa bénédiction. Puisse-t-il
         se trouver au milieu de nous, ses fidèles ouvriers, que nous soyons dans
         les plaines de Tsérédatha ou dans les forêts du Liban, employés à
-        travailler la pierre brute ou à poser la clef d’une voûte mystique ; et
+        travailler la pierre brute ou à poser la clé d’une voûte mystique ; et
         lorsque nous serons appelés à cesser nos travaux sur cette terre,
         puissions-nous être jugés dignes du salaire promis à ceux qui ont été
         assidus à leur tâche dans son Saint Temple.
@@ -418,9 +415,7 @@ function page() {
         et vais dès maintenant vous confier le gage de ce grade : <br />
         Avancez votre main droite comme ceci,
         <br />
-        <span className="com">
-          le VM avance sa main et le Candidat limite.
-        </span>
+        <span className="com">le VM avance sa main et le Candidat limite.</span>
         <br />
         placez votre marque dans la paume de la main droite et couvrez la avec
         le pouce de cette manière.
@@ -667,10 +662,12 @@ function page() {
         <br />
         Le 2nd Diacre prend la pierre oblongue, <br />
         le 1er Diacre la pierre cubique <br />
-        et le Candidat la Clef de Voûte. <br />
+        et le Candidat la Clé de Voûte. <br />
       </p>
-      <div><NavMarque /></div>
+      <div>
+        <NavMarque />
       </div>
+    </div>
   );
 }
 

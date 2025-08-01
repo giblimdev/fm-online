@@ -58,7 +58,6 @@ function page() {
         <b>
           Couvreur
           <span className="com">
-            
             se met à l’ordre avec le Signe de Compagnon{" "}
           </span>
         </b>
@@ -144,7 +143,7 @@ function page() {
         <span className="com">
           Il chuchote le Mot de Passe dans l’oreille droite du 1er Diacre en
           s’assurant que le Candidat ne l’entend pas. <br />
-          Le Candidat, invité par le 1er Diacre, présente la Clef de Voûte au
+          Le Candidat, invité par le 1er Diacre, présente la clé de Voûte au
           2ème Surintendant qui la regarde un moment et voyant qu’elle n’est ni
           équarri ni oblongue ne continue pas plus avant. Il ne la contrôle pas
           ni avec l’équerre ni avec le maillet mais continue à la tenir.
@@ -187,10 +186,10 @@ function page() {
         <b>1er Surintendant : </b> Je les examinerai avec plaisir. <br />
         <span className="com">
           Le 2nd Diacre présente la pierre oblongue au 1er Surintendant, qui la
-          contrôle avec l’équerre sur les trois faces la retourne glisse la main
-          dessus pour examiner son état de surface puis avec le maillet frappe
-          les coups de Compagnon ; étant satisfait, il la pose sur le piédestal
-          en gardant la main droite dessus.
+          contrôle avec l’équerre sur les trois faces, la retourne glisse la
+          main dessus pour examiner son état de surface puis avec le maillet
+          frappe les coups de Compagnon ; étant satisfait, il la pose sur le
+          piédestal en gardant la main droite dessus.
         </span>
         <br />
         Ceci est un bel ouvrage, bien équarri tel qu’il nous le faut pour
@@ -228,7 +227,7 @@ function page() {
         <b>1er Diacre </b>
         <span className="com">
           chuchote le Mot de Passe dans l’oreille droite du 1er Surintendant en
-          s’assurant que le Candidat ne l’entend pas.{" "}
+          s’assurant que le Candidat ne l’entend pas.
         </span>
         : JAFFA
       </p>
@@ -237,8 +236,8 @@ function page() {
         <span className="com"> rend la pierre cubique au 2nd Diacre. </span>:
         Passez à la barrière de l’Est. <br />
         <span className="com">
-          Le Candidat, invité par le 1er Diacre, présente la Clef de Voûte au
-          1er e Surintendant qui la regarde un moment et voyant qu’elle n’est ni
+          Le Candidat, invité par le 1er Diacre, présente la Clé de Voûte au 1er
+          e Surintendant qui la regarde un moment et voyant qu’elle n’est ni
           équarri ni oblongue ne continue pas plus avant. Il ne la contrôle pas
           ni avec l’équerre ni avec le maillet mais continue à la tenir.
         </span>
@@ -266,7 +265,7 @@ function page() {
         capacités.
       </p>
       <p className="com">
-        Le 1er Surintendant rend au Candidat la Clef de Voûte. <br />
+        Le 1er Surintendant rend au Candidat la Clé de Voûte. <br />
         Le 1er Diacre suggère doucement au Candidat qu’il devrait passer au
         Maître Surintendant. <br />
         Le 2nd Diacre mène la procession par le Nord vers l’Est et ils
@@ -343,7 +342,7 @@ function page() {
         <span className="com">
           Le Maître Surintendant pose la pierre cubique par terre à gauche de
           son piédestal. <br />
-          Le Candidat invité par le 1er Diacre, présente la Clef de Voûte au
+          Le Candidat invité par le 1er Diacre, présente la Clé de Voûte au
           Maître Surintendant qui qui la regarde un moment et voyant qu’elle
           n’est ni équarri ni oblongue ne va pas plus avant ; il ne la contrôle
           ni avec l’équerre en Té ni avec le maillet mais il continue de la
@@ -372,7 +371,7 @@ function page() {
         </span>
         : -O- Frères Surintendants. <br />
         <span className="com">
-          -Le Maître Surintendant pose la Clef de Voûte sur son piédestal
+          -Le Maître Surintendant pose la Clé de Voûte sur son piédestal
         </span>
       </p>
       <p className="com">
@@ -403,14 +402,14 @@ function page() {
         me dire quelles sont les raisons qui vous ont portés à accepter cette
         pierre. <br />
         <span className="com">
-          Le Maître Surintendant prend la Clef de Voûte et la donne au 2ème
+          Le Maître Surintendant prend la Clé de Voûte et la donne au 2ème
           Surintendant qui la prend.
         </span>
       </p>
       <p>
         <b>2ème Surintendant </b>
-        <span className="”com”"> en tenant la Clef de Voûte dans sa main </span>
-        : Je dois avouer que j’ai admis cette pierre à la barrière du Sud mais
+        <span className="”com”"> en tenant la Clé de Voûte dans sa main </span>:
+        Je dois avouer que j’ai admis cette pierre à la barrière du Sud mais
         avant de permettre au Compagnon d’entrer, je l’ai prévenu qu’elle ne
         correspondait pas à la description de celles que j’avais ordre de
         recevoir. Cependant, je n’ai pas cru devoir prendre sur moi la
@@ -420,30 +419,26 @@ function page() {
         passe.
       </p>
       <p className="”com”">
-        Le 2ème Surintendant rend la Clef de Voûte au Maître Surintendant. Le
-        Maître Surintendant donne la Clef de Voûte au 1er Surintendant.
+        Le 2ème Surintendant rend la Clé de Voûte au Maître Surintendant. Le
+        Maître Surintendant donne la Clé de Voûte au 1er Surintendant.
       </p>
       <p>
         <b> 1er Surintendant </b>
-        <span className="”com”">
-          
-          en tenant la Clef de Voûte dans sa main
-        </span>
-        : J’ai été animé de sentiments semblables à ceux qui ont fait agir mon
+        <span className="”com”">en tenant la Clé de Voûte dans sa main</span>:
+        J’ai été animé de sentiments semblables à ceux qui ont fait agir mon
         Frère le Deuxième Surintendant et ne voulant pas prendre sur moi la
         responsabilité de refuser cette pierre, j’ai laissé le Compagnon libre
         de s’en retourner aux carrières ou de se rendre à ses risques et périls
         à la barrière de l’Est. J’ai refusé toutefois de lui confier le mot de
         passe auquel son travail ne lui donnait aucun droit.
         <span className="com">
-          Le 1er Surintendant rend la Clef de Voûte au Maître Surintendant.
+          Le 1er Surintendant rend la Clé de Voûte au Maître Surintendant.
         </span>
       </p>
       <p>
         <b> Maître Surintendant </b>
         <span className="”com”">
-        
-          place la Clef de Voûte sur le piédestal devant lui
+          place la Clé de Voûte sur le piédestal devant lui
         </span>
         : Frères Surintendants, j’accepte votre explication comme excuse
         partielle de ce que je considérais comme un manquement à votre devoir
@@ -455,11 +450,11 @@ function page() {
         jetée parmi les gravois.
       </p>
       <p className="com">
-        Le Maitre Surintendant prend la Clef de Voûte, la rend aux Surintendants
+        Le Maitre Surintendant prend la Clé de Voûte, la rend aux Surintendants
         qui la portent entre eux et se dirigent vers les Diacres. <br />
         Ils leur donnent la pierre et le 1er Diacre invite le Candidat à
         observer l’action qui suivra. <br />
-        Les deux Diacres tenant ensemble la Clef de Voûte après l’avoir balancée
+        Les deux Diacres tenant ensemble la Clé de Voûte après l’avoir balancée
         d’avant en arrière trois fois, la jettent symboliquement en la plaçant
         sous le siège du 1er Diacre. Le 1er et le 2ème Surintendants surveillent
         cette manœuvre et alors vont se placer de part et d’autre du Maître
@@ -481,8 +476,10 @@ function page() {
         s’assoient. Brouhaha comme quand les ouvriers n’ont plus de travail.
         Après une courte pause
       </p>
-      <div><NavMarque /></div>
-          </div>
+      <div>
+        <NavMarque />
+      </div>
+    </div>
   );
 }
 

@@ -8,21 +8,21 @@ function page() {
       <br />
       <p className="com">
         Cette cérémonie courante outre-manche, se fait après la fermeture de la
-        Loge alors que l’hymne de sortie à été chanté et que le VM est sorti du
+        Loge alors que l’hymne de sortie a été chanté et que le VM est sorti du
         temple en cortège puis est rentré à nouveau dans le temple avec les
         officiers sans décors. <br />
         Tous les FF., restent dans le temple, se dégantent, enlèvent leurs
-        décors et se place en rond ou en anneau au milieu du temple. <br />
+        décors et se placent en rond ou en anneau au milieu du temple. <br />
         Alors chacun tend sa main gauche à la main droite du F. situé à gauche
         de son voisin immédiat de gauche et inversement sa main droite à la main
-        gauche du F. situé à droite de son voisin de droite. Ainsi la chaine est
+        gauche du F. situé à droite de son voisin de droite. Ainsi la chaîne est
         double. <br />
-        Le VM quand à lui prend à sa droite le nouvel initié et à sa gauche le
+        Le VM quant à lui prend à sa droite le nouvel initié et à sa gauche le
         PMI… Un F. est désigné par le VM pour dire le texte qui suit, bien
-        entendu par cœur, il va donc quitter la chaine et par la expliquera à
-        ses FF. en la quittant qu’elle est double mais si elle est affaibli elle
-        n’est pas pour autant rompue. Il va se placer au centre et récite le
-        texte qui suit. Pour un nouvel initié, c’est un grand moment de
+        entendu par cœur, il va donc quitter la chaîne et par là expliquera à
+        ses FF. en la quittant qu’elle est double mais si elle est affaiblie
+        elle n’est pas pour autant rompue. Il va se placer au centre et récite
+        le texte qui suit. Pour un nouvel initié, c’est un grand moment de
         fraternité qu’il n’oubliera jamais… Et pour les autres, ça leur
         rappellera leurs engagements !
       </p>
@@ -32,9 +32,8 @@ function page() {
         le voile de l’allégorie au moyen de symboles, puis-je attirer votre
         attention sur l’aspect symbolique de cet ancien usage qui est associé
         aux derniers vers du cantique du nouvel Ap., cantique que nous aurons le
-        bonheur de vous inviter à chanter sous peu : <br />
-        « joignons maintenant nos mains. Soutenons-nous les uns les autres »{" "}
-        <br />
+        bonheur de vous inviter à chanter sous peu : <br />« joignons maintenant
+        nos mains. Soutenons-nous les uns les autres » <br />
         <br />
         Vous remarquerez que nous nous tenons en cercle ou en anneau, non pas
         les bras croisés, mais largement ouverts pour étreindre les mains des
@@ -64,7 +63,7 @@ function page() {
         dont il a été placé, être le reflet de la contribution que toi, mon F.
         nouvellement initié, tu apporteras pour assurer la force et le caractère
         Maçonnique de cette L. afin qu’elle persiste de génération en génération
-        et puisses-tu, ayant été reçus ce soir au sein de cette chaine d’amour
+        et puisses-tu, ayant été reçu ce soir au sein de cette chaine d’amour
         fraternel, être un maillon honorable jusqu’à ce que le temps ne soit
         plus compté pour nous les FF. qui t’accueillons. <br />
         <br />

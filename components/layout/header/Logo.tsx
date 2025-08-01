@@ -1,12 +1,16 @@
-// components/layout/header/Logo.tsx
-import React from "react";
+// @/components/layout/Logo.tsx
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   priority?: boolean;
   alt?: string;
+  clickable?: boolean;
 }
 
 const sizeMap = {
@@ -21,20 +25,54 @@ export default function Logo({
   className = "",
   priority = false,
   alt = "Logo de l'application",
+  clickable = true,
 }: LogoProps) {
   const { width, height } = sizeMap[size];
+  const [imageError, setImageError] = useState(false);
 
-  return (
-    <div className={`flex items-center ${className}`}>
-      <Image
-        src="/téléchargement.jpeg"
-        alt={alt}
-        width={width}
-        height={height}
-        priority={priority}
-        className="object-contain"
-        sizes="(max-width: 768px) 100px, 120px"
-      />
+  // Logo de fallback - identique côté serveur et client
+  const FallbackLogo = () => (
+    <div
+      className={`flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-4xl ${className}`}
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+        fontSize: `${Math.min(width, height) / 4}px`,
+      }}
+    >
+      LOGO
     </div>
   );
+
+  const logoContent = imageError ? (
+    <FallbackLogo />
+  ) : (
+    <Image
+      src="/logo.png"
+      width={width}
+      height={height}
+      alt={alt}
+      priority={priority}
+      className={`object-contain rounded-4xl ${className}`} // Ajout de rounded-lg ici
+      style={{
+        maxWidth: "100%",
+        height: "auto",
+      }}
+      onError={() => setImageError(true)}
+    />
+  );
+
+  if (clickable) {
+    return (
+      <Link
+        href="/"
+        className="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg transition-transform duration-200 hover:scale-105"
+        aria-label="Retour à l'accueil"
+      >
+        {logoContent}
+      </Link>
+    );
+  }
+
+  return logoContent;
 }

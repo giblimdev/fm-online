@@ -37,17 +37,17 @@ function page() {
         à la ruine des plus grands empires, comme la puissance destructrice du
         temps. <br />
         De même que les éléments constituant l’Arche Caténiforme convergent vers
-        le centre ou clef de voûte pour resserrer et maintenir l’ensemble de la
+        le centre ou Clé de voûte pour resserrer et maintenir l’ensemble de la
         construction, de même apprenons-nous à considérer avec respect toute
         autorité civile ou maçonnique légalement constituée et à nous y
         soumettre de bonne grâce. <br />
       </p>
 
       <p>
-        Les trois Principaux du Chapitre représentent la clef de voûte de
-        l’Arche car, s’il fallut arracher cette clef de voûte pour retrouver les
-        secrets de l’Arche Royale, il faut également passer par les trois
-        chaires pour acquérir une connaissance parfaite de ce Suprême Degré.
+        Les trois Principaux du Chapitre représentent la clé de voûte de l’Arche
+        car, s’il fallut arracher cette clé de voûte pour retrouver les secrets
+        de l’Arche Royale, il faut également passer par les trois chaires pour
+        acquérir une connaissance parfaite de ce Suprême Degré.
         <br />
       </p>
       <p>
@@ -162,11 +162,11 @@ function page() {
       </p>
       <p>
         La Sagesse du Très Haut est amplement démontrée dans le VLS qui nous
-        apporte le témoignage de Sa Toute Puissance et nous révélé sa Volonté.
+        apporte le témoignage de Sa Toute Puissance et nous révèlé sa Volonté.
         <br />
         La Vérité du Très Haut est représenté à juste titre par l’Eq, symbole
         reconnu de la Force et le critère de la Perfection. <br />
-        La Justice du TH infaillible et impartiale, - qui a défini pour notre
+        La Justice du T.H. infaillible et impartiale, - qui a défini pour notre
         instruction les limites du bien et du mal et assigné à chacun de nous la
         part qui revient de félicité et de peine, est clairement démontrée par
         le Comp, instrument qui nous permet de mesurer et de déterminer les
@@ -177,13 +177,13 @@ function page() {
         pour comme1morer la vaillance de ces hommes valeureux qui participèrent
         à la construction du Second Temple et qui, la truelle à la main et le
         glaive au côté, étaient toujours prêts à défendre la Cité et le
-        Sanctuaire Sacré contre les attaques non provoquées de leurs ennemis.{" "}
+        Sanctuaire Sacré contre les attaques non provoquées de leurs ennemis.
         <br />
         Ils ont ainsi légue1 aux géne1rations futures une leçon impressionnante
         en montant qu’une résistance virile et déterminée à la violence
         arbitraire est le premier des devoirs sociaux après l’obéissance absolue
         à l’autorité légalement constitué. <br />
-        <span className="com">(Désignant les outils des séjournant)</span>{" "}
+        <span className="com">(Désignant les outils des séjournants)</span>
         <br />
         La pioche, le levier et la pelle sont les outils qu’utilisèrent les
         Séjournants chargés de préparer le terrain pour les fondations du Second
@@ -208,9 +208,9 @@ function page() {
       </p>
       <p>
         - Le travail de la pelle nous dépeint bien la position du corps couché
-        dans la trombe et nous, nous espérons avec une humble et sainte
-        confiance qu’après avoir quitté notre dépouille terrestre, notre âme
-        s’élèvera vers la Vie Immortelle et l’Eternelle Béatitude.
+        dans la tombe et nous, nous espérons avec une humble et sainte confiance
+        qu’après avoir quitté notre dépouille terrestre, notre âme s’élèvera
+        vers la Vie Immortelle et l’Eternelle Béatitude.
       </p>
 
       <section className="p-6 border-b border-gray-200">

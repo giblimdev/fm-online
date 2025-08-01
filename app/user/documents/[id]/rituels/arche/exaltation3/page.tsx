@@ -1,10 +1,10 @@
-import NavArche from '@/components/nav/NavArche'
-import React from 'react'
+import NavArche from "@/components/nav/NavArche";
+import React from "react";
 
 function exaltation2() {
   return (
     <div>
-              <p className="com">
+      <p className="com">
         Le DC fait signe aux Cp au Nord et au Sud de venir placer leur main
         gauche sur les hampes des bannières.
       </p>
@@ -25,7 +25,8 @@ function exaltation2() {
         <br />
         dûment constitué, consacré et assemblé,[...] <br />
         de mon plein gré et consentement,[...] <br />
-        par ceci&nbsp;<span className="com">
+        par ceci&nbsp;
+        <span className="com">
           Le Ppal Séj pose légèrement sa main droite sur celle du candidat&nbsp;
         </span>
         [...]
@@ -210,7 +211,8 @@ function exaltation2() {
         <br />
         pendant ce temps, sur le parvis. <br />
         Le Ppal Séj. et le 1er Assistant Séj. enlèvent leur décores de l'Arche
-        Royal et revetent comme le candidat leur décores de Maître Maçon. <br />
+        Royale et revetent comme le candidat leur décores de Maître Maçon.{" "}
+        <br />
         Le Gardien demande au Candidat de frapper en à la porte du Chapitre en
         Maître Maçon.
       </p>
@@ -218,9 +220,8 @@ function exaltation2() {
       <div>
         <NavArche />
       </div>
-
     </div>
-  )
+  );
 }
 
-export default exaltation2
+export default exaltation2;
