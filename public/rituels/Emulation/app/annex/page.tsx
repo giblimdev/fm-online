@@ -158,7 +158,7 @@ function page() {
         <span className="com"> (il monte à la gauche du VM.) </span>, puis il
         collecte les boules. <br />
         pour un vote favorable le F. aura pris soins de mette la boule blanche
-        du côté blancs et la boule noire du côté noir
+        du côté blanc et la boule noire du côté noir
         <span className="com"> (l’inverse si son vote est défavorable)</span> Le
         2d E. présente l’urne au VM. <span className="com">(et au PMI.)</span>{" "}
         les résultats sont annoncés immédiatement.

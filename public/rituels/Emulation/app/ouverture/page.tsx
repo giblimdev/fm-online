@@ -97,14 +97,14 @@ function ouverture() {
           </p>
           <p>
             <b>VM </b>:
-            <span className="com"> (au 1er S. en l'appelant par son nom) </span>{" "}
+            <span className="com"> (au 1er S en l'appelant par son nom) </span>{" "}
             F. Z…….... , quel est le second devoir ?
           </p>
           <p>
             <b>1er S </b>: De s’assurer que seuls des M. sont présents.
           </p>
           <p>
-            <b>VM </b>: A l'ordre mes FF. au 1er grade.
+            <b>VM </b>: A l'ordre mes FF au 1er grade.
           </p>
           <p className="com">
             Tous les FF. font le p. et se mettent à l'O. d'Ap. en se réglant sur
@@ -112,28 +112,28 @@ function ouverture() {
           </p>
 
           <p>
-            <b>VM </b>: F. 2d S., combien y a-t-il d'officiers principaux dans
-            la L. ?
+            <b>VM </b>: F. 2d S, combien y a-t-il d'officiers principaux dans la
+            L. ?
           </p>
           <p>
-            <b>2d S </b>: Trois : le V.M. et les 1er et 2d SS.
+            <b>2d S </b>: Trois : le VM et les 1er et 2d SS.
           </p>
           <p>
-            <b>VM </b>: F. 1er S., combien y a-t-il d'officiers adjoints ?
+            <b>VM </b>: F. 1er S, combien y a-t-il d'officiers adjoints ?
           </p>
           <p>
-            <b>1er S </b>: Trois sans compter le T. ou Garde Ext., soit les 1er
+            <b>1er S </b>: Trois sans compter le . ou Garde Ext., soit les 1er
             et 2d E et le C
           </p>
           <p>
-            <b>VM </b>: <span className="com"> (au 2ème S.) </span> Où est placé
+            <b>VM </b>: <span className="com"> (au 2ème S) </span> Où est placé
             le T. ?
           </p>
           <p>
             <b>2d S </b>: A l'extérieur, à la porte de la L.
           </p>
           <p>
-            <b>VM </b>: <span className="com"> (au 2ème S.) </span> Quel est son
+            <b>VM </b>: <span className="com"> (au 2ème S) </span> Quel est son
             devoir ?
           </p>
           <p>
@@ -142,14 +142,14 @@ function ouverture() {
             préparés.
           </p>
           <p>
-            <b>VM </b>: <span className="com"> (au 1er S.) </span> Où est placé
+            <b>VM </b>: <span className="com"> (au 1er S) </span> Où est placé
             le C. ?
           </p>
           <p>
             <b>1er S </b> : A l’int., près de l’entrée de la L.
           </p>
           <p>
-            <b>VM </b>: <span className="com"> (au 1er S.) </span> Quel est son
+            <b>VM </b>: <span className="com"> (au 1er S) </span> Quel est son
             devoir ?
           </p>
           <p>
@@ -157,8 +157,8 @@ function ouverture() {
             Cand ; en due forme et d’obéir aux ordres du 2d S.
           </p>
           <p>
-            <b>VM </b> : <span className="com"> (au 2ème S.) </span> Où est
-            placé le 2d E. ?
+            <b>VM </b> : <span className="com"> (au 2ème S) </span> Où est placé
+            le 2d E ?
           </p>
           <p>
             <b>2d S </b> : A la d. du 1er S.
@@ -168,26 +168,26 @@ function ouverture() {
           </p>
           <p>
             <b>2d S </b>: De porter tous messages et communications émanant du
-            V.M. du 1er au 2d S., et de veiller à ce qu'il y soit rigoureusement
+            VM du 1er au 2d S, et de veiller à ce qu'il y soit rigoureusement
             donné suite.
           </p>
           <p>
-            <b>VM </b> : <span className="com"> (au 1er S.) </span> Où est placé
+            <b>VM </b> : <span className="com"> (au 1er S) </span> Où est placé
             le 1er E.
           </p>
           <p>
-            <b>1er S </b> : A la d. ou non loin de la d. du V.M. ?
+            <b>1er S </b> : A la d. ou non loin de la d. du VM ?
           </p>
           <p>
-            <b>VM </b>: <span className="com"> (au 1er S.) </span> Quel est son
+            <b>VM </b>: <span className="com"> (au 1er S) </span> Quel est son
             devoir ?
           </p>
           <p>
-            <b>1er S </b>: De porter, au 1er S., tous messages et ordres du V.M.
-            et d'attendre le retour du 2d E
+            <b>1er S </b>: De porter, au 1er S., tous messages et ordres du VM
+            et d'attendre le retour du 2d E.
           </p>
           <p>
-            <b>VM </b>: F. 2d S., quelle est votre place dans la L. ?
+            <b>VM </b>: F. 2d S, quelle est votre place dans la L. ?
           </p>
           <p>
             <b>2d S </b>: Au Midi.
@@ -201,7 +201,7 @@ function ouverture() {
             leur plus grand profit et plaisir.
           </p>
           <p>
-            <b>VM </b>: F. 1er S., quelle est votre place dans la L.?
+            <b>VM </b>: F. 1er S, quelle est votre place dans la L.?
           </p>
           <p>
             <b>1er S </b>: A l'Occ.
@@ -211,7 +211,7 @@ function ouverture() {
           </p>
           <p>
             <b>1er S </b>: Pour symboliser la position du Soleil à son couchant,
-            clore la L. par ordre du V.M., après m'être assuré que chaque F. a
+            clore la L. par ordre du VM, après m'être assuré que chaque F. a
             reçu son dû.
           </p>
           <p>
@@ -263,12 +263,13 @@ function ouverture() {
             <b>T </b>: -O-O-O-
           </p>
           <p className="com">
-            Dès que le 2d S. a frappé ses cps., le 2d E retourne la pl. tr
-            <br />. le 1er E allume le piédestal du VM <br />
+            Dès que le 2d S. a frappé ses cps., le 2d E retourne la pl. tr .
+            <br />
+            le 1er E allume le piédestal du VM <br />
             le 2d E allume ceux des 1er et 2ème S. <br />
             Le PMI ouvre le V.S.L. sur le plateau du VM, de manière qu'il soit
             lisible par le VM. Puis dispose sur la page de droite les deux
-            pointes écartées du compas vers l'or. et les recouvre de l'équerre.{" "}
+            pointes écartées du compas vers l'or. et les recouvre de l'équerre.
             <br />
             Le VM reprend séance dès que tout ce qui est écrit ci-dessus est
             terminé. A leur tour les FF. s'assoient.

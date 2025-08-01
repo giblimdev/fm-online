@@ -6,7 +6,7 @@ function page() {
     <div>
       <p className="com">
         Le 1er S reste debout. <br />
-        Le 2d E et le Cand Se remettent en ligne par quels que pas de cotés et
+        Le 2d E et le Cand Se remettent en ligne par quelques pas de cotés et
         partent du pied g. Ils passe devant la chaire du 1er S. Ils font ¾ de
         tour dans le sens contraire d’une montre et le 2d E. place la main d. du
         Cand. dans la m. g. du 1er S. et vient se placer à la g. du Cand. <br />
@@ -78,14 +78,15 @@ function page() {
       </p>
       <h2>EXHORTATION DU PREMIER GRADE</h2>
       <p>
-        <b>VM </b>: Il est d'usage, lors de la construction de tous les
-        édifices imposants et superbes, de poser la première pierre dans l'angle
-        N-E du bâtiment. Comme vous venez d'être placé dans l'angle N-E de la L.
-        pour symboliser cette pierre, sur la fondation édifiée ce soir
-        puissiez-vous élever un édifice qui soit parfait en tous ses éléments et
-        qui fasse honneur au constructeur. <br />
+        <b>VM </b>: Il est d'usage, lors de la construction de tous les édifices
+        imposants et superbes, de poser la première pierre dans l'angle N-E du
+        bâtiment. Comme vous venez d'être placé dans l'angle N-E de la L. pour
+        symboliser cette pierre, sur la fondation édifiée ce soir puissiez-vous
+        élever un édifice qui soit parfait en tous ses éléments et qui fasse
+        honneur au constructeur. <br />
         Vous êtes maintenant, selon toute apparence, un M. juste et droit, et je
-        ne saurais trop vous recommander de toujours vous conduire comme tel. <br />
+        ne saurais trop vous recommander de toujours vous conduire comme tel.{" "}
+        <br />
         Je vais même mettre immédiatement vos principes à l'épreuve, dans une
         certaine mesure, en vous invitant à pratiquer cette vertu qui révèle le
         véritable cœur d'un F.M., je veux dire la Charité. Il est inutile que je
@@ -100,15 +101,15 @@ function page() {
         il y en a, il faut bien le reconnaître, qui par suite peut-être de
         calamités et de malheurs inévitables, se trouvent réduits au dernier
         degré de la pauvreté et de la misère. <br />
-        C'est en faveur de ces malheureux que nous avons coutume d'éveiller les bons sentiments dans le cœur de
-        tout nouveau frère en lui demandant de pratiquer la charité selon ses
-        moyens. Déposez donc entre les mains du 2ème Expert l'obole que vous
-        êtes disposé à verser. Elle sera reçue avec reconnaissance et distribuée
-        avec fidélité.
+        C'est en faveur de ces malheureux que nous avons coutume d'éveiller les
+        bons sentiments dans le cœur de tout nouveau frère en lui demandant de
+        pratiquer la charité selon ses moyens. Déposez donc entre les mains du
+        2ème Expert l'obole que vous êtes disposé à verser. Elle sera reçue avec
+        reconnaissance et distribuée avec fidélité.
       </p>
       <p className="com">
-        Le 2d E attend que le V.M. ait achevé sa phrase, puis se place devant
-        le candidat et lui tend l'aumônière (ou simplement la main la m. g.).
+        Le 2d E attend que le V.M. ait achevé sa phrase, puis se place devant le
+        candidat et lui tend l'aumônière (ou simplement la main la m. g.).
       </p>
       <p>
         <b>2d E </b>: Avez-vous quelque chose à donner pour ceux qui sont dans
@@ -136,9 +137,8 @@ function page() {
         Le 2d E fait face au VM, fait le p., se met à l'o. et dit :
       </p>
       <p>
-        <b>2d E </b>: VM, notre nouveau F. déclare qu'il a été d. de tout o.
-        de v. avant d'être admis dans la L. sans quoi il donnerait
-        généreusement.
+        <b>2d E </b>: VM, notre nouveau F. déclare qu'il a été d. de tout o. de
+        v. avant d'être admis dans la L. sans quoi il donnerait généreusement.
       </p>
       <p className="com">
         Le 2ème E fait le s. p. d'Ap. et reprend sa place à la droite du
@@ -186,9 +186,9 @@ function page() {
         faire de nous les dignes membres d'une Société régulièrement organisée.
       </p>
       <p>
-        <b>VM </b>: Comme au cours de la soirée il y a eu certains droits
-        perçus pour votre initiation, il est juste que vous sachiez en vertu de
-        quelle autorité nous agissons. Voici la Charte ou brevet
+        <b>VM </b>: Comme au cours de la soirée il y a eu certains droits perçus
+        pour votre initiation, il est juste que vous sachiez en vertu de quelle
+        autorité nous agissons. Voici la Charte ou brevet
       </p>
       <p className="com">(le VM montre le document ouvert au Cand.)</p>
       <p>
@@ -215,10 +215,10 @@ function page() {
         <b>2d E </b>: Saluez le VM en M.
       </p>
       <p className="com">
-        Le 2d E l'aide à faire le p. et le s. pénal d'A., puis lui fait faire
-        un demi-tour (sens inverse de l'aiguille d'une montre) et le conduit à
-        la porte. Le C le précède, ouvre la porte et la referme à clef. Le 2d
-        E et le C regagnent leur siège.
+        Le 2d E l'aide à faire le p. et le s. pénal d'A., puis lui fait faire un
+        demi-tour (sens inverse de l'aiguille d'une montre) et le conduit à la
+        porte. Le C le précède, ouvre la porte et la referme à clef. Le 2d E et
+        le C regagnent leur siège.
       </p>
       <p className="com">Lorsque le candidat est prêt :</p>
       <p>
@@ -253,12 +253,12 @@ function page() {
         <b>VM </b>: Admettez-le.
       </p>
       <p className="com">
-        Le C fait le s. p. d'Ap., attend l'arrivée du 2d E. et se dirige vers
-        la porte, le 2d E le suit. Le C. ouvre la porte et fait entrer le
-        candidat. Le 2d E lui prend la m. d. et le conduit à la g. du 1er S.
-        Tous deux font face au VM <br />
-        Le 1er E lâche la m. du Cand. Le C. a refermé la porte à clef et
-        regagné son siège.
+        Le C fait le s. p. d'Ap., attend l'arrivée du 2d E. et se dirige vers la
+        porte, le 2d E le suit. Le C. ouvre la porte et fait entrer le candidat.
+        Le 2d E lui prend la m. d. et le conduit à la g. du 1er S. Tous deux
+        font face au VM <br />
+        Le 1er E lâche la m. du Cand. Le C. a refermé la porte à clef et regagné
+        son siège.
       </p>
       <p>
         <b>2d E</b> : Saluez le VM en M.

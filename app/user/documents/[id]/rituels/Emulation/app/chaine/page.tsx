@@ -4,7 +4,7 @@ import React from "react";
 function page() {
   return (
     <div>
-      <h1>CHAINE DE L’INITIATION</h1>
+      <h1>CHAÎNE DE L’INITIATION</h1>
       <br />
       <p className="com">
         Cette cérémonie courante outre-Manche, se fait après la fermeture de la
@@ -38,11 +38,11 @@ function page() {
         Vous remarquerez que nous nous tenons en cercle ou en anneau, non pas
         les bras croisés, mais largement ouverts pour étreindre les mains des
         deux FF. immédiatement à côté de notre voisin, comme pour protéger la
-        poitrine et le cœur de notre F.; le plus proche. Le mouvement pendulaire
+        poitrine et le cœur de notre F. le plus proche. Le mouvement pendulaire
         n’est là que pour éprouver la solidité de chacun, et si un des maillons
         était atteint par notre indifférence, notre chaîne d’union de fraternité
         maçonnique en serait affaiblie. Le cercle est une forme de hiéroglyphe
-        très ancienne, il a toujours été reconnu comme le symbole de l’éternité,
+        très ancien, il a toujours été reconnu comme le symbole de l’éternité,
         n’ayant ni début, ni fin. Pour nous Maçons, il représente la Divinité
         qui n’a ni commencement, ni conclusion. <br />
         <br />

@@ -252,7 +252,7 @@ export default async function PublicDocumentDetailPage({
                   href="/user/addDoc"
                   className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
                 >
-                  Ajouter ce rituels a votre bibliotèque
+                  Ajouter ce rituel à votre bibliotèque
                 </Link>
               </div>
             </div>

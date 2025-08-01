@@ -35,7 +35,7 @@ function page() {
       <p>
         <b>2d S </b>: Mes FF. Par ordre du VM., suspendez vos travaux et prenez
         du repos. Demeurez à portée de voix afin de pouvoir revenir, en temps
-        opportun, pour notre plus grand profits et plaisir.
+        opportun, pour notre plus grand profit et plaisir.
       </p>
       <p>
         <b>2d S </b>: - 0 - 1er S. : - 0 - VM. : - 0 -
@@ -124,8 +124,8 @@ function page() {
         Cand. et cite le nom du parrain. <br />
         Il n’y a aucun commentaire. <br />
         Le VM désigne au moins deux enquêteurs. <br />
-        Le Cand. est reçus en comité de L. En fonction des rapports d’enquêtes
-        et de l’audition du cand le comité décide des suites à donner à cette
+        Le Cand. est reçu en comité de L. En fonction des rapports d’enquêtes et
+        de l’audition du cand le comité décide des suites à donner à cette
         candidature
       </p>
 
@@ -137,7 +137,7 @@ function page() {
         présentent leurs conclusions
         <span className="com">
           {" "}
-          (les enquêtes peuvent être lus. Ce n’est pas une obligation)
+          (les enquêtes peuvent être lues. Ce n’est pas une obligation)
         </span>
         <br />
         Il n’y aucun commentaire. <br />
@@ -157,8 +157,8 @@ function page() {
         Le 2d E. montre au VM et aux FF. que l’urne est vide
         <span className="com"> (il monte à la gauche du VM.) </span>, puis il
         collecte les boules. <br />
-        pour un vote favorable le F. aura pris soins de mette la boule blanche
-        du côté blancs et la boule noire du côté noir
+        pour un vote favorable le F. aura pris soin de mette la boule blanche du
+        côté blancs et la boule noire du côté noir
         <span className="com"> (l’inverse si son vote est défavorable)</span> Le
         2d E. présente l’urne au VM. <span className="com">(et au PMI.)</span>{" "}
         les résultats sont annoncés immédiatement.

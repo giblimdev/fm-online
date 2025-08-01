@@ -6,7 +6,7 @@ import React from "react";
 function page() {
   return (
     <div>
-      <h2>PREPARATION DU CAND. POUR SON INITIATION</h2>
+      <h2>PRÉPARATION DU CAND. POUR SON INITIATION</h2>
       <p className="com">
         Le T. prépare le candidat pour la cérémonie. Il le d. de ses m., lui b.
         les y. lui ajuste sa vêture : b.d., s.g. et g.g. mis à n. et p.d. en p.

@@ -6,6 +6,7 @@ const FILES = [
   "inverstiture.txt",
   "planches.txt",
   "ouverture&fermeture.txt",
+  "Obligations.txt",
   "exhortation-initiation.txt",
   "exhortation.txt",
   "Marque.txt",
