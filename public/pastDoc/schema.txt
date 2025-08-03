@@ -1,12 +1,8 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// schema.prisma
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../Lib/generated/prisma"
+  output   = "../lib/generated/prisma"
 }
 
 datasource db {
@@ -26,57 +22,63 @@ enum Grade {
 }
 
 model User {
-  id            String      @id @default(cuid())
-  name          String
-  email         String
-  emailVerified Boolean     @default(false)
-  image         String?
-  grade         Grade[]     @default([APP])
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  sessions      Session[]
-  accounts      Account[]
-  documents     Documents[]
+  id              String            @id @default(cuid())
+  name            String
+  email           String            @unique
+  emailVerified   Boolean           @default(false)
+  image           String?
+  grade           Grade[]           @default([APP])
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
 
-  @@unique([email])
+  // Relations
+  sessions        Session[]
+  accounts        Account[]
+  documents       Documents[]
+  userText        UserText[]
+  texts           Text[]            @relation("UserTexts")
+  wordStates      WordState[]
+  userProgress    UserProgress[]
+  learningSession LearningSession[]
+
   @@map("user")
 }
 
 model Session {
-  id        String   @id @default(cuid())
-  expiresAt DateTime
-  token     String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  ipAddress String?
-  userAgent String?
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id           String   @id @default(cuid())
+  expiresAt    DateTime
+  token        String   @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  ipAddress    String?
+  userAgent    String?
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("session")
 }
 
 model Account {
-  id                    String    @id @default(cuid())
-  accountId             String
-  providerId            String
-  userId                String
-  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  accessToken           String?
-  refreshToken          String?
-  idToken               String?
-  accessTokenExpiresAt  DateTime?
+  id                   String   @id @default(cuid())
+  accountId            String
+  providerId           String
+  userId               String
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken          String?
+  refreshToken         String?
+  idToken              String?
+  accessTokenExpiresAt DateTime?
   refreshTokenExpiresAt DateTime?
-  scope                 String?
-  password              String?
-  createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+  scope                String?
+  password             String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
 
   @@map("account")
 }
 
 model Verification {
-  id         String    @id @default(cuid())
+  id         String   @id @default(cuid())
   identifier String
   value      String
   expiresAt  DateTime
@@ -114,4 +116,94 @@ model Links {
   document    Documents @relation(fields: [documentId], references: [id], onDelete: Cascade)
 
   @@map("links")
+}
+
+///////////////////////////
+// Learning related models
+///////////////////////////
+
+model Text {
+  id              String            @id @default(cuid())
+  title           String
+  ordre           Int               @default(20)
+  content         String
+  category        String?
+  grade           Grade?
+  wordCount       Int               @default(0)
+  isActive        Boolean           @default(true)
+  isPublic        Boolean           @default(false)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  // Relations
+  userText        UserText[]
+  User            User[]            @relation("UserTexts")
+  wordStates      WordState[]
+  userProgress    UserProgress[]
+  learningSession LearningSession[]
+
+  @@map("texts")
+}
+
+// Table pivot explicite pour relation many-to-many User <-> Text
+model UserText {
+  userId String
+  textId String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  text Text @relation(fields: [textId], references: [id], onDelete: Cascade)
+
+  @@id([userId, textId])
+  @@map("user_text")
+}
+
+model WordState {
+  id           String   @id @default(cuid())
+  wordPosition Int      // position du mot dans le texte
+  wordContent  String   // mot exact (optionnel, mais recommandé)
+  isMasked     Boolean  @default(false)
+  lastUpdated  DateTime @default(now()) @updatedAt
+
+  userId String
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  textId String
+  text   Text    @relation(fields: [textId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, textId, wordPosition])
+  @@map("word_states")
+}
+
+model UserProgress {
+  id              String   @id @default(cuid())
+  totalWords      Int
+  maskedWords     Int      @default(0)
+  scorePercentage Float    @default(0.0)
+  lastSession     DateTime @default(now()) @updatedAt
+  totalSessions   Int      @default(1)
+  timeSpent       Int      @default(0) // en secondes
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  textId String
+  text   Text   @relation(fields: [textId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, textId])
+  @@map("user_progress")
+}
+
+model LearningSession {
+  id             String   @id @default(cuid())
+  startTime      DateTime @default(now())
+  endTime        DateTime?
+  wordsRevealed  Int      @default(0)
+  wordsMasked    Int      @default(0)
+  scoreStart     Float    @default(0.0)
+  scoreEnd       Float    @default(0.0)
+
+  userId String
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  textId String
+  text   Text    @relation(fields: [textId], references: [id], onDelete: Cascade)
+
+  @@map("learning_sessions")
 }

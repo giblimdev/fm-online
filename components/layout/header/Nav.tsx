@@ -23,10 +23,18 @@ const navLinks = [
   },
   {
     href: "/frame",
-    label: "Apprentissage",
+    label: "Apprentissage old",
     icon: GraduationCap,
   },
-];
+  {
+    href: "/learning",
+    label: "Apprentissage",
+    icon: GraduationCap,
+  }
+
+
+  
+]; 
 
 export default function Nav({ onItemClick }: NavProps) {
   const pathname = usePathname();
