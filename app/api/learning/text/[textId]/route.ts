@@ -5,10 +5,11 @@ import prisma from "@/lib/prisma";
 
 export async function PUT(
   req: NextRequest,
-  context: { params: { textId: string } }
+  context: { params: Promise<{ textId: string }> }
 ) {
   try {
-    const { textId } = context.params;
+    const params = await context.params;
+    const { textId } = params;
     console.log(`[API PUT] Début traitement PUT texte id=${textId}`);
 
     const body = await req.json();
@@ -41,7 +42,7 @@ export async function PUT(
       return NextResponse.json({ error: "Texte non trouvé" }, { status: 404 });
     }
 
-    // Découpe en paragraphes et mots
+    // Découpage en paragraphes et mots
     const paragraphs = text.content.split("\n").map((para, paraIndex) =>
       para
         .split(" ")
