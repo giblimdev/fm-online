@@ -1,10 +1,10 @@
-// app/TextDashboard/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import { useSession } from "@/lib/auth/auth-client";
 import TextLearn from "@/components/text/TextLearn";
 import { getTextByUserId } from "@/utils/getText";
+import LearningSessionHistory from "@/components/learning/LearningSessionHistory";
 
 type Progress = {
   maskedWords: number;
@@ -27,6 +27,9 @@ export default function TextDashboardPage() {
   const [selectedTextId, setSelectedTextId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // userId typé string | null
+  const userId = session?.user?.id ?? null;
 
   useEffect(() => {
     async function loadTexts() {
@@ -86,6 +89,9 @@ export default function TextDashboardPage() {
 
   return (
     <div className="max-w-3xl mx-auto mt-8 px-4">
+      {/* Ne rendre LearningSessionHistory que si userId est défini */}
+      {userId && <LearningSessionHistory userId={userId} />}
+
       <h1 className="text-2xl font-bold mb-6 text-center">Choisissez un texte à étudier</h1>
 
       {!selectedTextId && (
@@ -116,7 +122,7 @@ export default function TextDashboardPage() {
         </ul>
       )}
 
-      {selectedTextId && session?.user?.id && (
+      {selectedTextId && userId && (
         <section className="mt-6 bg-gray-50 p-6 rounded shadow">
           <button
             onClick={() => setSelectedTextId(null)}
@@ -124,7 +130,7 @@ export default function TextDashboardPage() {
           >
             ← Retour à la liste
           </button>
-          <TextLearn textId={selectedTextId} userId={session.user.id} />
+          <TextLearn textId={selectedTextId} userId={userId} />
         </section>
       )}
     </div>

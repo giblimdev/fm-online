@@ -5,12 +5,10 @@ import prisma from "@/lib/prisma";
 
 export async function PUT(
   req: NextRequest,
-  context: { params: Promise<{ textId: string }> } | { params: { textId: string } }
+  context: { params: { textId: string } }
 ) {
   try {
-    // ⚠️ utiliser le bon nom de param, qui dépend du nom du dossier [textId]
-    const params = await context.params;
-    const { textId } = params;
+    const { textId } = context.params;
     console.log(`[API PUT] Début traitement PUT texte id=${textId}`);
 
     const body = await req.json();
@@ -23,7 +21,7 @@ export async function PUT(
       return NextResponse.json({ error: "userId manquant" }, { status: 400 });
     }
 
-    // Récupère le texte
+    // Récupérer le texte
     const text = await prisma.text.findUnique({
       where: { id: textId },
       select: {
@@ -43,34 +41,33 @@ export async function PUT(
       return NextResponse.json({ error: "Texte non trouvé" }, { status: 404 });
     }
 
-    // Découpage du texte en paragraphes et mots
+    // Découpe en paragraphes et mots
     const paragraphs = text.content.split("\n").map((para, paraIndex) =>
       para
         .split(" ")
-        .filter(w => w.length > 0)
+        .filter(word => word.length > 0)
         .map((word, wordIndex) => ({
           wordPosition: paraIndex * 10000 + wordIndex,
           wordContent: word,
-          isMasked: false
+          isMasked: false,
         }))
     );
 
-    // Récupère les états de mot masqué pour cet userId/textId
+    // Récupérer états masqués pour user/text
     const wordStates = await prisma.wordState.findMany({
       where: { userId, textId },
     });
     console.log(`[API PUT] ${wordStates.length} états récupérés pour user=${userId}`);
 
-    // Met à jour l'état masqué en fonction de wordStates
+    // Mettre à jour isMasked selon wordStates
     for (const para of paragraphs) {
       for (const wordObj of para) {
         const state = wordStates.find(ws => ws.wordPosition === wordObj.wordPosition);
-        if (state) {
-          wordObj.isMasked = state.isMasked;
-        }
+        if (state) wordObj.isMasked = state.isMasked;
       }
     }
 
+    // Calcul progression
     const flatWords = paragraphs.flat();
     const totalWords = flatWords.length;
     const maskedWords = flatWords.filter(w => w.isMasked).length;
