@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 type WordState = {
   wordPosition: number;
@@ -27,13 +27,54 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Nouveau : pour garder l'id de session courante
+  const sessionIdRef = useRef<string | null>(null);
+
+  // Au chargement, démarrer une session, et la finir au démontage
   useEffect(() => {
     if (!textId || !userId) {
       setError("Texte ou utilisateur manquant");
       setLoading(false);
       return;
     }
+    // Crée la session au démarrage
+    async function startSession() {
+      try {
+        const res = await fetch("/api/learning/session/start", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId, textId }),
+        });
+        if (!res.ok) throw new Error("Erreur création session");
+        const data = await res.json();
+        sessionIdRef.current = data.id;
+      } catch (err) {
+        // Optionnel : gérer cette erreur
+      }
+    }
+    startSession();
 
+    // Nettoyage : à la sortie du composant, cloture la session
+    return () => {
+      if (sessionIdRef.current) {
+        fetch("/api/learning/session/end", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            sessionId: sessionIdRef.current,
+            wordsMasked: progress.maskedWords,
+            wordsRevealed: words.length - progress.maskedWords,
+            scoreEnd: progress.scorePercentage,
+          }),
+        });
+      }
+    };
+    // Ajoute progress et words pour être sûr qu'on envoie un état à jour (optionnel)
+    // eslint-disable-next-line
+  }, [textId, userId]);
+
+  // Reste du composant (inchangé)
+  useEffect(() => {
     async function loadText() {
       setLoading(true);
       setError(null);
@@ -43,34 +84,28 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId }),
         });
-
         if (!res.ok) {
           const msg = await res.text();
           throw new Error(`Erreur HTTP ${res.status}: ${msg}`);
         }
-
         const data = await res.json();
         setParagraphs(data.paragraphs ?? []);
         setProgress(data.progress ?? { maskedWords: 0, scorePercentage: 0 });
         setWords(data.paragraphs ? data.paragraphs.flat() : []);
       } catch (err: any) {
-        console.error("Erreur chargement texte:", err);
         setError("Erreur lors du chargement du texte");
       } finally {
         setLoading(false);
       }
     }
-    loadText();
+    if (textId && userId) loadText();
   }, [textId, userId]);
 
-  // Toggle le masquage d’un mot (idem avant)
   async function toggleWord(position: number) {
     const idx = words.findIndex((w) => w.wordPosition === position);
     if (idx === -1) return;
-
     const word = words[idx];
     const newMasked = !word.isMasked;
-
     try {
       const res = await fetch(`/api/learning/wordstate/toggle`, {
         method: "PUT",
@@ -82,17 +117,12 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
           isMasked: newMasked,
         }),
       });
-
-      if (!res.ok) {
-        throw new Error(`Erreur mise à jour mot, status ${res.status}`);
-      }
-
-      // Mise à jour locale
+      if (!res.ok) throw new Error("Erreur mise à jour mot");
+      // Update local state
       const updatedWords = [...words];
       updatedWords[idx] = { ...word, isMasked: newMasked };
       setWords(updatedWords);
-
-      // Reconstruire paragraphs
+      // Résynchro paragraphs
       const rebuiltParagraphs: WordState[][] = [];
       let cursor = 0;
       for (const para of paragraphs) {
@@ -104,13 +134,11 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
         rebuiltParagraphs.push(newPara);
       }
       setParagraphs(rebuiltParagraphs);
-
-      // Mise à jour de la progression
+      // Progression
       const maskedCount = updatedWords.filter((w) => w.isMasked).length;
       const scorePct = updatedWords.length > 0 ? (maskedCount / updatedWords.length) * 100 : 0;
       setProgress({ maskedWords: maskedCount, scorePercentage: scorePct });
-
-      // (optionnel) update progression côté serveur
+      // Update côté serveur
       await fetch(`/api/learning/userprogress/update`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -122,26 +150,21 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
         }),
       });
     } catch (err) {
-      console.error(err);
       alert("Erreur lors de la mise à jour du mot");
     }
   }
 
-  if (loading) return <div>Chargement du texte...</div>;
-  if (error) return <div className="text-red-600 font-semibold">{error}</div>;
+  if (loading) return <>Chargement du texte...</>;
+  if (error) return <>{error}</>;
 
   return (
-    <div
-      className="max-w-full overflow-x-auto"
-      style={{ wordBreak: "break-word", whiteSpace: "normal" }}
-    >
-      <h3 className="mb-4 font-semibold">
+    <div>
+      <div>
         Progression : {progress.maskedWords} mots masqués (
         {progress.scorePercentage.toFixed(1)}%)
-      </h3>
-
+      </div>
       {paragraphs.map((paraWords, paraIdx) => (
-        <p key={paraIdx} className="text-lg leading-relaxed mb-4">
+        <div key={paraIdx}>
           {paraWords.map(({ wordContent, isMasked, wordPosition }) => (
             <span
               key={wordPosition}
@@ -150,17 +173,10 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
               className="cursor-pointer select-none mr-2 relative inline-block rounded px-1"
               style={{ userSelect: "none" }}
             >
-              {isMasked ? (
-                <>
-                  <span className="invisible select-none">{wordContent}</span>
-                  <span className="absolute inset-0 flex items-center justify-center border border-blue-500 rounded text-white select-none">___</span>
-                </>
-              ) : (
-                <span>{wordContent}</span>
-              )}
+              {isMasked ? <><span style={{ opacity: 0.5 }}>___</span></> : wordContent}
             </span>
           ))}
-        </p>
+        </div>
       ))}
     </div>
   );

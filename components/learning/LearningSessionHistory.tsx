@@ -39,7 +39,7 @@ export default function LearningSessionHistory({ userId, textId }: Props) {
       } catch (err) {
         setError("Erreur lors du chargement de l'historique");
       } finally {
-        setLoading(false);
+        setLoading(false); 
       }
     }
     if (userId) fetchSessions();
