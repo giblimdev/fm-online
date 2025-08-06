@@ -1,6 +1,8 @@
+// components/text/TextLearn.tsx
+
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type WordState = {
   wordPosition: number;
@@ -21,14 +23,26 @@ type TextLearnProps = {
 export default function TextLearn({ textId, userId }: TextLearnProps) {
   const [paragraphs, setParagraphs] = useState<WordState[][]>([]);
   const [words, setWords] = useState<WordState[]>([]);
-  const [progress, setProgress] = useState<Progress>({ maskedWords: 0, scorePercentage: 0 });
+  const [progress, setProgress] = useState<Progress>({
+    maskedWords: 0,
+    scorePercentage: 0,
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Ref pour stocker l'id de la session d'apprentissage en cours
+  // Refs pour garantir valeur à jour lors du cleanup/démontage
   const sessionIdRef = useRef<string | null>(null);
+  const progressRef = useRef<Progress>(progress);
+  const wordsRef = useRef<WordState[]>(words);
 
-  // Chargement du texte + création session au montage et clôture au démontage
+  useEffect(() => {
+    progressRef.current = progress;
+  }, [progress]);
+  useEffect(() => {
+    wordsRef.current = words;
+  }, [words]);
+
+  // Chargement du texte + gestion de session (start/end)
   useEffect(() => {
     if (!textId || !userId) {
       setError("Texte ou utilisateur manquant");
@@ -62,7 +76,7 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
       }
     }
 
-    // Start learning session
+    // Création de la session
     async function startSession() {
       try {
         const res = await fetch("/api/learning/session/start", {
@@ -70,28 +84,30 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId, textId }),
         });
-        if (!res.ok) throw new Error("Erreur création session");
+        if (!res.ok) throw new Error("Erreur création session d’apprentissage !");
         const data = await res.json();
         sessionIdRef.current = data.id;
       } catch {
-        // Gestion silent de l'erreur (optionnel)
+        // Erreur silencieuse (optionnel: afficher une notification)
       }
     }
 
     loadText();
     startSession();
 
+    // Nettoyage : clôture de la session avec valeurs FINALES via refs
     return () => {
-      // End learning session au démontage en envoyant progression actuelle
       if (sessionIdRef.current) {
+        const curProgress = progressRef.current;
+        const curWords = wordsRef.current;
         fetch("/api/learning/session/end", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             sessionId: sessionIdRef.current,
-            wordsMasked: progress.maskedWords,
-            wordsRevealed: words.length - progress.maskedWords,
-            scoreEnd: progress.scorePercentage,
+            wordsMasked: curProgress.maskedWords,
+            wordsRevealed: curWords.length - curProgress.maskedWords,
+            scoreEnd: curProgress.scorePercentage,
           }),
         });
       }
@@ -122,7 +138,7 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
         throw new Error(`Erreur mise à jour mot, status ${res.status}`);
       }
 
-      // Mise à jour locale
+      // MAJ locale
       const updatedWords = [...words];
       updatedWords[idx] = { ...word, isMasked: newMasked };
       setWords(updatedWords);
@@ -140,12 +156,15 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
       }
       setParagraphs(rebuiltParagraphs);
 
-      // Mise à jour de la progression
+      // MAJ progression
       const maskedCount = updatedWords.filter((w) => w.isMasked).length;
-      const scorePct = updatedWords.length > 0 ? (maskedCount / updatedWords.length) * 100 : 0;
+      const scorePct =
+        updatedWords.length > 0
+          ? (maskedCount / updatedWords.length) * 100
+          : 0;
       setProgress({ maskedWords: maskedCount, scorePercentage: scorePct });
 
-      // Mise à jour progression sur serveur (optionnel)
+      // MAJ progression serveur (optionnel)
       await fetch(`/api/learning/userprogress/update`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -157,18 +176,23 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
         }),
       });
     } catch (err) {
-      console.error(err);
+      // Optionnel : console.error(err);
       alert("Erreur lors de la mise à jour du mot");
     }
   }
 
   if (loading) return <div>Chargement du texte...</div>;
-  if (error) return <div className="text-red-600 font-semibold">{error}</div>;
+  if (error)
+    return <div className="text-red-600 font-semibold">{error}</div>;
 
   return (
-    <div className="max-w-full overflow-x-auto" style={{ wordBreak: "break-word", whiteSpace: "normal" }}>
+    <div
+      className="max-w-full overflow-x-auto"
+      style={{ wordBreak: "break-word", whiteSpace: "normal" }}
+    >
       <h3 className="mb-4 font-semibold">
-        Progression : {progress.maskedWords} mots masqués ({progress.scorePercentage.toFixed(1)}%)
+        Progression : {progress.maskedWords} mots masqués (
+        {progress.scorePercentage.toFixed(1)}%)
       </h3>
 
       {paragraphs.map((paraWords, paraIdx) => (
@@ -183,7 +207,9 @@ export default function TextLearn({ textId, userId }: TextLearnProps) {
             >
               {isMasked ? (
                 <>
-                  <span className="invisible select-none">{wordContent}</span>
+                  <span className="invisible select-none">
+                    {wordContent}
+                  </span>
                   <span className="absolute inset-0 flex items-center justify-center border border-blue-500 rounded text-white select-none">
                     ___
                   </span>

@@ -7,10 +7,7 @@ export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const userId = url.searchParams.get("userId");
 
-  console.log("[getTextById] Received userId:", userId);
-
   if (!userId) {
-    console.log("[getTextById] Missing userId, returning 400");
     return NextResponse.json(
       { error: "userId query parameter is required" },
       { status: 400 }
@@ -59,7 +56,6 @@ export async function GET(req: NextRequest) {
           },
     }));
 
-    console.log("[getTextById] Returning texts with progress:", results);
 
     return NextResponse.json(results);
   } catch (error) {
