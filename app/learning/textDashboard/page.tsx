@@ -88,7 +88,7 @@ export default function TextDashboardPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto mt-8 px-4">
+    <div className=" max-w-3xl mx-auto mt-8 px-4">
       {/* Ne rendre LearningSessionHistory que si userId est défini */}
       {userId && <LearningSessionHistory userId={userId} />}
 
