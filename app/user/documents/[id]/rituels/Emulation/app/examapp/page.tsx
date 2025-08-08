@@ -7,7 +7,7 @@ function page() {
       <h1>EXAMEN DE PASSAGE et DIVULGATION DU MOT DE PASSE</h1>
 
       <p className="com">
-        Le VM prie les Ap. de couvrir le temple (sauf le cand.) sous la conduite
+        Le VM prie les Ap. de couvrir le temple (sauf le cand) sous la conduite
         du DC.
         <br />
         Le 2d E vient se placer devant le Cand. qui se lève, et le prenant par
@@ -15,14 +15,14 @@ function page() {
         lâche la main.
       </p>
       <p className="vm">
-        <b>VM </b>: Mes frère, Le F. ……….. est le récipiendaire que nous devons
+        <b>VM </b>: Mes frère, Le F ……….. est le récipiendaire que nous devons
         passer ce soir au deuxième Grade, mais il lui faut d'abord prouver qu'il
         possède les connaissances nécessaires dans le Grade précédent. <br />
         Je vais donc lui poser les questions d'usage. .
       </p>
       <p className="vm">
         <b>VM </b>: <span className="com"> (Au Cand.) </span> Ou avez-vous tout
-        d'abord été préparé à être reçu M. ?
+        d'abord été préparé à être reçu M ?
       </p>
       <p>
         <b>Cand </b>: Dans mon cœur.
@@ -107,12 +107,12 @@ function page() {
         de ma réception.
       </p>
       <p className="vm">
-        <b>VM </b>: Ce sont là les questions d'usage. Si quelque F. souhaite que
+        <b>VM </b>: Ce sont là les questions d'usage. Si quelque F souhaite que
         j'en pose d'autre je le ferai.
       </p>
       <p className="com">
-        Le 2d E prend la m. d. du cand. et partant du p. g. conduit directement
-        le Cand. à la d. du VM faisant tous deux face au VM. Le 2d E lâche la
+        Le 2d E prend la m. d. du cand et partant du p. g. conduit directement
+        le Cand à la d. du VM faisant tous deux face au VM. Le 2d E lâche la
         main du Cand.
       </p>
       <p className="vm">
@@ -122,7 +122,7 @@ function page() {
       </p>
       <p>
         <b>Cand </b>:{" "}
-        <span className="com"> (soufflé à haute voix par le 1er E.) </span> Je
+        <span className="com"> (soufflé à haute voix par le 1er E) </span> Je
         m'y engage.
       </p>
       <p className="vm">
@@ -141,7 +141,7 @@ function page() {
         auquel vous prétendez.
       </p>
       <p className="com">
-        Le VM se lève, fait face au Cand. et, lui prenant la m. dit :
+        Le VM se lève, fait face au Cand et, lui prenant la m. dit :
       </p>
       <p className="vm">
         <b>VM </b>: L'att de p. se donne en …...
@@ -150,7 +150,7 @@ function page() {
       </p>
       <p className="vm">
         <b>VM </b>: Cet att. de p. exige un mot de p. qui est …........ On le
-        représente d'ordinaire dans nos LL. par un ép. de b. a. d'une c. d'e.{" "}
+        représente d'ordinaire dans nos Loge par un ép. de b. a. d'une c. d'e.{" "}
         <br />
         Ayez grand soin de vous souvenir de ce m. car sans lui vous ne pouvez
         être admis dans une L. d'un Grade supérieur.{" "}

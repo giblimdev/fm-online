@@ -6,18 +6,18 @@ import React from "react";
 function page() {
   return (
     <div>
-      <h2>PRÉPARATION DU CAND. POUR SON INITIATION</h2>
+      <h2>PRÉPARATION DU CAND POUR SON INITIATION</h2>
       <p className="com">
-        Le T. prépare le candidat pour la cérémonie. Il le d. de ses m., lui b.
+        Le T prépare le candidat pour la cérémonie. Il le d. de ses m., lui b.
         les y. lui ajuste sa vêture : b.d., s.g. et g.g. mis à n. et p.d. en p.
         et il lui passe la c. a. d. c.
       </p>
       <h2>LA CEREMONIE DE L'INITIATION</h2>
       <p className="com">
         Les travaux étant ouverts au 1er grade. <br />
-        Lorsque le candidat est prêt, le T. l'annonce en frappant (-O-O-O-)
+        Lorsque le candidat est prêt, le T l'annonce en frappant (-O-O-O-)
         espacés et distincts à la porte de la L. <br />
-        Le C. se lève, fait le p., se met à l'o. face à l'or. et tourne la tête
+        Le C se lève, fait le p., se met à l'o. face à l'or. et tourne la tête
         vers le 2d S.
       </p>
       <p>
@@ -57,22 +57,22 @@ function page() {
       </p>
       <p>
         <b>Cand </b>:
-        <span className="com"> Le T. souffle au Cand.à voix basse </span> Avec
+        <span className="com"> Le T souffle au Cand.à voix basse </span> Avec
         l'aide de Dieu, car je suis né libre et de bonne renommée.
       </p>
       <p>
-        <b>C </b> Attendez que je fasse mon rapport au V.M.
+        <b>C </b> Attendez que je fasse mon rapport au VM.
       </p>
       <p className="com">
-        Le C. referme la porte, se place à gauche du 1er S. et se met à l'ordre
+        Le C. referme la porte, se place à gauche du 1er S et se met à l'ordre
       </p>
       <p>
-        <b>C </b>: <span className="com"> (au VM.) </span> V.M., Monsieur X....,
-        un pauvre candidat privé de lumière, qui a été chaleureusement et
+        <b>C </b>: <span className="com"> (au VM) </span> VM, Monsieur X...., un
+        pauvre candidat privé de lumière, qui a été chaleureusement et
         honorablement recommandé, régulièrement proposé et approuvé en Loge
         ouverte, et qui se présente aujourd'hui librement et de son plein gré,
         convenablement préparé, pour solliciter humblement d'être admis aux
-        mystères et privilèges de la F.M.
+        mystères et privilèges de la FM.
       </p>
       <p>
         <b>VM </b>: Comment espère-t-il obtenir ces privilèges ?
@@ -83,29 +83,29 @@ function page() {
       </p>
       <p>
         <b>VM </b>: On nous a déjà rendu compte de sa bonne renommée, vous
-        portez-vous garant, F.C., qu'il est convenablement préparé pour la
+        portez-vous garant, F C, qu'il est convenablement préparé pour la
         cérémonie ?
       </p>
       <p>
-        <b>C </b>: Oui, V.M.
+        <b>C </b>: Oui, VM.
       </p>
       <p>
-        <b>VM </b>: Alors qu'il soit admis en due forme, FF. EE.
+        <b>VM </b>: Alors qu'il soit admis en due forme, FF EE.
       </p>
       <p className="com">
-        Le C. fait le s. p. d'Ap. ; les deux EE. se lèvent, le 1er E. place au
-        passage le c. sur lequel le candidat devra s'a. à g. du 1er S. ; le C.
-        va à la porte de la L. qu'il ouvre à deux battants, puis il place la p.
-        de son poignard contre le s. g. du Cand. et dit à haute voix :
+        Le C fait le s. p. d'Ap. ; les deux EE. se lèvent, le 1er E. place au
+        passage le c. sur lequel le candidat devra s'a. à g. du 1er S ; le C va
+        à la porte de la L. qu'il ouvre à deux battants, puis il place la p. de
+        son poignard contre le s. g. du Cand. et dit à haute voix :
       </p>
       <p>
         <b>C </b>: Ressentez-vous quelque chose ?
       </p>
       <p className="com">
-        Sur réponse affirmative du can., le C. lève au-dessus de sa tête le p.
-        pour montrer qu'il a fait son devoir. Le 2ème E. prend fermement de sa
-        m. g. la m. d. du candidat et le conduit devant le c. qui se trouve à la
-        g. du 1er S.. Le C. referme la porte et pose le poignard sur le plateau
+        Sur réponse affirmative du cand, le C lève au-dessus de sa tête le p.
+        pour montrer qu'il a fait son devoir. Le 2ème E prend fermement de sa m.
+        g. la m. d. du candidat et le conduit devant le cousin qui se trouve à
+        la g. du 1er S. Le C referme la porte et pose le poignard sur le plateau
         du premier S. <br />
         Ils font tous trois face au VM.
       </p>
@@ -127,25 +127,25 @@ function page() {
       </p>
 
       <p>
-        <b>VM </b>: -O-
+        <b>VM </b>: - O -
       </p>
       <p>
-        <b>1er S </b>: -O-
+        <b>1er S </b>: - O -
       </p>
       <p>
-        <b>2d S </b> : -O-
+        <b>2d S </b> : - O -
       </p>
       <p className="com">
-        Tous les FF. Se lèvent en se réglant sur le VM. et font le signe de Foi.
-        Les EE. tenant leurs verges de la main g, les. croisent au-dessus de la
+        Tous les FF se lèvent en se réglant sur le VM et font le signe de Foi.
+        Les EE tenant leurs verges de la main g, les. croisent au-dessus de la
         tête du candidat et font le s.de Foi.
       </p>
       <p>
         <b>VM </b>
         <span className="com">(ou CHAP.) </span>: Daigne, Père Tout Puissant,
         architecte et Maître Suprême de l'Univers, étendre Ta Protection sur nos
-        travaux et accorder à ce candidat à la F.M. de dédier et de consacrer sa
-        vie à Ton service afin qu'il devienne un F. loyal et fidèle parmi nous.
+        travaux et accorder à ce candidat à la FM de dédier et de consacrer sa
+        vie à Ton service afin qu'il devienne un F loyal et fidèle parmi nous.
         <br />
         Fortifie-le d'une parcelle de Ta divine Sagesse, afin qu'il puisse, avec
         l'aide des secrets de notre Art M., mieux découvrir les beautés de la
@@ -155,7 +155,7 @@ function page() {
         <b>PMI </b>: <span className="com"> (seul)&nbsp;</span> Ainsi soit-il.{" "}
       </p>
       <p className="com">
-        Tous cessent le s. de Foi et les EE. abaissent leur v.{" "}
+        Tous cessent le s. de Foi et les EE abaissent leur v.{" "}
       </p>
       <p>
         <b>VM </b>: Lorsque vous vous trouvez en difficulté ou en danger, en qui
@@ -171,32 +171,32 @@ function page() {
         Nom de Dieu est invoqué, aucun danger ne doit être redouté.{" "}
       </p>
       <p className="com">
-        Le VM. s'assoit et par un geste invite les FF. a faire de même. <br />
-        Au mot « redouté » Le 2ème E. aide le candidat à se relever et le prend
+        Le VM. s'assoit et par un geste invite les FF a faire de même. <br />
+        Au mot « redouté » Le 2ème E aide le candidat à se relever et le prend
         fermement par la main. <br />
-        Le 1er E. enlève le coussin.
+        Le 1er E enlève le coussin.
       </p>
       <p>
-        <b>VM </b>: -O-
+        <b>VM </b>: - O -
         <br />
-        <b>1er S </b>: -O-
+        <b>1er S </b>: - O -
         <br />
-        <b>2d S </b>: -O-
+        <b>2d S </b>: - O -
       </p>
       <p>
-        <b>VM </b>: Les FF. au Nord, à l'Est, au Sud et à l'Ouest, sont prévenus
+        <b>VM </b>: Les FF au Nord, à l'Est, au Sud et à l'Ouest, sont prévenus
         que Monsieur X........ va passer devant eux pour montrer qu'il est bien
         le candidat convenablement préparé et une personne digne d'être reçue M.
       </p>
       <p className="com">
         Le 2d E indique au cand. de partir du pied g. et le guide le long de la
         colonne du N. le 1er E prend le poignard et suit le Cand. jusqu'à
-        l'angle N.E. pose le poignard sur le plateau du VM. et gagne sa place.
-        Le second E. tournent à l'Eq. l'angle NE. passe devant la chaire du VM.
-        tourne à l'Eq. l'angle SE. pour longer la colonne du Midi. et s’arrêtent
+        l'angle N.E. pose le poignard sur le plateau du VM et gagne sa place. Le
+        second E tournent à l'Eq. l'angle NE. passe devant la chaire du VM,
+        tourne à l'Eq. l'angle SE, pour longer la colonne du Midi et s’arrêtent
         juste avant la chaire du 2d S. <br />
-        Le 2s E. indique au Cand. de faire quelques pas de coté (de manière à se
-        trouver à hauteur de l'épaule du 2d S.), puis avec la m. du cand., qu'il
+        Le 2s E indique au Cand. de faire quelques pas de coté (de manière à se
+        trouver à hauteur de l'épaule du 2d S), puis avec la m. du cand., qu'il
         tient dans la sienne, il frappe trois cps. sur l'épaule du 2d S.
       </p>
       <p>
@@ -233,7 +233,7 @@ function page() {
         Ils repartent du pied g. tourne à l'Eq. L'angle SO et s’arrêtent devant
         la chaire du 1er S. <br />
         Le 2s E indique au Cand. de faire quelques pas de coté (de manière à se
-        trouver à hauteur de l'épaule du 1d S.), <br />
+        trouver à hauteur de l'épaule du 1d S), <br />
         Puis avec la m. du cand.,qu'il tient dans la sienne, il frappe trois
         cps. Sur l'épaule du 1d S.
       </span>

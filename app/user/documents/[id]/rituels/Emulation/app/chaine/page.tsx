@@ -8,21 +8,21 @@ function page() {
       <br />
       <p className="com">
         Cette cérémonie courante outre-Manche, se fait après la fermeture de la
-        Loge alors que l’hymne de sortie a été chanté et que le VM est sorti du
+        Loge, alors que l’hymne de sortie a été chanté et que le VM est sorti du
         temple en cortège puis est rentré à nouveau dans le temple avec les
         officiers sans décors. <br />
         Tous les FF., restent dans le temple, se dégantent, enlèvent leurs
-        décors et se place en rond ou en anneau au milieu du temple. <br />
-        Alors chacun tend sa main gauche à la main droite du F. situé à gauche
-        de son voisin immédiat de gauche et inversement sa main droite à la main
-        gauche du F. situé à droite de son voisin de droite. Ainsi la chaine est
+        décors et se placent en rond ou en anneau au milieu du temple. <br />
+        Alors chacun tend sa main gauche à la main droite du F situé à gauche de
+        son voisin immédiat de gauche et inversement sa main droite à la main
+        gauche du F situé à droite de son voisin de droite. Ainsi la chaine est
         double. <br />
-        Le VM quand à lui prend à sa droite le nouvel initié et à sa gauche le
+        Le VM quant à lui prend à sa droite le nouvel initié et à sa gauche le
         PMI… Un F. est désigné par le VM pour dire le texte qui suit, bien
-        entendu par cœur, il va donc quitter la chaine et par la expliquera à
-        ses FF. en la quittant qu’elle est double mais si elle est affaibli elle
-        n’est pas pour autant rompue. Il va se placer au centre et récite le
-        texte qui suit. Pour un nouvel initié, c’est un grand moment de
+        entendu par cœur, il va donc quitter la chaine et par là expliquera à
+        ses FF en la quittant qu’elle est double, mais si elle est affaiblie,
+        elle n’est pas pour autant rompue. Il va se placer au centre et récite
+        le texte qui suit. Pour un nouvel initié, c’est un grand moment de
         fraternité qu’il n’oubliera jamais… Et pour les autres, ça leur
         rappellera leurs engagements !
       </p>
@@ -37,7 +37,7 @@ function page() {
         <br />
         Vous remarquerez que nous nous tenons en cercle ou en anneau, non pas
         les bras croisés, mais largement ouverts pour étreindre les mains des
-        deux FF. immédiatement à côté de notre voisin, comme pour protéger la
+        deux FF immédiatement à côté de notre voisin, comme pour protéger la
         poitrine et le cœur de notre F. le plus proche. Le mouvement pendulaire
         n’est là que pour éprouver la solidité de chacun, et si un des maillons
         était atteint par notre indifférence, notre chaîne d’union de fraternité
@@ -48,7 +48,7 @@ function page() {
         <br />
         Vous observez que la main du PMI passe devant la poitrine du VM pour
         saisir la main du F initié, Le PMI représente le passé, le VM le
-        présent, et le F. initié le futur. Ainsi le passé regarde à travers le
+        présent, et le F initié le futur. Ainsi le passé regarde à travers le
         présent vers le futur pour assurer la continuation de sa vie et de son
         travail. <br />
         De même, vous pouvez voir qu’il s’agit d’une chaîne double. Ainsi
@@ -59,7 +59,7 @@ function page() {
         chaine qui a existé de temps immémoriaux ; Un par un ils ont été
         rappelés, et un par un ils ont été remplacés. <br />
         <br />
-        Ce soir nous avons ajouté un maillon à notre chaîne. Puisse la manière
+        Ce soir, nous avons ajouté un maillon à notre chaîne. Puisse la manière
         dont il a été placé, être le reflet de la contribution que toi, mon F.
         nouvellement initié, tu apporteras pour assurer la force et le caractère
         Maçonnique de cette L. afin qu’elle persiste de génération en génération
@@ -67,8 +67,8 @@ function page() {
         fraternel, être un maillon honorable jusqu’à ce que le temps ne soit
         plus compté pour nous les FF. qui t’accueillons. <br />
         <br />
-        Mes FF., observons maintenant quelques secondes de silence pour penser
-        aux FF. qui nous ont précédés, que nous avons aimé et remplacé …. <br />
+        Mes FF, observons maintenant quelques secondes de silence pour penser
+        aux FF qui nous ont précédés, que nous avons aimé et remplacé …. <br />
         Rompons la chaîne.
       </p>
       <section className="p-6 border-b border-gray-200">
