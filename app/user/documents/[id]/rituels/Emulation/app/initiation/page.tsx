@@ -247,7 +247,7 @@ function page() {
         chaleureusement et honorablement recommandé, régulièrement proposé et
         approuvé en Loge ouverte, et qui se présente aujourd'hui librement et de
         son plein gré, convenablement préparé, pour solliciter humblement d'être
-        admis aux mystères et privilèges de la F.M.
+        admis aux mystères et privilèges de la FM.
       </span>
       <br />
       <span>
@@ -260,8 +260,7 @@ function page() {
       </span>
       <br />
       <span className="com">
-        Le 1d S. se lève, le 2d E. place la main d.du cand. dans la m.d. du 1d
-        S.
+        Le 1d S se lève, le 2d E place la main d. du Cand dans la m.d. du 1d S.
       </span>
       <br />
       <span>
@@ -269,44 +268,44 @@ function page() {
       </span>
       <br />
       <p className="com">
-        Le 1er S. élève légèrement le m.du Cand. pour la replacer dans la m.du
+        Le 1er S élève légèrement le m. du Cand. pour la replacer dans la m. du
         2d E. <br />
         ils se remette en ligne et partant du pied g. il passe devant la chaire
         du 1er S. <br />
         et effectuent ¾ de tour dans le sens inverse des aiguilles d'une montre.
         <br />
         Le Second E vient à gauche du 1e S. <br />
-        Le 1er S. se lève, le 2d E. place la main du Cand. dans la main g. du
-        1er S et se place à gauche du Cand. <br />
+        Le 1er S se lève, le 2d E place la main du Cand dans la main g. du 1er S
+        et se place à gauche du Cand. <br />
         Le 1er S élève légèrement la main du Cand. fait le pas et se met à l'or.
         et dit :
       </p>
       <p>
-        <b>1er S </b>: V.M., je vous présente Monsieur X..., candidat
+        <b>1er S </b>: VM, je vous présente Monsieur X..., candidat
         convenablement préparé pour être reçu M.
       </p>
       <p className="vm">
-        <b>VM </b>: F. 1er S., votre présentation mérite toute mon attention et,
+        <b>VM </b>: F. 1er S, votre présentation mérite toute mon attention et,
         dans ce but, je vais poser quelques questions au candidat auxquelles,
         j'en suis persuadé, il répondra avec franchise.
       </p>
       <p className="com">
-        Le 1er S fait le s. p. d'Ap. et rend la m. d. du Cand. au 2ème E. qui
-        est revenu à la d. du Cand. puis s'assoit.
+        Le 1er S fait le s. p. d'Ap. et rend la m. d. du Cand. au 2ème E qui est
+        revenu à la d. du Cand. puis s'assoit.
       </p>
       <p>
         <span className="vm">
-          <b>VM </b> : <span className="com"> (au Cand.) </span> Déclarez-vous
+          <b>VM </b> : <span className="com"> (au Cand) </span> Déclarez-vous
           sincèrement sur votre honneur que vous n'avez été entraîné, contre
           votre propre gré, par aucune sollicitation inconvenante de la part de
           vos amis, que vous n'êtes influencé par aucun sentiment vénal ni par
           aucun autre motif indigne, mais que vous vous présentez librement et
-          volontairement comme candidat aux mystères et privilèges de la F.M. ?
+          volontairement comme candidat aux mystères et privilèges de la FM. ?
         </span>
       </p>
       <p>
         <b>Cand </b>:
-        <span className="com"> (Soufflé par le 2ème E. si nécessaire) </span> Je
+        <span className="com"> (Soufflé par le 2ème E si nécessaire) </span> Je
         le déclare.
       </p>
       <p>
@@ -319,7 +318,7 @@ function page() {
         </span>
       </p>
       <p>
-        <b>Cand</b> : <span className="com"> (Soufflé par le 2ème E.) </span>
+        <b>Cand</b> : <span className="com"> (Soufflé par le 2ème E) </span>
         J'en donne ma parole d'honneur.
       </p>
       <p>
@@ -333,28 +332,28 @@ function page() {
         </span>
       </p>
       <p>
-        <b>Cand </b>: <span className="com"> (Soufflé par le 2ème E.) </span> Je
+        <b>Cand </b>: <span className="com"> (Soufflé par le 2ème E) </span> Je
         le déclares
       </p>
       <p>
         <span className="vm">
-          <b>VM </b>: F. 1er S.,
+          <b>VM </b>: F. 1er S,
           <span className="com"> (le 1er S. reste assis) </span> Veuillez
-          ordonner au 2ème E. d'enseigner au candidat la manière traditionnelle
+          ordonner au 2ème E d'enseigner au candidat la manière traditionnelle
           de s'avancer vers l'A.
         </span>
       </p>
       <p>
-        <b>1er S </b>: F. 2d E., par ordre du V.M., veuillez enseigner au
-        candidat la manière traditionnelle de s'avancer vers l'A.
+        <b>1er S </b>: F. 2d E, par ordre du VM., veuillez enseigner au candidat
+        la manière traditionnelle de s'avancer vers l'A.
       </p>
       <p className="com">
         Le 2ème E conduit le candidat à une distance convenable de la Chaire du
-        V.M. et dit au Cand. à mi-voix :
+        VM et dit au Cand à mi-voix :
       </p>
       <p>
         <b>2d E </b>: Veuillez placez vos d. p. l'un contre l'autre. Faites
-        faire à vos. p. d. un quart de t. de manière à f. une éq.{" "}
+        faire à vos. p. d. un quart de t. de manière à f. une éq.
       </p>
       <p className="com">Puis faisant le p. avec le Cand. dit à haute voix</p>
       <p>
@@ -364,25 +363,25 @@ function page() {
         joignant les t. comme précédemment.
       </p>
       <p className="com">
-        Le 2d E est à la droite du Cand. et le 1er E. vient à sa g. de telle
+        Le 2d E est à la droite du Cand. et le 1er E vient à sa g. de telle
         sorte qu'ils fassent le dernier pas en même temps que le cand. <br />
         ils se retrouvent alors face au VM. et suffisamment près pour que le
         Cand. n'ait plus qu'a s'agenouiller plus tard.
       </p>
       <p>
-        <b>VM </b>: Il est de mon devoir de vous informer que la F.M. est de
-        libre accès et qu'elle exige une parfaite liberté d'inclination chez
-        tout candidat qui espère être admis à participer à ses mystères. Elle
-        est fondée sur les principes les plus purs de la Piété et de la Vertu.
-        Elle possède des privilèges aussi grands que précieux et, afin d'assurer
-        ces privilèges à des hommes de valeur et, nous l'espérons bien, à de
-        tels hommes exclusivement, nous exigeons un serment de fidélité. Mais
-        soyez persuadé que dans ce serment il n'y a rien d'incompatible avec vos
+        <b>VM </b>: Il est de mon devoir de vous informer que la FM est de libre
+        accès et qu'elle exige une parfaite liberté d'inclination chez tout
+        candidat qui espère être admis à participer à ses mystères. Elle est
+        fondée sur les principes les plus purs de la Piété et de la Vertu. Elle
+        possède des privilèges aussi grands que précieux et, afin d'assurer ces
+        privilèges à des hommes de valeur et, nous l'espérons bien, à de tels
+        hommes exclusivement, nous exigeons un serment de fidélité. Mais soyez
+        persuadé que dans ce serment il n'y a rien d'incompatible avec vos
         devoirs civils, moraux ou religieux. Consentez-vous à prendre une Ob. S.
         ayant pour base les principes que je vous ai indiqués par laquelle vous
         vous engagez à conserver inviolables les s. et m. de l'Ordre ?
       </p>
-      <p className="com">Le second E. incite le Cand. en disant : </p>
+      <p className="com">Le second E incite le Cand en disant : </p>
       <p>
         <b>2d E </b>: Répondez
       </p>
@@ -393,7 +392,7 @@ function page() {
         <b>VM </b>: Veuillez donc vous a. sur le g. g. et f. l'éq. avec le p. d.
         genou d. à l'éq., le pied d. à plat sur le sol.
         <br />
-        Donnez-moi votre m. d. que je place sur le V.S.L.
+        Donnez-moi votre m. d. que je place sur le VSL.
         <span className="com"> (Sur la page de d.) </span>
         <br />
         Soutenez en même temps de la m. g. ce C. dont une des p. est dirigée
@@ -404,16 +403,16 @@ function page() {
         pointe sur le sein g. mis à nu, l'autre orientée vers le haut.
       </p>
       <p className="vm">
-        <b>VM </b>: -O-
+        <b>VM </b>: - O -
         <br />
-        <b>1er S </b>: -O-
+        <b>1er S </b>: - O -
         <br />
-        <b>2d S </b>: -O-
+        <b>2d S </b>: - O -
       </p>
       <p className="com">
-        Le VM et tous les FF. se lèvent, font le p. et se mettent à l'o. d'Ap.
-        en se réglant sur le VM. Les EE. croisent leur v. qu'ils tiennent de la
-        m. g. afin de se mettre aussi à l'O.
+        Le VM et tous les FF se lèvent, font le p. et se mettent à l'o. d'Ap. en
+        se réglant sur le VM. Les EE. croisent leur v. qu'ils tiennent de la m.
+        g. afin de se mettre aussi à l'O.
       </p>
 
       <div>

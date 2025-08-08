@@ -8,8 +8,8 @@ function page() {
         Le 1er S reste debout. <br />
         Le 2d E et le Cand Se remettent en ligne par quelques pas de cotés et
         partent du pied g. Ils passe devant la chaire du 1er S. Ils font ¾ de
-        tour dans le sens contraire d’une montre et le 2d E. place la main d. du
-        Cand. dans la m. g. du 1er S. et vient se placer à la g. du Cand. <br />
+        tour dans le sens contraire d’une montre et le 2d E place la main d. du
+        Cand. dans la m. g. du 1er S et vient se placer à la g. du Cand. <br />
         Le 1er S. lève haut la main du Cand., fait le p., se met à l'O. et dit :
       </p>
       <p>
@@ -22,22 +22,22 @@ function page() {
       </p>
 
       <p className="com">
-        Le 1er S. fait le s. p. d'Ap., lâche la main du cand. ce qui suit ne
-        doit pas être dit par le 1er S. avant que le t. ne soit correctement
-        ajusté. Il doit, ensuite, tenir le coin inférieur droit du t. dans sa
-        main gauche, alors il prend la parole :
+        Le 1er S fait le s. p. d'Ap., lâche la main du Cand ce qui suit ne doit
+        pas être dit par le 1er S, avant que le t. ne soit correctement ajusté.
+        Il doit, ensuite, tenir le coin inférieur droit du t. dans sa main
+        gauche, alors il prend la parole :
       </p>
       <p>
-        <b>1er S </b>: F. …......., par ordre du V.M., je vous revêts de
-        l'insigne distinctif du M. Il est plus ancien que la Toison d'or ou que
-        l'Aigle Romain plus chargé d'honneur que tout ordre au monde, car c'est
-        le symbole de l'innocence et le lien de l'amitié. <br />
+        <b>1er S </b>: F. …......., par ordre du VM, je vous revêts de l'insigne
+        distinctif du M. Il est plus ancien que la Toison d'or ou que l'Aigle
+        Romain plus chargé d'honneur que tout ordre au monde, car c'est le
+        symbole de l'innocence et le lien de l'amitié. <br />
         Je vous exhorte de tout mon pouvoir à le porter et à le considérer
         toujours comme tel ; et je vous déclare en outre que si vous ne
         déshonorez jamais cet insigne,
       </p>
       <p className="com">
-        (le 1er S frappe avec force l'insigne de la main droite ; les FF.
+        (le 1er S frappe avec force l'insigne de la main droite ; les FF
         frappent en même temps leur t. avec la main droit ayant glissé leur m.g.
         sous leur tablier)
       </p>
@@ -51,21 +51,21 @@ function page() {
       <p>
         <b>VM </b>: Permettez-moi d'ajouter aux observations du 1er S que vous
         ne devez jamais vous revêtir de cet insigne avant de pénétrer dans une
-        L. où il y a un F. avec lequel vous êtes en désaccord ou contre lequel
+        L. où il y a un F avec lequel vous êtes en désaccord ou contre lequel
         vous éprouvez des sentiments d'animosité. Dans ce cas, vous devez
         l'inviter à venir s'entretenir à l'écart avec vous, afin d'arranger
         amicalement votre différend. Si vous avez le bonheur de réussir, vous
         pouvez alors vous habiller, entrer dans la L. et travailler avec
         l'affection fraternelle et le bon accord qui doivent toujours
-        caractériser les FF.MM. <br />
+        caractériser les FF MM. <br />
         Mais si, par malheur, votre différend est tel qu'il ne puisse s'arranger
         aussi facilement, il vaut mieux que l'un de vous ou que tous les deux
         vous vous retiriez plutôt que de troubler par votre présence la bonne
         harmonie de la L.
       </p>
       <p>
-        <b>VM </b>: F. 2d E, veuillez placer notre nouveau F. dans l'angle N-E
-        de la L.
+        <b>VM </b>: F 2d E, veuillez placer notre nouveau F dans l'angle N-E de
+        la L.
       </p>
       <p className="com">
         Le 2d E souffle au Cand. de partir du pied g. et longeant la col. du N
@@ -108,7 +108,7 @@ function page() {
         reconnaissance et distribuée avec fidélité.
       </p>
       <p className="com">
-        Le 2d E attend que le V.M. ait achevé sa phrase, puis se place devant le
+        Le 2d E attend que le VM ait achevé sa phrase, puis se place devant le
         candidat et lui tend l'aumônière (ou simplement la main la m. g.).
       </p>
       <p>
@@ -122,7 +122,7 @@ function page() {
         <b>2d E </b>: Vous aurait-on d. de tout o. de v. avant de vous admettre
         dans la L. ?
       </p>
-      <p className="com">Le 2ème E. ne doit pas souffler la réponse. </p>
+      <p className="com">Le 2ème E ne doit pas souffler la réponse. </p>
       <p>
         <b>Cand </b>: ........
       </p>
@@ -166,7 +166,7 @@ function page() {
       <h2>OUTILS DU PREMIER GRADE</h2>
       <p>
         <b>VM </b>: Je vous présente maintenant les outils de travail de
-        l'apprenti FM. Ce sont la R. de 24 p., le M. à d. et le C. La R. de 24
+        l'apprenti F-M. Ce sont la R. de 24 p., le M. à d. et le C. La R. de 24
         p. nous sert à mesurer l'ouvrage, le M. à d. la pierre brute et à
         enlever les aspérités, le C. à aplanir la pierre et à la préparer avant
         qu'elle ne passe aux mains d'ouvriers plus habiles. <br />
