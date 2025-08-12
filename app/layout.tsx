@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header/Header";
+import TipeeButton from "@/components/admin/TipeeButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,17 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        {children}
+        <main>{children}</main>
+        {/* Bouton Tipeee fixe en bas à droite */}
+        <div className="fixed bottom-6 left-6 z-50">
+          <TipeeButton
+            tipeeUrl="https://fr.tipeee.com/fmonline/"
+            username="VotrePseudo"
+            size="md"
+            variant="gradient"
+            className="shadow-2xl hover:shadow-3xl transition-shadow duration-300"
+          />
+        </div>
       </body>
     </html>
   );
