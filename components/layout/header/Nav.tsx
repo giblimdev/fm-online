@@ -27,6 +27,11 @@ const navLinks = [
     label: "Apprentissage",
     icon: GraduationCap,
   },
+  {
+    href: "/public/help",
+    label: "FAQ",
+    icon: GraduationCap,
+  },
 ];
 
 export default function Nav({ onItemClick }: NavProps) {
