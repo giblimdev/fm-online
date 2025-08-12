@@ -22,14 +22,14 @@ enum Grade {
 }
 
 model User {
-  id              String            @id @default(cuid())
-  name            String
-  email           String            @unique
-  emailVerified   Boolean           @default(false)
-  image           String?
-  grade           Grade[]           @default([APP])
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
+  id            String   @id @default(cuid())
+  name          String
+  email         String   @unique
+  emailVerified Boolean  @default(false)
+  image         String?
+  grade         Grade[]  @default([APP])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   // Relations
   sessions        Session[]
@@ -40,45 +40,46 @@ model User {
   wordStates      WordState[]
   userProgress    UserProgress[]
   learningSession LearningSession[]
+  Library         Library[]
 
   @@map("user")
 }
 
 model Session {
-  id           String   @id @default(cuid())
-  expiresAt    DateTime
-  token        String   @unique
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  ipAddress    String?
-  userAgent    String?
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("session")
 }
 
 model Account {
-  id                   String   @id @default(cuid())
-  accountId            String
-  providerId           String
-  userId               String
-  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  accessToken          String?
-  refreshToken         String?
-  idToken              String?
-  accessTokenExpiresAt DateTime?
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
   refreshTokenExpiresAt DateTime?
-  scope                String?
-  password             String?
-  createdAt            DateTime @default(now())
-  updatedAt            DateTime @updatedAt
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
 
   @@map("account")
 }
 
 model Verification {
-  id         String   @id @default(cuid())
+  id         String    @id @default(cuid())
   identifier String
   value      String
   expiresAt  DateTime
@@ -89,7 +90,7 @@ model Verification {
 }
 
 model Documents {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
   description String?
   ordre       Int?
@@ -98,10 +99,11 @@ model Documents {
   grade       String?
   category    String?
   liens       Links[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Library     Library[]
 
   @@map("documents")
 }
@@ -118,22 +120,38 @@ model Links {
   @@map("links")
 }
 
+model Library {
+  id         String   @id @default(cuid())
+  addedAt    DateTime @default(now())
+  isFavorite Boolean  @default(false) // Pour marquer des favoris
+  notes      String? // Notes personnelles de l'utilisateur
+
+  // Relations
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentId String
+  document   Documents @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, documentId]) // Un utilisateur ne peut avoir qu'une fois le même document
+  @@map("library")
+}
+
 ///////////////////////////
 // Learning related models
 ///////////////////////////
 
 model Text {
-  id              String            @id @default(cuid())
-  title           String
-  ordre           Int               @default(20)
-  content         String
-  category        String?
-  grade           Grade?
-  wordCount       Int               @default(0)
-  isActive        Boolean           @default(true)
-  isPublic        Boolean           @default(false)
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
+  id        String   @id @default(cuid())
+  title     String
+  ordre     Int      @default(20)
+  content   String
+  category  String?
+  grade     Grade?
+  wordCount Int      @default(0)
+  isActive  Boolean  @default(true)
+  isPublic  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
   userText        UserText[]
@@ -159,15 +177,15 @@ model UserText {
 
 model WordState {
   id           String   @id @default(cuid())
-  wordPosition Int      // position du mot dans le texte
-  wordContent  String   // mot exact (optionnel, mais recommandé)
+  wordPosition Int // position du mot dans le texte
+  wordContent  String // mot exact (optionnel, mais recommandé)
   isMasked     Boolean  @default(false)
   lastUpdated  DateTime @default(now()) @updatedAt
 
   userId String
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   textId String
-  text   Text    @relation(fields: [textId], references: [id], onDelete: Cascade)
+  text   Text   @relation(fields: [textId], references: [id], onDelete: Cascade)
 
   @@unique([userId, textId, wordPosition])
   @@map("word_states")
@@ -192,18 +210,18 @@ model UserProgress {
 }
 
 model LearningSession {
-  id             String   @id @default(cuid())
-  startTime      DateTime @default(now())
-  endTime        DateTime?
-  wordsRevealed  Int      @default(0)
-  wordsMasked    Int      @default(0)
-  scoreStart     Float    @default(0.0)
-  scoreEnd       Float    @default(0.0)
+  id            String    @id @default(cuid())
+  startTime     DateTime  @default(now())
+  endTime       DateTime?
+  wordsRevealed Int       @default(0)
+  wordsMasked   Int       @default(0)
+  scoreStart    Float     @default(0.0)
+  scoreEnd      Float     @default(0.0)
 
   userId String
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   textId String
-  text   Text    @relation(fields: [textId], references: [id], onDelete: Cascade)
+  text   Text   @relation(fields: [textId], references: [id], onDelete: Cascade)
 
   @@map("learning_sessions")
 }

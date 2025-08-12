@@ -17,24 +17,17 @@ const navLinks = [
     icon: BookOpen,
   },
   {
-    href: "/public",
+    href: "/user/addDoc",
     label: "Obtenir un rituel",
     icon: Plus,
   },
-  {
-    href: "/frame",
-    label: "Apprentissage old",
-    icon: GraduationCap,
-  },
+
   {
     href: "/learning",
     label: "Apprentissage",
     icon: GraduationCap,
-  }
-
-
-  
-]; 
+  },
+];
 
 export default function Nav({ onItemClick }: NavProps) {
   const pathname = usePathname();

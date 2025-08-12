@@ -17,9 +17,20 @@ import {
   ArrowUpDown,
   ArrowUp,
   ArrowDown,
+  Heart,
+  HeartOff,
 } from "lucide-react";
 import Link from "next/link";
 import { Avatar } from "@radix-ui/react-avatar";
+
+interface DocumentLink {
+  id: string;
+  url: string;
+  title?: string;
+  order?: number;
+  description?: string;
+  documentId: string;
+}
 
 interface Document {
   id: string;
@@ -36,62 +47,78 @@ interface Document {
   liens: DocumentLink[];
 }
 
-interface DocumentLink {
+interface LibraryItem {
   id: string;
-  url: string;
-  title?: string;
-  order?: number;
-  description?: string;
+  addedAt: string;
+  isFavorite: boolean;
+  notes?: string;
+  userId: string;
   documentId: string;
+  document: Document;
 }
 
-type SortField = "title" | "createdAt" | "updatedAt" | "ordre" | "category";
+type SortField =
+  | "title"
+  | "createdAt"
+  | "updatedAt"
+  | "ordre"
+  | "category"
+  | "addedAt";
 type SortOrder = "asc" | "desc";
 
 export default function DashboardPage() {
   const session = useSession();
   const router = useRouter();
-  const [documents, setDocuments] = useState<Document[]>([]);
+  const [libraryItems, setLibraryItems] = useState<LibraryItem[]>([]);
   const [isLoadingDocuments, setIsLoadingDocuments] = useState(false);
   const [documentsError, setDocumentsError] = useState<string | null>(null);
   const [sortField, setSortField] = useState<SortField>("ordre");
   const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
 
-  // Fonction de tri des documents
-  const sortDocuments = (
-    docs: Document[],
+  // Fonction de tri des éléments de bibliothèque - VERSION SÉCURISÉE
+  const sortLibraryItems = (
+    items: LibraryItem[],
     field: SortField,
     order: SortOrder
   ) => {
-    return [...docs].sort((a, b) => {
+    // Vérification de sécurité pour éviter l'erreur undefined
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      return [];
+    }
+
+    return [...items].sort((a, b) => {
       let aValue: string | number;
       let bValue: string | number;
 
       switch (field) {
         case "title":
-          aValue = a.title.toLowerCase();
-          bValue = b.title.toLowerCase();
+          aValue = (a.document?.title || "").toLowerCase();
+          bValue = (b.document?.title || "").toLowerCase();
           break;
         case "createdAt":
-          aValue = new Date(a.createdAt).getTime();
-          bValue = new Date(b.createdAt).getTime();
+          aValue = new Date(a.document?.createdAt || 0).getTime();
+          bValue = new Date(b.document?.createdAt || 0).getTime();
           break;
         case "updatedAt":
-          aValue = new Date(a.updatedAt).getTime();
-          bValue = new Date(b.updatedAt).getTime();
+          aValue = new Date(a.document?.updatedAt || 0).getTime();
+          bValue = new Date(b.document?.updatedAt || 0).getTime();
+          break;
+        case "addedAt":
+          aValue = new Date(a.addedAt || 0).getTime();
+          bValue = new Date(b.addedAt || 0).getTime();
           break;
         case "ordre":
           // Mettre les documents sans ordre à la fin
-          aValue = a.ordre ?? 999999;
-          bValue = b.ordre ?? 999999;
+          aValue = a.document?.ordre ?? 999999;
+          bValue = b.document?.ordre ?? 999999;
           break;
         case "category":
-          aValue = a.category?.toLowerCase() || "zzz";
-          bValue = b.category?.toLowerCase() || "zzz";
+          aValue = (a.document?.category || "zzz").toLowerCase();
+          bValue = (b.document?.category || "zzz").toLowerCase();
           break;
         default:
-          aValue = a.createdAt;
-          bValue = b.createdAt;
+          aValue = new Date(a.addedAt || 0).getTime();
+          bValue = new Date(b.addedAt || 0).getTime();
       }
 
       if (order === "asc") {
@@ -112,38 +139,80 @@ export default function DashboardPage() {
     }
   };
 
-  // Charger les documents de l'utilisateur
-  const fetchUserDocuments = async (userId: string) => {
+  // Charger les documents de la bibliothèque de l'utilisateur - VERSION SÉCURISÉE
+  const fetchUserLibrary = async (userId: string) => {
     try {
       setIsLoadingDocuments(true);
       setDocumentsError(null);
-      const response = await fetch(`/api/documents?userId=${userId}`);
+      const response = await fetch(`/api/library?userId=${userId}`);
       if (!response.ok) throw new Error("Erreur lors du chargement");
       const data = await response.json();
-      setDocuments(data);
+
+      // Vérification de sécurité pour s'assurer que data est un tableau
+      if (Array.isArray(data)) {
+        setLibraryItems(data);
+      } else {
+        console.warn("Les données reçues ne sont pas un tableau:", data);
+        setLibraryItems([]);
+      }
     } catch (error) {
-      setDocumentsError("Impossible de charger vos documents");
+      setDocumentsError("Impossible de charger votre bibliothèque");
       console.error("Erreur:", error);
+      // En cas d'erreur, s'assurer que libraryItems reste un tableau vide
+      setLibraryItems([]);
     } finally {
       setIsLoadingDocuments(false);
     }
   };
 
-  // Supprimer un document
-  const deleteDocument = async (documentId: string) => {
-    if (!confirm("Êtes-vous sûr de vouloir supprimer ce document ?")) return;
+  // Supprimer un document de la bibliothèque
+  const removeFromLibrary = async (libraryId: string) => {
+    if (
+      !confirm(
+        "Êtes-vous sûr de vouloir retirer ce document de votre bibliothèque ?"
+      )
+    )
+      return;
 
     try {
-      const response = await fetch(`/api/documents/${documentId}`, {
+      const response = await fetch(`/api/library/${libraryId}`, {
         method: "DELETE",
       });
 
       if (!response.ok) throw new Error("Erreur lors de la suppression");
 
-      setDocuments(documents.filter((doc) => doc.id !== documentId));
+      setLibraryItems((prevItems) =>
+        prevItems.filter((item) => item.id !== libraryId)
+      );
     } catch (error) {
       console.error("Erreur lors de la suppression:", error);
       alert("Erreur lors de la suppression du document");
+    }
+  };
+
+  // Basculer le statut favori
+  const toggleFavorite = async (libraryId: string, currentStatus: boolean) => {
+    try {
+      const response = await fetch(`/api/library/${libraryId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          isFavorite: !currentStatus,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Erreur lors de la mise à jour");
+
+      setLibraryItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === libraryId ? { ...item, isFavorite: !currentStatus } : item
+        )
+      );
+    } catch (error) {
+      console.error("Erreur lors de la mise à jour:", error);
+      alert("Erreur lors de la mise à jour du favori");
     }
   };
 
@@ -176,6 +245,7 @@ export default function DashboardPage() {
   };
 
   const formatDate = (dateString: string) => {
+    if (!dateString) return "Date inconnue";
     return new Date(dateString).toLocaleDateString("fr-FR", {
       day: "numeric",
       month: "long",
@@ -205,12 +275,19 @@ export default function DashboardPage() {
   useEffect(() => {
     const userId = session.data?.user?.id;
     if (userId) {
-      fetchUserDocuments(userId);
+      fetchUserLibrary(userId);
     }
   }, [session.data?.user?.id]);
 
-  // Documents triés
-  const sortedDocuments = sortDocuments(documents, sortField, sortOrder);
+  // Éléments de bibliothèque triés - VERSION SÉCURISÉE
+  const sortedLibraryItems = sortLibraryItems(
+    libraryItems || [],
+    sortField,
+    sortOrder
+  );
+
+  // Extraction des documents pour l'affichage
+  const documents = libraryItems.map((item) => item.document);
 
   // Affichage pendant le chargement de la session
   if (session.isPending) {
@@ -278,7 +355,6 @@ export default function DashboardPage() {
               <p className="text-slate-600">
                 <span className="font-medium">Email:</span> {user.email}
               </p>
-
               <p className="text-slate-600">
                 <span className="font-medium">ID:</span> {user.id.slice(-8)}...
               </p>
@@ -316,7 +392,7 @@ export default function DashboardPage() {
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition-colors font-medium flex items-center justify-center space-x-2"
               >
                 <Plus className="h-4 w-4" />
-                <span>Ajouter un rituel</span>
+                <span>Découvrir les rituels</span>
               </Link>
               <Link
                 href="/user/profile"
@@ -325,7 +401,6 @@ export default function DashboardPage() {
                 <Avatar className="h-4 w-4" />
                 <span>Gérer mon profil</span>
               </Link>
-
               <button className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl transition-colors font-medium">
                 Paramètres
               </button>
@@ -340,25 +415,26 @@ export default function DashboardPage() {
               <div className="flex items-center space-x-3">
                 <FileText className="h-6 w-6 text-blue-600" />
                 <h3 className="text-xl font-bold text-slate-900">
-                  Mes Rituels
+                  Ma Bibliothèque
                 </h3>
               </div>
               <div className="flex items-center space-x-4">
                 <span className="text-sm text-slate-600">
-                  {documents.length} document{documents.length !== 1 ? "s" : ""}
+                  {libraryItems.length} document
+                  {libraryItems.length !== 1 ? "s" : ""}
                 </span>
                 <Link
-                  href="/admin/documents"
+                  href="/public"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition-colors font-medium flex items-center space-x-2"
                 >
                   <Plus className="h-4 w-4" />
-                  <span>Ajouter</span>
+                  <span>Découvrir</span>
                 </Link>
               </div>
             </div>
 
             {/* Contrôles de tri */}
-            {documents.length > 0 && (
+            {libraryItems.length > 0 && (
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <span className="text-sm font-medium text-slate-700 mr-2">
                   Trier par:
@@ -386,6 +462,17 @@ export default function DashboardPage() {
                   {getSortIcon("title")}
                 </button>
                 <button
+                  onClick={() => handleSort("addedAt")}
+                  className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                    sortField === "addedAt"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  <span>Ajouté le</span>
+                  {getSortIcon("addedAt")}
+                </button>
+                <button
                   onClick={() => handleSort("category")}
                   className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
                     sortField === "category"
@@ -396,28 +483,6 @@ export default function DashboardPage() {
                   <span>Catégorie</span>
                   {getSortIcon("category")}
                 </button>
-                <button
-                  onClick={() => handleSort("createdAt")}
-                  className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                    sortField === "createdAt"
-                      ? "bg-blue-100 text-blue-700"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
-                >
-                  <span>Date de création</span>
-                  {getSortIcon("createdAt")}
-                </button>
-                <button
-                  onClick={() => handleSort("updatedAt")}
-                  className={`inline-flex items-center space-x-1 px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                    sortField === "updatedAt"
-                      ? "bg-blue-100 text-blue-700"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
-                >
-                  <span>Dernière modification</span>
-                  {getSortIcon("updatedAt")}
-                </button>
               </div>
             )}
           </div>
@@ -427,7 +492,9 @@ export default function DashboardPage() {
               <div className="flex items-center justify-center py-12">
                 <div className="flex flex-col items-center space-y-4">
                   <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-                  <p className="text-slate-600">Chargement des documents...</p>
+                  <p className="text-slate-600">
+                    Chargement de votre bibliothèque...
+                  </p>
                 </div>
               </div>
             ) : documentsError ? (
@@ -435,135 +502,159 @@ export default function DashboardPage() {
                 <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
                 <p className="text-red-600 font-medium">{documentsError}</p>
                 <button
-                  onClick={() => fetchUserDocuments(user.id)}
+                  onClick={() => fetchUserLibrary(user.id)}
                   className="mt-4 text-blue-600 hover:text-blue-700 font-medium"
                 >
                   Réessayer
                 </button>
               </div>
-            ) : documents.length === 0 ? (
+            ) : libraryItems.length === 0 ? (
               <div className="text-center py-12">
                 <FileText className="h-16 w-16 text-slate-400 mx-auto mb-4" />
                 <h4 className="text-xl font-semibold text-slate-900 mb-2">
-                  Aucun document
+                  Votre bibliothèque est vide
                 </h4>
                 <p className="text-slate-600 mb-6">
-                  Ajouter un document pour commencer
+                  Découvrez et ajoutez des rituels à votre bibliothèque
                 </p>
                 <Link
                   href="/public"
                   className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition-colors font-medium"
                 >
                   <Plus className="h-5 w-5" />
-                  <span>Ajouter un document</span>
+                  <span>Découvrir les rituels</span>
                 </Link>
               </div>
             ) : (
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {sortedDocuments.slice(0, 6).map((document) => (
-                  <div
-                    key={document.id}
-                    className="bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors border border-slate-200 relative"
-                  >
-                    {/* Badge d'ordre */}
-                    {document.ordre && (
-                      <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-medium z-10">
-                        #{document.ordre}
+                {sortedLibraryItems.slice(0, 6).map((libraryItem) => {
+                  const document = libraryItem.document;
+                  return (
+                    <div
+                      key={libraryItem.id}
+                      className="bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors border border-slate-200 relative"
+                    >
+                      {/* Badge d'ordre et favori */}
+                      <div className="absolute top-2 left-2 flex items-center space-x-2">
+                        {document.ordre && (
+                          <div className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-medium">
+                            #{document.ordre}
+                          </div>
+                        )}
                       </div>
-                    )}
 
-                    {/* Image du document */}
-                    {document.image && (
-                      <div className="mb-3">
-                        <img
-                          src={document.image}
-                          alt={document.title}
-                          className="w-full h-32 object-cover rounded-lg"
-                          onError={(e) => {
-                            e.currentTarget.style.display = "none";
-                          }}
-                        />
-                      </div>
-                    )}
-
-                    <div className="flex items-start justify-between mb-3">
-                      <h5 className="font-semibold text-slate-900 line-clamp-2 flex-1 pr-2">
-                        {document.title}
-                      </h5>
-                      {document.grade && (
-                        <span
-                          className={`ml-2 px-2 py-1 text-xs font-medium border rounded-lg flex-shrink-0 ${getGradeColor(
-                            document.grade
-                          )}`}
+                      <div className="absolute top-2 right-2">
+                        <button
+                          onClick={() =>
+                            toggleFavorite(
+                              libraryItem.id,
+                              libraryItem.isFavorite
+                            )
+                          }
+                          className={`p-1 rounded-full transition-colors ${
+                            libraryItem.isFavorite
+                              ? "bg-red-100 text-red-600 hover:bg-red-200"
+                              : "bg-gray-100 text-gray-400 hover:bg-gray-200"
+                          }`}
                         >
-                          {document.grade}
-                        </span>
+                          {libraryItem.isFavorite ? (
+                            <Heart className="h-4 w-4 fill-current" />
+                          ) : (
+                            <HeartOff className="h-4 w-4" />
+                          )}
+                        </button>
+                      </div>
+
+                      {/* Image du document */}
+                      {document.image && (
+                        <div className="mb-3 mt-6">
+                          <img
+                            src={document.image}
+                            alt={document.title}
+                            className="w-full h-32 object-cover rounded-lg"
+                            onError={(e) => {
+                              e.currentTarget.style.display = "none";
+                            }}
+                          />
+                        </div>
                       )}
-                    </div>
 
-                    {document.category && (
-                      <div className="mb-2">
-                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                          {document.category}
-                        </span>
+                      <div className="flex items-start justify-between mb-3 mt-8">
+                        <h5 className="font-semibold text-slate-900 line-clamp-2 flex-1 pr-2">
+                          {document.title}
+                        </h5>
+                        {document.grade && (
+                          <span
+                            className={`ml-2 px-2 py-1 text-xs font-medium border rounded-lg flex-shrink-0 ${getGradeColor(
+                              document.grade
+                            )}`}
+                          >
+                            {document.grade}
+                          </span>
+                        )}
                       </div>
-                    )}
 
-                    {document.description && (
-                      <p className="text-slate-600 text-sm line-clamp-2 mb-3">
-                        {document.description}
-                      </p>
-                    )}
-
-                    <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
-                      <div className="flex items-center">
-                        <Calendar className="h-3 w-3 mr-1" />
-                        <span>{formatDate(document.createdAt)}</span>
-                      </div>
-                      {document.liens.length > 0 && (
-                        <div className="flex items-center">
-                          <ExternalLink className="h-3 w-3 mr-1" />
-                          <span>
-                            {document.liens.length} lien
-                            {document.liens.length !== 1 ? "s" : ""}
+                      {document.category && (
+                        <div className="mb-2">
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                            {document.category}
                           </span>
                         </div>
                       )}
-                    </div>
 
-                    <div className="flex items-center space-x-2">
-                      <Link
-                        href={`/user/documents/${document.id}`}
-                        className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium text-center flex items-center justify-center space-x-1"
-                      >
-                        <Eye className="h-3 w-3" />
-                        <span>Voir</span>
-                      </Link>
-                      <Link
-                        href={`/admin/documents`}
-                        className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-2 rounded-lg transition-colors text-sm"
-                      >
-                        <Edit className="h-3 w-3" />
-                      </Link>
-                      <button
-                        onClick={() => deleteDocument(document.id)}
-                        className="bg-red-100 hover:bg-red-200 text-red-600 px-3 py-2 rounded-lg transition-colors text-sm"
-                      >
-                        <Trash2 className="h-3 w-3" />
-                      </button>
+                      {document.description && (
+                        <p className="text-slate-600 text-sm line-clamp-2 mb-3">
+                          {document.description}
+                        </p>
+                      )}
+
+                      <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                        <div className="flex items-center">
+                          <Calendar className="h-3 w-3 mr-1" />
+                          <span>
+                            Ajouté le {formatDate(libraryItem.addedAt)}
+                          </span>
+                        </div>
+                        {document.liens && document.liens.length > 0 && (
+                          <div className="flex items-center">
+                            <ExternalLink className="h-3 w-3 mr-1" />
+                            <span>
+                              {document.liens.length} lien
+                              {document.liens.length !== 1 ? "s" : ""}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex items-center space-x-2">
+                        <Link
+                          href={`/user/documents/${document.id}`}
+                          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors text-sm font-medium text-center flex items-center justify-center space-x-1"
+                        >
+                          <Eye className="h-3 w-3" />
+                          <span>Voir</span>
+                        </Link>
+                        <button
+                          onClick={() => removeFromLibrary(libraryItem.id)}
+                          className="bg-red-100 hover:bg-red-200 text-red-600 px-3 py-2 rounded-lg transition-colors text-sm"
+                          title="Retirer de la bibliothèque"
+                        >
+                          <Trash2 className="h-3 w-3" />
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
 
-            {documents.length > 6 && (
+            {libraryItems.length > 6 && (
               <div className="mt-6 text-center">
                 <Link
-                  href="/admin/documents"
+                  href="/user/library"
                   className="text-blue-600 hover:text-blue-700 font-medium"
                 >
-                  Voir tous les documents ({documents.length})
+                  Voir toute la bibliothèque ({libraryItems.length})
                 </Link>
               </div>
             )}
@@ -595,7 +686,8 @@ export default function DashboardPage() {
             </div>
             <div>
               <p className="text-slate-600">
-                <strong>Nombre de documents:</strong> {documents.length}
+                <strong>Documents dans la bibliothèque:</strong>{" "}
+                {libraryItems.length}
               </p>
             </div>
           </div>

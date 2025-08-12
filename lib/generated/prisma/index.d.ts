@@ -44,6 +44,11 @@ export type Documents = $Result.DefaultSelection<Prisma.$DocumentsPayload>
  */
 export type Links = $Result.DefaultSelection<Prisma.$LinksPayload>
 /**
+ * Model Library
+ * 
+ */
+export type Library = $Result.DefaultSelection<Prisma.$LibraryPayload>
+/**
  * Model Text
  * 
  */
@@ -276,6 +281,16 @@ export class PrismaClient<
     * ```
     */
   get links(): Prisma.LinksDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.library`: Exposes CRUD operations for the **Library** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Libraries
+    * const libraries = await prisma.library.findMany()
+    * ```
+    */
+  get library(): Prisma.LibraryDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.text`: Exposes CRUD operations for the **Text** model.
@@ -772,6 +787,7 @@ export namespace Prisma {
     Verification: 'Verification',
     Documents: 'Documents',
     Links: 'Links',
+    Library: 'Library',
     Text: 'Text',
     UserText: 'UserText',
     WordState: 'WordState',
@@ -795,7 +811,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification" | "documents" | "links" | "text" | "userText" | "wordState" | "userProgress" | "learningSession"
+      modelProps: "user" | "session" | "account" | "verification" | "documents" | "links" | "library" | "text" | "userText" | "wordState" | "userProgress" | "learningSession"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1240,6 +1256,80 @@ export namespace Prisma {
           count: {
             args: Prisma.LinksCountArgs<ExtArgs>
             result: $Utils.Optional<LinksCountAggregateOutputType> | number
+          }
+        }
+      }
+      Library: {
+        payload: Prisma.$LibraryPayload<ExtArgs>
+        fields: Prisma.LibraryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LibraryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LibraryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>
+          }
+          findFirst: {
+            args: Prisma.LibraryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LibraryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>
+          }
+          findMany: {
+            args: Prisma.LibraryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>[]
+          }
+          create: {
+            args: Prisma.LibraryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>
+          }
+          createMany: {
+            args: Prisma.LibraryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LibraryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>[]
+          }
+          delete: {
+            args: Prisma.LibraryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>
+          }
+          update: {
+            args: Prisma.LibraryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>
+          }
+          deleteMany: {
+            args: Prisma.LibraryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LibraryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LibraryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>[]
+          }
+          upsert: {
+            args: Prisma.LibraryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LibraryPayload>
+          }
+          aggregate: {
+            args: Prisma.LibraryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLibrary>
+          }
+          groupBy: {
+            args: Prisma.LibraryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LibraryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LibraryCountArgs<ExtArgs>
+            result: $Utils.Optional<LibraryCountAggregateOutputType> | number
           }
         }
       }
@@ -1703,6 +1793,7 @@ export namespace Prisma {
     verification?: VerificationOmit
     documents?: DocumentsOmit
     links?: LinksOmit
+    library?: LibraryOmit
     text?: TextOmit
     userText?: UserTextOmit
     wordState?: WordStateOmit
@@ -1810,6 +1901,7 @@ export namespace Prisma {
     wordStates: number
     userProgress: number
     learningSession: number
+    Library: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1821,6 +1913,7 @@ export namespace Prisma {
     wordStates?: boolean | UserCountOutputTypeCountWordStatesArgs
     userProgress?: boolean | UserCountOutputTypeCountUserProgressArgs
     learningSession?: boolean | UserCountOutputTypeCountLearningSessionArgs
+    Library?: boolean | UserCountOutputTypeCountLibraryArgs
   }
 
   // Custom InputTypes
@@ -1890,6 +1983,13 @@ export namespace Prisma {
     where?: LearningSessionWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountLibraryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LibraryWhereInput
+  }
+
 
   /**
    * Count Type DocumentsCountOutputType
@@ -1897,10 +1997,12 @@ export namespace Prisma {
 
   export type DocumentsCountOutputType = {
     liens: number
+    Library: number
   }
 
   export type DocumentsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     liens?: boolean | DocumentsCountOutputTypeCountLiensArgs
+    Library?: boolean | DocumentsCountOutputTypeCountLibraryArgs
   }
 
   // Custom InputTypes
@@ -1919,6 +2021,13 @@ export namespace Prisma {
    */
   export type DocumentsCountOutputTypeCountLiensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LinksWhereInput
+  }
+
+  /**
+   * DocumentsCountOutputType without action
+   */
+  export type DocumentsCountOutputTypeCountLibraryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LibraryWhereInput
   }
 
 
@@ -2185,6 +2294,7 @@ export namespace Prisma {
     wordStates?: boolean | User$wordStatesArgs<ExtArgs>
     userProgress?: boolean | User$userProgressArgs<ExtArgs>
     learningSession?: boolean | User$learningSessionArgs<ExtArgs>
+    Library?: boolean | User$LibraryArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2231,6 +2341,7 @@ export namespace Prisma {
     wordStates?: boolean | User$wordStatesArgs<ExtArgs>
     userProgress?: boolean | User$userProgressArgs<ExtArgs>
     learningSession?: boolean | User$learningSessionArgs<ExtArgs>
+    Library?: boolean | User$LibraryArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2247,6 +2358,7 @@ export namespace Prisma {
       wordStates: Prisma.$WordStatePayload<ExtArgs>[]
       userProgress: Prisma.$UserProgressPayload<ExtArgs>[]
       learningSession: Prisma.$LearningSessionPayload<ExtArgs>[]
+      Library: Prisma.$LibraryPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2659,6 +2771,7 @@ export namespace Prisma {
     wordStates<T extends User$wordStatesArgs<ExtArgs> = {}>(args?: Subset<T, User$wordStatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WordStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     userProgress<T extends User$userProgressArgs<ExtArgs> = {}>(args?: Subset<T, User$userProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     learningSession<T extends User$learningSessionArgs<ExtArgs> = {}>(args?: Subset<T, User$learningSessionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearningSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Library<T extends User$LibraryArgs<ExtArgs> = {}>(args?: Subset<T, User$LibraryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3273,6 +3386,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: LearningSessionScalarFieldEnum | LearningSessionScalarFieldEnum[]
+  }
+
+  /**
+   * User.Library
+   */
+  export type User$LibraryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    where?: LibraryWhereInput
+    orderBy?: LibraryOrderByWithRelationInput | LibraryOrderByWithRelationInput[]
+    cursor?: LibraryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LibraryScalarFieldEnum | LibraryScalarFieldEnum[]
   }
 
   /**
@@ -6809,6 +6946,7 @@ export namespace Prisma {
     userId?: boolean
     liens?: boolean | Documents$liensArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    Library?: boolean | Documents$LibraryArgs<ExtArgs>
     _count?: boolean | DocumentsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["documents"]>
 
@@ -6860,6 +6998,7 @@ export namespace Prisma {
   export type DocumentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     liens?: boolean | Documents$liensArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    Library?: boolean | Documents$LibraryArgs<ExtArgs>
     _count?: boolean | DocumentsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type DocumentsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6874,6 +7013,7 @@ export namespace Prisma {
     objects: {
       liens: Prisma.$LinksPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs>
+      Library: Prisma.$LibraryPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7283,6 +7423,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     liens<T extends Documents$liensArgs<ExtArgs> = {}>(args?: Subset<T, Documents$liensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Library<T extends Documents$LibraryArgs<ExtArgs> = {}>(args?: Subset<T, Documents$LibraryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7740,6 +7881,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: LinksScalarFieldEnum | LinksScalarFieldEnum[]
+  }
+
+  /**
+   * Documents.Library
+   */
+  export type Documents$LibraryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    where?: LibraryWhereInput
+    orderBy?: LibraryOrderByWithRelationInput | LibraryOrderByWithRelationInput[]
+    cursor?: LibraryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LibraryScalarFieldEnum | LibraryScalarFieldEnum[]
   }
 
   /**
@@ -8863,6 +9028,1085 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: LinksInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Library
+   */
+
+  export type AggregateLibrary = {
+    _count: LibraryCountAggregateOutputType | null
+    _min: LibraryMinAggregateOutputType | null
+    _max: LibraryMaxAggregateOutputType | null
+  }
+
+  export type LibraryMinAggregateOutputType = {
+    id: string | null
+    addedAt: Date | null
+    isFavorite: boolean | null
+    notes: string | null
+    userId: string | null
+    documentId: string | null
+  }
+
+  export type LibraryMaxAggregateOutputType = {
+    id: string | null
+    addedAt: Date | null
+    isFavorite: boolean | null
+    notes: string | null
+    userId: string | null
+    documentId: string | null
+  }
+
+  export type LibraryCountAggregateOutputType = {
+    id: number
+    addedAt: number
+    isFavorite: number
+    notes: number
+    userId: number
+    documentId: number
+    _all: number
+  }
+
+
+  export type LibraryMinAggregateInputType = {
+    id?: true
+    addedAt?: true
+    isFavorite?: true
+    notes?: true
+    userId?: true
+    documentId?: true
+  }
+
+  export type LibraryMaxAggregateInputType = {
+    id?: true
+    addedAt?: true
+    isFavorite?: true
+    notes?: true
+    userId?: true
+    documentId?: true
+  }
+
+  export type LibraryCountAggregateInputType = {
+    id?: true
+    addedAt?: true
+    isFavorite?: true
+    notes?: true
+    userId?: true
+    documentId?: true
+    _all?: true
+  }
+
+  export type LibraryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Library to aggregate.
+     */
+    where?: LibraryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Libraries to fetch.
+     */
+    orderBy?: LibraryOrderByWithRelationInput | LibraryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LibraryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Libraries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Libraries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Libraries
+    **/
+    _count?: true | LibraryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LibraryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LibraryMaxAggregateInputType
+  }
+
+  export type GetLibraryAggregateType<T extends LibraryAggregateArgs> = {
+        [P in keyof T & keyof AggregateLibrary]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLibrary[P]>
+      : GetScalarType<T[P], AggregateLibrary[P]>
+  }
+
+
+
+
+  export type LibraryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LibraryWhereInput
+    orderBy?: LibraryOrderByWithAggregationInput | LibraryOrderByWithAggregationInput[]
+    by: LibraryScalarFieldEnum[] | LibraryScalarFieldEnum
+    having?: LibraryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LibraryCountAggregateInputType | true
+    _min?: LibraryMinAggregateInputType
+    _max?: LibraryMaxAggregateInputType
+  }
+
+  export type LibraryGroupByOutputType = {
+    id: string
+    addedAt: Date
+    isFavorite: boolean
+    notes: string | null
+    userId: string
+    documentId: string
+    _count: LibraryCountAggregateOutputType | null
+    _min: LibraryMinAggregateOutputType | null
+    _max: LibraryMaxAggregateOutputType | null
+  }
+
+  type GetLibraryGroupByPayload<T extends LibraryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LibraryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LibraryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LibraryGroupByOutputType[P]>
+            : GetScalarType<T[P], LibraryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LibrarySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    addedAt?: boolean
+    isFavorite?: boolean
+    notes?: boolean
+    userId?: boolean
+    documentId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["library"]>
+
+  export type LibrarySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    addedAt?: boolean
+    isFavorite?: boolean
+    notes?: boolean
+    userId?: boolean
+    documentId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["library"]>
+
+  export type LibrarySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    addedAt?: boolean
+    isFavorite?: boolean
+    notes?: boolean
+    userId?: boolean
+    documentId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["library"]>
+
+  export type LibrarySelectScalar = {
+    id?: boolean
+    addedAt?: boolean
+    isFavorite?: boolean
+    notes?: boolean
+    userId?: boolean
+    documentId?: boolean
+  }
+
+  export type LibraryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "addedAt" | "isFavorite" | "notes" | "userId" | "documentId", ExtArgs["result"]["library"]>
+  export type LibraryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }
+  export type LibraryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }
+  export type LibraryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    document?: boolean | DocumentsDefaultArgs<ExtArgs>
+  }
+
+  export type $LibraryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Library"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      document: Prisma.$DocumentsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      addedAt: Date
+      isFavorite: boolean
+      notes: string | null
+      userId: string
+      documentId: string
+    }, ExtArgs["result"]["library"]>
+    composites: {}
+  }
+
+  type LibraryGetPayload<S extends boolean | null | undefined | LibraryDefaultArgs> = $Result.GetResult<Prisma.$LibraryPayload, S>
+
+  type LibraryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LibraryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LibraryCountAggregateInputType | true
+    }
+
+  export interface LibraryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Library'], meta: { name: 'Library' } }
+    /**
+     * Find zero or one Library that matches the filter.
+     * @param {LibraryFindUniqueArgs} args - Arguments to find a Library
+     * @example
+     * // Get one Library
+     * const library = await prisma.library.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LibraryFindUniqueArgs>(args: SelectSubset<T, LibraryFindUniqueArgs<ExtArgs>>): Prisma__LibraryClient<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Library that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LibraryFindUniqueOrThrowArgs} args - Arguments to find a Library
+     * @example
+     * // Get one Library
+     * const library = await prisma.library.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LibraryFindUniqueOrThrowArgs>(args: SelectSubset<T, LibraryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LibraryClient<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Library that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LibraryFindFirstArgs} args - Arguments to find a Library
+     * @example
+     * // Get one Library
+     * const library = await prisma.library.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LibraryFindFirstArgs>(args?: SelectSubset<T, LibraryFindFirstArgs<ExtArgs>>): Prisma__LibraryClient<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Library that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LibraryFindFirstOrThrowArgs} args - Arguments to find a Library
+     * @example
+     * // Get one Library
+     * const library = await prisma.library.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LibraryFindFirstOrThrowArgs>(args?: SelectSubset<T, LibraryFindFirstOrThrowArgs<ExtArgs>>): Prisma__LibraryClient<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Libraries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LibraryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Libraries
+     * const libraries = await prisma.library.findMany()
+     * 
+     * // Get first 10 Libraries
+     * const libraries = await prisma.library.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const libraryWithIdOnly = await prisma.library.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LibraryFindManyArgs>(args?: SelectSubset<T, LibraryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Library.
+     * @param {LibraryCreateArgs} args - Arguments to create a Library.
+     * @example
+     * // Create one Library
+     * const Library = await prisma.library.create({
+     *   data: {
+     *     // ... data to create a Library
+     *   }
+     * })
+     * 
+     */
+    create<T extends LibraryCreateArgs>(args: SelectSubset<T, LibraryCreateArgs<ExtArgs>>): Prisma__LibraryClient<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Libraries.
+     * @param {LibraryCreateManyArgs} args - Arguments to create many Libraries.
+     * @example
+     * // Create many Libraries
+     * const library = await prisma.library.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LibraryCreateManyArgs>(args?: SelectSubset<T, LibraryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Libraries and returns the data saved in the database.
+     * @param {LibraryCreateManyAndReturnArgs} args - Arguments to create many Libraries.
+     * @example
+     * // Create many Libraries
+     * const library = await prisma.library.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Libraries and only return the `id`
+     * const libraryWithIdOnly = await prisma.library.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LibraryCreateManyAndReturnArgs>(args?: SelectSubset<T, LibraryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Library.
+     * @param {LibraryDeleteArgs} args - Arguments to delete one Library.
+     * @example
+     * // Delete one Library
+     * const Library = await prisma.library.delete({
+     *   where: {
+     *     // ... filter to delete one Library
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LibraryDeleteArgs>(args: SelectSubset<T, LibraryDeleteArgs<ExtArgs>>): Prisma__LibraryClient<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Library.
+     * @param {LibraryUpdateArgs} args - Arguments to update one Library.
+     * @example
+     * // Update one Library
+     * const library = await prisma.library.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LibraryUpdateArgs>(args: SelectSubset<T, LibraryUpdateArgs<ExtArgs>>): Prisma__LibraryClient<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Libraries.
+     * @param {LibraryDeleteManyArgs} args - Arguments to filter Libraries to delete.
+     * @example
+     * // Delete a few Libraries
+     * const { count } = await prisma.library.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LibraryDeleteManyArgs>(args?: SelectSubset<T, LibraryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Libraries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LibraryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Libraries
+     * const library = await prisma.library.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LibraryUpdateManyArgs>(args: SelectSubset<T, LibraryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Libraries and returns the data updated in the database.
+     * @param {LibraryUpdateManyAndReturnArgs} args - Arguments to update many Libraries.
+     * @example
+     * // Update many Libraries
+     * const library = await prisma.library.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Libraries and only return the `id`
+     * const libraryWithIdOnly = await prisma.library.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LibraryUpdateManyAndReturnArgs>(args: SelectSubset<T, LibraryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Library.
+     * @param {LibraryUpsertArgs} args - Arguments to update or create a Library.
+     * @example
+     * // Update or create a Library
+     * const library = await prisma.library.upsert({
+     *   create: {
+     *     // ... data to create a Library
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Library we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LibraryUpsertArgs>(args: SelectSubset<T, LibraryUpsertArgs<ExtArgs>>): Prisma__LibraryClient<$Result.GetResult<Prisma.$LibraryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Libraries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LibraryCountArgs} args - Arguments to filter Libraries to count.
+     * @example
+     * // Count the number of Libraries
+     * const count = await prisma.library.count({
+     *   where: {
+     *     // ... the filter for the Libraries we want to count
+     *   }
+     * })
+    **/
+    count<T extends LibraryCountArgs>(
+      args?: Subset<T, LibraryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LibraryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Library.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LibraryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LibraryAggregateArgs>(args: Subset<T, LibraryAggregateArgs>): Prisma.PrismaPromise<GetLibraryAggregateType<T>>
+
+    /**
+     * Group by Library.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LibraryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LibraryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LibraryGroupByArgs['orderBy'] }
+        : { orderBy?: LibraryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LibraryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLibraryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Library model
+   */
+  readonly fields: LibraryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Library.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LibraryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    document<T extends DocumentsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DocumentsDefaultArgs<ExtArgs>>): Prisma__DocumentsClient<$Result.GetResult<Prisma.$DocumentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Library model
+   */
+  interface LibraryFieldRefs {
+    readonly id: FieldRef<"Library", 'String'>
+    readonly addedAt: FieldRef<"Library", 'DateTime'>
+    readonly isFavorite: FieldRef<"Library", 'Boolean'>
+    readonly notes: FieldRef<"Library", 'String'>
+    readonly userId: FieldRef<"Library", 'String'>
+    readonly documentId: FieldRef<"Library", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Library findUnique
+   */
+  export type LibraryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * Filter, which Library to fetch.
+     */
+    where: LibraryWhereUniqueInput
+  }
+
+  /**
+   * Library findUniqueOrThrow
+   */
+  export type LibraryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * Filter, which Library to fetch.
+     */
+    where: LibraryWhereUniqueInput
+  }
+
+  /**
+   * Library findFirst
+   */
+  export type LibraryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * Filter, which Library to fetch.
+     */
+    where?: LibraryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Libraries to fetch.
+     */
+    orderBy?: LibraryOrderByWithRelationInput | LibraryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Libraries.
+     */
+    cursor?: LibraryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Libraries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Libraries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Libraries.
+     */
+    distinct?: LibraryScalarFieldEnum | LibraryScalarFieldEnum[]
+  }
+
+  /**
+   * Library findFirstOrThrow
+   */
+  export type LibraryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * Filter, which Library to fetch.
+     */
+    where?: LibraryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Libraries to fetch.
+     */
+    orderBy?: LibraryOrderByWithRelationInput | LibraryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Libraries.
+     */
+    cursor?: LibraryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Libraries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Libraries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Libraries.
+     */
+    distinct?: LibraryScalarFieldEnum | LibraryScalarFieldEnum[]
+  }
+
+  /**
+   * Library findMany
+   */
+  export type LibraryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * Filter, which Libraries to fetch.
+     */
+    where?: LibraryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Libraries to fetch.
+     */
+    orderBy?: LibraryOrderByWithRelationInput | LibraryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Libraries.
+     */
+    cursor?: LibraryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Libraries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Libraries.
+     */
+    skip?: number
+    distinct?: LibraryScalarFieldEnum | LibraryScalarFieldEnum[]
+  }
+
+  /**
+   * Library create
+   */
+  export type LibraryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Library.
+     */
+    data: XOR<LibraryCreateInput, LibraryUncheckedCreateInput>
+  }
+
+  /**
+   * Library createMany
+   */
+  export type LibraryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Libraries.
+     */
+    data: LibraryCreateManyInput | LibraryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Library createManyAndReturn
+   */
+  export type LibraryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * The data used to create many Libraries.
+     */
+    data: LibraryCreateManyInput | LibraryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Library update
+   */
+  export type LibraryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Library.
+     */
+    data: XOR<LibraryUpdateInput, LibraryUncheckedUpdateInput>
+    /**
+     * Choose, which Library to update.
+     */
+    where: LibraryWhereUniqueInput
+  }
+
+  /**
+   * Library updateMany
+   */
+  export type LibraryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Libraries.
+     */
+    data: XOR<LibraryUpdateManyMutationInput, LibraryUncheckedUpdateManyInput>
+    /**
+     * Filter which Libraries to update
+     */
+    where?: LibraryWhereInput
+    /**
+     * Limit how many Libraries to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Library updateManyAndReturn
+   */
+  export type LibraryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * The data used to update Libraries.
+     */
+    data: XOR<LibraryUpdateManyMutationInput, LibraryUncheckedUpdateManyInput>
+    /**
+     * Filter which Libraries to update
+     */
+    where?: LibraryWhereInput
+    /**
+     * Limit how many Libraries to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Library upsert
+   */
+  export type LibraryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Library to update in case it exists.
+     */
+    where: LibraryWhereUniqueInput
+    /**
+     * In case the Library found by the `where` argument doesn't exist, create a new Library with this data.
+     */
+    create: XOR<LibraryCreateInput, LibraryUncheckedCreateInput>
+    /**
+     * In case the Library was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LibraryUpdateInput, LibraryUncheckedUpdateInput>
+  }
+
+  /**
+   * Library delete
+   */
+  export type LibraryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
+    /**
+     * Filter which Library to delete.
+     */
+    where: LibraryWhereUniqueInput
+  }
+
+  /**
+   * Library deleteMany
+   */
+  export type LibraryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Libraries to delete
+     */
+    where?: LibraryWhereInput
+    /**
+     * Limit how many Libraries to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Library without action
+   */
+  export type LibraryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Library
+     */
+    select?: LibrarySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Library
+     */
+    omit?: LibraryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LibraryInclude<ExtArgs> | null
   }
 
 
@@ -14751,6 +15995,18 @@ export namespace Prisma {
   export type LinksScalarFieldEnum = (typeof LinksScalarFieldEnum)[keyof typeof LinksScalarFieldEnum]
 
 
+  export const LibraryScalarFieldEnum: {
+    id: 'id',
+    addedAt: 'addedAt',
+    isFavorite: 'isFavorite',
+    notes: 'notes',
+    userId: 'userId',
+    documentId: 'documentId'
+  };
+
+  export type LibraryScalarFieldEnum = (typeof LibraryScalarFieldEnum)[keyof typeof LibraryScalarFieldEnum]
+
+
   export const TextScalarFieldEnum: {
     id: 'id',
     title: 'title',
@@ -14948,6 +16204,7 @@ export namespace Prisma {
     wordStates?: WordStateListRelationFilter
     userProgress?: UserProgressListRelationFilter
     learningSession?: LearningSessionListRelationFilter
+    Library?: LibraryListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -14967,6 +16224,7 @@ export namespace Prisma {
     wordStates?: WordStateOrderByRelationAggregateInput
     userProgress?: UserProgressOrderByRelationAggregateInput
     learningSession?: LearningSessionOrderByRelationAggregateInput
+    Library?: LibraryOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -14989,6 +16247,7 @@ export namespace Prisma {
     wordStates?: WordStateListRelationFilter
     userProgress?: UserProgressListRelationFilter
     learningSession?: LearningSessionListRelationFilter
+    Library?: LibraryListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -15258,6 +16517,7 @@ export namespace Prisma {
     userId?: StringFilter<"Documents"> | string
     liens?: LinksListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    Library?: LibraryListRelationFilter
   }
 
   export type DocumentsOrderByWithRelationInput = {
@@ -15274,6 +16534,7 @@ export namespace Prisma {
     userId?: SortOrder
     liens?: LinksOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
+    Library?: LibraryOrderByRelationAggregateInput
   }
 
   export type DocumentsWhereUniqueInput = Prisma.AtLeast<{
@@ -15293,6 +16554,7 @@ export namespace Prisma {
     userId?: StringFilter<"Documents"> | string
     liens?: LinksListRelationFilter
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    Library?: LibraryListRelationFilter
   }, "id">
 
   export type DocumentsOrderByWithAggregationInput = {
@@ -15391,6 +16653,70 @@ export namespace Prisma {
     order?: IntNullableWithAggregatesFilter<"Links"> | number | null
     description?: StringNullableWithAggregatesFilter<"Links"> | string | null
     documentId?: StringWithAggregatesFilter<"Links"> | string
+  }
+
+  export type LibraryWhereInput = {
+    AND?: LibraryWhereInput | LibraryWhereInput[]
+    OR?: LibraryWhereInput[]
+    NOT?: LibraryWhereInput | LibraryWhereInput[]
+    id?: StringFilter<"Library"> | string
+    addedAt?: DateTimeFilter<"Library"> | Date | string
+    isFavorite?: BoolFilter<"Library"> | boolean
+    notes?: StringNullableFilter<"Library"> | string | null
+    userId?: StringFilter<"Library"> | string
+    documentId?: StringFilter<"Library"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    document?: XOR<DocumentsScalarRelationFilter, DocumentsWhereInput>
+  }
+
+  export type LibraryOrderByWithRelationInput = {
+    id?: SortOrder
+    addedAt?: SortOrder
+    isFavorite?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    documentId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    document?: DocumentsOrderByWithRelationInput
+  }
+
+  export type LibraryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_documentId?: LibraryUserIdDocumentIdCompoundUniqueInput
+    AND?: LibraryWhereInput | LibraryWhereInput[]
+    OR?: LibraryWhereInput[]
+    NOT?: LibraryWhereInput | LibraryWhereInput[]
+    addedAt?: DateTimeFilter<"Library"> | Date | string
+    isFavorite?: BoolFilter<"Library"> | boolean
+    notes?: StringNullableFilter<"Library"> | string | null
+    userId?: StringFilter<"Library"> | string
+    documentId?: StringFilter<"Library"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    document?: XOR<DocumentsScalarRelationFilter, DocumentsWhereInput>
+  }, "id" | "userId_documentId">
+
+  export type LibraryOrderByWithAggregationInput = {
+    id?: SortOrder
+    addedAt?: SortOrder
+    isFavorite?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    documentId?: SortOrder
+    _count?: LibraryCountOrderByAggregateInput
+    _max?: LibraryMaxOrderByAggregateInput
+    _min?: LibraryMinOrderByAggregateInput
+  }
+
+  export type LibraryScalarWhereWithAggregatesInput = {
+    AND?: LibraryScalarWhereWithAggregatesInput | LibraryScalarWhereWithAggregatesInput[]
+    OR?: LibraryScalarWhereWithAggregatesInput[]
+    NOT?: LibraryScalarWhereWithAggregatesInput | LibraryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Library"> | string
+    addedAt?: DateTimeWithAggregatesFilter<"Library"> | Date | string
+    isFavorite?: BoolWithAggregatesFilter<"Library"> | boolean
+    notes?: StringNullableWithAggregatesFilter<"Library"> | string | null
+    userId?: StringWithAggregatesFilter<"Library"> | string
+    documentId?: StringWithAggregatesFilter<"Library"> | string
   }
 
   export type TextWhereInput = {
@@ -15785,6 +17111,7 @@ export namespace Prisma {
     wordStates?: WordStateCreateNestedManyWithoutUserInput
     userProgress?: UserProgressCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -15804,6 +17131,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
     userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -15823,6 +17151,7 @@ export namespace Prisma {
     wordStates?: WordStateUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -15842,6 +17171,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -16140,6 +17470,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     liens?: LinksCreateNestedManyWithoutDocumentInput
     user: UserCreateNestedOneWithoutDocumentsInput
+    Library?: LibraryCreateNestedManyWithoutDocumentInput
   }
 
   export type DocumentsUncheckedCreateInput = {
@@ -16155,6 +17486,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     userId: string
     liens?: LinksUncheckedCreateNestedManyWithoutDocumentInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutDocumentInput
   }
 
   export type DocumentsUpdateInput = {
@@ -16170,6 +17502,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     liens?: LinksUpdateManyWithoutDocumentNestedInput
     user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+    Library?: LibraryUpdateManyWithoutDocumentNestedInput
   }
 
   export type DocumentsUncheckedUpdateInput = {
@@ -16185,6 +17518,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
     liens?: LinksUncheckedUpdateManyWithoutDocumentNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutDocumentNestedInput
   }
 
   export type DocumentsCreateManyInput = {
@@ -16287,6 +17621,67 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     order?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    documentId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LibraryCreateInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    user: UserCreateNestedOneWithoutLibraryInput
+    document: DocumentsCreateNestedOneWithoutLibraryInput
+  }
+
+  export type LibraryUncheckedCreateInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    userId: string
+    documentId: string
+  }
+
+  export type LibraryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutLibraryNestedInput
+    document?: DocumentsUpdateOneRequiredWithoutLibraryNestedInput
+  }
+
+  export type LibraryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    documentId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LibraryCreateManyInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    userId: string
+    documentId: string
+  }
+
+  export type LibraryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LibraryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
     documentId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -16776,6 +18171,12 @@ export namespace Prisma {
     none?: LearningSessionWhereInput
   }
 
+  export type LibraryListRelationFilter = {
+    every?: LibraryWhereInput
+    some?: LibraryWhereInput
+    none?: LibraryWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -16810,6 +18211,10 @@ export namespace Prisma {
   }
 
   export type LearningSessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LibraryOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -17165,6 +18570,38 @@ export namespace Prisma {
 
   export type LinksSumOrderByAggregateInput = {
     order?: SortOrder
+  }
+
+  export type LibraryUserIdDocumentIdCompoundUniqueInput = {
+    userId: string
+    documentId: string
+  }
+
+  export type LibraryCountOrderByAggregateInput = {
+    id?: SortOrder
+    addedAt?: SortOrder
+    isFavorite?: SortOrder
+    notes?: SortOrder
+    userId?: SortOrder
+    documentId?: SortOrder
+  }
+
+  export type LibraryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    addedAt?: SortOrder
+    isFavorite?: SortOrder
+    notes?: SortOrder
+    userId?: SortOrder
+    documentId?: SortOrder
+  }
+
+  export type LibraryMinOrderByAggregateInput = {
+    id?: SortOrder
+    addedAt?: SortOrder
+    isFavorite?: SortOrder
+    notes?: SortOrder
+    userId?: SortOrder
+    documentId?: SortOrder
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -17535,6 +18972,13 @@ export namespace Prisma {
     connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
   }
 
+  export type LibraryCreateNestedManyWithoutUserInput = {
+    create?: XOR<LibraryCreateWithoutUserInput, LibraryUncheckedCreateWithoutUserInput> | LibraryCreateWithoutUserInput[] | LibraryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LibraryCreateOrConnectWithoutUserInput | LibraryCreateOrConnectWithoutUserInput[]
+    createMany?: LibraryCreateManyUserInputEnvelope
+    connect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -17588,6 +19032,13 @@ export namespace Prisma {
     connectOrCreate?: LearningSessionCreateOrConnectWithoutUserInput | LearningSessionCreateOrConnectWithoutUserInput[]
     createMany?: LearningSessionCreateManyUserInputEnvelope
     connect?: LearningSessionWhereUniqueInput | LearningSessionWhereUniqueInput[]
+  }
+
+  export type LibraryUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<LibraryCreateWithoutUserInput, LibraryUncheckedCreateWithoutUserInput> | LibraryCreateWithoutUserInput[] | LibraryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LibraryCreateOrConnectWithoutUserInput | LibraryCreateOrConnectWithoutUserInput[]
+    createMany?: LibraryCreateManyUserInputEnvelope
+    connect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -17722,6 +19173,20 @@ export namespace Prisma {
     deleteMany?: LearningSessionScalarWhereInput | LearningSessionScalarWhereInput[]
   }
 
+  export type LibraryUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LibraryCreateWithoutUserInput, LibraryUncheckedCreateWithoutUserInput> | LibraryCreateWithoutUserInput[] | LibraryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LibraryCreateOrConnectWithoutUserInput | LibraryCreateOrConnectWithoutUserInput[]
+    upsert?: LibraryUpsertWithWhereUniqueWithoutUserInput | LibraryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LibraryCreateManyUserInputEnvelope
+    set?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    disconnect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    delete?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    connect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    update?: LibraryUpdateWithWhereUniqueWithoutUserInput | LibraryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LibraryUpdateManyWithWhereWithoutUserInput | LibraryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LibraryScalarWhereInput | LibraryScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -17833,6 +19298,20 @@ export namespace Prisma {
     deleteMany?: LearningSessionScalarWhereInput | LearningSessionScalarWhereInput[]
   }
 
+  export type LibraryUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LibraryCreateWithoutUserInput, LibraryUncheckedCreateWithoutUserInput> | LibraryCreateWithoutUserInput[] | LibraryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LibraryCreateOrConnectWithoutUserInput | LibraryCreateOrConnectWithoutUserInput[]
+    upsert?: LibraryUpsertWithWhereUniqueWithoutUserInput | LibraryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LibraryCreateManyUserInputEnvelope
+    set?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    disconnect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    delete?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    connect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    update?: LibraryUpdateWithWhereUniqueWithoutUserInput | LibraryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LibraryUpdateManyWithWhereWithoutUserInput | LibraryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LibraryScalarWhereInput | LibraryScalarWhereInput[]
+  }
+
   export type UserCreateNestedOneWithoutSessionsInput = {
     create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
     connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
@@ -17878,11 +19357,25 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
+  export type LibraryCreateNestedManyWithoutDocumentInput = {
+    create?: XOR<LibraryCreateWithoutDocumentInput, LibraryUncheckedCreateWithoutDocumentInput> | LibraryCreateWithoutDocumentInput[] | LibraryUncheckedCreateWithoutDocumentInput[]
+    connectOrCreate?: LibraryCreateOrConnectWithoutDocumentInput | LibraryCreateOrConnectWithoutDocumentInput[]
+    createMany?: LibraryCreateManyDocumentInputEnvelope
+    connect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+  }
+
   export type LinksUncheckedCreateNestedManyWithoutDocumentInput = {
     create?: XOR<LinksCreateWithoutDocumentInput, LinksUncheckedCreateWithoutDocumentInput> | LinksCreateWithoutDocumentInput[] | LinksUncheckedCreateWithoutDocumentInput[]
     connectOrCreate?: LinksCreateOrConnectWithoutDocumentInput | LinksCreateOrConnectWithoutDocumentInput[]
     createMany?: LinksCreateManyDocumentInputEnvelope
     connect?: LinksWhereUniqueInput | LinksWhereUniqueInput[]
+  }
+
+  export type LibraryUncheckedCreateNestedManyWithoutDocumentInput = {
+    create?: XOR<LibraryCreateWithoutDocumentInput, LibraryUncheckedCreateWithoutDocumentInput> | LibraryCreateWithoutDocumentInput[] | LibraryUncheckedCreateWithoutDocumentInput[]
+    connectOrCreate?: LibraryCreateOrConnectWithoutDocumentInput | LibraryCreateOrConnectWithoutDocumentInput[]
+    createMany?: LibraryCreateManyDocumentInputEnvelope
+    connect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -17915,6 +19408,20 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutDocumentsInput, UserUpdateWithoutDocumentsInput>, UserUncheckedUpdateWithoutDocumentsInput>
   }
 
+  export type LibraryUpdateManyWithoutDocumentNestedInput = {
+    create?: XOR<LibraryCreateWithoutDocumentInput, LibraryUncheckedCreateWithoutDocumentInput> | LibraryCreateWithoutDocumentInput[] | LibraryUncheckedCreateWithoutDocumentInput[]
+    connectOrCreate?: LibraryCreateOrConnectWithoutDocumentInput | LibraryCreateOrConnectWithoutDocumentInput[]
+    upsert?: LibraryUpsertWithWhereUniqueWithoutDocumentInput | LibraryUpsertWithWhereUniqueWithoutDocumentInput[]
+    createMany?: LibraryCreateManyDocumentInputEnvelope
+    set?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    disconnect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    delete?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    connect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    update?: LibraryUpdateWithWhereUniqueWithoutDocumentInput | LibraryUpdateWithWhereUniqueWithoutDocumentInput[]
+    updateMany?: LibraryUpdateManyWithWhereWithoutDocumentInput | LibraryUpdateManyWithWhereWithoutDocumentInput[]
+    deleteMany?: LibraryScalarWhereInput | LibraryScalarWhereInput[]
+  }
+
   export type LinksUncheckedUpdateManyWithoutDocumentNestedInput = {
     create?: XOR<LinksCreateWithoutDocumentInput, LinksUncheckedCreateWithoutDocumentInput> | LinksCreateWithoutDocumentInput[] | LinksUncheckedCreateWithoutDocumentInput[]
     connectOrCreate?: LinksCreateOrConnectWithoutDocumentInput | LinksCreateOrConnectWithoutDocumentInput[]
@@ -17929,6 +19436,20 @@ export namespace Prisma {
     deleteMany?: LinksScalarWhereInput | LinksScalarWhereInput[]
   }
 
+  export type LibraryUncheckedUpdateManyWithoutDocumentNestedInput = {
+    create?: XOR<LibraryCreateWithoutDocumentInput, LibraryUncheckedCreateWithoutDocumentInput> | LibraryCreateWithoutDocumentInput[] | LibraryUncheckedCreateWithoutDocumentInput[]
+    connectOrCreate?: LibraryCreateOrConnectWithoutDocumentInput | LibraryCreateOrConnectWithoutDocumentInput[]
+    upsert?: LibraryUpsertWithWhereUniqueWithoutDocumentInput | LibraryUpsertWithWhereUniqueWithoutDocumentInput[]
+    createMany?: LibraryCreateManyDocumentInputEnvelope
+    set?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    disconnect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    delete?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    connect?: LibraryWhereUniqueInput | LibraryWhereUniqueInput[]
+    update?: LibraryUpdateWithWhereUniqueWithoutDocumentInput | LibraryUpdateWithWhereUniqueWithoutDocumentInput[]
+    updateMany?: LibraryUpdateManyWithWhereWithoutDocumentInput | LibraryUpdateManyWithWhereWithoutDocumentInput[]
+    deleteMany?: LibraryScalarWhereInput | LibraryScalarWhereInput[]
+  }
+
   export type DocumentsCreateNestedOneWithoutLiensInput = {
     create?: XOR<DocumentsCreateWithoutLiensInput, DocumentsUncheckedCreateWithoutLiensInput>
     connectOrCreate?: DocumentsCreateOrConnectWithoutLiensInput
@@ -17941,6 +19462,34 @@ export namespace Prisma {
     upsert?: DocumentsUpsertWithoutLiensInput
     connect?: DocumentsWhereUniqueInput
     update?: XOR<XOR<DocumentsUpdateToOneWithWhereWithoutLiensInput, DocumentsUpdateWithoutLiensInput>, DocumentsUncheckedUpdateWithoutLiensInput>
+  }
+
+  export type UserCreateNestedOneWithoutLibraryInput = {
+    create?: XOR<UserCreateWithoutLibraryInput, UserUncheckedCreateWithoutLibraryInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLibraryInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type DocumentsCreateNestedOneWithoutLibraryInput = {
+    create?: XOR<DocumentsCreateWithoutLibraryInput, DocumentsUncheckedCreateWithoutLibraryInput>
+    connectOrCreate?: DocumentsCreateOrConnectWithoutLibraryInput
+    connect?: DocumentsWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutLibraryNestedInput = {
+    create?: XOR<UserCreateWithoutLibraryInput, UserUncheckedCreateWithoutLibraryInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLibraryInput
+    upsert?: UserUpsertWithoutLibraryInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLibraryInput, UserUpdateWithoutLibraryInput>, UserUncheckedUpdateWithoutLibraryInput>
+  }
+
+  export type DocumentsUpdateOneRequiredWithoutLibraryNestedInput = {
+    create?: XOR<DocumentsCreateWithoutLibraryInput, DocumentsUncheckedCreateWithoutLibraryInput>
+    connectOrCreate?: DocumentsCreateOrConnectWithoutLibraryInput
+    upsert?: DocumentsUpsertWithoutLibraryInput
+    connect?: DocumentsWhereUniqueInput
+    update?: XOR<XOR<DocumentsUpdateToOneWithWhereWithoutLibraryInput, DocumentsUpdateWithoutLibraryInput>, DocumentsUncheckedUpdateWithoutLibraryInput>
   }
 
   export type UserTextCreateNestedManyWithoutTextInput = {
@@ -18597,6 +20146,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     liens?: LinksCreateNestedManyWithoutDocumentInput
+    Library?: LibraryCreateNestedManyWithoutDocumentInput
   }
 
   export type DocumentsUncheckedCreateWithoutUserInput = {
@@ -18611,6 +20161,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     liens?: LinksUncheckedCreateNestedManyWithoutDocumentInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutDocumentInput
   }
 
   export type DocumentsCreateOrConnectWithoutUserInput = {
@@ -18771,6 +20322,32 @@ export namespace Prisma {
 
   export type LearningSessionCreateManyUserInputEnvelope = {
     data: LearningSessionCreateManyUserInput | LearningSessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LibraryCreateWithoutUserInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    document: DocumentsCreateNestedOneWithoutLibraryInput
+  }
+
+  export type LibraryUncheckedCreateWithoutUserInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    documentId: string
+  }
+
+  export type LibraryCreateOrConnectWithoutUserInput = {
+    where: LibraryWhereUniqueInput
+    create: XOR<LibraryCreateWithoutUserInput, LibraryUncheckedCreateWithoutUserInput>
+  }
+
+  export type LibraryCreateManyUserInputEnvelope = {
+    data: LibraryCreateManyUserInput | LibraryCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -19020,6 +20597,34 @@ export namespace Prisma {
     textId?: StringFilter<"LearningSession"> | string
   }
 
+  export type LibraryUpsertWithWhereUniqueWithoutUserInput = {
+    where: LibraryWhereUniqueInput
+    update: XOR<LibraryUpdateWithoutUserInput, LibraryUncheckedUpdateWithoutUserInput>
+    create: XOR<LibraryCreateWithoutUserInput, LibraryUncheckedCreateWithoutUserInput>
+  }
+
+  export type LibraryUpdateWithWhereUniqueWithoutUserInput = {
+    where: LibraryWhereUniqueInput
+    data: XOR<LibraryUpdateWithoutUserInput, LibraryUncheckedUpdateWithoutUserInput>
+  }
+
+  export type LibraryUpdateManyWithWhereWithoutUserInput = {
+    where: LibraryScalarWhereInput
+    data: XOR<LibraryUpdateManyMutationInput, LibraryUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type LibraryScalarWhereInput = {
+    AND?: LibraryScalarWhereInput | LibraryScalarWhereInput[]
+    OR?: LibraryScalarWhereInput[]
+    NOT?: LibraryScalarWhereInput | LibraryScalarWhereInput[]
+    id?: StringFilter<"Library"> | string
+    addedAt?: DateTimeFilter<"Library"> | Date | string
+    isFavorite?: BoolFilter<"Library"> | boolean
+    notes?: StringNullableFilter<"Library"> | string | null
+    userId?: StringFilter<"Library"> | string
+    documentId?: StringFilter<"Library"> | string
+  }
+
   export type UserCreateWithoutSessionsInput = {
     id?: string
     name: string
@@ -19036,6 +20641,7 @@ export namespace Prisma {
     wordStates?: WordStateCreateNestedManyWithoutUserInput
     userProgress?: UserProgressCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -19054,6 +20660,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
     userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -19088,6 +20695,7 @@ export namespace Prisma {
     wordStates?: WordStateUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -19106,6 +20714,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -19124,6 +20733,7 @@ export namespace Prisma {
     wordStates?: WordStateCreateNestedManyWithoutUserInput
     userProgress?: UserProgressCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -19142,6 +20752,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
     userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -19176,6 +20787,7 @@ export namespace Prisma {
     wordStates?: WordStateUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -19194,6 +20806,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type LinksCreateWithoutDocumentInput = {
@@ -19238,6 +20851,7 @@ export namespace Prisma {
     wordStates?: WordStateCreateNestedManyWithoutUserInput
     userProgress?: UserProgressCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutDocumentsInput = {
@@ -19256,11 +20870,38 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
     userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutDocumentsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+  }
+
+  export type LibraryCreateWithoutDocumentInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    user: UserCreateNestedOneWithoutLibraryInput
+  }
+
+  export type LibraryUncheckedCreateWithoutDocumentInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    userId: string
+  }
+
+  export type LibraryCreateOrConnectWithoutDocumentInput = {
+    where: LibraryWhereUniqueInput
+    create: XOR<LibraryCreateWithoutDocumentInput, LibraryUncheckedCreateWithoutDocumentInput>
+  }
+
+  export type LibraryCreateManyDocumentInputEnvelope = {
+    data: LibraryCreateManyDocumentInput | LibraryCreateManyDocumentInput[]
+    skipDuplicates?: boolean
   }
 
   export type LinksUpsertWithWhereUniqueWithoutDocumentInput = {
@@ -19318,6 +20959,7 @@ export namespace Prisma {
     wordStates?: WordStateUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutDocumentsInput = {
@@ -19336,6 +20978,23 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type LibraryUpsertWithWhereUniqueWithoutDocumentInput = {
+    where: LibraryWhereUniqueInput
+    update: XOR<LibraryUpdateWithoutDocumentInput, LibraryUncheckedUpdateWithoutDocumentInput>
+    create: XOR<LibraryCreateWithoutDocumentInput, LibraryUncheckedCreateWithoutDocumentInput>
+  }
+
+  export type LibraryUpdateWithWhereUniqueWithoutDocumentInput = {
+    where: LibraryWhereUniqueInput
+    data: XOR<LibraryUpdateWithoutDocumentInput, LibraryUncheckedUpdateWithoutDocumentInput>
+  }
+
+  export type LibraryUpdateManyWithWhereWithoutDocumentInput = {
+    where: LibraryScalarWhereInput
+    data: XOR<LibraryUpdateManyMutationInput, LibraryUncheckedUpdateManyWithoutDocumentInput>
   }
 
   export type DocumentsCreateWithoutLiensInput = {
@@ -19350,6 +21009,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutDocumentsInput
+    Library?: LibraryCreateNestedManyWithoutDocumentInput
   }
 
   export type DocumentsUncheckedCreateWithoutLiensInput = {
@@ -19364,6 +21024,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     userId: string
+    Library?: LibraryUncheckedCreateNestedManyWithoutDocumentInput
   }
 
   export type DocumentsCreateOrConnectWithoutLiensInput = {
@@ -19394,6 +21055,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+    Library?: LibraryUpdateManyWithoutDocumentNestedInput
   }
 
   export type DocumentsUncheckedUpdateWithoutLiensInput = {
@@ -19408,6 +21070,175 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
+    Library?: LibraryUncheckedUpdateManyWithoutDocumentNestedInput
+  }
+
+  export type UserCreateWithoutLibraryInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    documents?: DocumentsCreateNestedManyWithoutUserInput
+    userText?: UserTextCreateNestedManyWithoutUserInput
+    texts?: TextCreateNestedManyWithoutUserInput
+    wordStates?: WordStateCreateNestedManyWithoutUserInput
+    userProgress?: UserProgressCreateNestedManyWithoutUserInput
+    learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutLibraryInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    grade?: UserCreategradeInput | $Enums.Grade[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    documents?: DocumentsUncheckedCreateNestedManyWithoutUserInput
+    userText?: UserTextUncheckedCreateNestedManyWithoutUserInput
+    texts?: TextUncheckedCreateNestedManyWithoutUserInput
+    wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
+    userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
+    learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutLibraryInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLibraryInput, UserUncheckedCreateWithoutLibraryInput>
+  }
+
+  export type DocumentsCreateWithoutLibraryInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    liens?: LinksCreateNestedManyWithoutDocumentInput
+    user: UserCreateNestedOneWithoutDocumentsInput
+  }
+
+  export type DocumentsUncheckedCreateWithoutLibraryInput = {
+    id?: string
+    title: string
+    description?: string | null
+    ordre?: number | null
+    content?: string | null
+    image?: string | null
+    grade?: string | null
+    category?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    liens?: LinksUncheckedCreateNestedManyWithoutDocumentInput
+  }
+
+  export type DocumentsCreateOrConnectWithoutLibraryInput = {
+    where: DocumentsWhereUniqueInput
+    create: XOR<DocumentsCreateWithoutLibraryInput, DocumentsUncheckedCreateWithoutLibraryInput>
+  }
+
+  export type UserUpsertWithoutLibraryInput = {
+    update: XOR<UserUpdateWithoutLibraryInput, UserUncheckedUpdateWithoutLibraryInput>
+    create: XOR<UserCreateWithoutLibraryInput, UserUncheckedCreateWithoutLibraryInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLibraryInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLibraryInput, UserUncheckedUpdateWithoutLibraryInput>
+  }
+
+  export type UserUpdateWithoutLibraryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUpdateManyWithoutUserNestedInput
+    userText?: UserTextUpdateManyWithoutUserNestedInput
+    texts?: TextUpdateManyWithoutUserNestedInput
+    wordStates?: WordStateUpdateManyWithoutUserNestedInput
+    userProgress?: UserProgressUpdateManyWithoutUserNestedInput
+    learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLibraryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: UserUpdategradeInput | $Enums.Grade[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    documents?: DocumentsUncheckedUpdateManyWithoutUserNestedInput
+    userText?: UserTextUncheckedUpdateManyWithoutUserNestedInput
+    texts?: TextUncheckedUpdateManyWithoutUserNestedInput
+    wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
+    userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
+    learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type DocumentsUpsertWithoutLibraryInput = {
+    update: XOR<DocumentsUpdateWithoutLibraryInput, DocumentsUncheckedUpdateWithoutLibraryInput>
+    create: XOR<DocumentsCreateWithoutLibraryInput, DocumentsUncheckedCreateWithoutLibraryInput>
+    where?: DocumentsWhereInput
+  }
+
+  export type DocumentsUpdateToOneWithWhereWithoutLibraryInput = {
+    where?: DocumentsWhereInput
+    data: XOR<DocumentsUpdateWithoutLibraryInput, DocumentsUncheckedUpdateWithoutLibraryInput>
+  }
+
+  export type DocumentsUpdateWithoutLibraryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    liens?: LinksUpdateManyWithoutDocumentNestedInput
+    user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+  }
+
+  export type DocumentsUncheckedUpdateWithoutLibraryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    ordre?: NullableIntFieldUpdateOperationsInput | number | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    grade?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    liens?: LinksUncheckedUpdateManyWithoutDocumentNestedInput
   }
 
   export type UserTextCreateWithoutTextInput = {
@@ -19444,6 +21275,7 @@ export namespace Prisma {
     wordStates?: WordStateCreateNestedManyWithoutUserInput
     userProgress?: UserProgressCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutTextsInput = {
@@ -19462,6 +21294,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
     userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTextsInput = {
@@ -19671,6 +21504,7 @@ export namespace Prisma {
     wordStates?: WordStateCreateNestedManyWithoutUserInput
     userProgress?: UserProgressCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutUserTextInput = {
@@ -19689,6 +21523,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
     userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutUserTextInput = {
@@ -19764,6 +21599,7 @@ export namespace Prisma {
     wordStates?: WordStateUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserTextInput = {
@@ -19782,6 +21618,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type TextUpsertWithoutUserTextInput = {
@@ -19847,6 +21684,7 @@ export namespace Prisma {
     texts?: TextCreateNestedManyWithoutUserInput
     userProgress?: UserProgressCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutWordStatesInput = {
@@ -19865,6 +21703,7 @@ export namespace Prisma {
     texts?: TextUncheckedCreateNestedManyWithoutUserInput
     userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutWordStatesInput = {
@@ -19940,6 +21779,7 @@ export namespace Prisma {
     texts?: TextUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutWordStatesInput = {
@@ -19958,6 +21798,7 @@ export namespace Prisma {
     texts?: TextUncheckedUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type TextUpsertWithoutWordStatesInput = {
@@ -20023,6 +21864,7 @@ export namespace Prisma {
     texts?: TextCreateNestedManyWithoutUserInput
     wordStates?: WordStateCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutUserProgressInput = {
@@ -20041,6 +21883,7 @@ export namespace Prisma {
     texts?: TextUncheckedCreateNestedManyWithoutUserInput
     wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
     learningSession?: LearningSessionUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutUserProgressInput = {
@@ -20116,6 +21959,7 @@ export namespace Prisma {
     texts?: TextUpdateManyWithoutUserNestedInput
     wordStates?: WordStateUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserProgressInput = {
@@ -20134,6 +21978,7 @@ export namespace Prisma {
     texts?: TextUncheckedUpdateManyWithoutUserNestedInput
     wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type TextUpsertWithoutUserProgressInput = {
@@ -20199,6 +22044,7 @@ export namespace Prisma {
     texts?: TextCreateNestedManyWithoutUserInput
     wordStates?: WordStateCreateNestedManyWithoutUserInput
     userProgress?: UserProgressCreateNestedManyWithoutUserInput
+    Library?: LibraryCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutLearningSessionInput = {
@@ -20217,6 +22063,7 @@ export namespace Prisma {
     texts?: TextUncheckedCreateNestedManyWithoutUserInput
     wordStates?: WordStateUncheckedCreateNestedManyWithoutUserInput
     userProgress?: UserProgressUncheckedCreateNestedManyWithoutUserInput
+    Library?: LibraryUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutLearningSessionInput = {
@@ -20292,6 +22139,7 @@ export namespace Prisma {
     texts?: TextUpdateManyWithoutUserNestedInput
     wordStates?: WordStateUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLearningSessionInput = {
@@ -20310,6 +22158,7 @@ export namespace Prisma {
     texts?: TextUncheckedUpdateManyWithoutUserNestedInput
     wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type TextUpsertWithoutLearningSessionInput = {
@@ -20432,6 +22281,14 @@ export namespace Prisma {
     textId: string
   }
 
+  export type LibraryCreateManyUserInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    documentId: string
+  }
+
   export type SessionUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20519,6 +22376,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     liens?: LinksUpdateManyWithoutDocumentNestedInput
+    Library?: LibraryUpdateManyWithoutDocumentNestedInput
   }
 
   export type DocumentsUncheckedUpdateWithoutUserInput = {
@@ -20533,6 +22391,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     liens?: LinksUncheckedUpdateManyWithoutDocumentNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutDocumentNestedInput
   }
 
   export type DocumentsUncheckedUpdateManyWithoutUserInput = {
@@ -20703,12 +22562,44 @@ export namespace Prisma {
     textId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type LibraryUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    document?: DocumentsUpdateOneRequiredWithoutLibraryNestedInput
+  }
+
+  export type LibraryUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    documentId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LibraryUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    documentId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type LinksCreateManyDocumentInput = {
     id?: string
     url: string
     title?: string | null
     order?: number | null
     description?: string | null
+  }
+
+  export type LibraryCreateManyDocumentInput = {
+    id?: string
+    addedAt?: Date | string
+    isFavorite?: boolean
+    notes?: string | null
+    userId: string
   }
 
   export type LinksUpdateWithoutDocumentInput = {
@@ -20733,6 +22624,30 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     order?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LibraryUpdateWithoutDocumentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutLibraryNestedInput
+  }
+
+  export type LibraryUncheckedUpdateWithoutDocumentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LibraryUncheckedUpdateManyWithoutDocumentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    addedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isFavorite?: BoolFieldUpdateOperationsInput | boolean
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserTextCreateManyTextInput = {
@@ -20798,6 +22713,7 @@ export namespace Prisma {
     wordStates?: WordStateUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUpdateManyWithoutUserNestedInput
+    Library?: LibraryUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTextsInput = {
@@ -20816,6 +22732,7 @@ export namespace Prisma {
     wordStates?: WordStateUncheckedUpdateManyWithoutUserNestedInput
     userProgress?: UserProgressUncheckedUpdateManyWithoutUserNestedInput
     learningSession?: LearningSessionUncheckedUpdateManyWithoutUserNestedInput
+    Library?: LibraryUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutTextsInput = {

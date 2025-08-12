@@ -40,6 +40,7 @@ model User {
   wordStates      WordState[]
   userProgress    UserProgress[]
   learningSession LearningSession[]
+  Library         Library[]
 
   @@map("user")
 }
@@ -89,7 +90,7 @@ model Verification {
 }
 
 model Documents {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
   description String?
   ordre       Int?
@@ -98,10 +99,11 @@ model Documents {
   grade       String?
   category    String?
   liens       Links[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Library     Library[]
 
   @@map("documents")
 }
@@ -116,6 +118,22 @@ model Links {
   document    Documents @relation(fields: [documentId], references: [id], onDelete: Cascade)
 
   @@map("links")
+}
+
+model Library {
+  id         String   @id @default(cuid())
+  addedAt    DateTime @default(now())
+  isFavorite Boolean  @default(false) // Pour marquer des favoris
+  notes      String? // Notes personnelles de l'utilisateur
+
+  // Relations
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentId String
+  document   Documents @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, documentId]) // Un utilisateur ne peut avoir qu'une fois le même document
+  @@map("library")
 }
 
 ///////////////////////////

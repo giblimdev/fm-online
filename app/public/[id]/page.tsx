@@ -15,6 +15,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 async function getDocument(id: string) {
+  console.log("🔍 Récupération du document avec ID:", id);
+
   try {
     const document = await prisma.documents.findUnique({
       where: { id },
@@ -23,44 +25,126 @@ async function getDocument(id: string) {
       },
     });
 
+    console.log("📄 Document récupéré:", {
+      found: !!document,
+      id: document?.id,
+      title: document?.title,
+      image: document?.image,
+      imageType: typeof document?.image,
+      imageLength: document?.image?.length,
+      hasUser: !!document?.user,
+      userName: document?.user?.name,
+    });
+
+    // Log spécifique pour l'image
+    if (document?.image) {
+      console.log("🖼️ Détails de l'image:", {
+        rawValue: document.image,
+        trimmed: document.image.trim(),
+        startsWithSlash: document.image.startsWith("/"),
+        startsWithHttp: document.image.startsWith("http"),
+        isEmptyString: document.image === "",
+        length: document.image.length,
+      });
+    } else {
+      console.log("❌ Aucune image trouvée dans le document");
+    }
+
     return document;
   } catch (error) {
-    console.error("Erreur lors de la récupération du document:", error);
+    console.error("❌ Erreur lors de la récupération du document:", error);
+    console.error(
+      "🔍 Stack trace:",
+      error instanceof Error ? error.stack : "Stack non disponible"
+    );
     return null;
   }
 }
 
-// Fonction utilitaire pour valider une URL d'image
-function isValidImageUrl(url: string | null | undefined): boolean {
-  if (!url || url.trim() === "") return false;
+// Fonction pour normaliser le chemin d'image
+function normalizeImagePath(
+  imagePath: string | null | undefined
+): string | null {
+  console.log("🔍 Normalisation de l'image:", {
+    imagePath,
+    type: typeof imagePath,
+    isNull: imagePath === null,
+    isUndefined: imagePath === undefined,
+    isEmpty: imagePath === "",
+    trimmedEmpty: imagePath?.trim() === "",
+  });
 
-  // Accepter les chemins locaux qui commencent par /
-  if (url.startsWith("/")) return true;
-
-  try {
-    const urlObj = new URL(url);
-    return urlObj.protocol === "http:" || urlObj.protocol === "https:";
-  } catch {
-    return false;
+  if (!imagePath || imagePath.trim() === "") {
+    console.log("❌ Image invalide: vide ou null");
+    return null;
   }
+
+  const trimmed = imagePath.trim();
+
+  // Si c'est déjà un chemin absolu ou une URL complète, on le retourne tel quel
+  if (trimmed.startsWith("/") || trimmed.startsWith("http")) {
+    console.log("✅ Chemin déjà normalisé:", trimmed);
+    return trimmed;
+  }
+
+  // On ajoute seulement "/" au début (pas "/images/")
+  const normalizedPath = `/${trimmed}`;
+  console.log("✅ Chemin normalisé:", {
+    original: trimmed,
+    normalized: normalizedPath,
+  });
+  return normalizedPath;
 }
 
 export default async function PublicDocumentDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>; // Nouvelle gestion des params pour Next.js 15
+  params: Promise<{ id: string }>; // Next.js 15+ params handling
 }) {
-  const { id } = await params; // Await des params selon Next.js 15
+  console.log("🚀 PublicDocumentDetailPage - Début du rendu");
+
+  const { id } = await params; // Next.js 15+ - await des params obligatoire
+  console.log("📋 Paramètres de la page:", { id });
+
   const document = await getDocument(id);
 
   if (!document) {
+    console.log("❌ Document non trouvé, redirection vers 404");
     notFound();
   }
 
+  console.log("📄 Document final pour le rendu:", {
+    id: document.id,
+    title: document.title,
+    image: document.image,
+    description: document.description?.substring(0, 100) + "...",
+    content: document.content?.substring(0, 100) + "...",
+    grade: document.grade,
+    category: document.category,
+    ordre: document.ordre,
+    createdAt: document.createdAt,
+    updatedAt: document.updatedAt,
+    user: {
+      id: document.user?.id,
+      name: document.user?.name,
+      email: document.user?.email,
+    },
+  });
+
+  // Normaliser l'image
+  const normalizedImagePath = normalizeImagePath(document.image);
+  console.log("🖼️ Image après normalisation:", {
+    original: document.image,
+    normalized: normalizedImagePath,
+    willShowImage: !!normalizedImagePath,
+  });
+
   const getGradeColor = (grade?: string) => {
     switch (grade?.toLowerCase()) {
+      case "app":
       case "apprenti":
         return "bg-blue-100 text-blue-800 border-blue-200";
+      case "comp":
       case "compagnon":
         return "bg-green-100 text-green-800 border-green-200";
       case "maitre":
@@ -123,19 +207,19 @@ export default async function PublicDocumentDetailPage({
       {/* Document Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <article className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
-          {/* Image Header - Utilisation du composant Image de Next.js */}
-          <div className="relative h-64 md:h-80 w-full overflow-hidden">
-            {document.image && isValidImageUrl(document.image) ? (
+          {/* Image Header - Version avec Next.js Image optimisé */}
+          <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+            {normalizedImagePath ? (
               <Image
-                src={document.image}
+                src={normalizedImagePath}
                 alt={document.title}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 className="object-cover"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1024px"
               />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center">
                 <div className="text-center text-slate-500">
                   <ImageIcon className="h-16 w-16 mx-auto mb-4 opacity-50" />
                   <p className="text-lg font-medium">Rituel traditionnel</p>

@@ -9,7 +9,6 @@ import {
   Plus,
   Search,
   AlertCircle,
-  CheckCircle,
   Loader2,
   Eye,
   Tag,
@@ -91,10 +90,45 @@ const categoryOptions = [
   { value: "kt", label: "Chevalier du Temple" },
 ];
 
+// Fonction pour normaliser le chemin d'image
+function normalizeImagePath(
+  imagePath: string | null | undefined
+): string | null {
+  if (
+    !imagePath ||
+    typeof imagePath !== "string" ||
+    imagePath.trim() === "" ||
+    imagePath.trim() === "null" ||
+    imagePath.trim() === "undefined"
+  ) {
+    return null;
+  }
+
+  const trimmed = imagePath.trim();
+
+  try {
+    if (trimmed.startsWith("/")) {
+      return trimmed;
+    }
+
+    if (trimmed.startsWith("http")) {
+      new URL(trimmed);
+      return trimmed;
+    }
+
+    if (!/^[a-zA-Z0-9._-]+\.(jpg|jpeg|png|gif|webp|svg)$/i.test(trimmed)) {
+      return null;
+    }
+
+    const normalizedPath = `/${trimmed}`;
+    return normalizedPath;
+  } catch (error) {
+    return null;
+  }
+}
+
 export default function AddDocumentToLibraryPage() {
-  const [allDocuments, setAllDocuments] = useState<Document[]>([]);
   const [availableDocuments, setAvailableDocuments] = useState<Document[]>([]);
-  const [userDocuments, setUserDocuments] = useState<string[]>([]);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAdding, setIsAdding] = useState<string | null>(null);
@@ -123,51 +157,21 @@ export default function AddDocumentToLibraryPage() {
     }
   }, [session, sessionLoading, router]);
 
-  // Charger le profil utilisateur et tous les documents
+  // Charger le profil utilisateur
   useEffect(() => {
     if (session?.user?.id) {
       fetchUserProfile();
-      fetchAllDocuments();
     }
   }, [session]);
 
-  // Filtrer les documents disponibles
+  // Charger les documents disponibles quand le profil ou les filtres changent
   useEffect(() => {
-    if (!userProfile) return;
-
-    let filtered = allDocuments.filter((doc) => {
-      if (userDocuments.includes(doc.id)) return false;
-
-      if (doc.grade && userProfile.grade) {
-        if (!userProfile.grade.includes(doc.grade as any)) {
-          return false;
-        }
-      }
-
-      if (
-        searchTerm &&
-        !doc.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-        !doc.description?.toLowerCase().includes(searchTerm.toLowerCase())
-      ) {
-        return false;
-      }
-
-      if (selectedGrade && doc.grade !== selectedGrade) {
-        return false;
-      }
-
-      if (selectedCategory && doc.category !== selectedCategory) {
-        return false;
-      }
-
-      return true;
-    });
-
-    setAvailableDocuments(filtered);
+    if (userProfile && session?.user?.id) {
+      fetchAvailableDocuments();
+    }
   }, [
-    allDocuments,
-    userDocuments,
     userProfile,
+    session?.user?.id,
     searchTerm,
     selectedGrade,
     selectedCategory,
@@ -191,29 +195,55 @@ export default function AddDocumentToLibraryPage() {
     }
   };
 
-  const fetchAllDocuments = async () => {
+  const fetchAvailableDocuments = async () => {
+    if (!session?.user?.id || !userProfile) return;
+
+    setIsLoading(true);
     try {
-      const response = await fetch("/api/documents");
-      if (!response.ok)
-        throw new Error("Erreur lors du chargement des documents");
+      // Construire les paramètres de la requête
+      const params = new URLSearchParams({
+        userId: session.user.id,
+        grades: userProfile.grade.join(","),
+      });
+
+      // Ajouter les filtres s'ils sont définis
+      if (searchTerm) params.append("search", searchTerm);
+      if (selectedGrade) params.append("grade", selectedGrade);
+      if (selectedCategory) params.append("category", selectedCategory);
+
+      console.log("🔍 Appel API avec paramètres:", {
+        userId: session.user.id,
+        grades: userProfile.grade,
+        searchTerm,
+        selectedGrade,
+        selectedCategory,
+        url: `/api/documents/available?${params.toString()}`,
+      });
+
+      const response = await fetch(
+        `/api/documents/available?${params.toString()}`
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("❌ Erreur API:", errorData);
+        throw new Error(
+          errorData.error || "Erreur lors du chargement des documents"
+        );
+      }
 
       const data = await response.json();
-      setAllDocuments(data);
-
-      if (session?.user?.id) {
-        const userDocs = data
-          .filter((doc: Document) => doc.user.id === session.user.id)
-          .map((doc: Document) => doc.id);
-        setUserDocuments(userDocs);
-      }
+      console.log("✅ Documents reçus:", data.length);
+      setAvailableDocuments(data);
     } catch (error) {
-      console.error("Erreur:", error);
-      setError("Impossible de charger les documents");
+      console.error("❌ Erreur lors du fetch:", error);
+      setError("Impossible de charger les documents disponibles");
     } finally {
       setIsLoading(false);
     }
   };
 
+  // ✅ FONCTION CORRIGÉE pour utiliser la table Library
   const addToLibrary = async (documentId: string) => {
     if (!session?.user?.id) {
       setError("Session utilisateur introuvable");
@@ -224,34 +254,42 @@ export default function AddDocumentToLibraryPage() {
     setError(null);
 
     try {
-      const response = await fetch("/api/documents/copy", {
+      const response = await fetch("/api/library", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          originalDocumentId: documentId,
+          documentId: documentId, // ✅ CORRECTION: documentId (pas originalDocumentId)
           userId: session.user.id,
+          isFavorite: false, // ✅ AJOUT: paramètre requis par votre API
+          notes: null, // ✅ AJOUT: paramètre optionnel
         }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
+        console.error("❌ Erreur serveur:", errorData);
         throw new Error(
           errorData.error || "Erreur lors de l'ajout à la bibliothèque"
         );
       }
 
       const result = await response.json();
+      console.log("✅ Document ajouté à la bibliothèque:", result);
 
-      // Mettre à jour la liste des documents de l'utilisateur
-      setUserDocuments((prev) => [...prev, result.id]);
+      // Retirer le document de la liste disponible
+      setAvailableDocuments((prev) =>
+        prev.filter((doc) => doc.id !== documentId)
+      );
 
       // Trouver le document original pour le message personnalisé
-      const originalDoc = allDocuments.find((doc) => doc.id === documentId);
+      const originalDoc = availableDocuments.find(
+        (doc) => doc.id === documentId
+      );
       const docTitle = originalDoc?.title || "Document";
 
-      // Ouvrir la modale de succès au lieu du message simple
+      // Ouvrir la modale de succès
       setSuccessModal({
         isOpen: true,
         title: "Document ajouté avec succès !",
@@ -259,7 +297,7 @@ export default function AddDocumentToLibraryPage() {
         documentTitle: docTitle,
       });
     } catch (error) {
-      console.error("Erreur:", error);
+      console.error("❌ Erreur lors de l'ajout:", error);
       setError(error instanceof Error ? error.message : "Erreur inconnue");
     } finally {
       setIsAdding(null);
@@ -274,7 +312,7 @@ export default function AddDocumentToLibraryPage() {
       message: "",
       documentTitle: "",
     });
-    router.push("/user/dashboar");
+    router.push("/user/dashboard");
   };
 
   // Fermer la modale sans redirection
@@ -299,8 +337,8 @@ export default function AddDocumentToLibraryPage() {
     ];
   };
 
-  // Affichage du loading pendant la vérification de session
-  if (sessionLoading || isLoading || !userProfile) {
+  // Affichage du loading
+  if (sessionLoading || !userProfile) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center">
         <div className="text-center">
@@ -421,150 +459,174 @@ export default function AddDocumentToLibraryPage() {
 
               {/* Compteur de résultats */}
               <div className="mt-4 text-sm text-slate-600">
-                {availableDocuments.length} document(s) disponible(s) pour vos
-                grades
-                {userDocuments.length > 0 && (
-                  <span className="ml-4 text-blue-600">
-                    • {userDocuments.length} document(s) dans votre bibliothèque
-                  </span>
+                {isLoading ? (
+                  <div className="flex items-center">
+                    <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                    Recherche en cours...
+                  </div>
+                ) : (
+                  `${availableDocuments.length} document(s) disponible(s) pour vos grades`
                 )}
               </div>
             </div>
           </div>
 
           {/* Liste des documents */}
-          {availableDocuments.length === 0 ? (
+          {isLoading ? (
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-12 text-center">
+              <Loader2 className="h-16 w-16 animate-spin text-blue-600 mx-auto mb-4" />
+              <p className="text-slate-600">
+                Chargement des documents disponibles...
+              </p>
+            </div>
+          ) : availableDocuments.length === 0 ? (
             <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-12 text-center">
               <BookOpen className="h-16 w-16 text-slate-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-slate-900 mb-2">
                 Aucun document disponible
               </h3>
               <p className="text-slate-600">
-                {allDocuments.length === 0
-                  ? "Il n'y a actuellement aucun document dans la base."
-                  : "Tous les documents compatibles avec vos grades sont déjà dans votre bibliothèque."}
+                Tous les documents compatibles avec vos grades sont déjà dans
+                votre bibliothèque ou aucun document ne correspond à vos
+                critères de recherche.
               </p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {availableDocuments.map((document) => (
-                <div
-                  key={document.id}
-                  className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  {/* Image */}
-                  <div className="aspect-video overflow-hidden relative">
-                    {document.image ? (
-                      <Image
-                        src={document.image}
-                        alt={document.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                        <BookOpen className="h-12 w-12 text-slate-400" />
-                      </div>
-                    )}
-                  </div>
+              {availableDocuments.map((document) => {
+                const normalizedImagePath = normalizeImagePath(document.image);
 
-                  {/* Contenu */}
-                  <div className="p-6">
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {document.grade && (
-                        <span
-                          className={`px-2 py-1 text-xs font-medium rounded-full border ${
-                            gradeColors[
-                              document.grade as keyof typeof gradeColors
-                            ]
-                          }`}
-                        >
-                          {
-                            gradeLabels[
-                              document.grade as keyof typeof gradeLabels
-                            ]
-                          }
-                        </span>
-                      )}
-                      {document.category && (
-                        <span className="px-2 py-1 text-xs font-medium rounded-full border bg-slate-100 text-slate-800 border-slate-200">
-                          <Tag className="h-3 w-3 mr-1 inline" />
-                          {document.category}
-                        </span>
-                      )}
-                      {document.ordre && (
-                        <span className="px-2 py-1 text-xs font-medium rounded-full border bg-indigo-100 text-indigo-800 border-indigo-200">
-                          <Hash className="h-3 w-3 mr-1 inline" />
-                          {document.ordre}
-                        </span>
+                return (
+                  <div
+                    key={document.id}
+                    className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    {/* Image avec gestion d'erreur */}
+                    <div className="relative aspect-video overflow-hidden">
+                      {normalizedImagePath ? (
+                        <Image
+                          src={normalizedImagePath}
+                          alt={document.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover"
+                          onError={(e) => {
+                            console.error(
+                              "❌ Erreur de chargement de l'image:",
+                              {
+                                src: normalizedImagePath,
+                                documentId: document.id,
+                                originalImage: document.image,
+                              }
+                            );
+                            (e.target as HTMLImageElement).style.display =
+                              "none";
+                          }}
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+                          <BookOpen className="h-12 w-12 text-slate-400" />
+                        </div>
                       )}
                     </div>
 
-                    {/* Titre */}
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 line-clamp-2">
-                      {document.title}
-                    </h3>
-
-                    {/* Description */}
-                    {document.description && (
-                      <p className="text-slate-600 text-sm mb-4 line-clamp-3">
-                        {document.description}
-                      </p>
-                    )}
-
-                    {/* Métadonnées */}
-                    <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
-                      <div className="flex items-center">
-                        <User className="h-3 w-3 mr-1" />
-                        {document.user.name}
-                      </div>
-                      <div className="flex items-center">
-                        <Calendar className="h-3 w-3 mr-1" />
-                        {new Date(document.createdAt).toLocaleDateString(
-                          "fr-FR"
+                    {/* Contenu */}
+                    <div className="p-6">
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {document.grade && (
+                          <span
+                            className={`px-2 py-1 text-xs font-medium rounded-full border ${
+                              gradeColors[
+                                document.grade as keyof typeof gradeColors
+                              ]
+                            }`}
+                          >
+                            {
+                              gradeLabels[
+                                document.grade as keyof typeof gradeLabels
+                              ]
+                            }
+                          </span>
+                        )}
+                        {document.category && (
+                          <span className="px-2 py-1 text-xs font-medium rounded-full border bg-slate-100 text-slate-800 border-slate-200">
+                            <Tag className="h-3 w-3 mr-1 inline" />
+                            {document.category}
+                          </span>
+                        )}
+                        {document.ordre && (
+                          <span className="px-2 py-1 text-xs font-medium rounded-full border bg-indigo-100 text-indigo-800 border-indigo-200">
+                            <Hash className="h-3 w-3 mr-1 inline" />
+                            {document.ordre}
+                          </span>
                         )}
                       </div>
-                    </div>
 
-                    {/* Liens */}
-                    {document.liens && document.liens.length > 0 && (
-                      <div className="mb-4">
-                        <div className="flex items-center text-xs text-slate-500">
-                          <ExternalLink className="h-3 w-3 mr-1" />
-                          {document.liens.length} lien(s) associé(s)
+                      {/* Titre */}
+                      <h3 className="text-lg font-bold text-slate-900 mb-2 line-clamp-2">
+                        {document.title}
+                      </h3>
+
+                      {/* Description */}
+                      {document.description && (
+                        <p className="text-slate-600 text-sm mb-4 line-clamp-3">
+                          {document.description}
+                        </p>
+                      )}
+
+                      {/* Métadonnées */}
+                      <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                        <div className="flex items-center">
+                          <User className="h-3 w-3 mr-1" />
+                          {document.user.name}
+                        </div>
+                        <div className="flex items-center">
+                          <Calendar className="h-3 w-3 mr-1" />
+                          {new Date(document.createdAt).toLocaleDateString(
+                            "fr-FR"
+                          )}
                         </div>
                       </div>
-                    )}
 
-                    {/* Actions */}
-                    <div className="flex space-x-2">
-                      <button
-                        onClick={() => addToLibrary(document.id)}
-                        disabled={isAdding === document.id}
-                        className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
-                      >
-                        {isAdding === document.id ? (
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                        ) : (
-                          <Plus className="h-4 w-4" />
-                        )}
-                        <span>
-                          {isAdding === document.id ? "Ajout..." : "Ajouter"}
-                        </span>
-                      </button>
+                      {/* Liens */}
+                      {document.liens && document.liens.length > 0 && (
+                        <div className="mb-4">
+                          <div className="flex items-center text-xs text-slate-500">
+                            <ExternalLink className="h-3 w-3 mr-1" />
+                            {document.liens.length} lien(s) associé(s)
+                          </div>
+                        </div>
+                      )}
 
-                      <button
-                        onClick={() => router.push(`/public/${document.id}`)}
-                        className="px-3 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors"
-                      >
-                        <Eye className="h-4 w-4" />
-                      </button>
+                      {/* Actions */}
+                      <div className="flex space-x-2">
+                        <button
+                          onClick={() => addToLibrary(document.id)}
+                          disabled={isAdding === document.id}
+                          className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
+                        >
+                          {isAdding === document.id ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            <Plus className="h-4 w-4" />
+                          )}
+                          <span>
+                            {isAdding === document.id ? "Ajout..." : "Ajouter"}
+                          </span>
+                        </button>
+
+                        <button
+                          onClick={() => router.push(`/public/${document.id}`)}
+                          className="px-3 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors"
+                        >
+                          <Eye className="h-4 w-4" />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>
