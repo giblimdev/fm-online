@@ -22,7 +22,7 @@ const sizeMap = {
 
 export default function Logo({
   size = "md",
-  className = "",
+  className = "rounded-4xl",
   priority = false,
   alt = "Logo de l'application",
   clickable = true,

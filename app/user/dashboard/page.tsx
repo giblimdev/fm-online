@@ -311,26 +311,7 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      {/* Header moderne */}
-      <nav className="bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                <FileText className="h-6 w-6 text-white" />
-              </div>
-              <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
-            </div>
-
-            <div className="flex items-center space-x-6">
-              <span className="text-slate-700 font-medium">
-                Bonjour, {user.name}
-              </span>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+      
       {/* Contenu principal */}
       <main className="max-w-7xl mx-auto py-8 px-6">
         <div className="mb-8">
