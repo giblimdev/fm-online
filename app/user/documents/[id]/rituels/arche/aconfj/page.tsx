@@ -66,22 +66,22 @@ function page() {
       <p>
         Ce fut là aussi qu’eut lieu la révélation du Tabernacle et de l’Arche
         d’Alliance, objets d’une forme et d’un modèle mystérieux. <br />
-        C’est là encore, que furent gravées de la main du Très Haut, les Tables
+        Ce fut là encore, que furent gravées de la main du Très Haut, les Tables
         de la Loi Sacréé, avec leurs commandements si sublimes et Complets des
         devoirs moraux et religieux.
       </p>
       <p>
         Ce fut là, enfin, que furent dictées par Sa Sagesse infaillible, ces
         Constitutions civile et religieuse aux formes particulières qui, en
-        séparant Son peuple élu de toutes les autres nations, consacra Israël
-        comme un vase d’élection pour Son Service.
+        séparant Son peuple élu de toutes les autres nations, consacrèrent
+        Israël comme un vase d’élection pour Son Service.
       </p>
       <p>
         Pour ces raisons, on appela cette Loge Première Loge ou Loge Sainte.
       </p>
       <p>
-        S. R. d’I, H. R. de T. et H. A., présidèrent la Deuxième Loge ou loge
-        Sacrée.
+        Salomon Roi d’Israël, Hiram Roi de Tyr et Hiram Abif, présidèrent la
+        Deuxième Loge ou loge Sacrée.
       </p>
       <p>
         Elle fut créée en l’Année Lumière 2992 au sein de la Montagne Sainte de
