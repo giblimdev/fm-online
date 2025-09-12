@@ -17,4 +17,5 @@ export const listArche = [
     link: "Fermeture du chapitre",
     auth: "cpa",
   },
+  { url: "/rituels/arche/atable", link: "Traveaux de table", auth: "cpa" },
 ];
