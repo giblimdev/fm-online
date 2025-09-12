@@ -5,21 +5,23 @@ export default function page() {
     <div>
       <h1>Protocole du Banquet</h1>
 
-      <h2>Avant l'agape</h2>
+      <h2>
+        <b>Avant l'agape</b>
+      </h2>
 
       <h3>1/ Le Bénédicité</h3>
-      <p>
+      <p className="com">
         Le Bénédicité est dit par J. à la requête du T.E.Z. Les Compagnons se
         lèvent.
       </p>
       <p>
         <b>J. :</b> Benedictus benedicat
         <br />
-        <span className="em">Que le Béni, bénisse.</span>
+        <em className="em">Que le Béni, bénisse.</em>
       </p>
-
+      <br />
       <h3>2/ Les Toasts</h3>
-      <p>
+      <p className="com">
         (Les deux premiers (en gras) se portent debout, de la main droite. Tous
         les autres toasts (en italique) se portent assis et de la main gauche.)
       </p>
@@ -35,52 +37,54 @@ export default function page() {
           </b>
         </li>
         <li>
-          <span className="vom">
+          <span className="">
             Au Premier Grand Principal et au Pro Premier Grand Principal.
           </span>
         </li>
         <li>
-          <span className="vom">
+          <span className="">
             Au Suprême Grand Chapitre de l'Arche Royale et à ses Grands
             Officiers.
           </span>
         </li>
         <li>
-          <span className="vom">
+          <span className="">
             Au Grand Surintendant, Premier Grand Principal Provincial de ......
             et à son Député.
           </span>
         </li>
         <li>
-          <span className="vom">
+          <span className="">
             Au Grand Chapitre Provincial de ... et à ses Grands Officiers
             Provinciaux.
           </span>
         </li>
         <li>
-          <span className="vom">
+          <span className="">
             Aux Principaux du Chapitre ......... (toast proposé par le P.Z.I.)
           </span>
         </li>
         <li>
-          <span className="vom">Au Compagnon nouvellement exalté.</span>
+          <span className="">Au Compagnon nouvellement exalté.</span>
         </li>
         <li>
-          <span className="vom">Aux Passés Principaux.</span>
+          <span className="">Aux Passés Principaux.</span>
         </li>
         <li>
-          <span className="vom">Aux Visiteurs.</span>
+          <span className="">Aux Visiteurs.</span>
         </li>
         <li>
-          <span className="vom">Au S. Esdras et au Trésorier.</span>
+          <span className="">Au S. Esdras et au Trésorier.</span>
         </li>
         <li>
-          <span className="vom">Aux Officiers du Chapitre.</span>
+          <span className="">Aux Officiers du Chapitre.</span>
         </li>
       </ul>
 
-      <h2>Après l'agape</h2>
-
+      <h2>
+        <b>Après l'agape</b>
+      </h2>
+      <br />
       <h3>3/ Les Grâces</h3>
       <p className="com">
         Les Grâces sont dites par J. à la requête du T.E.Z. Les Compagnons se
@@ -89,9 +93,9 @@ export default function page() {
       <p>
         <b>J. :</b> Benedicto benedicatur
         <br />
-        <span className="em">Que le Béni soit béni.</span>
+        <em className="em">Que le Béni soit béni.</em>
       </p>
-
+      <br />
       <h3>4/ Questions posées après les Grâces par le T.E.Z. au P.S.</h3>
 
       <div>
@@ -169,7 +173,7 @@ export default function page() {
         <b>T.E.Z. :</b> Compagnons, buvons avec le respect qui leur est dû, à la
         mémoire de ces Illustres Fondateurs.
       </p>
-
+      <br />
       <h3>5/ Le Toast du Gardien</h3>
       <p>
         <span className="com">
