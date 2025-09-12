@@ -28,14 +28,23 @@ function page() {
       <p className="com">Allocution du Troisième Principal.</p>
       <p>
         <b>J </b>
-        <span className="com">seul</span> : Comp, il y a trois époques dans
-        l’histoire de la Franc-Maçonnerie qui méritent plus particulièrement de
-        retenir notre attention.
+        <span className="com">Se lève, salue le TEZ</span> : Compagnon, il y a
+        trois époques dans l’histoire de la Franc-Maçonnerie qui méritent plus
+        particulièrement de retenir notre attention.
       </p>
       <p>Ce sont celle de la création :</p>
-      <p>de la Première Loge ou Loge Sainte,</p>
-      <p>de la deuxième Loge ou Loge Sacrée </p>
-      <p>de la Troisième Loge ou Grande Loge Royale.</p>
+      <ul>
+        <li>
+          <p>- de la Première Loge ou Loge Sainte,</p>
+        </li>
+        <li>
+          <p>- la deuxième Loge ou Loge Sacrée </p>
+        </li>
+        <li>
+          <p>- de la Troisième Loge ou Grande Loge Royale.</p>
+        </li>
+      </ul>
+      <br />
       <p>
         La Première Loge ou Loge Sainte fut créée en l’A L 2515, deux ans après
         la délivrance des enfants d’Israël de leur esclavage en Égypte par
@@ -45,7 +54,7 @@ function page() {
       <p>
         Ce fut là que les enfants d’Israël plantèrent leurs tentes et se
         réunirent afin d’offrir leurs louanges et leurs remerciements au Très
-        Haut pour la façon remarquable dont il les avait délivrés des Égyptiens.{" "}
+        Haut pour la façon remarquable dont il les avait délivrés des Égyptiens.
       </p>
       <p>
         Ce fut là, également. qu’à une époque plus reculée, il avait plû au Très
