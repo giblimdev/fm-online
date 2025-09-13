@@ -1,5 +1,4 @@
 // app/learning/textManager/page.tsx
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -35,7 +34,15 @@ export default function TextManagerPage() {
       const res = await fetch("/api/text", { cache: "no-store" });
       if (!res.ok) throw new Error("Erreur chargement textes");
       const data = (await res.json()) as TextItem[];
-      setTexts(data);
+
+      // Trier par ordre croissant
+      const sortedData = data.sort((a, b) => {
+        const orderA = (a as any).ordre || 0;
+        const orderB = (b as any).ordre || 0;
+        return orderA - orderB;
+      });
+
+      setTexts(sortedData);
     } catch (error) {
       console.error("fetchTexts error:", error);
     }
@@ -97,12 +104,57 @@ export default function TextManagerPage() {
     }
   }
 
-  function move(idxFrom: number, idxTo: number) {
+  // FONCTION MOVE MODIFIÉE AVEC PERSISTANCE EN DB
+  async function move(idxFrom: number, idxTo: number) {
     if (idxTo < 0 || idxTo >= texts.length) return;
+
+    // Sauvegarde de l'état actuel pour rollback
+    const originalTexts = [...texts];
+
+    // Mise à jour optimiste locale
     const reordered = [...texts];
     const [moved] = reordered.splice(idxFrom, 1);
     reordered.splice(idxTo, 0, moved);
     setTexts(reordered);
+
+    try {
+      // Calculer les nouveaux ordres pour TOUS les éléments
+      const textOrders = reordered.map((text, index) => ({
+        id: text.id,
+        ordre: index + 1,
+      }));
+
+      // Envoyer au serveur pour persistance
+      const response = await fetch("/api/text/reorder", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ textOrders }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Erreur réorganisation");
+      }
+
+      // Mettre à jour l'état local avec les nouveaux ordres
+      setTexts((prevTexts) =>
+        prevTexts.map(
+          (text, index) =>
+            ({
+              ...text,
+              ordre: index + 1,
+            } as any)
+        )
+      );
+
+      console.log("Ordre mis à jour avec succès");
+    } catch (error) {
+      console.error("Erreur mise à jour ordre:", error);
+
+      // Rollback en cas d'erreur
+      setTexts(originalTexts);
+      alert("Erreur lors de la réorganisation. Modifications annulées.");
+    }
   }
 
   async function handleSubmit(form: FormData) {
@@ -163,7 +215,8 @@ export default function TextManagerPage() {
       filters.search === "" ||
       t.title.toLowerCase().includes(filters.search.toLowerCase());
     const matchGrade = filters.grade === "" || t.grade === filters.grade;
-    const matchCategory = filters.category === "" || t.category === filters.category;
+    const matchCategory =
+      filters.category === "" || t.category === filters.category;
     return matchTitle && matchGrade && matchCategory;
   });
 
@@ -212,9 +265,6 @@ export default function TextManagerPage() {
           </div>
         )}
 
-
-
-
         <section>
           {filteredTexts.length === 0 ? (
             <div className="text-center mt-12 text-gray-400 italic">
@@ -251,7 +301,10 @@ export default function TextManagerPage() {
                       >
                         {t.isActive ? "Actif" : "Inactif"}
                       </span>
-                     
+                      {/* Affichage de l'ordre pour debug */}
+                      <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-xs rounded">
+                        #{(t as any).ordre || 0}
+                      </span>
                     </div>
                     <div className="line-clamp-3 text-gray-600 text-[15px] mt-2">
                       {t.content.slice(0, 200)}
@@ -276,7 +329,11 @@ export default function TextManagerPage() {
                     </button>
                     <button
                       onClick={() => move(idx, idx - 1)}
-                      className="p-2 rounded-full hover:bg-gray-100 text-gray-500 transition"
+                      className={`p-2 rounded-full transition ${
+                        idx === 0
+                          ? "text-gray-300 cursor-not-allowed"
+                          : "hover:bg-gray-100 text-gray-500 hover:text-gray-700"
+                      }`}
                       title="Remonter"
                       disabled={idx === 0}
                     >
@@ -284,9 +341,13 @@ export default function TextManagerPage() {
                     </button>
                     <button
                       onClick={() => move(idx, idx + 1)}
-                      className="p-2 rounded-full hover:bg-gray-100 text-gray-500 transition"
+                      className={`p-2 rounded-full transition ${
+                        idx === filteredTexts.length - 1
+                          ? "text-gray-300 cursor-not-allowed"
+                          : "hover:bg-gray-100 text-gray-500 hover:text-gray-700"
+                      }`}
                       title="Descendre"
-                      disabled={idx === texts.length - 1}
+                      disabled={idx === filteredTexts.length - 1}
                     >
                       <ArrowDown size={20} />
                     </button>

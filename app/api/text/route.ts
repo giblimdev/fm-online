@@ -1,7 +1,7 @@
 // app/api/text/route.ts
 
-import { NextRequest, NextResponse } from "next/server"
-import prisma from "@/lib/prisma"
+import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
 
 export async function GET() {
   try {
@@ -18,19 +18,22 @@ export async function GET() {
         wordCount: true,
         createdAt: true,
         updatedAt: true,
-      }
-    })
-    return NextResponse.json(texts)
+      },
+    });
+    return NextResponse.json(texts);
   } catch (error) {
-    console.error("GET /api/text error:", error)
-    return NextResponse.json({ error: "Erreur récupération textes" }, { status: 500 })
+    console.error("GET /api/text error:", error);
+    return NextResponse.json(
+      { error: "Erreur récupération textes" },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
-    console.log("POST /api/text received body:", body)
+    const body = await req.json();
+    console.log("POST /api/text received body:", body);
 
     const {
       title,
@@ -40,16 +43,19 @@ export async function POST(req: NextRequest) {
       ordre = 20,
       isActive = true,
       isPublic = false,
-      userId
-    } = body
+      userId,
+    } = body;
 
     if (!title || !content || !userId) {
-      console.log("POST /api/text missing mandatory fields")
-      return NextResponse.json({ error: "title, content et userId sont obligatoires" }, { status: 400 })
+      console.log("POST /api/text missing mandatory fields");
+      return NextResponse.json(
+        { error: "title, content et userId sont obligatoires" },
+        { status: 400 }
+      );
     }
 
     // Calculer le nombre de mots (basique)
-    const wordCount = content.trim().split(/\s+/).length
+    const wordCount = content.trim().split(/\s+/).length;
 
     // Créer le texte et associer à l'utilisateur via la relation many-to-many
     const createdText = await prisma.text.create({
@@ -63,17 +69,19 @@ export async function POST(req: NextRequest) {
         isPublic,
         wordCount,
         User: {
-          connect: { id: userId }
-        }
-      }
-    })
+          connect: { id: userId },
+        },
+      },
+    });
 
-    console.log("POST /api/text created:", createdText)
+    console.log("POST /api/text created:", createdText);
 
-    return NextResponse.json(createdText, { status: 201 })
-
+    return NextResponse.json(createdText, { status: 201 });
   } catch (error) {
-    console.error("POST /api/text exception:", error)
-    return NextResponse.json({ error: "Erreur lors de la création du texte" }, { status: 500 })
+    console.error("POST /api/text exception:", error);
+    return NextResponse.json(
+      { error: "Erreur lors de la création du texte" },
+      { status: 500 }
+    );
   }
 }

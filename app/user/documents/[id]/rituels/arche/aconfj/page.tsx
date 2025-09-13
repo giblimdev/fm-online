@@ -79,6 +79,7 @@ function page() {
       <p>
         Pour ces raisons, on appela cette Loge Première Loge ou Loge Sainte.
       </p>
+      <br />
       <p>
         Salomon Roi d’Israël, Hiram Roi de Tyr et Hiram Abif, présidèrent la
         Deuxième Loge ou loge Sacrée.
@@ -93,11 +94,8 @@ function page() {
         pas d’offrir son fils bien-aimé Isaac en holocauste sur l’Autel de Son
         Dieu, alors qu’il plût au Tout Puisant de l’un substituer une victime
         moins chère. <br />
-        Là, sur l’aire d’Arauna, le Jébuséen David offrit le sacrifice médiateur
-        grâce auquel la peste fut enrayée.
-      </p>
-      <p className="com">
-        Jébuséen -, peuple Amorrite de Canaan habitant Jérusalem
+        Là, sur l’aire d’Aravna, le Jébuséen, David offrit le sacrifice
+        médiateur grâce auquel la peste fut enrayée.
       </p>
       <p>
         Ce fut la aussi qu’il eut une vision où lui furent révèles les plans de
@@ -105,30 +103,46 @@ function page() {
         qui Dieu avait dit :
       </p>
       <p>
-        « Ce sera lui qui bâtira une maison à mon Nom et j’affermirai pour
-        toujours le trône de son royaume »
+        <em>
+          « Ce sera lui qui bâtira une maison à mon Nom et j’affermirai pour
+          toujours le trône de son royaume »
+        </em>
       </p>
       <p>Pour ces raisons, on appela cette Loge Second Loge ou Loge Sacrée.</p>
+      <br />
       <p>
         La Troisième Loge ou Grande Loge Royale se tint à Jérusalem et fut créée
         en l’Année Lumière 3469 par : <br />
-        Zorobabel Prince du Peuple. <br />
-        Aggée le Prophète, <br />
-        Josué le fils de Yehosadaq , le Grand Prêtre, peu après le retour des
-        enfants d’Israël de leur captivité à Babylone. <br />
+        <ul>
+          <li>
+            <p>- Zorobabel Prince du Peuple. </p>
+          </li>
+          <li>
+            <p>- Aggée le Prophète, </p>
+          </li>
+          <li>
+            <p>- Josué le fils de Yehosadaq , le Grand Prêtre,</p>
+          </li>
+        </ul>
+        peu après le retour des enfants d’Israël de leur captivité à Babylone.
+      </p>
+      <p>
+        {" "}
         C’est à cette date que la lignée royale de David et la tribu princière
         de Juda, en la personne de Zorobabel, recouvrèrent le pouvoir royal dont
         les vestiges ne s’effacèrent qu’après la destruction de Jérusalem par
         les Romains, sous les ordres de Titus dans la 70ème année de l’ère
-        actuelle. <br />
+        actuelle.{" "}
+      </p>
+      <p>
         C’est pour commémorer cette restauration qu’on appela cette loge
         Troisième Loge ou Grande Loge Royale et c’est à ces nobles origines que
         se réfère notre Chapitre.
       </p>
       <p>
-        Nous reconnaissons en effet,que tout Chapitre de l’Arche Royale régulier
-        dûment assemblé et convenablement consacré, représente le Grand Chapitre
-        de la Sainte Arche Royale de Jérusalem. <br />
+        Nous reconnaissons en effet, que tout Chapitre de l’Arche Royale
+        régulier, dûment assemblé et convenablement consacré, représente le
+        Grand Chapitre de la Sainte Arche Royale de Jérusalem.
       </p>
       <p>
         Les trois Principaux évoquent
@@ -153,11 +167,11 @@ function page() {
         symboliser les Séjournants. En récompense de leur zèle et de leur
         fidélité qui les amenèrent a découvrir des secrets de l’Arche Royale si
         longtemps perdus, ils furent admis à prendre place parmi les Princes et
-        Chefs du Peuple, représentés{" "}
+        Chefs du Peuple, représentés
         <span className="com">
           (J monte avec l'apex de son sceptre l'ensemble de l'assemblée)
         </span>{" "}
-        ici par tous les autres Comp.
+        ici par tous les autres Compagnons.
       </p>
       <p className="com">(J regagne son siège après avoir salué le TEZ)</p>
 
