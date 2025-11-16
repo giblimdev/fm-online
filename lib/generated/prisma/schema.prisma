@@ -19,6 +19,7 @@ enum Grade {
   NAUTONIER
   CPARCHEDOM
   KT
+  KM
 }
 
 model User {

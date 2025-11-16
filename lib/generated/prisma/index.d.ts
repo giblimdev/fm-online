@@ -86,7 +86,8 @@ export namespace $Enums {
   VM: 'VM',
   NAUTONIER: 'NAUTONIER',
   CPARCHEDOM: 'CPARCHEDOM',
-  KT: 'KT'
+  KT: 'KT',
+  KM: 'KM'
 };
 
 export type Grade = (typeof Grade)[keyof typeof Grade]
