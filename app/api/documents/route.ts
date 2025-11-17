@@ -105,6 +105,7 @@ export async function POST(request: NextRequest) {
       "NAUTONIER",
       "CPARCHEDOM",
       "KT",
+      "KM",
     ];
     if (grade && !validGrades.includes(grade)) {
       console.warn("⚠️ Grade invalide:", grade);

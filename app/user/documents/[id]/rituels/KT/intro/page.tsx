@@ -14,24 +14,26 @@ function Page() {
             <p>du Temple et du Sépulcre</p>
             <p>et de l'Hôpital de Saint Jean de Jérusalem, </p>
             <p>de Palestine, Rhodes et Malte</p>
-            <p>pour la France</p>
+            <p className="text-red-600">pour la France</p>
             <br />
-            <p className="text-red-600 font-bold">RITUEL N° 1</p>
+            <p>
+              <b>RITUEL N° 1</b>
+            </p>
             <br />
-            <h1>
-              ORDRE MAÇONNIQUE DU TEMPLE
+            <b>
+              <span className="text-red-600">ORDRE MAÇONNIQUE DU TEMPLE</span>
               <br />
               INSTALLATION D'UN PRÉCEPTEUR
               <br />
               ET MANIEMENT DE L'ÉPÉE
-            </h1>
+            </b>
             <br />
             <br />
             <p>2016</p>
           </section>
 
           <section className="mt-8">
-            <h2>Table des Matières</h2>
+            <h1>Table des Matières</h1>
           </section>
           <section>
             <h1>Préface à la 3ᵉ édition française </h1>
@@ -94,10 +96,11 @@ function Page() {
             {" "}
             <h1>Avertissement</h1>
             <p>
-              Maintenant armé chevalier maçon du Temple, le lecteur doit savoir
-              qu'à ce titre, il a reçu un grade ou degré d'un ordre maçonnique,
-              qui n'est en rien, à quelque titre que ce soit, le continuateur ou
-              le successeur, ni une résurgence de l'ordre historique du Temple.
+              Maintenant armé <b>chevalier maçon du Temple</b>, le lecteur doit
+              savoir qu'à ce titre, il a reçu un grade ou degré d'un ordre
+              maçonnique, qui n'est en rien, à quelque titre que ce soit, le
+              continuateur ou le successeur, ni une résurgence de l'ordre
+              historique du Temple.
               <br />
               Celui-ci, fondé à Jérusalem en décembre 1119, ou janvier 1120,
               officialisé au parlement ou synode de Naplouse le 16 janvier
@@ -122,16 +125,21 @@ function Page() {
               fulminée par Clément V, au nom de l'Église romaine qui, seule,
               l'ordre tenait sa légitimité comme sodalité religieuse militaire.{" "}
               <br />
-              Depuis cette date l'ordre historique du Temple n'existe plus et,
-              bien qu'une succession locale semble possible, sinon avérée, dans
-              l'ordre de Notre-Dame-de-Montesa (la Orden de Montesa) en Aragon
-              (Espagne), par bulles du 10 juin 1317; l'ordre du Christ (A Ordem
-              do Cristo) au Portugal, par bulles du 15 mars 1319, puis l'ordre
-              du Christ au Vatican, issu plus tard du précédent, nul ne peut
-              raisonnablement affirmer aujourd'hui qu'il existerait encore, à
-              quelque titre ou sous quelque appellation que ce soit. Nul ne peut
-              donc aujourd'hui légitimement prétendre y appartenir et encore
-              moins en être dirigeant. <br />
+              <b>
+                Depuis cette date l'ordre historique du Temple n'existe plus
+              </b>{" "}
+              et, bien qu'une succession locale semble possible, sinon avérée,
+              dans l'ordre de Notre-Dame-de-Montesa (la Orden de Montesa) en
+              Aragon (Espagne), par bulles du 10 juin 1317; l'ordre du Christ (A
+              Ordem do Cristo) au Portugal, par bulles du 15 mars 1319, puis
+              l'ordre du Christ au Vatican, issu plus tard du précédent, nul ne
+              peut raisonnablement affirmer aujourd'hui qu'il existerait encore,
+              à quelque titre ou sous quelque appellation que ce soit.{" "}
+              <b>
+                Nul ne peut donc aujourd'hui légitimement prétendre y appartenir
+                et encore moins en être dirigeant
+              </b>
+              . <br />
             </p>
           </section>
           <section>
@@ -293,10 +301,11 @@ function Page() {
               Rose-Croix, dans cette séquence. Laurence DERMOTT, leur célèbre
               Grand Secrétaire, écrivant en 1782, prétendait que les premiers
               chevaliers maçonniques du Temple furent faits à Fethard, au comté
-              de Tipperary en Irlande. Dans leur History of the Grand Lodge of
-              Ireland (1925), LEPPER et CROSSLE, très au fait des détails de
-              l'histoire maçonnique locale, ont émis l'hypothèse que cette
-              apparition devait dater d'avant 1764. <br />
+              de Tipperary en Irlande. <br />
+              Dans leur History of the Grand Lodge of Ireland (1925), LEPPER et
+              CROSSLE, très au fait des détails de l'histoire maçonnique locale,
+              ont émis l'hypothèse que cette apparition devait dater d'avant
+              1764. <br />
               Le Règlement intérieur de la Loge n° 296 à Tipperary fondée en
               1758, examiné par Charles CAMERON, dans On the Origin and Progress
               of Chivalric Freemasonry the British Isles (1901) traite des
@@ -378,14 +387,14 @@ function Page() {
               Royale, malgré l'exemption claire, mais trop rarement citée,
               concernant les « Grades des Ordres de Chevalerie », inscrite à
               l'Article II de l'Acte d'Union des deux Grandes Loges (Anciens et
-              Modernes), signé le 25 novembre 1813. ( - « Il est arrêté et
-              déclaré que la Maçonnerie pure et ancienne se compose de trois
-              grades et pas plus, c.à.d. ceux d'Apprenti Reçu, de Compagnon du
-              Métier et de Maître Maçon (y compris l'Ordre Suprême de la Sainte
-              Arche Royale). Mais cet article n'a pas pour but d'empêcher les
-              [membres des] Loges et Chapitres de se réunir en assemblées dans
-              les grades des Ordres de Chevalerie, selon les Constitutions des
-              dits Ordres ».) <br />
+              Modernes), signé le 25 novembre 1813. <br />
+              ( - « Il est arrêté et déclaré que la Maçonnerie pure et ancienne
+              se compose de trois grades et pas plus, c.à.d. ceux d'Apprenti
+              Reçu, de Compagnon du Métier et de Maître Maçon (y compris l'Ordre
+              Suprême de la Sainte Arche Royale). Mais cet article n'a pas pour
+              but d'empêcher les [membres des] Loges et Chapitres de se réunir
+              en assemblées dans les grades des Ordres de Chevalerie, selon les
+              Constitutions des dits Ordres ».) <br />
               Pour parer à toute crise, le duc de Sussex ne fit plus convoquer
               le Grand Conclave, instance octroyant alors les chartes, laissant
               toutefois faculté à ses officiers d'accorder les dispenses

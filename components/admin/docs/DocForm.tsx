@@ -61,6 +61,7 @@ VM
 NAUTONIER
 CPARCHEDOM
 KT
+KM
 }*/
   const gradeOptions = [
     { value: "APP", label: "Apprenti" },
@@ -74,6 +75,7 @@ KT
       label: "Compagnon de l'Arche Royal Domatique",
     },
     { value: "KT", label: "Chevalier du Temple" },
+    { value: "KM", label: "Chevalier de Malte" },
   ];
 
   // Options pour les catégories
@@ -83,6 +85,7 @@ KT
     { value: "Marque", label: "Marque" },
     { value: "Nautonier", label: "Nautonier" },
     { value: "KT", label: "KT (Chevalier du Temple)" },
+    { value: "KM", label: "KM (Chevalier de Malte)" },
   ];
 
   useEffect(() => {

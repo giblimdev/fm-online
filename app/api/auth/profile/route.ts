@@ -124,6 +124,7 @@ export async function PUT(request: NextRequest) {
       "NAUTONIER",
       "CPARCHEDOM",
       "KT",
+      "KM",
     ];
     const invalidGrades = grades.filter(
       (grade) => !validGrades.includes(grade)

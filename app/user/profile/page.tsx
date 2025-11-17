@@ -43,6 +43,7 @@ const gradeLabels = {
   NAUTONIER: "Nautonier",
   CPARCHEDOM: "Compagnon Arche Royale",
   KT: "Chevalier du Temple",
+  KM: "Chevalier de Malte",
 };
 
 const gradeColors = {

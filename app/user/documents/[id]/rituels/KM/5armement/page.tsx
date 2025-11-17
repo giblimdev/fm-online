@@ -280,6 +280,206 @@ export default function page() {
         accroche », les Gardes pourront tenir la hampe de la main gauche et, de
         la pointe de leur épée, déployer la bannière face au Cand.
       </p>
+      Exposé historique
+      <p>
+        Ém. P. — Digne Frère Chevalier, il est maintenant de mon devoir
+        d'attirer votre attention sur un bref résumé de l'histoire de l'Ordre
+        religieux et hospitalier des Chevaliers de Saint-Jean et ses rapports
+        avec nos cérémonies actuelles. <br />
+        Cet Ordre fut fondé à Jérusalem durant la première Croisade, vers l'an
+        1099 de Notre Seigneur, par l'association de plusieurs pieux Chevaliers
+        avec les Frères de l'Hôpital de Saint-Jean, un établissement fondé vers
+        1048 par des religieux d'Amalfi pour secourir les Pèlerins venant
+        vénérer le Saint-Sépulcre. <br /> Le nom de Palestine et la date
+        figurant sur la bannière de la N. (h) (La bannière de Palestine est
+        déployée). nous rappellent la terre qui vit naître Notre Seigneur, et
+        font référence à la période initiale de l'Ordre ainsi qu'au lieu où il
+        fut fondé. Après une existence tourmentée de près de deux siècles en
+        Terre Sainte, l'Ordre, privé des secours escomptés en raison des guerres
+        qui ravageaient l'Europe, fut contraint d'évacuer la Palestine, après la
+        perte d'Acre (La bannière de Palestine est repliée). en l'an 1291, et il
+        s'établit dans l'île de Chypre. (La bannière de Chypre est déployée).
+        (i) Le nom et la date inscrits sur la bannière de la V. sont en mémoire
+        de ce refuge des Chevaliers de Saint-Jean. <br />
+        (La bannière de Chypre est repliée). <br />
+        En l'an 1310, l'île de Rhodes, conquise après trois ans de combats,
+        devint la propriété de l'Ordre qui, <br />
+        (La bannière de Rhodes est déployée). <br />
+        en 1312, se vit renforcé en nombre et enrichi de la plupart des
+        possessions des Templiers, dont l'Ordre avait été, depuis 1307,
+        lentement anéanti par la cruauté et la cupidité du roi Philippe IV le
+        Bel, puis dissous par la faiblesse du pape Clément V. <br />
+        Les vestiges des fortifications élevées à Rhodes par les Chevaliers
+        portent, aujourd'hui encore, témoignage de leurs talents d'architecte et
+        de leur habileté technique. <br />
+        La bannière de la M. fait référence à cette période de notre histoire.{" "}
+        <br />
+        (j)En 1522, l'île de Rhodes fut assiégée par les Ottomans, conduits par
+        le sultan Soliman Ier le Magnifique. Après une défense mémorable, l'île
+        tomba aux mains des Infidèles. <br />
+        Cependant, la garnison fut autorisée à quitter la place avec tous les
+        honneurs de la guerre. <br />
+        (La bannière de Rhodes est repliée).À partir de 1523 l'Ordre trouva
+        refuge dans l'île de Candie, nom alors donné à la Crète, et en d'autres
+        lieux,(La bannière de Candie est déployée).et en 1530 l'empereur
+        Charles-Quint céda l'île de Malte à l'Ordre,
+        <br />
+        (La bannière de Malte est déployée). <br />
+        à condition que celui-ci consacrât tous ses efforts à réprimer les
+        ravages des corsaires barbaresques qui, à cette époque, infestaient la
+        Méditerranée méridionale. <br />
+        Ces époques de notre histoire sont commémorées par les bannières de la
+        R. et de l'A. <br />
+        (k, l) (Les bannières de Candie et de Malte sont repliées).{" "}
+      </p>
+      <p className="com">
+        Le Mar. Adj. ordonne aux Gardes des bannières de rengainer leur épée et
+        de s'asseoir.{" "}
+      </p>
+      <p>Mar. Adj. — Chevaliers Gardes des bannières PRENEZ — PLACE.</p>
+      <p>
+        {" "}
+        Ém. P. — La légende narrant l'arrivée des Chevaliers dans ce qui sera
+        leur dernier refuge a donné naissance aux mots distinctifs de l'Ordre.
+        L'histoire, en effet, rapporte que, venant prendre possession de l'île,
+        ils accostèrent avec leurs galères, à force de rames. (b) Chaque rame
+        était manœuvrée par deux hommes qui, la rame dans la main gauche et
+        l'épée dans la main droite, psalmodiaient « R. des R., S. des S. » Les
+        habitants de l'île, les voyant approcher dans cet appareil guerrier, les
+        hélèrent au moyen d'un porte-voix, disant en langue arabe : <br />
+        (s) « E. S. A. » ce qui signifie : « V. - V. E. P.? » <br />
+        À cela les Chevaliers répliquèrent : <br />
+        (t) « A. E. S. » ce qui signifie : « N. V. E. P. » <br />
+        (u) ce à quoi les autochtones répondirent : <br />
+        « W. A. E. S. » ce qui signifie : « A. V. E. P. » <br />
+        On remarquera que telle est encore, de nos jours, la salutation
+        ordinaire d'un arabe et d'un étranger.
+      </p>
+      Exposé traditionnel
+      <p>
+        Ém. P. — La Passe de Méditerranée, que vous avez reçue dans le grade
+        préliminaire de Chevalier de Saint-Paul, fut instituée aux premiers
+        temps de l'Ordre, afin que les pèlerins puissent se distinguer des
+        corsaires barbaresques qui s'efforçaient de leur barrer le passage de la
+        Terre Sainte. <br />
+        Les cinq premiers officiers du Prieuré, à savoir l'Éminent Prieur et sa
+        garde personnelle, sont assis à l'est de la salle capitulaire autour
+        d'une table pentagonale sur laquelle est représenté le sommet d'une
+        croix latine. Leurs épées sont toutes pointées en un endroit précis, où
+        l'on considère que le C. de N. S. a reposé, de façon à symboliser, dans
+        une certaine mesure, le caractère sacré de l'Ordre. (v) Le chiffre cinq
+        fait allusion aux c. p. d. C. et on le retrouve aussi dans le nombre des
+        barreaux de l'échelle figurée dans un des quartiers du cartouche
+        circulaire représenté sur la seconde table. Ces cinq officiers formaient
+        l'état-major personnel et l'entourage immédiat du Grand Maître de
+        l'Ordre. <br />
+        Le Mar. Adj. conduit le Cand. au côté sud de la table octogonale. <br />
+        Les huit officiers suivants sont assis à une table octogonale à l'ouest.
+        Sur cette table, se trouve représentée l'étoile ou croix octogone ou à
+        huit pointes, bien connue comme étant l'emblème de l'Ordre. <br />
+        L'Hosp. pointe son épée successivement vers chaque objet cité par l'Ém.
+        P. et replace son épée sur la table quand l'explication est terminée.{" "}
+        <br />
+        Au centre est un cartouche circulaire divisé en quatre quartiers, où
+        sont représentés : un nef ou bateau antique; une échelle à cinq barreaux
+        avec, sur chacun d'eux, les lettres N. V. M. R. A. et un porte-voix; un
+        crâne fendu, une grande épée à deux mains et une lance; enfin, une main
+        et une vipère. La nef antique rappelle les navires utilisés autrefois
+        pour transporter le blé d'Égypte à Rome. Les lettres sur les barreaux de
+        l'échelle, correspondent à celles des cinq bannières; le porte-voix
+        évoque l'histoire de l'arrivée des chevaliers dans l'île de Malte.{" "}
+        <br />
+        Le crâne symbolise la peine de mort infligée aux traîtres à l'Ordre; la
+        grande épée à deux mains était utilisée par les chevaliers aux premiers
+        temps de l'Ordre; la lance nous rappelle l'arme qui perça le côté de
+        Notre Seigneur. La main et la vipère se rapportent aux circonstances de
+        la venue de Saint Paul à Malte, qui vous furent contées lors de votre
+        réception au grade de Chevalier de Saint-Paul. <br />
+        Les huit officiers siégeant à cette table représentent les Piliers ou
+        chefs des huit langues qui composaient l'Ordre à cette époque,
+        c'est-à-dire la Provence, l'Auvergne, la France (ou France
+        Septentrionale), l'Italie, l'Aragon, l'Allemagne, la Castille et celle
+        groupant l'Angleterre et la Bavière. <br />
+        Ces huit Prieurs remplissaient également dans l'Ordre les fonctions de
+        Maréchal, Hospitalier, Amiral, Conservateur, Bailli, Turcopolier,
+        Chancelier et Trésorier. <br />
+        Les trente-trois coups frappés à l'ouverture et à la fermeture du
+        Prieuré font allusion aux trente-trois années de la vie de Notre
+        Seigneur et Sauveur en notre monde. <br />
+        Les leçons pratiques que nous devons tirer de l'étude et de la
+        contemplation de la N., de la V., de la M., de la R. et de l'A. de notre
+        Seigneur et Sauveur, béni soit-Il, seront tout particulièrement
+        expliquées aux cours de la Cérémonie de clôture du Prieuré qui réclamera
+        votre plus grande attention tout à l'heure. (g){" "}
+      </p>
+      <p>
+        Ém. P. — Chevalier, mon Frère, vous pouvez maintenant prendre place
+        parmi nous.
+      </p>
+      <p className="com">
+        Le Mar. Adj. conduit le Cand. à un siège au nord-ouest puis il regagne
+        sa place.{" "}
+      </p>
+      Explication des étendards à l'issue de l'armement d'un chevalier de Malte
+      (texte facultatif)
+      <p>
+        Ém. P. ou Chev. prévu — Vous voyez, disposés à l'est de la salle
+        capitulaire, les étendards traditionnels de l'Ordre représentés ici « en
+        bannière» : l'étendard de Saint-Jean et l'étendard de Malte.
+      </p>
+      <p>
+        <b></b> L'étendard de Saint-Jean est dit de gueules, ou rouge, à la
+        croix d'argent, représenté ici par du blanc, au centre de laquelle est
+        un Agnus Dei, c'est-à-dire l'Agneau de Dieu triomphant portant
+        habituellement l'étendard de Sa gloire avec l'Alpha et l'Oméga, mais qui
+        porte ici le Baucent pour rappeler l'union des Ordres maçonniques du
+        Temple et de Malte. Les angles ou cantons de la croix, portent les
+        lettres initiales F. E. R. T. <br />
+        La croix blanche sur fond rouge était l'étendard de guerre de l'Ordre de
+        Saint-Jean. Le drapeau du Danemark est encore de nos jours l'étendard de
+        Saint-Jean. La tradition nationale veut qu'il soit tombé du ciel à la
+        bataille de Lyndanisso en 1219 contre les Livoniens, mais l'histoire
+        rapporte que Valdemar II de Danemark, contraint à la guerre, ayant fait
+        appel aux chevaliers de l'Ordre et satisfait de leur aide, adopta leur
+        étendard comme drapeau de son pays, ce qui est attesté depuis 1350. Les
+        initiales F. E. R. T. signifient :<b>Fortitudo Ejus Rhodum Tenuit</b>,
+        c'est-à-dire : Sa bravoure a défendu Rhodes. Cette devise a trait au
+        Grand Maître Foulques de Villaret qui conquit l'île de Rhodes le 5 août
+        1310, mais soutint le premier grand siège dès 1315, aidé, dit la
+        légende, par Amédée V de Savoie, qui adopta lui aussi la croix blanche
+        sur fond rouge comme armes de son comté, dont l'Ordre de l'Annonciade
+        prit cette même devise. Elle s'applique aussi au dernier grand maître de
+        l'Ordre à Rhodes, Philippe de Villiers de l'Isle-Adam, qui résista
+        longtemps face aux Ottomans, jusqu'à ce que l'un de ses propres
+        chevaliers le trahisse lâchement. <br />
+        La bravoure de l'Ordre lui valut toutefois de pouvoir quitter Rhodes
+        librement avec les honneurs de la guerre.
+      </p>
+      [Image d'un étendard]{" "}
+      <p>
+        <b>L'étendard de Malte</b> est de sable, ou noir, portant la croix de
+        Malte octogone, ou à huit pointes, d'argent représenté ici par du blanc,
+        chargée du blason de Saint-Jean. Des anciens rituels maçonniques
+        indiquent qu'il porta aussi parfois l'inscription REX Regum et Dominus
+        Dominorum, c'est-à-dire « Roi des Rois et Seigneur des Seigneurs ».{" "}
+        <br />
+        L'histoire rapporte qu'un groupe de commerçants de la puissante
+        République d'Amalfi, fondée au IXe siècle, établit un comptoir à
+        Jérusalem ainsi qu'un hospice et une mission chrétienne. Les
+        Hospitaliers, accédant à la gestion de cet établissement, adoptèrent
+        cette croix à huit pointes, provenant des armes d'Amalfi, où elle est
+        sur fond d'azur. Elle figurent toujours ainsi sur le pavillon de la
+        Marine italienne, y rappelant l'ancienne république amalfitaine qui,
+        avec Gênes, Venise et Pise fonda sa puissance maritime. <br />
+        Pour les Chevaliers hospitaliers cette croix, avec son point central,
+        représente les Béatitudes qui vous furent rappelées avant votre
+        armement. Pour les Amalfitains c'était vraisemblablement une
+        représentation de la rose des vents figurant sur tous les compas de
+        navigation et qui leur permit d'établir leur vaste empire marchand.
+        C'est pure coïncidence si les huit pointes correspondent aux huit
+        langues traditionnelles et aux huit Piliers de l'Ordre qui vous furent
+        énumérés dans l'explication de la table octogonale.
+      </p>
     </div>
   );
 }
