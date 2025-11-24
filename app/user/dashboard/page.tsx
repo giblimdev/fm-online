@@ -81,7 +81,6 @@ export default function DashboardPage() {
     field: SortField,
     order: SortOrder
   ) => {
-    // Vérification de sécurité pour éviter l'erreur undefined
     if (!items || !Array.isArray(items) || items.length === 0) {
       return [];
     }
@@ -311,7 +310,6 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      
       {/* Contenu principal */}
       <main className="max-w-7xl mx-auto py-8 px-6">
         <div className="mb-8">
@@ -508,7 +506,7 @@ export default function DashboardPage() {
               </div>
             ) : (
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {sortedLibraryItems.slice(0, 6).map((libraryItem) => {
+                {sortedLibraryItems.slice(0, 15).map((libraryItem) => {
                   const document = libraryItem.document;
                   return (
                     <div
