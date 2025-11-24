@@ -338,32 +338,38 @@ export default function page() {
                   décroissant, frappent chacun cinq coups sur la table avec le
                   pommeau de leur épée. Puis les officiers de la table
                   octogonale frappent chacun un coup en tournant dans le sens
-                  des aiguilles d'une montre, en commençant par le Mar., ainsi
-                  :OfficierCoups / RythmeDétail– Ém. P.
-                  frappe$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$également
-                  espacés– Cap.-Gal.
-                  frappe$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$également
-                  espacés– Lt.-Gal.
-                  frappe$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$également
-                  espacés– 1er Lt.
-                  frappe$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$également
-                  espacés– 2d Lt.
-                  frappe$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$$\blacktriangledown$également
-                  espacés– Mar. frappe$\blacktriangledown$gardant le rythme
-                  entamé– Amiral frappe$\blacktriangledown$gardant le rythme
-                  entamé– Bailli frappe$\blacktriangledown$gardant le rythme
-                  entamé– Chanc. frappe$\blacktriangledown$gardant le rythme
-                  entamé– Très. frappe$\blacktriangledown$gardant le rythme
-                  entamé– Turc. frappe$\blacktriangledown$gardant le rythme
-                  entamé– Cons. frappe$\blacktriangledown$gardant le rythme
-                  entamé– Hosp. frappe$\blacktriangledown$gardant le rythme
+                  des aiguilles d'une montre, en commençant par le Mar., ainsi :{" "}
+                  <br />
+                  – Ém. P. frappe - O - O - O - O - O - également espacés <br />
+                  - Cap.-Gal. frappe - O - O - O - O - O - également espacés{" "}
+                  <br />- Lt.-Gal. frappe- O - O - O - O - O - également
+                  espacés– <br />- 1er Lt. frappe - O - O - O - O - O -
+                  également espacés– <br />- 2d Lt. frappe - O - O - O - O - O -
+                  également espacés– <br />– Mar. frappe gardant le rythme{" "}
+                  <br />
                   entamé
                   <br />
+                  – Amiral frappe - O - gardant le rythme entamé
+                  <br />
+                  – Bailli frappe - O - gardant le rythme entamé
+                  <br />
+                  – Chanc. frappe - O - gardant le rythme entamé
+                  <br />
+                  – Très. frappe - O - gardant le rythme entamé
+                  <br />
+                  – Turc. frappe - O - gardant le rythme entamé
+                  <br />
+                  – Cons. frappe - O - gardant le rythme entamé
+                  <br />
+                  – Hosp. frappe - O - gardant le rythme entamé
+                  <br />
                   <div className="bg-amber-100 p-4 rounded-lg border border-amber-300 text-center">
-                    <p className="font-bold text-amber-900 mb-2">Mar. —</p>
-                    <p className="font-bold text-amber-900">
-                      Officiers des tables pentagonale et octogonale RENGAINEZ —
-                      VOTRE ÉPÉE.
+                    <p className="font-bold text-amber-900 mb-2">
+                      Mar. —
+                      <span className="font-bold text-amber-900">
+                        Officiers des tables pentagonale et octogonale RENGAINEZ
+                        — VOTRE ÉPÉE.
+                      </span>
                     </p>
                   </div>
                   {/* Instructions pour les Chevaliers */}

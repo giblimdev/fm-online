@@ -1,39 +1,64 @@
 import React from "react";
 
-export default function page() {
+export default function Page() {
   return (
     <div>
-      (INSTALLATION)La salle capitulaireAvant la cérémonie, le Mar. Adj. aura
-      placé le(s) bijou(x) de Malte du/des Cand. sur un petit coussin, prêt à
-      être apporté à l'Ém. P.
-      <p>
-        Gard. frappe à la porte — $\bullet — \bullet \bullet \bullet \bullet
-        \bullet \bullet$C.A.P. — Digne Capitaine-Général, on frappe à la porte
-        du Chapitre en Chevalier de Malte.Cap.-Gnl — Frère Capitaine des
-        Avant-postes, voyez qui frappe ainsi.C.A.P. ouvre la porte, voit que ce
-        sont l'Ém. P. et le Chap., puis referme la porte et ditC.A.P. —
-        L'Éminent Prieur et le Chapelain demandent à être admis.Cap.-Gnl —
-        Admettez-les.Mar. Adj. — Frère Chevaliers - DE - BOUT.Tous se lèvent,
-        dégainent et viennent au « PORTEZ ». Les officiers des tables se lèvent
-        mais laissent leur épée sur les tables.L'Ém. P. et le Chap. regagnent
-        leurs places. Le Cap.-Gnl reprend la sienne. L'Ém. P. dégaine, place son
-        épée sur la table et s'assied.VarianteSi c'est un Prieur installé qui a
-        conféré le grade de Chevalier de Saint-Paul à la demande de l'Ém. P., le
-        C.A.P. modifie les termes de sonapport en conséquence. Une fois admis,
-        le Prieur installé et le Chap. font halte à l'ouest et saluent l'Ém. P.
-        <p>
-          P. P. — Éminent Prieur, le(s) Chevalier(s)......, de l'ordre des
-          Chevaliers du Temple, est (sont) à la porte du Chapitre. Il(s)
-          sollicite(nt) humblement d'être admis membre(s) de l'Ordre ancien et
-          maçonnique des chevaliers de l'Hôpital de Saint-Jean de Jérusalem, de
-          Palestine, de Rhodes et de Malte.
-        </p>
-        <p></p>Ém. P. — Éminent Chevalier, vous portez-vous garant qu'il(s) est
-        (sont) Chevalier(s) de Saint-Paul et en possession de la P. de M.?(p)P.
-        P. — Je m'en porte garant, Éminent Prieur.P. Prieur et Chap. regagnent
-        leur place à l'est.
+      <h1>Cérémonie d'armement</h1>
+      <p>(INSTALLATION)</p>
+      <p>La salle capitulaire</p>
+      <p className="com">
+        Avant la cérémonie, le Mar. Adj. aura placé le(s) bijou(x) de Malte
+        du/des Cand. sur un petit coussin, prêt à être apporté à l'Ém. P.
       </p>
-      Fin de la variante
+      <p>
+        Gard. frappe à la porte — O — — — O — — O — — O — — O — — O — — O — — O
+        — — O — — O — — O — — O — — O —
+      </p>
+      <p>
+        C.A.P. — Digne Capitaine-Général, on frappe à la porte du Chapitre en
+        Chevalier de Malte.
+      </p>
+      <p>
+        Cap.-Gnl — Frère Capitaine des Avant-postes, voyez qui frappe ainsi.
+      </p>
+      <p>
+        <span className="com">
+          C.A.P. ouvre la porte, voit que ce sont l'Ém. P. et le Chap., puis
+          referme la porte et dit{" "}
+        </span>
+        — L'Éminent Prieur et le Chapelain demandent à être admis.
+      </p>
+      <p>Cap.-Gnl — Admettez-les.</p>
+      <p>Mar. Adj. — Frère Chevaliers - DE - BOUT.</p>
+      <p className="com">
+        Tous se lèvent, dégainent et viennent au « PORTEZ ». Les officiers des
+        tables se lèvent mais laissent leur épée sur les tables. <br />
+        L'Ém. P. et le Chap. regagnent leurs places. Le Cap.-Gnl reprend la
+        sienne. L'Ém. P. dégaine, place son épée sur la table et s'assied.
+      </p>
+      <p>Variante</p>
+      <p>
+        Si c'est un Prieur installé qui a conféré le grade de Chevalier de
+        Saint-Paul à la demande de l'Ém. P., le C.A.P. modifie les termes de
+        sonapport en conséquence. Une fois admis, le Prieur installé et le Chap.
+        font halte à l'ouest et saluent l'Ém. P.
+      </p>
+
+      <p>
+        P. P. — Éminent Prieur, le(s) Chevalier(s)......, de l'ordre des
+        Chevaliers du Temple, est (sont) à la porte du Chapitre. Il(s)
+        sollicite(nt) humblement d'être admis membre(s) de l'Ordre ancien et
+        maçonnique des chevaliers de l'Hôpital de Saint-Jean de Jérusalem, de
+        Palestine, de Rhodes et de Malte.
+      </p>
+      <p>
+        Ém. P. — Éminent Chevalier, vous portez-vous garant qu'il(s) est (sont)
+        Chevalier(s) de Saint-Paul et en possession de la P. de M.?(p)P. P. — Je
+        m'en porte garant, Éminent Prieur.P. Prieur et Chap. regagnent leur
+        place à l'est.
+      </p>
+
+      <p>Fin de la variante</p>
       <p>
         Mar. Adj. — Chevaliers, mes Frères - PRENEZ - PLACE.Chevaliers gardes
         des bannières — À VOS — POSTES.
@@ -49,9 +74,7 @@ export default function page() {
       </p>
       <p>
         Gard.
-        <span className="com">
-          frappe à la porte en Chevalier du Temple
-        </span>{" "}
+        <span className="com">frappe à la porte en Chevalier du Temple</span>
         <br />
         —$\bullet \bullet \bullet \bullet \bullet \bullet$C.A.P. — Éminent
         Prieur, on frappe à la porte de la salle capitulaire en Chevalier du
@@ -91,6 +114,7 @@ export default function page() {
         pas en avant vers le nord, fera demi-tour à droite et reprendra sa place
         à côté de sa bannière.{" "}
       </p>
+
       <p>
         Mar. — et le Cand. entrent et s'avancent vers les bannières. Au cours de
         cette marche, le Mar. s'assurera, à chaque bannière, que le Cand. est
@@ -98,6 +122,7 @@ export default function page() {
         sommation, c'est-à-dire qu'il puisse toucher de la pointe de son épée la
         poitrine du Cand.
       </p>
+
       <p>(p) G.B.P. sommation — Donnez-moi la P. de M. </p>
       <p>(p) Cand. — M. </p>
       <p>
@@ -147,8 +172,8 @@ export default function page() {
         Chap. debout à sa place, face à l'ouest — Veuillez dire « Moi », (le
         Cand. le fait) décliner votre nom de baptême (c. à d. tous ses prénoms)
         et votre nom de famille (le Cand. le fait) et répétez après moi :
-      </p>{" "}
-      Vœux
+      </p>
+      <p>Vœux</p>
       <p>
         Par ceci et sur ceci, je promets et fais vœu, sur mon honneur de
         Chevalier du Temple, de ne jamais divulguer mal à propos les secrets qui
@@ -170,7 +195,7 @@ export default function page() {
         conduit le Cand., par le sud, jusqu'au prie-Dieu. Il lui dit de
         s'agenouiller sur les deux genoux et de se découvrir.{" "}
       </p>
-      Passage facultatif
+      <p>Passage facultatif</p>
       <p>
         Ém. P. — Avant de recevoir l'honneur de la chevalerie dans cet Ordre,
         soyez attentif au Chapelain qui va lire les Béatitudes du Sermon sur la
@@ -192,14 +217,13 @@ export default function page() {
         soyez dans l'allégresse, car votre récompense sera grande dans les
         cieux! »{" "}
       </p>
-      fin du passage facultatif
+      <p>fin du passage facultatif</p>
       <p>
         L'Ém. P. quitte sa place à la table pentagonale et va se placer à l'est
         de l'agenouilloir, face à l'ouest. Le Mar. présente son épée à l'Ém. P.
         qui arme le Cand. et l'investit Chevalier de Malte :{" "}
       </p>
       <p>
-        {" "}
         Ém. P. — En vertu des pouvoirs et de l'autorité que j'ai reçus du Grand
         Prieuré des Ordres Unis pour la France, et au nom de Jean-Baptiste,
         Saint Patron de l'Ordre, je te fais Chevalier de l'Ordre ancien et
@@ -213,7 +237,6 @@ export default function page() {
         avec ces mots : <br />
         <b> — Lève-toi, Chevalier mon Frère</b> <br />
         <span className="com">
-          {" "}
           L'Ém. P. reprend son épée de la main droite et la rend au Mar. Le Mar.
           ôte l'agenouilloir. Le Mar. dit au Cand. de remettre sa toque. Le Mar.
           Adj. présente à l'Ém. P. le bijou de Malte sur son coussin.
@@ -233,7 +256,6 @@ export default function page() {
         venez d'entendre rappelées par le Chapelain avant votre armement).
       </p>
       <p>
-        {" "}
         Le Mar. Adj. dépose par l'arrière le manteau sur les épaules du Cand. et
         en présente les brins du cordon à l'Ém. P.{" "}
       </p>
@@ -280,7 +302,9 @@ export default function page() {
         accroche », les Gardes pourront tenir la hampe de la main gauche et, de
         la pointe de leur épée, déployer la bannière face au Cand.
       </p>
-      Exposé historique
+
+      <p>Exposé historique</p>
+
       <p>
         Ém. P. — Digne Frère Chevalier, il est maintenant de mon devoir
         d'attirer votre attention sur un bref résumé de l'histoire de l'Ordre
@@ -338,7 +362,6 @@ export default function page() {
       </p>
       <p>Mar. Adj. — Chevaliers Gardes des bannières PRENEZ — PLACE.</p>
       <p>
-        {" "}
         Ém. P. — La légende narrant l'arrivée des Chevaliers dans ce qui sera
         leur dernier refuge a donné naissance aux mots distinctifs de l'Ordre.
         L'histoire, en effet, rapporte que, venant prendre possession de l'île,
@@ -355,7 +378,7 @@ export default function page() {
         On remarquera que telle est encore, de nos jours, la salutation
         ordinaire d'un arabe et d'un étranger.
       </p>
-      Exposé traditionnel
+      <p>Exposé traditionnel</p>
       <p>
         Ém. P. — La Passe de Méditerranée, que vous avez reçue dans le grade
         préliminaire de Chevalier de Saint-Paul, fut instituée aux premiers
@@ -420,17 +443,21 @@ export default function page() {
         Le Mar. Adj. conduit le Cand. à un siège au nord-ouest puis il regagne
         sa place.{" "}
       </p>
-      Explication des étendards à l'issue de l'armement d'un chevalier de Malte
-      (texte facultatif)
+
+      <p>
+        Explication des étendards à l'issue de l'armement d'un chevalier de
+        Malte (texte facultatif)
+      </p>
       <p>
         Ém. P. ou Chev. prévu — Vous voyez, disposés à l'est de la salle
         capitulaire, les étendards traditionnels de l'Ordre représentés ici « en
         bannière» : l'étendard de Saint-Jean et l'étendard de Malte.
       </p>
+
       <p>
-        <b></b> L'étendard de Saint-Jean est dit de gueules, ou rouge, à la
-        croix d'argent, représenté ici par du blanc, au centre de laquelle est
-        un Agnus Dei, c'est-à-dire l'Agneau de Dieu triomphant portant
+        L'étendard de Saint-Jean est dit de gueules, ou rouge, à la croix
+        d'argent, représenté ici par du blanc, au centre de laquelle est un
+        Agnus Dei, c'est-à-dire l'Agneau de Dieu triomphant portant
         habituellement l'étendard de Sa gloire avec l'Alpha et l'Oméga, mais qui
         porte ici le Baucent pour rappeler l'union des Ordres maçonniques du
         Temple et de Malte. Les angles ou cantons de la croix, portent les
@@ -455,7 +482,7 @@ export default function page() {
         La bravoure de l'Ordre lui valut toutefois de pouvoir quitter Rhodes
         librement avec les honneurs de la guerre.
       </p>
-      [Image d'un étendard]{" "}
+      <p>[Image d'un étendard] </p>
       <p>
         <b>L'étendard de Malte</b> est de sable, ou noir, portant la croix de
         Malte octogone, ou à huit pointes, d'argent représenté ici par du blanc,
