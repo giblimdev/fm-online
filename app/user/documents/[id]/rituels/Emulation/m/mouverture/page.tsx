@@ -51,7 +51,8 @@ function page() {
           Revient à sa place, fait le pas, se met à l'ordre de Cp., tourne la
           tête vers le 2d S et dit :{" "}
         </span>{" "}
-        F. Second Surveillant, la L. est bien couverte. Il fait le signe pénal.
+        F. Second Surveillant, la L. est bien couverte.{" "}
+        <span className="com">Il fait le signe pénal.</span>
       </p>
       <p>
         <b>2d S </b>: - O - OO -{" "}

@@ -71,10 +71,10 @@ function page() {
       </p>
       <span className="com">Le C fait le s. p.</span> <br />
       <p>
-        <b>2e S </b>: - O - O - O -
+        <b>2e S </b>: - O - O - O -&nbsp;
         <span className="com">
-          fait le p., se met à l'o. et s'adresse au V.M.
-        </span>
+          fait le p., se met à l'o. et s'adresse au V.M.&nbsp;
+        </span>{" "}
         VM, la Loge est bien c. <span className="com">(fait le s. p.)</span>
       </p>
       <p>

@@ -627,7 +627,7 @@ export default function DashboardPage() {
               </div>
             )}
 
-            {libraryItems.length > 6 && (
+            {libraryItems.length > 15 && (
               <div className="mt-6 text-center">
                 <Link
                   href="/user/library"
