@@ -3,7 +3,6 @@ import React from "react";
 export default function Page() {
   return (
     <div className="min-h-screen bg-gray-100 py-8">
-      {/* Page 5 */}
       <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
         <div className="text-center mb-10">
           <h1 className="text-xl font-bold tracking-wider">
@@ -48,11 +47,6 @@ export default function Page() {
             chevaliers la pratique rituelle la plus scrupuleuse.
           </p>
         </div>
-        <div className="text-center mt-10 text-xs text-gray-500">5</div>
-      </div>
-
-      {/* Page 6 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
         <div className="text-center mb-10">
           <h1 className="text-xl font-bold tracking-wider">Avertissement</h1>
         </div>
@@ -116,11 +110,6 @@ export default function Page() {
             règlements.
           </p>
         </div>
-        <div className="text-center mt-10 text-xs text-gray-500">6</div>
-      </div>
-
-      {/* Page 7 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
         <div className="text-center mb-10">
           <h1 className="text-xl font-bold tracking-wider">
             Historique des Hospitaliers
@@ -184,11 +173,6 @@ export default function Page() {
             maîtres furent français.
           </p>
         </div>
-        <div className="text-center mt-10 text-xs text-gray-500">7</div>
-      </div>
-
-      {/* Page 8 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
         <div className="text-sm leading-relaxed">
           <p className="mb-4">
             La Révolution française supprima l'Ordre en France, en raison de son
@@ -247,13 +231,7 @@ export default function Page() {
             en France, par les **Œuvres Hospitalières Françaises de l'Ordre de
             Malte (O.H.F.O.M.)**. L'Ordre ne frappe plus monnaie de collection
           </blockquote>
-        </div>
-        <div className="text-center mt-10 text-xs text-gray-500">8</div>
-      </div>
 
-      {/* Page 9 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
-        <div className="text-sm leading-relaxed">
           <p className="mb-4">
             mais, comme tout état, il émet ses propres timbres-poste acceptés
             dans tous les pays qui le reconnaissent et ont signé des accords
@@ -335,72 +313,61 @@ export default function Page() {
             </li>
           </ul>
         </div>
-        <div className="text-center mt-10 text-xs text-gray-500">9</div>
-      </div>
 
-      {/* Page 10 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
-        <div className="text-sm leading-relaxed">
-          <ul className="list-disc ml-8 space-y-4">
-            <li>
-              - en Hongrie : A **Johannitarend Magyar Tagozata** (Commanderie
-              hongroise de l'Ordre de Saint-Jean), réformée et luthérienne,
-              créée en **1924**, dissoute par le régime communiste, puis
-              réveillée en **1990**, elle compte une centaine de chevaliers;
-            </li>
-            <li>
-              - en Confédération Helvétique : la **Genossenschaft des
-              Johanniterriter im der Schweiz** ou **Schweizerische Kommende des
-              Johanniterordens** (Commanderie suisse de l'Ordre de Saint-Jean),
-              créée en sous-commanderie en **1937**, érigée en Commanderie en
-              **1948**, réformée et luthérienne, comptant une centaine de
-              chevaliers;
-            </li>
-            <li>
-              - en France : la **Commanderie française de l'Ordre de Saint-Jean
-              de Jérusalem**, réformée et luthérienne créée en **1959**,
-              comptant près de quatre-vingts Chevaliers, ayant à sa tête un
-              Commandeur, actuellement **M. Pierre CHOMIAc DE SAS** (depuis
-              2004). Son action hospitalière est gérée par les{" "}
-              <span className="italic">Œuvres de Saint-Jean</span>, reconnues
-              d'utilité publique, agissant souvent en coopération avec les
-              **O.H.F.O.M.**
-            </li>
-          </ul>
+        <ul className="list-disc ml-8 space-y-4">
+          <li>
+            - en Hongrie : A **Johannitarend Magyar Tagozata** (Commanderie
+            hongroise de l'Ordre de Saint-Jean), réformée et luthérienne, créée
+            en **1924**, dissoute par le régime communiste, puis réveillée en
+            **1990**, elle compte une centaine de chevaliers;
+          </li>
+          <li>
+            - en Confédération Helvétique : la **Genossenschaft des
+            Johanniterriter im der Schweiz** ou **Schweizerische Kommende des
+            Johanniterordens** (Commanderie suisse de l'Ordre de Saint-Jean),
+            créée en sous-commanderie en **1937**, érigée en Commanderie en
+            **1948**, réformée et luthérienne, comptant une centaine de
+            chevaliers;
+          </li>
+          <li>
+            - en France : la **Commanderie française de l'Ordre de Saint-Jean de
+            Jérusalem**, réformée et luthérienne créée en **1959**, comptant
+            près de quatre-vingts Chevaliers, ayant à sa tête un Commandeur,
+            actuellement **M. Pierre CHOMIAc DE SAS** (depuis 2004). Son action
+            hospitalière est gérée par les{" "}
+            <span className="italic">Œuvres de Saint-Jean</span>, reconnues
+            d'utilité publique, agissant souvent en coopération avec les
+            **O.H.F.O.M.**
+          </li>
+        </ul>
 
-          <p className="mb-4 mt-6 font-bold">
-            En outre, deux autres de ses commanderies ont accédé à
-            l'indépendance par l'octroi d'une charte royale dans leur propre
-            pays, ce sont les :
-          </p>
+        <p className="mb-4 mt-6 font-bold">
+          En outre, deux autres de ses commanderies ont accédé à l'indépendance
+          par l'octroi d'une charte royale dans leur propre pays, ce sont les :
+        </p>
 
-          <ul className="list-disc ml-4 space-y-4">
-            <li>
-              - **Johanniterorden i Sverige** (l'Ordre de Saint-Jean en Suède),
-              luthérien et protestant, issu de la Commanderie nationale fondée
-              en **1920**, indépendante en **novembre 1946**, incorporée par
-              charte royale de **Gustave V, Herre och Mästare** (seigneur et
-              maître), sous la protection du Roi, il est régi par un{" "}
-              <span className="italic">Kommandatorn</span>, et compte environ
-              quatre cents membres dont soixante chevaliers de Justice.
-            </li>
-            <li>
-              - **Johanniter Orde in Nederland** (l'Ordre de Saint-Jean aux
-              Pays-Bas), réformé, issu de la Commanderie nationale constituée en
-              **1909**, devenue un Ordre indépendant depuis le **5 mars 1946**.
-              Il compte un millier de chevaliers et dames, tous de la plus haute
-              noblesse du Royaume, régis par le{" "}
-              <span className="italic">Kapittel</span>, présidé par le{" "}
-              <span className="italic">Coadjutor</span>, administrant au nom du
-              souverain.
-            </li>
-          </ul>
-        </div>
-        <div className="text-center mt-10 text-xs text-gray-500">10</div>
-      </div>
+        <ul className="list-disc ml-4 space-y-4">
+          <li>
+            - **Johanniterorden i Sverige** (l'Ordre de Saint-Jean en Suède),
+            luthérien et protestant, issu de la Commanderie nationale fondée en
+            **1920**, indépendante en **novembre 1946**, incorporée par charte
+            royale de **Gustave V, Herre och Mästare** (seigneur et maître),
+            sous la protection du Roi, il est régi par un{" "}
+            <span className="italic">Kommandatorn</span>, et compte environ
+            quatre cents membres dont soixante chevaliers de Justice.
+          </li>
+          <li>
+            - **Johanniter Orde in Nederland** (l'Ordre de Saint-Jean aux
+            Pays-Bas), réformé, issu de la Commanderie nationale constituée en
+            **1909**, devenue un Ordre indépendant depuis le **5 mars 1946**. Il
+            compte un millier de chevaliers et dames, tous de la plus haute
+            noblesse du Royaume, régis par le{" "}
+            <span className="italic">Kapittel</span>, présidé par le{" "}
+            <span className="italic">Coadjutor</span>, administrant au nom du
+            souverain.
+          </li>
+        </ul>
 
-      {/* Page 11 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
         <div className="text-sm leading-relaxed">
           <p className="mb-4">
             Depuis la 1<sup className="align-super">ère</sup> édition de ce
@@ -465,11 +432,7 @@ export default function Page() {
             françaises**.
           </p>
         </div>
-        <div className="text-center mt-10 text-xs text-gray-500">11</div>
-      </div>
 
-      {/* Page 12 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
         <div className="text-center mb-10">
           <h1 className="text-xl font-bold tracking-wider">
             Introduction au Grade maçonnique
@@ -541,212 +504,195 @@ export default function Page() {
             élucidé et rien ne permet d'y voir l'origine d'un grade de Malte.
           </p>
         </div>
-        <div className="text-center mt-10 text-xs text-gray-500">12</div>
-      </div>
+        <p className="mb-4">
+          La première référence en Irlande, dans la parodie de **Jonathan
+          SWIFT** en **1724**, bien qu'intéressante, n'est nullement un indice
+          de grade maçonnique. Nous devons donc, bien à regret, admettre qu'il
+          est avéré impossible à ce jour de déterminer une date ou un lieu pour
+          l'origine du grade maçonnique de Malte.
+        </p>
+        <p className="mb-4">
+          Il n'est pas douteux, quel que soit l'auteur du premier rituel de ce
+          grade, qu'il ait été fortement influencé par ce que l'on connaît de
+          l'Ordre médiéval et de son histoire à ce jour. Les officiers d'un
+          Prieuré de Malte portent des titres semblables à ceux des Hospitaliers
+          et la disposition d'un Prieuré doit sûrement provenir d'une pratique
+          non-maçonnique de temps anciens.
+        </p>
+        <p className="mb-4">
+          Les premières traces avérées montrent que les grades du Temple et de
+          Malte furent travaillés dans les mêmes loges, chapitres d'Arche Royale
+          et "**Camps**" ou "**Campements**" (
+          <span className="italic">Encampments</span>) avant même que **Thomas
+          DUNCKERLEY** en prenne la tête. On peut certainement déduire de
+          l'usage du **Camp de Baldwyn à Bristol** et d'autres sources connues
+          que, dans les premiers temps, les deux chevaleries devaient être
+          contenues dans une même cérémonie.
+        </p>
+        <p className="mb-4">
+          Curieusement, il y a plus de deux cent trente ans, le premier corps
+          maçonnique templier connu, organisé le **20 décembre 1780** à Bristol,
+          affirmait sa prérogative de «
+          <span className="italic">
+            Suprême Campement Royal de l'Ordre des Chevaliers Templiers de St
+            Jean de Jérusalem, Chevaliers Hospitaliers et Chevaliers de Malte
+          </span>
+          ». (
+          <span className="italic">
+            The Supreme and Royal Encampment of the Order of Knights Templar of
+            St. John of Jerusalem, Knights Hospitaller and Knights of Malta
+          </span>
+          ).
+        </p>
+        <p className="mb-4">
+          Dix ans plus tard, en **1791**, le corps constitué sous l'autorité de
+          **Thomas DUNCKERLEY**, s'intitula «
+          <span className="italic">
+            Grand Conclave de l'Ordre Royal, Exalté, Religieux et Militaire de
+            H.R.D.M., des Grands Élus Chevaliers Templiers maçonniques et
+            K.D.S.H. de St Jean de Jérusalem, Palestine, Rhodes, etc.
+          </span>
+          » [il est assez logique de supposer que «
+          <span className="italic">etc.</span>» puisse être interprété «
+          <span className="italic">de Malte</span>»]. Le **Camp of Baldwyn à
+          Bristol** inclut d'ailleurs ce mot dans son titre. Mais il faudra
+          attendre **1853** pour trouver les grades de "**Malte et la Passe de
+          Méditerranée**" officiellement inclus aux **Statutes d'Angleterre**.
+          Il est clair que deux grades distincts furent dès lors conférés, celui
+          de Malte suivant le Temple, bien que parfois la séquence ait été
+          inversée.
+        </p>
 
-      {/* Page 13 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md mb-8">
-        <div className="text-sm leading-relaxed">
-          <p className="mb-4">
-            La première référence en Irlande, dans la parodie de **Jonathan
-            SWIFT** en **1724**, bien qu'intéressante, n'est nullement un indice
-            de grade maçonnique. Nous devons donc, bien à regret, admettre qu'il
-            est avéré impossible à ce jour de déterminer une date ou un lieu
-            pour l'origine du grade maçonnique de Malte.
-          </p>
-          <p className="mb-4">
-            Il n'est pas douteux, quel que soit l'auteur du premier rituel de ce
-            grade, qu'il ait été fortement influencé par ce que l'on connaît de
-            l'Ordre médiéval et de son histoire à ce jour. Les officiers d'un
-            Prieuré de Malte portent des titres semblables à ceux des
-            Hospitaliers et la disposition d'un Prieuré doit sûrement provenir
-            d'une pratique non-maçonnique de temps anciens.
-          </p>
-          <p className="mb-4">
-            Les premières traces avérées montrent que les grades du Temple et de
-            Malte furent travaillés dans les mêmes loges, chapitres d'Arche
-            Royale et "**Camps**" ou "**Campements**" (
-            <span className="italic">Encampments</span>) avant même que **Thomas
-            DUNCKERLEY** en prenne la tête. On peut certainement déduire de
-            l'usage du **Camp de Baldwyn à Bristol** et d'autres sources connues
-            que, dans les premiers temps, les deux chevaleries devaient être
-            contenues dans une même cérémonie.
-          </p>
-          <p className="mb-4">
-            Curieusement, il y a plus de deux cent trente ans, le premier corps
-            maçonnique templier connu, organisé le **20 décembre 1780** à
-            Bristol, affirmait sa prérogative de «
-            <span className="italic">
-              Suprême Campement Royal de l'Ordre des Chevaliers Templiers de St
-              Jean de Jérusalem, Chevaliers Hospitaliers et Chevaliers de Malte
-            </span>
-            ». (
-            <span className="italic">
-              The Supreme and Royal Encampment of the Order of Knights Templar
-              of St. John of Jerusalem, Knights Hospitaller and Knights of Malta
-            </span>
-            ).
-          </p>
-          <p className="mb-4">
-            Dix ans plus tard, en **1791**, le corps constitué sous l'autorité
-            de **Thomas DUNCKERLEY**, s'intitula «
-            <span className="italic">
-              Grand Conclave de l'Ordre Royal, Exalté, Religieux et Militaire de
-              H.R.D.M., des Grands Élus Chevaliers Templiers maçonniques et
-              K.D.S.H. de St Jean de Jérusalem, Palestine, Rhodes, etc.
-            </span>
-            » [il est assez logique de supposer que «
-            <span className="italic">etc.</span>» puisse être interprété «
-            <span className="italic">de Malte</span>»]. Le **Camp of Baldwyn à
-            Bristol** inclut d'ailleurs ce mot dans son titre. Mais il faudra
-            attendre **1853** pour trouver les grades de "**Malte et la Passe de
-            Méditerranée**" officiellement inclus aux **Statutes d'Angleterre**.
-            Il est clair que deux grades distincts furent dès lors conférés,
-            celui de Malte suivant le Temple, bien que parfois la séquence ait
-            été inversée.
-          </p>
-        </div>
-        <div className="text-center mt-10 text-xs text-gray-500">13</div>
-      </div>
-
-      {/* Page 14 */}
-      <div className="p-6 bg-white max-w-2xl mx-auto font-serif text-gray-800 shadow-md">
-        <div className="text-sm leading-relaxed">
-          <p className="mb-4">
-            Les archives du Grand Prieuré d'Angleterre conservent de nombreux
-            cahiers manuscrits de rituels permettant de suivre les divers
-            développements et modifications et voir dans quelle mesure les
-            rituels anciens et particuliers de divers "**Camps**" tel
-            **Baldwyn**, diffèrent de ceux qui nous sont aujourd'hui. familiers.
-            Tous ne peuvent pas être précisément datés, car on rencontre souvent
-            des copies récentes de manuscrits réputés plus anciens. L'une des
-            copies, particulièrement intéressante, fut faite en 1877 d'un rituel
-            d'environ 1780 contenant un catéchisme ou instruction par questions
-            et réponses. Un autre rituel remonte aux environs 1830, quand
-            Alexandre Daiziel s'attela à une révision profonde des rituels
-            utilisés au sein du Royal KENT Encampsment de Newcastle-upon-Tyne,
-            comprenant les grades de "Chevalier du Temple, Croix Rouge et Saint
-            Sépulcre de Jérusalem, Chevalier de Rhodes et Palestine, Chevalier
-            de Malte, Passe de Méditerranée, Pélican et Aigle, Harodim, Kadosh".
-            Le rituel du Temple fut adopté par le Grand Conclave d'Angleterre le
-            11 avril 1851. Après une étude approfondie, le 1er décembre 1866, un
-            rituel officiel de Malte "approuvé par le Comité" voyait le jour qui
-            nous rapproche de la forme en usage de nos jours. À ce stade, nous
-            ne parlons encore bien sûr que de cahiers laborieusement manuscrits.
-            La plupart contiennent les deux cérémonies et l'un d'entre eux est
-            complété du rituel de Baldwyn et de quelques instructions
-            catéchétiques. John Masson, Grand Chancelier du Grand Conclave,
-            s'employa à préparer pour l'Ordre maçonnique du Temple, ce que
-            PRESTON avait produit pour les grades symboliques mais, si
-            l'Instruction par questions et réponses Emulation est toujours en
-            usage dans les loges, celle de MASSON est aujourd'hui oubliée. Le
-            Grand Conclave, appréciant ce travail, décida sa promulgation en
-            1858. Il fut d'abord imprimé en trois opuscules reliés. Le premier,
-            outre une dédicace au Grand Maître, KEMEYS TYNTÉ, manuscrite sur
-            chaque exemplaire, contenait les questions, le deuxième les réponses
-            et le troisième une instruction sur l'origine de l'Ordre, ses
-            progrès et développement; sa suppression; son renouveau au sein de
-            la Maçonnerie; les bienfaits en résultant et la récompense espérée".
-            Le renouveau évoqué ici se fonde sur le principe d'une transmission
-            via l'Écosse. Après la formation du Convent Général (1872), le
-            rituel produit par la commission nommée par le Convent Général fut
-            accueilli avec fort peu d'enthousiasme. Des livrets rituels imprimés
-            furent toutefois constamment édités, conformes aux textes
-            antérieurement approuvés par le Grand Conclave, qui furent en la
-            circonstance toujours bienvenus. Les éditions "A Lewis" (un
-            Louveton, et pas "A. Lewis", comme on le voit trop souvent ;
-            aujourd'hui "Lewis Masonic"], publièrent en 1876, The Perfect
-            Ceremonies of the Royal, Exalted, Religious and Military Order of
-            Masonic Knights Templar, contenant les cérémonies de Malte et de la
-            Passe de Méditerranée ainsi que le "Tuileur" de MASSON. L'éditeur
-            prétendait que c'était une copie du rituel approuvé par le Grand
-            Conclave d'Angleterre et du Pays de Galles et l'accueil qui lui fut
-            réservé justifia plusieurs rééditions ; aucune toutefois ne contient
-            une seule allusion au Convent Général alors que le Grand Conclave
-            est toujours mentionné comme source, au moins jusqu'à l'édition de
-            1891 qui se réfère aux "Ordres Unis". Cette édition donnait, en un
-            seul volume, les rituels décrits ci-dessus avec ceux de "Rose Croix
-            de Heredom", intitulé plus tard "copie du rituel du Suprême Conseil
-            du 33ᵉ pour l'Angleterre et le Pays de Galles". La similitude avec
-            des rituels manuscrits plus anciens, comme avec des versions
-            officielles imprimées plus récentes, montre combien il est, et fut,
-            considéré comme authentique. Des éditions combinées se succédèrent
-            jusqu'à la fin du siècle, le Grand Prieuré étant alors bien sûr en
-            pleine activité. Le premier rituel officiel du Grand Prieuré parut
-            en 1900. Il fut depuis souvent révisé, modifié, réédité et
-            réimprimé, et son usage immédiatement rendu obligatoire pour tous, à
-            l'exception de quelques Préceptories de "temps immémorial".
-            L'édition de 1900 comportait une modification d'importance : la
-            réduction de l'ouverture et de la fermeture "longues" par questions
-            et réponses entre le Précepteur et les Connétables, à la version
-            actuelle. Les Préceptories existantes étaient toutefois autorisées à
-            conserver l'ancien mode. À de rares exceptions, les éditions
-            officielles anglaises successives, jusqu'en 1970, groupaient les
-            rituels du Temple et de Malte en un seul volume. Depuis cette date
-            elles sont en deux volumes distincts, mais avec une rubrique
-            gestuelle beaucoup plus détaillée. Il existe encore, çà et là, des
-            éditions "personnelles", souvent à usage strictement local. Ainsi,
-            celle de la Préceptorie Grosvenor n° 132 à Chester, pour laquelle
-            George HARRISON, s'intitulant Commandeur en 1920, édita un rituel
-            relié en plein chagrin rouge comportant les anciennes ouverture et
-            fermeture, mais généralement conforme quant au reste. L'exemplaire
-            conservé aux archives à Londres, porte mention d'une tolérance du
-            Grand Prieuré, bien que sa première édition n'ait jamais été
-            autorisée, pour son utilisation jusqu'au décès (en 1930) de son
-            auteur. Dans d'autres cas, dont la Préceptorie de St. Salem à
-            Macclesfield, des inserts modificatifs à l'édition de 1851, imprimés
-            localement, étaient utilisés. <br />
-            Le Camp de Baldwyn et autres Encampsments et/ou Conclaves et/ou
-            Préceptories, jouissant du statut de "temps immémorial", ont des
-            rituels spécifiques, dont certains combinent en une cérémonie les
-            grades du Temple et de Malte. Le rituel de la Préceptorie Antiquity
-            à Bath est probablement unique, en ce qu'elle ne possède son
-            cérémonial particulier d'ouverture et fermeture, semblable à celui
-            de Baldwyn, mais précise ensuite que le rituel officiel doit être
-            suivi, sauf pour une incidente curieuse : après l'investiture du
-            nouveau chevalier, un "cuisinier" entre, un grand couteau à la main,
-            menaçant de trancher les éperons de quiconque manquerait à ses vœux.
-            Cela est également visible à Bristol. En Irlande, l'usage de rituels
-            imprimés, sans peut-être outrer, est généra-lement vivement
-            déconseillé, tant dans la Maçonnerie symbolique que dans les autres
-            grades ou ordres. À Dublin, opère une Grande Préceptorie
-            d'Instruction pour les Ordres Unis qui se réunit quatre fois l'an,
-            mais le Grand Prieuré édite toutefois des rituels imprimés
-            permettant d'apprendre chez soi aussi bien les textes que la
-            gestuelle. L'Écosse dispose pour sa part de rituels officiels, dont
-            les rubriques sont détaillées, et d'un guide du cérémonial. Ils sont
-            destinés à ses chevaliers, afin qu'ils y apprennent le rituel de
-            cérémonies. Ils permettent aussi à tout maçon qualifié de mieux
-            découvrir ce dernier, et de pouvoir ensuite comparer ses usages
-            propres à ceux pratiqués au nord du mur d'Hadrien. Des variations
-            existent dans l'enchaînement des évènements rituels de l'Ordre
-            maçonnique de Malte et dans les textes en usage, mais au sein des
-            trois juridictions britanniques, un candidat reçoit les mêmes
-            enseignements et est conduit à suivre les mêmes idéaux. Les
-            similitudes dépassent de beaucoup les différences. Bien que
-            mentionné dès 1782 à Baltimore, Maryland, puis en 1783 à Charleston,
-            Caroline du Sud, la première apparition avérée du grade maçonnique
-            de Malte aux États-Unis, dans l'état de Rhode Island, se trouve dans
-            le texte de la constitution d'un United States Grand Encampment du 6
-            mai 1805, qui s'unit alors au Encampments des états du Massachusetts
-            et de Rhode Island. Ce document prévoit des ateliers distincts pour
-            les grades de Malte, du Temple et de la Croix Rouge, mais ne prévoit
-            de droits spécifiques que pour les dernières cités. Dès
-            l'organisation du Grand Encampment actuel en 1816, la «séquence» est
-            modifiée : le grade de Malte devenant l'ultime, position qu'il garda
-            cent ans. Toutefois, une forte opposition (dont celle d'Albert G.
-            MACKEY) à la présence du grade de Malte dans la série causa un temps
-            (1856-1862) son retrait pur et simple par le Grand Encampment. En
-            1865, le Grand Maître proposa une première fois que la «séquence»
-            devienne : Croix-Rouge, Malte, puis Temple, mais le comité ad hoc
-            repoussa cette idée. Ce n'est qu'en 1916 que l'ordre actuel d'accès
-            aux trois grades fut enfin adopté. De très nombreux auteurs maçons
-            américains regrettent fort que le grade de Malte, ainsi placé et
-            pouvant être réglementairement «communiqué en forme courte», soit de
-            nos jours pratiquement toujours conféré ainsi.
-          </p>
-        </div>
-        <div className="text-center mt-10 text-xs text-gray-500">14</div>
+        <p className="mb-4">
+          Les archives du Grand Prieuré d'Angleterre conservent de nombreux
+          cahiers manuscrits de rituels permettant de suivre les divers
+          développements et modifications et voir dans quelle mesure les rituels
+          anciens et particuliers de divers "**Camps**" tel **Baldwyn**,
+          diffèrent de ceux qui nous sont aujourd'hui. familiers. Tous ne
+          peuvent pas être précisément datés, car on rencontre souvent des
+          copies récentes de manuscrits réputés plus anciens. L'une des copies,
+          particulièrement intéressante, fut faite en 1877 d'un rituel d'environ
+          1780 contenant un catéchisme ou instruction par questions et réponses.
+          Un autre rituel remonte aux environs 1830, quand Alexandre Daiziel
+          s'attela à une révision profonde des rituels utilisés au sein du Royal
+          KENT Encampsment de Newcastle-upon-Tyne, comprenant les grades de
+          "Chevalier du Temple, Croix Rouge et Saint Sépulcre de Jérusalem,
+          Chevalier de Rhodes et Palestine, Chevalier de Malte, Passe de
+          Méditerranée, Pélican et Aigle, Harodim, Kadosh". Le rituel du Temple
+          fut adopté par le Grand Conclave d'Angleterre le 11 avril 1851. Après
+          une étude approfondie, le 1er décembre 1866, un rituel officiel de
+          Malte "approuvé par le Comité" voyait le jour qui nous rapproche de la
+          forme en usage de nos jours. À ce stade, nous ne parlons encore bien
+          sûr que de cahiers laborieusement manuscrits. La plupart contiennent
+          les deux cérémonies et l'un d'entre eux est complété du rituel de
+          Baldwyn et de quelques instructions catéchétiques. John Masson, Grand
+          Chancelier du Grand Conclave, s'employa à préparer pour l'Ordre
+          maçonnique du Temple, ce que PRESTON avait produit pour les grades
+          symboliques mais, si l'Instruction par questions et réponses Emulation
+          est toujours en usage dans les loges, celle de MASSON est aujourd'hui
+          oubliée. Le Grand Conclave, appréciant ce travail, décida sa
+          promulgation en 1858. Il fut d'abord imprimé en trois opuscules
+          reliés. Le premier, outre une dédicace au Grand Maître, KEMEYS TYNTÉ,
+          manuscrite sur chaque exemplaire, contenait les questions, le deuxième
+          les réponses et le troisième une instruction sur l'origine de l'Ordre,
+          ses progrès et développement; sa suppression; son renouveau au sein de
+          la Maçonnerie; les bienfaits en résultant et la récompense espérée".
+          Le renouveau évoqué ici se fonde sur le principe d'une transmission
+          via l'Écosse. Après la formation du Convent Général (1872), le rituel
+          produit par la commission nommée par le Convent Général fut accueilli
+          avec fort peu d'enthousiasme. Des livrets rituels imprimés furent
+          toutefois constamment édités, conformes aux textes antérieurement
+          approuvés par le Grand Conclave, qui furent en la circonstance
+          toujours bienvenus. Les éditions "A Lewis" (un Louveton, et pas "A.
+          Lewis", comme on le voit trop souvent ; aujourd'hui "Lewis Masonic"],
+          publièrent en 1876, The Perfect Ceremonies of the Royal, Exalted,
+          Religious and Military Order of Masonic Knights Templar, contenant les
+          cérémonies de Malte et de la Passe de Méditerranée ainsi que le
+          "Tuileur" de MASSON. L'éditeur prétendait que c'était une copie du
+          rituel approuvé par le Grand Conclave d'Angleterre et du Pays de
+          Galles et l'accueil qui lui fut réservé justifia plusieurs rééditions
+          ; aucune toutefois ne contient une seule allusion au Convent Général
+          alors que le Grand Conclave est toujours mentionné comme source, au
+          moins jusqu'à l'édition de 1891 qui se réfère aux "Ordres Unis". Cette
+          édition donnait, en un seul volume, les rituels décrits ci-dessus avec
+          ceux de "Rose Croix de Heredom", intitulé plus tard "copie du rituel
+          du Suprême Conseil du 33ᵉ pour l'Angleterre et le Pays de Galles". La
+          similitude avec des rituels manuscrits plus anciens, comme avec des
+          versions officielles imprimées plus récentes, montre combien il est,
+          et fut, considéré comme authentique. Des éditions combinées se
+          succédèrent jusqu'à la fin du siècle, le Grand Prieuré étant alors
+          bien sûr en pleine activité. Le premier rituel officiel du Grand
+          Prieuré parut en 1900. Il fut depuis souvent révisé, modifié, réédité
+          et réimprimé, et son usage immédiatement rendu obligatoire pour tous,
+          à l'exception de quelques Préceptories de "temps immémorial".
+          L'édition de 1900 comportait une modification d'importance : la
+          réduction de l'ouverture et de la fermeture "longues" par questions et
+          réponses entre le Précepteur et les Connétables, à la version
+          actuelle. Les Préceptories existantes étaient toutefois autorisées à
+          conserver l'ancien mode. À de rares exceptions, les éditions
+          officielles anglaises successives, jusqu'en 1970, groupaient les
+          rituels du Temple et de Malte en un seul volume. Depuis cette date
+          elles sont en deux volumes distincts, mais avec une rubrique gestuelle
+          beaucoup plus détaillée. Il existe encore, çà et là, des éditions
+          "personnelles", souvent à usage strictement local. Ainsi, celle de la
+          Préceptorie Grosvenor n° 132 à Chester, pour laquelle George HARRISON,
+          s'intitulant Commandeur en 1920, édita un rituel relié en plein
+          chagrin rouge comportant les anciennes ouverture et fermeture, mais
+          généralement conforme quant au reste. L'exemplaire conservé aux
+          archives à Londres, porte mention d'une tolérance du Grand Prieuré,
+          bien que sa première édition n'ait jamais été autorisée, pour son
+          utilisation jusqu'au décès (en 1930) de son auteur. Dans d'autres cas,
+          dont la Préceptorie de St. Salem à Macclesfield, des inserts
+          modificatifs à l'édition de 1851, imprimés localement, étaient
+          utilisés. <br />
+          Le Camp de Baldwyn et autres Encampsments et/ou Conclaves et/ou
+          Préceptories, jouissant du statut de "temps immémorial", ont des
+          rituels spécifiques, dont certains combinent en une cérémonie les
+          grades du Temple et de Malte. Le rituel de la Préceptorie Antiquity à
+          Bath est probablement unique, en ce qu'elle ne possède son cérémonial
+          particulier d'ouverture et fermeture, semblable à celui de Baldwyn,
+          mais précise ensuite que le rituel officiel doit être suivi, sauf pour
+          une incidente curieuse : après l'investiture du nouveau chevalier, un
+          "cuisinier" entre, un grand couteau à la main, menaçant de trancher
+          les éperons de quiconque manquerait à ses vœux. Cela est également
+          visible à Bristol. En Irlande, l'usage de rituels imprimés, sans
+          peut-être outrer, est généra-lement vivement déconseillé, tant dans la
+          Maçonnerie symbolique que dans les autres grades ou ordres. À Dublin,
+          opère une Grande Préceptorie d'Instruction pour les Ordres Unis qui se
+          réunit quatre fois l'an, mais le Grand Prieuré édite toutefois des
+          rituels imprimés permettant d'apprendre chez soi aussi bien les textes
+          que la gestuelle. L'Écosse dispose pour sa part de rituels officiels,
+          dont les rubriques sont détaillées, et d'un guide du cérémonial. Ils
+          sont destinés à ses chevaliers, afin qu'ils y apprennent le rituel de
+          cérémonies. Ils permettent aussi à tout maçon qualifié de mieux
+          découvrir ce dernier, et de pouvoir ensuite comparer ses usages
+          propres à ceux pratiqués au nord du mur d'Hadrien. Des variations
+          existent dans l'enchaînement des évènements rituels de l'Ordre
+          maçonnique de Malte et dans les textes en usage, mais au sein des
+          trois juridictions britanniques, un candidat reçoit les mêmes
+          enseignements et est conduit à suivre les mêmes idéaux. Les
+          similitudes dépassent de beaucoup les différences. Bien que mentionné
+          dès 1782 à Baltimore, Maryland, puis en 1783 à Charleston, Caroline du
+          Sud, la première apparition avérée du grade maçonnique de Malte aux
+          États-Unis, dans l'état de Rhode Island, se trouve dans le texte de la
+          constitution d'un United States Grand Encampment du 6 mai 1805, qui
+          s'unit alors au Encampments des états du Massachusetts et de Rhode
+          Island. Ce document prévoit des ateliers distincts pour les grades de
+          Malte, du Temple et de la Croix Rouge, mais ne prévoit de droits
+          spécifiques que pour les dernières cités. Dès l'organisation du Grand
+          Encampment actuel en 1816, la «séquence» est modifiée : le grade de
+          Malte devenant l'ultime, position qu'il garda cent ans. Toutefois, une
+          forte opposition (dont celle d'Albert G. MACKEY) à la présence du
+          grade de Malte dans la série causa un temps (1856-1862) son retrait
+          pur et simple par le Grand Encampment. En 1865, le Grand Maître
+          proposa une première fois que la «séquence» devienne : Croix-Rouge,
+          Malte, puis Temple, mais le comité ad hoc repoussa cette idée. Ce
+          n'est qu'en 1916 que l'ordre actuel d'accès aux trois grades fut enfin
+          adopté. De très nombreux auteurs maçons américains regrettent fort que
+          le grade de Malte, ainsi placé et pouvant être réglementairement
+          «communiqué en forme courte», soit de nos jours pratiquement toujours
+          conféré ainsi.
+        </p>
       </div>
     </div>
   );

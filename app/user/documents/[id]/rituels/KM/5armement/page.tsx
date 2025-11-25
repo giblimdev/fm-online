@@ -11,8 +11,8 @@ export default function Page() {
         du/des Cand. sur un petit coussin, prêt à être apporté à l'Ém. P.
       </p>
       <p>
-        Gard. frappe à la porte — O — — — O — — O — — O — — O — — O — — O — — O
-        — — O — — O — — O — — O — — O —
+        Gard. frappe à la porte - O --- O - O - O - O - O - O - O - O - O - O -
+        O - O -
       </p>
       <p>
         C.A.P. — Digne Capitaine-Général, on frappe à la porte du Chapitre en

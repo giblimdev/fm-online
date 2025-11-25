@@ -3,14 +3,9 @@ import React from "react";
 export default function page() {
   return (
     <div>
-      <p className="center">
-        <strong>CETTE CLEF DOIT TOUJOURS ÊTRE DISSOCIÉE DU RITUEL</strong>
-      </p>{" "}
-      <p className="center">
-        <strong>CLEF DU RITUEL N° 2 MALTE</strong>
-      </p>
+      <p className="com">CETTE CLEF DOIT TOUJOURS ÊTRE DISSOCIÉE DU RITUEL</p>{" "}
+      <h1 className="center">CLEF DU RITUEL N° 2 MALTE</h1>
       <ul>
-        {" "}
         <li>(a) Attouchement de Nage ou du Rameur</li>{" "}
         <li>(b) Roi des Rois, Seigneur des Seigneurs</li>{" "}
         <li>
@@ -47,26 +42,22 @@ export default function page() {
         <li>
           (q) les Mots de Passe sont «Sois sans crainte, Paul» en anglais «Fear
           not, Paul !»
-        </li>{" "}
-      </ul>
-      <br />
-      <p>crâne fendu du sommet du front au menton</p>{" "}
-      <ul>
-        {" "}
+        </li>
+        (r) fendu du sommet du front au menton
         <li>
-          (r) Es'SALAAM ALEIKOUM? soit : Venez-vous en Paix ?{" "}
+          (s) Es'SALAAM ALEIKOUM? soit : Venez-vous en Paix ?{" "}
           <small>(en anglais, voir ci-après)</small>
         </li>{" "}
         <li>
-          (s) ALEIKOUM Es'SALAAM, soit : Nous venons en Paix{" "}
+          (t) ALEIKOUM Es'SALAAM. soit : Nous venons en Paix{" "}
           <small>(en anglais, voir ci-après)</small>
         </li>{" "}
         <li>
-          (t) WAH' ALEIKOUM Es'SALAAM ! soit : Alors venez en Paix !{" "}
+          (u) WAH' ALEIKOUM Es'SALAAM ! soit : Alors venez en Paix !{" "}
           <small>(*)</small> <small>(en anglais, voir ci-après)</small>
         </li>{" "}
-        <li>(u) Le Cœur de Notre Seigneur</li>{" "}
-        <li>(v) aux cinq plaies du Christ</li>{" "}
+        <li>(v) Le Cœur de Notre Seigneur</li>{" "}
+        <li>(w) aux cinq plaies du Christ</li>{" "}
       </ul>
       <p>
         (*) ces mots, bien qu'erronés, ont été conservés pour préserver le mode
@@ -74,120 +65,152 @@ export default function page() {
       </p>
       <p>Selon l'avis d'arabisants distingués, les mots corrects seraient :</p>{" "}
       <ul>
-        {" "}
-        <li>Hal' cadeïmoun bes'Salaam?</li> <li>Es'Salaam aleïkoum</li>{" "}
-        <li>Wah' aleïkoum es'Salaam !</li>{" "}
+        <li>Hal' cadeïmoun bes'Salaam?</li>
+        <li>Es'Salaam aleïkoum</li> <li>Wah' aleïkoum es'Salaam !</li>{" "}
       </ul>
+      <br />
+      <div className="">
+        <h3>Pour résumer, ls divers version seraient donc :</h3>
+        <section className="flex">
+          <div>
+            <h5 className="text-center">
+              Textre réputé éfautif de notre rituel
+            </h5>
+            <ul>
+              <li>(s) Es'SALAAM ALEIKOUM?</li>
+              <li>(t) ALEIKOUM Es'SALAAM,</li>
+              <li>(u)WAH' ALEIKOUM Es'SALAAM !</li>
+            </ul>
+          </div>
+          <div>
+            {" "}
+            <h5 className="text-center">Version arabe présumé "correcte"</h5>
+            <ul>
+              <li>Hal' cadeïmoun bes'Salaam?</li>
+              <li>Es'Salaam aleïkoum</li>
+              <li>Wah' aleïkoum es'Salaam !</li>{" "}
+            </ul>
+          </div>
+        </section>
+        <section className="flex">
+          <div className="">
+            <h3 className="m-3">Version anglaise de l'interpretation</h3>
+            <ul>
+              <li>Do you come in peace ?</li>
+              <li>We do come in peace</li>
+              <li>Then, come in peace !</li>
+            </ul>
+          </div>
+          <div className="">
+            <h3 className="m-3">Version réputée en langue "Maltaise"</h3>
+            <ul>
+              <li>Antoum a tawitoum bes'salam ?</li>
+              <li>Na'ham ataïna bes'salam</li>
+              <li>Ïy ya salam maïkam !</li>
+            </ul>
+          </div>
+        </section>
+      </div>
       <br />
       <h3 className="center">
         SECRETS particuliers du Grade de MALTE sous les autres Jurisdictions
         templières
       </h3>
-      <h4 className="center">En Écosse</h4>{" "}
-      <ul>
-        {" "}
-        <li>
-          Le signe de Chev. de Saint Paul est le même, secouer vivement la main
-          droite vers le sol.
-        </li>{" "}
-        <li>
-          L'Attouchement ou gage : saisir mutuellement de la main droite le bras
-          droit de son vis-à-vis, au-dessus du coude, et placer la main gauche
-          derrière la cuisse gauche du vis-à-vis, comme pour le jeter par-dessus
-          bord.
-        </li>{" "}
-        <li>
-          L'Ancien Mot du grade de Saint-Paul est «A Montra», ou de nos jours
-          «Sois sans crainte, Paul».
-        </li>{" "}
-        <li>Le Mot de Passe de Chevalier de Malte est Melita.</li>{" "}
-        <li>
-          Le Mode de reconnaissance est le dialogue (s) (t) (u), mais en langue
-          anglaise seulement.
-        </li>{" "}
-        <li>
-          Premier Signe : amener la main droite à la bouche, doigts et pouce
-          joints, pour former un cornet.
-        </li>{" "}
-        <li>
-          Second et Grand Signe : pointer les index vers le haut, pendant qu'on
-          lève les yeux au Ciel.
-        </li>{" "}
-        <li>Le Grand Mot est «Emmanuel» seulement.</li>{" "}
-        <li>
-          Grand Gage : se faisant face, entrelacer les doigts des deux mains
-          puis étendre les bras horizontalement dans la position du Sauveur sur
-          la croix.
-        </li>{" "}
-        <li>Les Mots accompagnant ce Gage sont «Éli, lama Sabachtani».</li>{" "}
-      </ul>
-      <h4 className="center">Sous le Grand Encampement des États-Unis</h4>{" "}
-      <ul>
-        {" "}
-        <li>Mot de Passe de Saint-Paul : «Sois sans crainte, Paul !».</li>{" "}
-        <li>
-          Signe de Melita : étendre les mains en avant, paumes vers le sol,
-          comme pour se réchauffer au-dessus d'un feu, saisir le gras de sa main
-          gauche entre le pouce et l'index de la droite et élever les mains
-          rapidement, puis secouer vivement la main droite vers le sol, comme
-          pour arracher quelque chose de sa main gauche.
-        </li>{" "}
-        <li>Grand Mot : Melita.</li>{" "}
-      </ul>
       <br />
-      <p>
+      <h4 className="center">En Écosse</h4>{" "}
+      <li>
+        Le signe de Chev. de Saint Paul est le même, secouer vivement la main
+        droite vers le sol.
+      </li>
+      <li>
+        L'Attouchement ou gage : saisir mutuellement de la main droite le bras
+        droit de son vis-à-vis, au-dessus du coude, et placer la main gauche
+        derrière la cuisse gauche du vis-à-vis, comme pour le jeter par-dessus
+        bord.
+      </li>{" "}
+      <li>
+        L'Ancien Mot du grade de Saint-Paul est «A Montra», ou de nos jours
+        «Sois sans crainte, Paul».
+      </li>{" "}
+      <li>Le Mot de Passe de Chevalier de Malte est Melita.</li>{" "}
+      <li>
+        Le Mode de reconnaissance est le dialogue (s) (t) (u), mais en langue
+        anglaise seulement.
+      </li>{" "}
+      <li>
+        Premier Signe : amener la main droite à la bouche, doigts et pouce
+        joints, pour former un cornet.
+      </li>{" "}
+      <li>
+        Second et Grand Signe : pointer les index vers le haut, pendant qu'on
+        lève les yeux au Ciel.
+      </li>{" "}
+      <li>Le Grand Mot est «Emmanuel» seulement.</li>{" "}
+      <li>
+        Grand Gage : se faisant face, entrelacer les doigts des deux mains puis
+        étendre les bras horizontalement dans la position du Sauveur sur la
+        croix.
+      </li>{" "}
+      <li>Les Mots accompagnant ce Gage sont «Éli, lama Sabachtani».</li>
+      <br />
+      <h4 className="center">Sous le Grand Encampement des États-Unis</h4>{" "}
+      <li>Mot de Passe de Saint-Paul : «Sois sans crainte, Paul !».</li>{" "}
+      <li>
+        Signe de Melita : étendre les mains en avant, paumes vers le sol, comme
+        pour se réchauffer au-dessus d'un feu, saisir le gras de sa main gauche
+        entre le pouce et l'index de la droite et élever les mains rapidement,
+        puis secouer vivement la main droite vers le sol, comme pour arracher
+        quelque chose de sa main gauche.
+      </li>{" "}
+      <li>Grand Mot : Melita.</li>
+      <li>
         Signe et Gage de Malte : l'interrogateur dit : «Approche tes doigts et
         sens l'emplacem <small>[...des clous ?»]</small>. On se saisit alors
         mutuellement la main droite, l'index dans la paume du vis-à-vis.
-      </p>{" "}
-      <p>
+      </li>{" "}
+      <li>
         L'interrogateur dit encore : «Approche ta main et mets-la à mon côté !».{" "}
-      </p>{" "}
-      <p>
+      </li>{" "}
+      <li>
         ON avance mutuellement la main gauche dont on appuie les doigts au flanc
         gauche de du vis-à-vis, en maintenant toujours la position des mains
         droites. Les bras ainsi croisé échange les mots.
-      </p>{" "}
-      <p>
+      </li>{" "}
+      <li>
         L'interrogateur dit : «Mon Seigneur !» auquel l'autre répond «Et Mon
         Dieu !».{" "}
-      </p>{" "}
-      <p>
+      </li>{" "}
+      <li>
         Le Nom de ces Signe et Gage est «Infidelitas», c'est-à-dire : mauvaise
         foi, infidélité ou trahison.
-      </p>
+      </li>
+      <li>
+        Grand Signe d'Appel : placer les mains devant la bouche, doigts et pouce
+        joints comme pour tenir une trompette, la main droite en avant de la
+        gauche.
+      </li>{" "}
+      <li>
+        Grand Mot d'un Chevalier de Malte : en faisant le Grand Signe d'Appel,
+        échanger le dialogue (s) (t) (u), mais en langue anglaise seulement.
+      </li>{" "}
+      <li>
+        Grand Gage et Mots : tirer l'épée ensemble et venir au «Portez», puis
+        avancer le pied gauche et le placer parallèle et contre celui de son
+        vis-à-vis, ensuite entrelacer mutuellement les doigts de la main gauche
+        et faire un mouvement d'avant en arrière comme pour ramer, puis dire
+        ensemble «Roi des Rois et Seigneur des Seigneurs».
+      </li>{" "}
+      <li>Les Mots de Passe sont : N, V, M, R, et A. (h) (i) (j) (k) (l).</li>{" "}
+      <li>
+        Le Mot Sacré de l'Ordre est «I N R I», formé des initiales des quatre
+        mots latins inscrits sur la croix, au-dessus de notre Sauveur béni :
+        «Iesus Nazarenus Rex Iudæorum» c'est-à-dire «Jésus de Nazareth, Roi des
+        Juifs».
+      </li>{" "}
       <br />
-      <ul>
-        {" "}
-        <li>
-          Grand Signe d'Appel : placer les mains devant la bouche, doigts et
-          pouce joints comme pour tenir une trompette, la main droite en avant
-          de la gauche.
-        </li>{" "}
-        <li>
-          Grand Mot d'un Chevalier de Malte : en faisant le Grand Signe d'Appel,
-          échanger le dialogue (s) (t) (u), mais en langue anglaise seulement.
-        </li>{" "}
-        <li>
-          Grand Gage et Mots : tirer l'épée ensemble et venir au «Portez», puis
-          avancer le pied gauche et le placer parallèle et contre celui de son
-          vis-à-vis, ensuite entrelacer mutuellement les doigts de la main
-          gauche et faire un mouvement d'avant en arrière comme pour ramer, puis
-          dire ensemble «Roi des Rois et Seigneur des Seigneurs».
-        </li>{" "}
-        <li>Les Mots de Passe sont : N, V, M, R, et A. (h) (i) (j) (k) (l).</li>{" "}
-        <li>
-          Le Mot Sacré de l'Ordre est «I N R I», formé des initiales des quatre
-          mots latins inscrits sur la croix, au-dessus de notre Sauveur béni :
-          «Iesus Nazarenus Rex Iudæorum» c'est-à-dire «Jésus de Nazareth, Roi
-          des Juifs».
-        </li>{" "}
-      </ul>
       <h4 className="center">En Irlande</h4>{" "}
       <p>Les secrets sont identiques à ceux d'Angleterre.</p>
-      <p className="center">
-        <strong>CETTE CLEF DOIT TOUJOURS ÊTRE DISSOCIÉE DU RITUEL</strong>
-      </p>
+      <p className="com">CETTE CLEF DOIT TOUJOURS ÊTRE DISSOCIÉE DU RITUEL</p>
     </div>
   );
 }
